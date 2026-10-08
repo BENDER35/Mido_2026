@@ -146,6 +146,7 @@ readonly win2012r2_eval="win2012r2-eval.iso"
 readonly win2016_eval="win2016-eval.iso"
 readonly win2019_eval="win2019-eval.iso"
 readonly win2022_eval="win2022-eval.iso"
+readonly win2025_eval="win2025-eval.iso"
 
 parse_args() {
     for arg in "$@"; do
@@ -203,7 +204,7 @@ parse_args() {
                 media_list="$media_list $win2022_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval"
+                media_list="$media_list $win7x64_ultimate $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -645,6 +646,10 @@ download_media() {
             "$win2022_eval")
                 echo_info "Downloading Windows Server 2022 Evaluation..."
                 enterprise_eval_download "$(localized_media "$media")" windows-server-2022 server
+                ;;
+            "$win2025_eval")
+                echo_info "Downloading Windows Server 2025 Evaluation..."
+                enterprise_eval_download "$(localized_media "$media")" windows-server-2025 server
                 ;;
         esac || {
             error_action=$?
