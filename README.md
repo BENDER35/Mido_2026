@@ -1,22 +1,30 @@
 <div align="center">
-    <a href="https://github.com/ElliotKillick/Mido">
+    <a href="https://github.com/BENDER35/Mido_2026">
         <img width="160" src="assets/logo.png" alt="Logo" />
     </a>
 </div>
 
 <h3 align="center">
-    Mido
+    Mido 2026
 </h3>
 
 <p align="center">
     The <b>Secure</b> Microsoft Windows Downloader
 </p>
 
+<p align="center">
+    <a href="README.md">English</a> · <a href="README.es.md">Español</a>
+</p>
+
 Mido is a secure and open source download client for Microsoft's (reverse engineered) proprietary downloading API! Downloads are sourced from **official** Microsoft servers and you only have to run one command to go from start to finish in no time!
 
-Comes with advanced features like download resumption, SHA-256 checksum verification, and downloading many different Windows versions in a single command. Did I mention it's written in *pure* POSIX sh (w/ few coreutils) + curl so it will run anywhere (even on Windows with WSL or a Cygwin shell)? So robust, very minimalist!
+Comes with advanced features like download resumption, SHA-256 checksum verification, retry logic, multilingual ISOs (English, Spanish and Mexican Spanish) and downloading many different Windows versions in a single command. Did I mention it's written in *pure* POSIX sh (w/ few coreutils) + curl so it will run anywhere (even on Windows with WSL or a Cygwin shell)? So robust, very minimalist!
 
-It's very well-suited to full automation if you just want to set it and forget it too... ⭐ Start saving time today with Mido!
+> **2026 update:** Microsoft replaced their old HTML download API with a JSON
+> `software-download-connector` API protected by an anti-abuse service
+> (Microsoft Sentinel). Mido 2026 implements the new API and the required
+> handshake, fixes several shell bugs, adds retry logic and adds Spanish
+> language support. See [docs/TECHNICAL.md](docs/TECHNICAL.md) for the details.
 
 #### ❌ Microsoft's Media Creation Tool (`mediacreationtool.exe` proprietary bloatware)
 
@@ -38,7 +46,7 @@ Bloated website: `https://www.microsoft.com/en-us/software-download/windows11`
 
 ## Get Mido
 
-Get [Mido.sh](https://raw.githubusercontent.com/ElliotKillick/Mido/main/Mido.sh) by opening the link, right-clicking and then selecting "Save [Page] as..."
+Get [Mido.sh](https://raw.githubusercontent.com/BENDER35/Mido_2026/main/Mido.sh) by opening the link, right-clicking and then selecting "Save [Page] as..."
 
 ### Mac & Linux
 
@@ -57,50 +65,120 @@ winget install -e --id MSYS2.MSYS2
 
 Both are POSIX emulation environments for Windows and you can use either one.
 
-## How does Mido work??
+## Usage
 
-It interacts with Microsoft's proprietary downloading API (reverse engineered thanks to Pete Batard, @pbatard) to grab the latest release of Windows and generate a fresh download link (valid for 24 hours). Then we grab that link and get the file over to you as quickly as possible!
+```
+./Mido.sh <windows_media>...
+```
+
+Examples:
+
+```
+./Mido.sh win11x64                       # Windows 11, English (US)
+MIDO_LANG=es-ES ./Mido.sh win10x64       # Windows 10, Spanish (Spain)
+MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
+./Mido.sh win7x64-ultimate win10x64      # Multiple ISOs in one command
+./Mido.sh all                            # Every supported media
+```
+
+### Available media
+
+| Argument | Description |
+|---|---|
+| `win7x64-ultimate` | Windows 7 Ultimate x64 (sourced from the Wayback Machine) |
+| `win81x64` | Windows 8.1 x64 (**retired by Microsoft**, use the Enterprise Eval) |
+| `win10x64` | Windows 10 x64 (multi-edition) |
+| `win11x64` | Windows 11 x64 (multi-edition) |
+| `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
+| `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
+| `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
+| `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (most secure) |
+| `win2008r2` | Windows Server 2008 R2 |
+| `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
+| `win2016-eval` | Windows Server 2016 Evaluation |
+| `win2019-eval` | Windows Server 2019 Evaluation |
+| `win2022-eval` | Windows Server 2022 Evaluation |
+
+## Language support
+
+Set the `MIDO_LANG` environment variable to one of:
+
+| Value | Language |
+|---|---|
+| `en-US` | English (United States) — default |
+| `es-ES` | Spanish (Spain) |
+| `es-MX` | Spanish (Mexico) |
+
+Spanish ISOs are available for the **consumer** versions (`win10x64`, `win11x64`).
+Enterprise, Server and Evaluation media are English-only, as published by Microsoft.
+Non-English ISOs are written with a locale suffix (e.g. `win11x64.es-MX.iso`) so
+they never overwrite the English ones. Because Microsoft does not publish public
+checksums for every localized release, localized ISOs may report
+`NO KNOWN CHECKSUM (skipping verification)`.
+
+## How does Mido work?
+
+It interacts with Microsoft's proprietary downloading API to grab the latest
+release of Windows and generate a fresh download link (valid for 24 hours). Then
+it downloads the file, verifies its SHA-256 checksum and resumes partial
+downloads automatically.
+
+In detail:
+
+1. Scrapes the official download page to obtain the *product edition ID* for the
+   requested release.
+2. Whitelists a random *session ID* and completes Microsoft's *Sentinel*
+   anti-abuse handshake.
+3. Queries the JSON API for the *SKU ID* matching the requested language.
+4. Requests a fresh download link and downloads it to `<file>.PART`.
+5. Verifies the SHA-256 checksum and renames the file to either `<file>` (OK) or
+   `<file>.UNVERIFIED` (needs manual review).
+
+See [docs/TECHNICAL.md](docs/TECHNICAL.md) for a full walk-through.
 
 ## What else can Mido do?
 
 Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2022) and Enterprise editions of every Windows version all the way back to Windows 7 (or Server 2008 R2)!
 
-Want a more secure and minimalist Windows installation out-of-the-box that's officially provided by Microsoft? Then download the LTSC version of Windows. It comes with way less bloat and supports Microsoft's ["Security"](https://learn.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization#diagnostic-data-settings) telemetry mode (plus it comes with long-term support). Microsoft is yet to release an LTSC version of Windows 11 (so 10 only for now) but it is planned.
+Want a more secure and minimalist Windows installation out-of-the-box that's officially provided by Microsoft? Then download the LTSC version of Windows. It comes with way less bloat and supports Microsoft's ["Security"](https://learn.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization#diagnostic-data-settings) telemetry mode (plus it comes with long-term support).
+
+## Knowledge base / troubleshooting
+
+- **"Sentinel marked this request as rejected"** — Microsoft's anti-abuse system
+  blocked the request based on your IP reputation. Wait 24–48 hours, use a VPN, or
+  download manually from the official page. This is *not* a bug in Mido — the
+  maintainer of Fido documents the same behaviour.
+- **Windows 8.1 (`win81x64`) fails with HTTP 404** — Microsoft retired the
+  automated Windows 8.1 download. Use `win81x64-enterprise-eval` instead.
+- **Windows 7 is slow** — it is sourced from `web.archive.org`, which is much
+  slower and less reliable than Microsoft's CDN. Mido retries automatically and
+  resumes partial downloads.
+- **Enterprise/Server "no download link"** — Microsoft periodically changes the
+  Evaluation Center pages. Please open an issue with the affected version.
 
 ## Want to save more time?
 
-Check out the `create-media.sh` script in [Qvm-Create-Windows-Qube](https://github.com/ElliotKillick/qvm-create-windows-qube/tree/master/windows)! Now complete with Mido *and* an answer file to go with each provided download. With that you will be saving time in downloading Windows *and* installing it to a VM. This is all very well-tested and could easily save you many hours of time over doing it manually. I usually reinstall my Windows VMs quite often because they tend to get slow over time and so a refresh always helps.
+Check out the `create-media.sh` script in [Qvm-Create-Windows-Qube](https://github.com/ElliotKillick/qvm-create-windows-qube/tree/master/windows)! Now complete with Mido *and* an answer file to go with each provided download.
 
 ## How secure is it *really*?
 
 Mido is reasonably secure software. Every chance to reduce attack surface is taken. Untrusted data is treated as such with proper validation steps. The highest possible version of TLS is always used (up to TLS 1.3). Easily verify security properties yourself in the transparent shell script.
 
-No web browser (e.g. headless Chromium running JavaScript) reduces the attack surface by *many* orders of magnitude.
-
-Microsoft download servers (e.g. [`download.microsoft.com`](https://www.ssllabs.com/ssltest/analyze.html?d=download.microsoft.com)) support insecure TLS versions 1.0 and 1.1? Force TLS 1.2 or TLS 1.3 (the latter when Microsoft servers support it).
-
-The next [Shellshock/Bashdoor](https://en.wikipedia.org/wiki/Shellshock_(software_bug))? POSIX sh compatible.
-- Plus, automatically switches to a more secure shell (Dash) if available
-- For even *greater* security, one could use a POSIX-compliant Rust shell with Rust coreutils (e.g. uutils). This is not the default configuration.
-
-Frequent [Curl HTTP 2.0 & 3.0 bugs](https://github.com/curl/curl/issues?q=is%3Aissue+label%3Acrash)? Force HTTP/1.1.
-- Comes at zero cost to performance for downloading a single large file
-
-Coreutil bugs? Only builtins are used for the most critical functionality.
+- No web browser (headless Chromium running JavaScript) reduces the attack surface by *many* orders of magnitude.
+- Force TLS 1.2 or TLS 1.3 (the latter when Microsoft servers support it).
+- POSIX sh compatible and automatically switches to a more secure shell (Dash) if available.
+- Force HTTP/1.1 to avoid frequent [curl HTTP/2 & HTTP/3 bugs](https://github.com/curl/curl/issues?q=is%3Aissue+label%3Acrash).
+- Only shell builtins are used for the most critical functionality.
+- Verify SHA-256 checksums of every downloaded ISO.
 
 Still bugs? Wrap it in bubble wrap: `bwrap --ro-bind /bin /bin --ro-bind /usr/bin /usr/bin --ro-bind /lib /lib --ro-bind /usr/lib /usr/lib --ro-bind /lib64 /lib64 --ro-bind /usr/lib64 /usr/lib64 --ro-bind /usr/share /usr/share --ro-bind /etc /etc --dev-bind /dev/null /dev/null --bind "$PWD" "$PWD" --ro-bind "$PWD/Mido.sh" "$PWD/Mido.sh" --unshare-all --share-net -- ./Mido.sh --help`
-- This is the same sandbox used by Flatpak
-- Here, we have a fine-grained sandbox configuration tested to work on Debian and Fedora (likely others)
-- Compartmentalize further by running Mido in its own unprivileged user account or even it's own disposable VM on Qubes OS
 
-With sandbox/VM escape or privilege escalation bugs? GG, you win!!
+## Testing
 
-## Todo
-
-- [ ] Make a small GUI wrapper for people who don't like running a single command
-    - Ideally something lightweight and cross-platform (a GTK app that runs an embedded script?)
-    - Should have a download progress bar (likely read from `curl` `stderr`) and shows an error log if anything goes wrong
-    - Contributions are very welcome
+```sh
+sh -n Mido.sh          # syntax check
+shellcheck -s sh Mido.sh
+```
 
 ## License
 

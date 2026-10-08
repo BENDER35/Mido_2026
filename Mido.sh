@@ -30,10 +30,61 @@ format() { fold -s; }
 
 word_count() { echo $#; }
 
+# Download language/locale.
+# Microsoft's consumer download API exposes each language as a separate SKU.
+# TODO: extend this table if more languages are desired.
+MIDO_LANG="${MIDO_LANG:-en-US}"
+case "$MIDO_LANG" in
+    en-US | es-ES | es-MX) ;;
+    *)
+        echo_err "Unsupported language specified: $MIDO_LANG (supported: en-US, es-ES, es-MX)"
+        exit 1
+        ;;
+esac
+
+# Map a BCP-47 locale to the language name used by Microsoft's download API
+locale_to_api_language() {
+    case "$1" in
+        es-ES) echo "Spanish" ;;
+        es-MX) echo "Spanish (Mexico)" ;;
+        *) echo "English" ;;
+    esac
+}
+
+# Append the locale to the output filename for non-default languages so that
+# downloads in different languages never overwrite each other
+localized_media() {
+    case "$MIDO_LANG" in
+        en-US) printf '%s' "$1" ;;
+        *) printf '%s' "${1%.iso}.${MIDO_LANG}.iso" ;;
+    esac
+}
+
+# Remove duplicate space-separated words while preserving order
+dedupe_list() {
+    dedupe_out=""
+    for dedupe_item in $1; do
+        case " $dedupe_out " in
+            *" $dedupe_item "*) ;;
+            *) dedupe_out="$dedupe_out $dedupe_item" ;;
+        esac
+    done
+    printf '%s' "$dedupe_out"
+}
+
+# Microsoft anti-abuse (Sentinel) endpoint parameters (from the Fido project)
+ORG_ID="y6jn8c31"
+PROFILE_ID="606624d44113"
+INSTANCE_ID="560dc9f3-1aa5-4a2f-b63c-9e18f8d0e175"
+API_BASE="https://www.microsoft.com/software-download-connector/api"
+
 usage() {
     echo "Mido - The Secure Microsoft Windows Downloader"
     echo ""
     echo "Usage: $0 <windows_media>..."
+    echo ""
+    echo "Environment:"
+    echo "  MIDO_LANG  Download language: en-US (default), es-ES, es-MX"
     echo ""
     echo "Download specified list of Windows media."
     echo ""
@@ -70,7 +121,7 @@ usage() {
     echo ""
     echo "Language"
     echo "--------"
-    echo "All the downloads provided here are for English (United States). This helps to great simplify maintenance and minimize the user's fingerprint. If another language is desired then that can easily be configured in Windows once it's installed." | format
+    echo "By default all downloads are English (United States). Windows 10 and Windows 11 are also available in Spanish (es-ES) and Mexican Spanish (es-MX) through the MIDO_LANG environment variable. For example: MIDO_LANG=es-MX $0 win11x64. Non-English ISOs are saved with a locale suffix (e.g. win11x64.es-MX.iso)." | format
     echo ""
     echo "Architecture"
     echo "------------"
@@ -152,8 +203,7 @@ parse_args() {
                 media_list="$media_list $win2022_eval"
                 ;;
             all)
-                media_list="$win7x64_ultimate $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval"
-                break
+                media_list="$media_list $win7x64_ultimate $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -161,6 +211,9 @@ parse_args() {
                 ;;
         esac
     done
+
+    # Remove duplicate media entries while preserving the order they were passed in
+    media_list="$(dedupe_list "$media_list")"
 }
 
 handle_curl_error() {
@@ -190,6 +243,9 @@ handle_curl_error() {
             echo_err "Ran out of memory during download! Exiting..."
             return "$fatal_error_action"
             ;;
+        28)
+            echo_err "Timed out waiting for Microsoft servers (or the archive mirror)!"
+            ;;
         36)
             echo_err "Failed to continue earlier download!"
             ;;
@@ -198,7 +254,7 @@ handle_curl_error() {
             ;;
         # POSIX defines exit statuses 1-125 as usable by us
         # https://pubs.opengroup.org/onlinepubs/9699919799/utilities/V3_chap02.html#tag_18_08_02
-        $((error_code <= 125)))
+        [0-9] | [0-9][0-9] | 1[0-1][0-9] | 12[0-5])
             # Must be some other server or network error (possibly with this specific request/file)
             # This is when accounting for all possible errors in the curl manual assuming a correctly formed curl command and an HTTP(S) request, using only the curl features we're using, and a sane build
             echo_err "Miscellaneous server or network error!"
@@ -241,17 +297,20 @@ scurl_file() {
 
     # --location: Microsoft likes to change which endpoint these downloads are stored on but is usually kind enough to add redirects
     # --fail: Return an error on server errors where the HTTP response code is 400 or greater
-    curl --progress-bar --location --output "$part_file" --continue-at - --max-filesize 10G --fail --proto =https "--tlsv$tls_version" --http1.1 -- "$url" || {
+    # --retry: Retry transient network/server errors (useful for flaky mirrors such as web.archive.org)
+    # --speed-limit/--speed-time: Abort (and resume later) a stalled transfer instead of hanging forever
+    curl --progress-bar --location --output "$part_file" --continue-at - --max-filesize 10G --fail --proto =https "--tlsv$tls_version" --http1.1 --retry 5 --retry-delay 5 --retry-connrefused --speed-limit 1024 --speed-time 30 -- "$url" || {
         error_code=$?
         handle_curl_error "$error_code"
         error_action=$?
 
         # Clean up and make sure a future resume doesn't happen from a bad download resume file
-        if [ -f "$out_file" ]; then
+        # NOTE: The partial download is written to $part_file, never to $out_file
+        if [ -f "$part_file" ]; then
             # If file is empty, bad HTTP code, or bad download resume file
-            if [ ! -s "$out_file" ] || [ "$error_code" = 22 ] || [ "$error_code" = 36 ]; then
+            if [ ! -s "$part_file" ] || [ "$error_code" = 22 ] || [ "$error_code" = 36 ]; then
                 echo_info "Deleting failed download..."
-                rm -f "$out_file"
+                rm -f "$part_file"
             fi
         fi
 
@@ -309,13 +368,22 @@ consumer_download() {
     # This function is from the Mido project:
     # https://github.com/ElliotKillick/Mido
 
-    # Download newer consumer Windows versions from behind gated Microsoft API
+    # Download newer consumer Windows versions from behind the gated Microsoft API
+    #
+    # Microsoft replaced the old HTML "contentinclude" API with a JSON API:
+    #   https://www.microsoft.com/software-download-connector/api/...
+    # The final GetProductDownloadLinksBySku request is protected by an anti-abuse
+    # service (Microsoft Sentinel) which requires a short handshake against
+    # ov-df.microsoft.com. This mirrors what the Fido project does.
 
     out_file="$1"
     # Either 8, 10, or 11
     windows_version="$2"
+    locale="$MIDO_LANG"
+    # Language name as expected by Microsoft's API (e.g. "English", "Spanish", "Spanish (Mexico)")
+    api_language="$(locale_to_api_language "$locale")"
 
-    url="https://www.microsoft.com/en-us/software-download/windows$windows_version"
+    url="https://www.microsoft.com/$locale/software-download/windows$windows_version"
     case "$windows_version" in
         8 | 10) url="${url}ISO" ;;
     esac
@@ -330,8 +398,13 @@ consumer_download() {
     # Also, keeping a "$WindowsVersions" array like Fido does would be way too much of a maintenance burden
     # Remove "Accept" header that curl sends by default (match Fido requests)
     iso_download_page_html="$(curl --user-agent "$user_agent" --header "Accept:" --max-filesize 1M --fail --proto =https --tlsv1.2 --http1.1 -- "$url")" || {
-        handle_curl_error $?
-        return $?
+        error_code=$?
+        if [ "$windows_version" = 8 ] && [ "$error_code" = 22 ]; then
+            echo_err "Microsoft has retired the automated Windows 8.1 download. Please use the \"win81x64-enterprise-eval\" media instead."
+        else
+            handle_curl_error "$error_code"
+        fi
+        return 1
     }
 
     # tr: Filter for only numerics to prevent HTTP parameter injection
@@ -339,56 +412,72 @@ consumer_download() {
     product_edition_id="$(echo "$iso_download_page_html" | grep -Eo '<option value="[0-9]+">Windows' | cut -d '"' -f 2 | head -n 1 | tr -cd '0-9' | head -c 16)"
     [ "$VERBOSE" ] && echo "Product edition ID: $product_edition_id" >&2
 
+    if ! [ "$product_edition_id" ]; then
+        echo_err "Could not determine the product edition ID (Microsoft may have changed their page). Please manually download this ISO in a web browser: $url"
+        manual_verification="true"
+        return 1
+    fi
+
     # Permit Session ID
     # "org_id" is always the same value
-    curl --output /dev/null --user-agent "$user_agent" --header "Accept:" --max-filesize 100K --fail --proto =https --tlsv1.2 --http1.1 -- "https://vlscppe.microsoft.com/tags?org_id=y6jn8c31&session_id=$session_id" || {
+    curl --output /dev/null --user-agent "$user_agent" --header "Accept:" --max-filesize 100K --fail --proto =https --tlsv1.2 --http1.1 -- "https://vlscppe.microsoft.com/tags?org_id=$ORG_ID&session_id=$session_id" || {
         # This should only happen if there's been some change to how this API works
         handle_curl_error $?
         return $?
     }
 
-    # Extract everything after the last slash
-    url_segment_parameter="${url##*/}"
+    # Microsoft Sentinel anti-abuse handshake (without it the download link request is rejected)
+    mdt_js="$(curl --user-agent "$user_agent" --max-filesize 10K --fail --proto =https --tlsv1.2 --http1.1 -- "https://ov-df.microsoft.com/mdt.js?instanceId=$INSTANCE_ID&PageId=si&session_id=$session_id" 2> /dev/null)"
+    sentinel_w="$(echo "$mdt_js" | grep -oE 'w=[A-F0-9]+' | head -n 1 | cut -d '=' -f 2)"
+    sentinel_rticks="$(echo "$mdt_js" | grep -oE 'rticks=[0-9]+' | head -n 1 | cut -d '=' -f 2)"
+    if [ "$sentinel_w" ] && [ "$sentinel_rticks" ]; then
+        curl --output /dev/null --user-agent "$user_agent" --max-filesize 10K --fail --proto =https --tlsv1.2 --http1.1 -- "https://ov-df.microsoft.com/?session_id=$session_id&CustomerId=$INSTANCE_ID&PageId=si&w=$sentinel_w&mdt=$(date +%s)000&rticks=$sentinel_rticks" || true
+    fi
 
-    # Get language -> skuID association table
-    # SKU ID: This specifies the language of the ISO. We always use "English (United States)", however, the SKU for this changes with each Windows release
-    # We must make this request so our next one will be allowed
-    # --data "" is required otherwise no "Content-Length" header will be sent causing HTTP response "411 Length Required"
-    language_skuid_table_html="$(curl --request POST --user-agent "$user_agent" --data "" --header "Accept:" --max-filesize 10K --fail --proto =https --tlsv1.2 --http1.1 -- "https://www.microsoft.com/en-US/api/controls/contentinclude/html?pageId=a8f8f489-4c7f-463a-9ca6-5cff94d8d041&host=www.microsoft.com&segments=software-download,$url_segment_parameter&query=&action=getskuinformationbyproductedition&sessionId=$session_id&productEditionId=$product_edition_id&sdVersion=2")" || {
+    # Get language -> skuID association table (JSON)
+    # SKU ID: This specifies the language of the ISO. The SKU for a given language changes with each Windows release
+    language_skuid_table_json="$(curl --user-agent "$user_agent" --header "Accept:" --max-filesize 100K --fail --proto =https --tlsv1.2 --http1.1 -- "$API_BASE/getskuinformationbyproductedition?profile=$PROFILE_ID&productEditionId=$product_edition_id&SKU=undefined&friendlyFileName=undefined&Locale=$locale&sessionID=$session_id")" || {
         handle_curl_error $?
         return $?
     }
 
-    # tr: Filter for only alphanumerics or "-" to prevent HTTP parameter injection
-    sku_id="$(echo "$language_skuid_table_html" | grep "English (United States)" | sed 's/&quot;//g' | cut -d ',' -f 1  | cut -d ':' -f 2 | tr -cd '[:alnum:]-' | head -c 16)"
-    [ "$VERBOSE" ] && echo "SKU ID: $sku_id" >&2
+    # tr: split the JSON objects onto separate lines so each language entry can be matched independently
+    # The trailing comma in the match disambiguates "Spanish" from "Spanish (Mexico)"
+    # tr: keep only alphanumerics or "-" to prevent HTTP parameter injection
+    sku_id="$(echo "$language_skuid_table_json" | tr '}' '\n' | grep -F "\"Language\":\"$api_language\"," | grep -o '"Id":"[0-9]*"' | head -n 1 | cut -d '"' -f 4 | tr -cd '[:alnum:]-' | head -c 16)"
+    [ "$VERBOSE" ] && echo "SKU ID ($api_language): $sku_id" >&2
+
+    if ! [ "$sku_id" ]; then
+        echo_err "Could not find a $api_language download for this release. Try another language with MIDO_LANG or manually download this ISO in a web browser: $url"
+        manual_verification="true"
+        return 1
+    fi
 
     # Get ISO download link
     # If any request is going to be blocked by Microsoft it's always this last one (the previous requests always seem to succeed)
     # --referer: Required by Microsoft servers to allow request
-    iso_download_link_html="$(curl --request POST --user-agent "$user_agent" --data "" --referer "$url" --header "Accept:" --max-filesize 100K --fail --proto =https --tlsv1.2 --http1.1 -- "https://www.microsoft.com/en-US/api/controls/contentinclude/html?pageId=6e2a1789-ef16-4f27-a296-74ef7ef5d96b&host=www.microsoft.com&segments=software-download,$url_segment_parameter&query=&action=GetProductDownloadLinksBySku&sessionId=$session_id&skuId=$sku_id&language=English&sdVersion=2")" || {
+    iso_download_link_json="$(curl --user-agent "$user_agent" --referer "$url" --header "Accept:" --max-filesize 100K --fail --proto =https --tlsv1.2 --http1.1 -- "$API_BASE/GetProductDownloadLinksBySku?profile=$PROFILE_ID&productEditionId=undefined&SKU=$sku_id&friendlyFileName=undefined&Locale=$locale&sessionID=$session_id")" || {
         # This should only happen if there's been some change to how this API works
         handle_curl_error $?
         return $?
     }
 
-    if ! [ "$iso_download_link_html" ]; then
-        # This should only happen if there's been some change to how this API works
-        echo_err "Microsoft servers gave us an empty response to our request for an automated download. Please manually download this ISO in a web browser: $url"
+    if echo "$iso_download_link_json" | grep -q "SentinelReject"; then
+        echo_err "Microsoft's anti-abuse system (Sentinel) rejected the automated request based on your IP reputation. Wait 24-48 hours, use a VPN, or manually download this ISO in a web browser: $url"
         manual_verification="true"
         return 1
     fi
 
-    if echo "$iso_download_link_html" | grep -q "We are unable to complete your request at this time."; then
-        echo_err "Microsoft blocked the automated download request based on your IP address. Please manually download this ISO in a web browser here: $url"
+    if echo "$iso_download_link_json" | grep -q "715-123130"; then
+        echo_err "Your IP address has been banned by Microsoft (code 715-123130). Wait 24-48 hours, use a VPN, or manually download this ISO in a web browser: $url"
         manual_verification="true"
         return 1
     fi
 
-    # Filter for 64-bit ISO download URL
-    # sed: HTML decode "&" character
+    # Filter for 64-bit ISO download URL (DownloadType 1 == x64)
+    # sed: JSON/HTML decode "&" character
     # tr: Filter for only alphanumerics or punctuation
-    iso_download_link="$(echo "$iso_download_link_html" | grep -o "https://software.download.prss.microsoft.com.*IsoX64" | cut -d '"' -f 1 | sed 's/&amp;/\&/g' | tr -cd '[:alnum:][:punct:]' | head -c 512)"
+    iso_download_link="$(echo "$iso_download_link_json" | tr '}' '\n' | grep '"DownloadType":1' | grep -o '"Uri":"[^"]*"' | head -n 1 | cut -d '"' -f 4 | sed 's/\\u0026/\&/g; s/&amp;/\&/g' | tr -cd '[:alnum:][:punct:]' | head -c 1024)"
 
     if ! [ "$iso_download_link" ]; then
         # This should only happen if there's been some change to the download endpoint web address
@@ -397,7 +486,7 @@ consumer_download() {
         return 1
     fi
 
-    echo_ok "Got latest ISO download link (valid for 24 hours): $iso_download_link"
+    echo_ok "Got latest ISO ($api_language) download link (valid for 24 hours): $iso_download_link"
 
     # Download ISO
     scurl_file "$out_file" "1.3" "$iso_download_link"
@@ -416,6 +505,8 @@ enterprise_eval_download() {
     windows_version="$2"
     enterprise_type="$3"
 
+    # NOTE: Microsoft's Evaluation Center only ships Enterprise/Server evaluation
+    # media in English, so this path intentionally stays on en-US.
     url="https://www.microsoft.com/en-us/evalcenter/download-$windows_version"
 
     iso_download_page_html="$(curl --location --max-filesize 1M --fail --proto =https --tlsv1.2 --http1.1 -- "$url")" || {
@@ -429,7 +520,9 @@ enterprise_eval_download() {
         return 1
     fi
 
-    iso_download_links="$(echo "$iso_download_page_html" | grep -o "https://go.microsoft.com/fwlink/p/?LinkID=[0-9]\+&clcid=0x[0-9a-z]\+&culture=en-us&country=US")" || {
+    # Match both Microsoft's old link format (./fwlink/p/?LinkID=...&country=US)
+    # and the current one (./fwlink/?LinkId=...&country=us)
+    iso_download_links="$(echo "$iso_download_page_html" | grep -Eo "https://go\.microsoft\.com/fwlink/(p/)?\?[Ll]ink[Ii][Dd]=[0-9]+&clcid=0x[0-9a-z]+&culture=en-us&country=[Uu][Ss]")" || {
         # This should only happen if there's been some change to the download endpoint web address
         echo_err "Windows enterprise evaluation download page gave us no download link"
         return 1
@@ -443,7 +536,8 @@ enterprise_eval_download() {
         "enterprise") iso_download_link=$(echo "$iso_download_links" | head -n 2 | tail -n 1) ;;
         # Select x64 LTSC download link
         "ltsc") iso_download_link=$(echo "$iso_download_links" | head -n 4 | tail -n 1) ;;
-        *) iso_download_link="$iso_download_links" ;;
+        # Server: take only the first matching link (never pass a multi-line list to curl)
+        *) iso_download_link=$(echo "$iso_download_links" | head -n 1) ;;
     esac
 
     # Follow redirect so proceeding log message is useful
@@ -490,19 +584,19 @@ download_media() {
                 # This is still secure because we validate with the checksum from before the purge
                 # The only con then is that web.archive.org is a much slower download source than the Microsoft servers
                 echo_info "Microsoft has unfortunately purged all downloads of Windows 7 from their servers so this identical download is sourced from: web.archive.org"
-                scurl_file "$media" "1.3" "https://web.archive.org/web/20221228154140/https://download.microsoft.com/download/5/1/9/5195A765-3A41-4A72-87D8-200D897CBE21/7601.24214.180801-1700.win7sp1_ldr_escrow_CLIENT_ULTIMATE_x64FRE_en-us.iso"
+                scurl_file "$(localized_media "$media")" "1.3" "https://web.archive.org/web/20221228154140/https://download.microsoft.com/download/5/1/9/5195A765-3A41-4A72-87D8-200D897CBE21/7601.24214.180801-1700.win7sp1_ldr_escrow_CLIENT_ULTIMATE_x64FRE_en-us.iso"
                 ;;
             "$win81x64")
                 echo_info "Downloading Windows 8.1..."
-                consumer_download "$media" 8
+                consumer_download "$(localized_media "$media")" 8
                 ;;
             "$win10x64")
                 echo_info "Downloading Windows 10..."
-                consumer_download "$media" 10
+                consumer_download "$(localized_media "$media")" 10
                 ;;
             "$win11x64")
                 echo_info "Downloading Windows 11..."
-                consumer_download "$media" 11
+                consumer_download "$(localized_media "$media")" 11
                 ;;
 
             "$win81x64_enterprise_eval")
@@ -514,19 +608,19 @@ download_media() {
                 # "Update 1" enterprise also seems to be the ISO used by other projects
                 # Old source, used to be here but Microsoft deleted it: http://technet.microsoft.com/en-us/evalcenter/hh699156.aspx
                 # Source: https://gist.github.com/eyecatchup/11527136b23039a0066f
-                scurl_file "$media" "1.2" "https://download.microsoft.com/download/B/9/9/B999286E-0A47-406D-8B3D-5B5AD7373A4A/9600.17050.WINBLUE_REFRESH.140317-1640_X64FRE_ENTERPRISE_EVAL_EN-US-IR3_CENA_X64FREE_EN-US_DV9.ISO"
+                scurl_file "$(localized_media "$media")" "1.2" "https://download.microsoft.com/download/B/9/9/B999286E-0A47-406D-8B3D-5B5AD7373A4A/9600.17050.WINBLUE_REFRESH.140317-1640_X64FRE_ENTERPRISE_EVAL_EN-US-IR3_CENA_X64FREE_EN-US_DV9.ISO"
                 ;;
             "$win10x64_enterprise_eval")
                 echo_info "Downloading Windows 10 Enterprise Evaluation..."
-                enterprise_eval_download "$media" windows-10-enterprise enterprise
+                enterprise_eval_download "$(localized_media "$media")" windows-10-enterprise enterprise
                 ;;
             "$win11x64_enterprise_eval")
                 echo_info "Downloading Windows 11 Enterprise Evaluation..."
-                enterprise_eval_download "$media" windows-11-enterprise enterprise
+                enterprise_eval_download "$(localized_media "$media")" windows-11-enterprise enterprise
                 ;;
             "$win10x64_enterprise_ltsc_eval")
                 echo_info "Downloading Windows 10 Enterprise LTSC Evaluation..."
-                enterprise_eval_download "$media" windows-10-enterprise ltsc
+                enterprise_eval_download "$(localized_media "$media")" windows-10-enterprise ltsc
                 ;;
 
             "$win2008r2")
@@ -534,23 +628,23 @@ download_media() {
                 # Old source, used to be here but Microsoft deleted it: https://www.microsoft.com/en-us/download/details.aspx?id=11093
                 # Microsoft took down the original download link provided by that source too but this new one has the same checksum
                 # Source: https://github.com/rapid7/metasploitable3/pull/563
-                scurl_file "$media" "1.2" "https://download.microsoft.com/download/4/1/D/41DEA7E0-B30D-4012-A1E3-F24DC03BA1BB/7601.17514.101119-1850_x64fre_server_eval_en-us-GRMSXEVAL_EN_DVD.iso"
+                scurl_file "$(localized_media "$media")" "1.2" "https://download.microsoft.com/download/4/1/D/41DEA7E0-B30D-4012-A1E3-F24DC03BA1BB/7601.17514.101119-1850_x64fre_server_eval_en-us-GRMSXEVAL_EN_DVD.iso"
                 ;;
             "$win2012r2_eval")
                 echo_info "Downloading Windows Server 2012 R2 Evaluation..."
-                enterprise_eval_download "$media" windows-server-2012-r2 server
+                enterprise_eval_download "$(localized_media "$media")" windows-server-2012-r2 server
                 ;;
             "$win2016_eval")
                 echo_info "Downloading Windows Server 2016 Evaluation..."
-                enterprise_eval_download "$media" windows-server-2016 server
+                enterprise_eval_download "$(localized_media "$media")" windows-server-2016 server
                 ;;
             "$win2019_eval")
                 echo_info "Downloading Windows Server 2019 Evaluation..."
-                enterprise_eval_download "$media" windows-server-2019 server
+                enterprise_eval_download "$(localized_media "$media")" windows-server-2019 server
                 ;;
             "$win2022_eval")
                 echo_info "Downloading Windows Server 2022 Evaluation..."
-                enterprise_eval_download "$media" windows-server-2022 server
+                enterprise_eval_download "$(localized_media "$media")" windows-server-2022 server
                 ;;
         esac || {
             error_action=$?
@@ -616,8 +710,11 @@ EOF
     checksum_verification_failed_list=""
 
     for media in $media_list; do
+        # The on-disk filename may carry a locale suffix (e.g. win11x64.es-MX.iso)
+        media_file="$(localized_media "$media")"
+
         # Scan for unverified media files
-        if ! [ -f "${media}${unverified_ext}" ]; then
+        if ! [ -f "${media_file}${unverified_ext}" ]; then
             continue
         fi
 
@@ -626,7 +723,7 @@ EOF
             verify_media_message_shown="true"
         fi
 
-        checksum_line="$(sha256sum "${media}${unverified_ext}")"
+        checksum_line="$(sha256sum "${media_file}${unverified_ext}")"
         # Get first word of checksum line
         IFS=' ' read -r checksum _ << EOF
 $checksum_line
@@ -639,6 +736,8 @@ EOF
         fi
 
         known_checksum_list_iterator="$known_checksum_list"
+        known_checksum=""
+        known_checksum_found=""
 
         # Search known media and checksum lists for the current media
         for known_media in $known_media_list; do
@@ -646,17 +745,22 @@ EOF
 $known_checksum_list_iterator
 EOF
 
-            if [ "$media" = "$known_media" ]; then
+            if [ "$media_file" = "$known_media" ]; then
+                known_checksum_found="true"
                 break
             fi
         done
 
         # Verify current media integrity
-        if [ "$checksum" = "$known_checksum" ]; then
-            echo "$media: OK"
-            mv "${media}${unverified_ext}" "$media"
+        if [ "$known_checksum_found" != "true" ]; then
+            # No checksum on record (e.g. a language other than en-US). We cannot verify it automatically
+            echo "$media_file: NO KNOWN CHECKSUM (skipping verification)"
+            mv "${media_file}${unverified_ext}" "$media_file"
+        elif [ "$checksum" = "$known_checksum" ]; then
+            echo "$media_file: OK"
+            mv "${media_file}${unverified_ext}" "$media_file"
         else
-            echo "$media: UNVERIFIED"
+            echo "$media_file: UNVERIFIED"
             media_verification_failed_list="$media_verification_failed_list $media"
             checksum_verification_failed_list="$checksum_verification_failed_list $checksum"
         fi
@@ -750,8 +854,17 @@ parse_args "$@"
 
 # If script is installed (in the PATH) then remain at PWD
 # Otherwise, change directory to location of script
-# readlink was recently added to POSIX: https://austingroupbugs.net/view.php?id=1457
-local_dir="$(dirname -- "$(readlink -f -- "$0")")"
+# readlink -f was recently added to POSIX but is still unavailable on macOS/BSD,
+# so fall back to a manual resolution when it is missing: https://austingroupbugs.net/view.php?id=1457
+script_path="$0"
+case "$script_path" in
+    */*) ;;
+    *) script_path="$(command -v -- "$script_path" 2> /dev/null || printf '%s' "$script_path")" ;;
+esac
+local_dir="$(dirname -- "$script_path")"
+if command -v readlink > /dev/null 2>&1 && readlink -f -- "$script_path" > /dev/null 2>&1; then
+    local_dir="$(dirname -- "$(readlink -f -- "$script_path")")"
+fi
 case ":$PATH:" in
   *":$local_dir:"*) ;;
   *) cd "$local_dir" || exit ;;
