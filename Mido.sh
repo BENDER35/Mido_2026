@@ -595,11 +595,11 @@ download_media() {
                 ;;
             "$win81x64_ent_32_esp")
                 echo_info "Downloading Windows 8.1 Enterprise 32-bit Spanish..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/details/w-81-ent-32-is-esp"
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w-81-ent-32-is-esp/es_windows_8.1_enterprise_with_update_x86_dvd_6050864.iso"
                 ;;
             "$win81x64_ent_64_esp")
                 echo_info "Downloading Windows 8.1 Enterprise 64-bit Spanish..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/details/win-81-ent-64b-esp"
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-81-ent-64b-esp/es_windows_8.1_enterprise_with_update_x64_dvd_4048729.iso"
                 ;;
             "$win10x64")
                 echo_info "Downloading Windows 10..."
