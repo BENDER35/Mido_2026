@@ -135,6 +135,8 @@ usage() {
 
 readonly win7x64_ultimate="win7x64-ultimate.iso"
 readonly win81x64="win81x64.iso"
+readonly win81x64_ent_32_esp="win81x64-ent-32-espa.iso"
+readonly win81x64_ent_64_esp="win81x64-ent-64-esp.iso"
 readonly win10x64="win10x64.iso"
 readonly win11x64="win11x64.iso"
 readonly win81x64_enterprise_eval="win81x64-enterprise-eval.iso"
@@ -204,7 +206,7 @@ parse_args() {
                 media_list="$media_list $win2022_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval"
+                media_list="$media_list $win7x64_ultimate $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -590,6 +592,14 @@ download_media() {
             "$win81x64")
                 echo_info "Downloading Windows 8.1..."
                 consumer_download "$(localized_media "$media")" 8
+                ;;
+            "$win81x64_ent_32_esp")
+                echo_info "Downloading Windows 8.1 Enterprise 32-bit Spanish..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/details/w-81-ent-32-is-esp"
+                ;;
+            "$win81x64_ent_64_esp")
+                echo_info "Downloading Windows 8.1 Enterprise 64-bit Spanish..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/details/win-81-ent-64b-esp"
                 ;;
             "$win10x64")
                 echo_info "Downloading Windows 10..."
