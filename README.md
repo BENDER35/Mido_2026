@@ -88,6 +88,7 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (sourced from the Wayback Machine) |
 | `win81x64` | Windows 8.1 x64 (**retired by Microsoft**, use the Enterprise Eval) |
 | `win10x64` | Windows 10 x64 (multi-edition) |
+| `win10x86` | Windows 10 x86 (32-bit) Spanish — Spain (`win10x86-esp`) or Mexico (`win10x86-es-mx`) |
 | `win11x64` | Windows 11 x64 (multi-edition) |
 | `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
@@ -110,6 +111,8 @@ Set the `MIDO_LANG` environment variable to one of:
 | `es-MX` | Spanish (Mexico) |
 
 Spanish ISOs are available for the **consumer** versions (`win10x64`, `win11x64`).
+Additionally, Windows 10 32-bit (x86) ISOs in Spanish are available via archive.org
+for both Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
 Enterprise, Server and Evaluation media are English-only, as published by Microsoft.
 Non-English ISOs are written with a locale suffix (e.g. `win11x64.es-MX.iso`) so
 they never overwrite the English ones. Because Microsoft does not publish public
@@ -153,6 +156,9 @@ Want a more secure and minimalist Windows installation out-of-the-box that's off
 - **Windows 7 is slow** — it is sourced from `web.archive.org`, which is much
   slower and less reliable than Microsoft's CDN. Mido retries automatically and
   resumes partial downloads.
+- **Windows 10 x86 Spanish ISOs** — sourced from `archive.org` (Windows 10 22H2
+  builds), which may be slower than Microsoft's CDN. Mido retries and resumes
+  automatically.
 - **Enterprise/Server "no download link"** — Microsoft periodically changes the
   Evaluation Center pages. Please open an issue with the affected version.
 

@@ -99,6 +99,7 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (obtenido de Wayback Machine) |
 | `win81x64` | Windows 8.1 x64 (**retirado por Microsoft**, usa la Enterprise Eval) |
 | `win10x64` | Windows 10 x64 (multiedición) |
+| `win10x86` | Windows 10 x86 (32-bit) español — España (`win10x86-esp`) o México (`win10x86-es-mx`) |
 | `win11x64` | Windows 11 x64 (multiedición) |
 | `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
@@ -121,12 +122,13 @@ Define la variable de entorno `MIDO_LANG` con uno de estos valores:
 | `es-MX` | Español (México) |
 
 Las ISOs en español están disponibles para las versiones de **consumidor**
-(`win10x64`, `win11x64`). Los medios Enterprise, Server y Evaluation son
-únicamente en inglés, tal como los publica Microsoft. Las ISOs en otros idiomas
-se guardan con un sufijo de idioma (por ejemplo `win11x64.es-MX.iso`) para no
-sobrescribir las inglesas. Como Microsoft no publica checksums oficiales de cada
-versión localizada, las ISOs localizadas pueden mostrar
-`NO KNOWN CHECKSUM (skipping verification)`.
+(`win10x64`, `win11x64`). Además, Windows 10 de 32 bits (x86) en español está
+disponible vía archive.org para España (`win10x86-esp`) y México (`win10x86-es-mx`).
+Los medios Enterprise, Server y Evaluation son únicamente en inglés, tal como
+los publica Microsoft. Las ISOs en otros idiomas se guardan con un sufijo de
+idioma (por ejemplo `win11x64.es-MX.iso`) para no sobrescribir las inglesas.
+Como Microsoft no publica checksums oficiales de cada versión localizada, las
+ISOs localizadas pueden mostrar `NO KNOWN CHECKSUM (skipping verification)`.
 
 ## ¿Cómo funciona Mido?
 
@@ -169,6 +171,9 @@ de Microsoft (además de soporte a largo plazo).
   automática de Windows 8.1. Usa `win81x64-enterprise-eval`.
 - **Windows 7 va lento** — proviene de `web.archive.org`, mucho más lento y menos
   fiable que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
+- **Windows 10 x86 en español** — proviene de `archive.org` (compilaciones Windows
+  10 22H2), que puede ser más lento que la CDN de Microsoft. Mido reintenta y
+  reanuda automáticamente.
 - **Enterprise/Server "no download link"** — Microsoft cambia periódicamente las
   páginas del Evaluation Center. Abre un issue con la versión afectada.
 

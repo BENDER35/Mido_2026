@@ -76,6 +76,7 @@ Different media families are fetched in different ways:
 | Media family | Source | Auth |
 |---|---|---|
 | `win10x64`, `win11x64` | Consumer JSON API | Sentinel handshake |
+| `win10x86` (x86 Spanish) | `archive.org` snapshots | none |
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win2012r2-eval` … `win2022-eval` | Evaluation Center HTML | none |
@@ -177,6 +178,11 @@ Output filenames for non-default languages get a locale suffix via
 different languages never overwrite each other. Because Microsoft publishes
 checksums only for the English ISOs, localized files hit the
 `NO KNOWN CHECKSUM (skipping verification)` path (see below).
+
+The consumer JSON API exposes localized SKUs only for x64 consumer editions.
+For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
+22H2 builds (`win10x86-esp` for Spain, `win10x86-es-mx` for Mexico). These are
+not covered by the Microsoft API and have no published checksums.
 
 > Only the **consumer** editions expose localized SKUs through this API.
 > Enterprise/Server evaluation media is English-only, as published by Microsoft,
@@ -292,6 +298,7 @@ rotates them.
 | `715-123130` | IP banned by Microsoft | Same as above |
 | `win81x64` → HTTP 404 | Microsoft retired Windows 8.1 automation | Use `win81x64-enterprise-eval` |
 | Windows 7 very slow | Wayback Machine throttling | Let `--retry`/`--continue-at` work; be patient |
+| Windows 10 x86 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | `NO KNOWN CHECKSUM` | Localized ISO without a published hash | Verify manually if you wish |
 | Enterprise/Server `no download link` | Evaluation Center page changed | Open an issue |
 

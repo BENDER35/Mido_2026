@@ -77,6 +77,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | Familia | Fuente | Autenticación |
 |---|---|---|
 | `win10x64`, `win11x64` | API JSON de consumidor | Handshake de Sentinel |
+| `win10x86` (x86 español) | instantáneas de `archive.org` | ninguna |
 | `win81x64` | API JSON de consumidor | Retirada (HTTP 404) |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win2012r2-eval` … `win2022-eval` | HTML del Evaluation Center | ninguna |
@@ -178,6 +179,12 @@ Los nombres de archivo de idiomas no por defecto llevan un sufijo de locale vía
 en distintos idiomas nunca se sobrescriban. Como Microsoft solo publica checksums
 de las ISOs en inglés, los archivos localizados entran en la ruta
 `NO KNOWN CHECKSUM (skipping verification)` (ver más abajo).
+
+La API JSON de consumidor expone SKUs localizados solo para ediciones de consumidor
+x64. Para ISOs en español de 32 bits (x86), Mido usa instantáneas de archive.org
+de compilaciones Windows 10 22H2 (`win10x86-esp` para España, `win10x86-es-mx`
+para México). Estas no están cubiertas por la API de Microsoft y no tienen
+checksums publicados.
 
 > Solo las ediciones de **consumidor** exponen SKUs localizados a través de esta
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como
@@ -296,6 +303,7 @@ Microsoft los rota.
 | `715-123130` | IP baneada por Microsoft | Igual que arriba |
 | `win81x64` → HTTP 404 | Microsoft retiró la automatización de Windows 8.1 | Usa `win81x64-enterprise-eval` |
 | Windows 7 muy lento | Límite de velocidad de Wayback Machine | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
+| Windows 10 x86 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | `NO KNOWN CHECKSUM` | ISO localizada sin hash publicado | Verifica manualmente si lo deseas |
 | Enterprise/Server `no download link` | La página del Evaluation Center cambió | Abre un issue |
 
