@@ -114,7 +114,7 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (most secure) |
-| `win2008r2` | Windows Server 2008 R2 |
+| `win2008r2` | Windows Server 2008 R2 SP1 (x64, English) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
 | `win2016-eval` | Windows Server 2016 Evaluation |
 | `win2019-eval` | Windows Server 2019 Evaluation |
