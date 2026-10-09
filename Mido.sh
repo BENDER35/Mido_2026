@@ -259,6 +259,18 @@ readonly win7x64_pro_es_mx="win7x64-pro-es-mexico.iso"
 readonly win7x86_pro="win7x86-pro.iso"
 readonly win7x86_pro_esp="win7x86-pro-espanol.iso"
 readonly win7x86_pro_es_mx="win7x86-pro-es-mexico.iso"
+readonly win7x64_homepremium="win7x64-homepremium.iso"
+readonly win7x64_homepremium_esp="win7x64-homepremium-espanol.iso"
+readonly win7x64_homepremium_es_mx="win7x64-homepremium-es-mexico.iso"
+readonly win7x86_homepremium="win7x86-homepremium.iso"
+readonly win7x86_homepremium_esp="win7x86-homepremium-espanol.iso"
+readonly win7x86_homepremium_es_mx="win7x86-homepremium-es-mexico.iso"
+readonly win7x64_enterprise="win7x64-enterprise.iso"
+readonly win7x64_enterprise_esp="win7x64-enterprise-espanol.iso"
+readonly win7x64_enterprise_es_mx="win7x64-enterprise-es-mexico.iso"
+readonly win7x86_enterprise="win7x86-enterprise.iso"
+readonly win7x86_enterprise_esp="win7x86-enterprise-espanol.iso"
+readonly win7x86_enterprise_es_mx="win7x86-enterprise-es-mexico.iso"
 readonly win7x64_sp1="win7x64-sp1.iso"
 readonly win7x86_sp1="win7x86-sp1.iso"
 readonly win81x64_pro="win81x64-pro.iso"
@@ -443,6 +455,42 @@ parse_args() {
             win7x86-pro-es-mx)
                 media_list="$media_list $win7x86_pro_es_mx"
                 ;;
+            win7x64-homepremium)
+                media_list="$media_list $win7x64_homepremium"
+                ;;
+            win7x64-homepremium-esp)
+                media_list="$media_list $win7x64_homepremium_esp"
+                ;;
+            win7x64-homepremium-es-mx)
+                media_list="$media_list $win7x64_homepremium_es_mx"
+                ;;
+            win7x86-homepremium)
+                media_list="$media_list $win7x86_homepremium"
+                ;;
+            win7x86-homepremium-esp)
+                media_list="$media_list $win7x86_homepremium_esp"
+                ;;
+            win7x86-homepremium-es-mx)
+                media_list="$media_list $win7x86_homepremium_es_mx"
+                ;;
+            win7x64-enterprise)
+                media_list="$media_list $win7x64_enterprise"
+                ;;
+            win7x64-enterprise-esp)
+                media_list="$media_list $win7x64_enterprise_esp"
+                ;;
+            win7x64-enterprise-es-mx)
+                media_list="$media_list $win7x64_enterprise_es_mx"
+                ;;
+            win7x86-enterprise)
+                media_list="$media_list $win7x86_enterprise"
+                ;;
+            win7x86-enterprise-esp)
+                media_list="$media_list $win7x86_enterprise_esp"
+                ;;
+            win7x86-enterprise-es-mx)
+                media_list="$media_list $win7x86_enterprise_es_mx"
+                ;;
             win81x64-pro)
                 media_list="$media_list $win81x64_pro"
                 ;;
@@ -498,7 +546,7 @@ parse_args() {
                 media_list="$media_list $hyperv2019_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64-sp1 $win7x86-sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win-xp-pro-64"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64-homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64-enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64-sp1 $win7x86-sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win-xp-pro-64"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1230,6 +1278,78 @@ download_media() {
                 # Windows 7 Professional x86 Mexican Spanish, archived on archive.org
                 # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-pro-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                ;;
+            "$win7x64-homepremium")
+                echo_info "Downloading Windows 7 Home Premium..."
+                # Windows 7 Home Premium, archived on archive.org
+                # Source: https://archive.org/details/Win7HomePremiumx64
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
+                ;;
+            "$win7x64-homepremium-esp")
+                echo_info "Downloading Windows 7 Home Premium Spanish (Español)..."
+                # Windows 7 Home Premium Spanish, archived on archive.org
+                # Using English ISO with Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
+                ;;
+            "$win7x64-homepremium-es-mx)")
+                echo_info "Downloading Windows 7 Home Premium Spanish (Mexican)..."
+                # Windows 7 Home Premium Mexican Spanish, archived on archive.org
+                # Using English ISO with Mexican Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
+                ;;
+            "$win7x86-homepremium")
+                echo_info "Downloading Windows 7 Home Premium x86..."
+                # Windows 7 Home Premium x86, archived on archive.org
+                # Source: https://archive.org/details/win-7-homepremium-32-64-iso
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                ;;
+            "$win7x86-homepremium-esp")
+                echo_info "Downloading Windows 7 Home Premium x86 Spanish (Español)..."
+                # Windows 7 Home Premium x86 Spanish, archived on archive.org
+                # Using English ISO with Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                ;;
+            "$win7x86-homepremium-es-mx")
+                echo_info "Downloading Windows 7 Home Premium x86 Spanish (Mexican)..."
+                # Windows 7 Home Premium x86 Mexican Spanish, archived on archive.org
+                # Using English ISO with Mexican Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                ;;
+            "$win7x64-enterprise)")
+                echo_info "Downloading Windows 7 Enterprise..."
+                # Windows 7 Enterprise, archived on archive.org
+                # Source: https://archive.org/details/Win7Enterprisex64
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
+                ;;
+            "$win7x64-enterprise-esp")
+                echo_info "Downloading Windows 7 Enterprise Spanish (Español)..."
+                # Windows 7 Enterprise Spanish, archived on archive.org
+                # Using English ISO with Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
+                ;;
+            "$win7x64-enterprise-es-mx")
+                echo_info "Downloading Windows 7 Enterprise Spanish (Mexican)..."
+                # Windows 7 Enterprise Mexican Spanish, archived on archive.org
+                # Using English ISO with Mexican Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
+                ;;
+            "$win7x86-enterprise)")
+                echo_info "Downloading Windows 7 Enterprise x86..."
+                # Windows 7 Enterprise x86, archived on archive.org
+                # Source: https://archive.org/details/win-7-enterprise-32-64-iso
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                ;;
+            "$win7x86-enterprise-esp")
+                echo_info "Downloading Windows 7 Enterprise x86 Spanish (Español)..."
+                # Windows 7 Enterprise x86 Spanish, archived on archive.org
+                # Using English ISO with Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                ;;
+            "$win7x86-enterprise-es-mx")
+                echo_info "Downloading Windows 7 Enterprise x86 Spanish (Mexican)..."
+                # Windows 7 Enterprise x86 Mexican Spanish, archived on archive.org
+                # Using English ISO with Mexican Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
             "$win81x64-pro")
                 echo_info "Downloading Windows 7 Professional..."

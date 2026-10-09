@@ -91,6 +91,11 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
 | `win7x64-ultimate` | instantánea de `web.archive.org` | ninguna |
+| `win7x64-homepremium`, `win7x64-homepremium-esp`, `win7x64-homepremium-es-mx` | instantáneas de `archive.org` (Windows 7 Home Premium) | ninguna |
+| `win7x86-homepremium`, `win7x86-homepremium-esp`, `win7x86-homepremium-es-mx` | instantáneas de `archive.org` (Windows 7 Home Premium) | ninguna |
+| `win7x64-enterprise`, `win7x64-enterprise-esp`, `win7x64-enterprise-es-mx` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
+| `win7x86-enterprise`, `win7x86-enterprise-esp`, `win7x86-enterprise-es-mx` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
+| `win7x64-sp1`, `win7x86-sp1` | instantáneas de `archive.org` (Windows 7 SP1) | ninguna |
 | `win-xp-pro-64`, `win-xp-pro-64-espa` | instantáneas de `archive.org` (Windows XP Professional x64) | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
 

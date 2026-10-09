@@ -91,6 +91,11 @@ Different media families are fetched in different ways:
 | `win-xp-pro`, `win-xp-pro-espa` | `archive.org` snapshots (Windows XP Professional) | none |
 | `win-xp-pro-64`, `win-xp-pro-64-espa` | `archive.org` snapshots (Windows XP Professional x64) | none |
 | `win7x64-pro`, `win7x64-pro-esp`, `win7x64-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
+| `win7x86-pro`, `win7x86-pro-esp`, `win7x86-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
+| `win7x64-homepremium`, `win7x64-homepremium-esp`, `win7x64-homepremium-es-mx` | `archive.org` snapshots (Windows 7 Home Premium) | none |
+| `win7x86-homepremium`, `win7x86-homepremium-esp`, `win7x86-homepremium-es-mx` | `archive.org` snapshots (Windows 7 Home Premium) | none |
+| `win7x64-enterprise`, `win7x64-enterprise-esp`, `win7x64-enterprise-es-mx` | `archive.org` snapshots (Windows 7 Enterprise) | none |
+| `win7x86-enterprise`, `win7x86-enterprise-esp`, `win7x86-enterprise-es-mx` | `archive.org` snapshots (Windows 7 Enterprise) | none |
 | `win7x64-sp1`, `win7x86-sp1` | `archive.org` snapshots (Windows 7 SP1) | none |
 | `win81x64-pro`, `win81x64-pro-esp`, `win81x64-pro-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |

@@ -160,6 +160,18 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win7x86-pro` | Windows 7 Professional x86 (32-bit) — sourced from archive.org |
 | `win7x86-pro-esp` | Windows 7 Professional x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win7x86-pro-es-mx` | Windows 7 Professional x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x64-homepremium` | Windows 7 Home Premium x64 (sourced from archive.org) |
+| `win7x64-homepremium-esp` | Windows 7 Home Premium x64 en español — primero Microsoft oficial, si falla archive.org |
+| `win7x64-homepremium-es-mx` | Windows 7 Home Premium x64 en español mexicano — primero Microsoft oficial, si falla archive.org |
+| `win7x86-homepremium` | Windows 7 Home Premium x86 (32-bit) — sourced from archive.org |
+| `win7x86-homepremium-esp` | Windows 7 Home Premium x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x86-homepremium-es-mx` | Windows 7 Home Premium x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x64-enterprise` | Windows 7 Enterprise x64 (sourced from archive.org) |
+| `win7x64-enterprise-esp` | Windows 7 Enterprise x64 en español — primero Microsoft oficial, si falla archive.org |
+| `win7x64-enterprise-es-mx` | Windows 7 Enterprise x64 en español mexicano — primero Microsoft oficial, si falla archive.org |
+| `win7x86-enterprise` | Windows 7 Enterprise x86 (32-bit) — sourced from archive.org |
+| `win7x86-enterprise-esp` | Windows 7 Enterprise x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x86-enterprise-es-mx` | Windows 7 Enterprise x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win7x64-sp1` | Windows 7 SP1 x64 (sourced from archive.org) |
 | `win7x86-sp1` | Windows 7 SP1 x86 (32-bit, sourced from archive.org) |
 | `win81x64-pro` | Windows 8.1 Pro x64 — Microsoft retiró la automatización, usa archive.org |
