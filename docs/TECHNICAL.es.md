@@ -82,6 +82,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win10x86` (x86 español) | instantáneas de `archive.org` | ninguna |
 | `win81x64` | API JSON de consumidor | Retirada (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | instantáneas de `archive.org` | ninguna |
+| `win2008r2-espa` | instantánea de `archive.org` de la ISO de evaluación oficial en español | ninguna |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
 | `win2012r2-eval` … `win2025-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
@@ -193,8 +194,10 @@ La API JSON de consumidor expone SKUs localizados solo para ediciones de consumi
 x64. Para ISOs en español de 32 bits (x86), Mido usa instantáneas de archive.org
 de compilaciones Windows 10 22H2 (`win10x86-esp` para España, `win10x86-es-mx`
 para México). Las ISOs en español de Windows 8.1 Enterprise también están
-archivadas en archive.org (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). Estas
-no están cubiertas por la API de Microsoft y no tienen checksums publicados.
+archivadas en archive.org (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). Una
+ISO de evaluación en español de Windows Server 2008 R2 SP1 (`win2008r2-espa`)
+también está archivada allí. Estas no están cubiertas por la API de Microsoft y no
+tienen checksums publicados.
 
 > Solo las ediciones de **consumidor** exponen SKUs localizados a través de esta
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como
@@ -315,6 +318,7 @@ Microsoft los rota.
 | Windows 7 muy lento | Límite de velocidad de Wayback Machine | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows 10 x86 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows 8.1 Enterprise en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
+| Windows Server 2008 R2 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows Vista ISOs muy lentas | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | `NO KNOWN CHECKSUM` | ISO localizada sin hash publicado | Verifica manualmente si lo deseas |
 | Enterprise/Server `no download link` | La página del Evaluation Center cambió | Abre un issue |

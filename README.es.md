@@ -130,6 +130,7 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (la más segura) |
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (la más segura) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, Inglés) |
+| `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, eval en español, obtenido de archive.org) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
 | `win2016-eval` | Windows Server 2016 Evaluation |
 | `win2019-eval` | Windows Server 2019 Evaluation |
@@ -151,6 +152,8 @@ Las ISOs en español están disponibles para las versiones de **consumidor**
 disponible vía archive.org para España (`win10x86-esp`) y México (`win10x86-es-mx`).
 Windows 8.1 Enterprise en español también está disponible vía archive.org tanto
 para 32 bits (`win81x64-ent-32-espa`) como para 64 bits (`win81x64-ent-64-esp`).
+Una ISO de evaluación en español de Windows Server 2008 R2 SP1 está disponible
+vía archive.org (`win2008r2-espa`).
 Windows Vista SP2 en español también está disponible vía archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Los medios Enterprise, Server y Evaluation son, por lo demás, únicamente en inglés,
@@ -205,6 +208,8 @@ de Microsoft (además de soporte a largo plazo).
   10 22H2), que puede ser más lento que la CDN de Microsoft. Mido reintenta y
   reanuda automáticamente.
 - **Windows 8.1 Enterprise en español** — proviene de `archive.org`, que puede ser
+  más lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
+- **Windows Server 2008 R2 en español** — proviene de `archive.org`, que puede ser
   más lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
 - **Windows Vista en español** — proviene de `archive.org`, que puede ser más
   lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.

@@ -81,6 +81,7 @@ Different media families are fetched in different ways:
 | `win10x86` (x86 Spanish) | `archive.org` snapshots | none |
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
+| `win2008r2-espa` | `archive.org` snapshot of the official Spanish eval ISO | none |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win2012r2-eval` … `win2025-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
@@ -192,8 +193,9 @@ The consumer JSON API exposes localized SKUs only for x64 consumer editions.
 For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
 22H2 builds (`win10x86-esp` for Spain, `win10x86-es-mx` for Mexico). Windows 8.1
 Enterprise Spanish ISOs are likewise archived on archive.org
-(`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). These are not covered by the
-Microsoft API and have no published checksums.
+(`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). A Spanish evaluation ISO of
+Windows Server 2008 R2 SP1 (`win2008r2-espa`) is also archived there. These are
+not covered by the Microsoft API and have no published checksums.
 
 Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
 (`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).
@@ -315,6 +317,7 @@ rotates them.
 | Windows 7 very slow | Wayback Machine throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows 10 x86 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows 8.1 Enterprise Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
+| Windows Server 2008 R2 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows Vista ISOs very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | `NO KNOWN CHECKSUM` | Localized ISO without a published hash | Verify manually if you wish |
 | Enterprise/Server `no download link` | Evaluation Center page changed | Open an issue |

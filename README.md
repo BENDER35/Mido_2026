@@ -118,6 +118,7 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (most secure) |
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (most secure) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, English) |
+| `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, Spanish eval, sourced from archive.org) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
 | `win2016-eval` | Windows Server 2016 Evaluation |
 | `win2019-eval` | Windows Server 2019 Evaluation |
@@ -139,6 +140,8 @@ Additionally, Windows 10 32-bit (x86) ISOs in Spanish are available via archive.
 for both Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
 Windows 8.1 Enterprise Spanish ISOs are also available via archive.org for both
 32-bit (`win81x64-ent-32-espa`) and 64-bit (`win81x64-ent-64-esp`).
+A Spanish Windows Server 2008 R2 SP1 evaluation ISO is available via archive.org
+(`win2008r2-espa`).
 Windows Vista SP2 ISOs in Spanish are also available via archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Enterprise, Server and Evaluation media are otherwise English-only, as published
@@ -190,6 +193,8 @@ Want a more secure and minimalist Windows installation out-of-the-box that's off
   automatically.
 - **Windows 8.1 Enterprise Spanish ISOs** — sourced from `archive.org`, which may
   be slower than Microsoft's CDN. Mido retries and resumes automatically.
+- **Windows Server 2008 R2 Spanish ISO** — sourced from `archive.org`, which may be
+  slower than Microsoft's CDN. Mido retries and resumes automatically.
 - **Windows Vista ISOs** — sourced from `archive.org`, which may be slower than
   Microsoft's CDN. Mido retries and resumes automatically.
 - **Enterprise/Server "no download link"** — Microsoft periodically changes the

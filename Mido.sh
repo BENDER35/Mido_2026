@@ -106,6 +106,7 @@ usage() {
     echo "  win10x64-enterprise-ltsc-eval (most secure)"
     echo "  win11x64-enterprise-ltsc-eval (most secure)"
     echo "  win2008r2"
+    echo "  win2008r2-espa (Spanish, archive.org)"
     echo "  win2012r2-eval"
     echo "  win2016-eval"
     echo "  win2019-eval"
@@ -160,6 +161,7 @@ readonly win11x64_enterprise_eval="win11x64-enterprise-eval.iso"
 readonly win10x64_enterprise_ltsc_eval="win10x64-enterprise-ltsc-eval.iso"
 readonly win11x64_enterprise_ltsc_eval="win11x64-enterprise-ltsc-eval.iso"
 readonly win2008r2="win2008r2.iso"
+readonly win2008r2_espa="win2008r2-espa.iso"
 readonly win2012r2_eval="win2012r2-eval.iso"
 readonly win2016_eval="win2016-eval.iso"
 readonly win2019_eval="win2019-eval.iso"
@@ -236,6 +238,9 @@ parse_args() {
             win2008r2)
                 media_list="$media_list $win2008r2"
                 ;;
+            win2008r2-espa)
+                media_list="$media_list $win2008r2_espa"
+                ;;
             win2012r2-eval)
                 media_list="$media_list $win2012r2_eval"
                 ;;
@@ -252,7 +257,7 @@ parse_args() {
                 media_list="$media_list $win2025_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
+                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -714,6 +719,13 @@ download_media() {
                 # Microsoft took down the original download link provided by that source too but this new one has the same checksum
                 # Source: https://github.com/rapid7/metasploitable3/pull/563
                 scurl_file "$(localized_media "$media")" "1.2" "https://download.microsoft.com/download/4/1/D/41DEA7E0-B30D-4012-A1E3-F24DC03BA1BB/7601.17514.101119-1850_x64fre_server_eval_en-us-GRMSXEVAL_EN_DVD.iso"
+                ;;
+            "$win2008r2_espa")
+                echo_info "Downloading Windows Server 2008 R2 Spanish (Español)..."
+                # Official Microsoft Evaluation ISO in Spanish, archived on archive.org
+                # Same build as the English direct link above (7601.17514.101119-1850)
+                # Source: https://archive.org/details/wserver2008r2
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/wserver2008r2/7601.17514.101119-1850_x64fre_server_eval_es-es-GRMSXEVAL_ES_DVD.iso"
                 ;;
             "$win2012r2_eval")
                 echo_info "Downloading Windows Server 2012 R2 Evaluation..."
