@@ -122,6 +122,11 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `vista-es-x64-sp2` | Windows Vista SP2 x64 español (obtenido de archive.org) |
 | `vista-es-x86-sp2` | Windows Vista SP2 x86 español (obtenido de archive.org) |
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (obtenido de Wayback Machine) |
+| `win7x64-ultimate-esp` | Windows 7 Ultimate x64 en español — primero Microsoft oficial, si falla archive.org |
+| `win7x64-ultimate-es-mx` | Windows 7 Ultimate x64 en español mexicano — primero Microsoft oficial, si falla archive.org |
+| `win7x86-ultimate` | Windows 7 Ultimate x86 (32-bit) — sourced from archive.org |
+| `win7x86-ultimate-esp` | Windows 7 Ultimate x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x86-ultimate-es-mx` | Windows 7 Ultimate x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win81x64` | Windows 8.1 x64 (**retirado por Microsoft**, usa la Enterprise Eval) |
 | `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32 bits español (obtenido de archive.org) |
 | `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64 bits español (obtenido de archive.org) |

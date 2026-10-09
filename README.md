@@ -112,6 +112,9 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (sourced from the Wayback Machine) |
 | `win7x64-ultimate-esp` | Windows 7 Ultimate x64 Spanish — Microsoft official first, archive.org fallback |
 | `win7x64-ultimate-es-mx` | Windows 7 Ultimate x64 Mexican Spanish — Microsoft official first, archive.org fallback |
+| `win7x86-ultimate` | Windows 7 Ultimate x86 (32-bit, sourced from archive.org) |
+| `win7x86-ultimate-esp` | Windows 7 Ultimate x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x86-ultimate-es-mx` | Windows 7 Ultimate x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win81x64` | Windows 8.1 x64 (**retired by Microsoft**, use the Enterprise Eval) |
 | `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32-bit Spanish (sourced from archive.org) |
 | `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64-bit Spanish (sourced from archive.org) |
