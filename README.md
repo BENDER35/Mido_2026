@@ -110,8 +110,12 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32-bit Spanish (sourced from archive.org) |
 | `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64-bit Spanish (sourced from archive.org) |
 | `win10x64` | Windows 10 x64 (multi-edition) |
+| `win10x64-esp` | Windows 10 x64 Spanish (Spain) — Microsoft official first, archive.org fallback |
+| `win10x64-es-mx` | Windows 10 x64 Spanish (Mexico) — Microsoft official first, archive.org fallback |
 | `win10x86` | Windows 10 x86 (32-bit) Spanish — Spain (`win10x86-esp`) or Mexico (`win10x86-es-mx`) |
 | `win11x64` | Windows 11 x64 (multi-edition) |
+| `win11x64-esp` | Windows 11 x64 Spanish (Spain) — Microsoft official first, archive.org fallback |
+| `win11x64-es-mx` | Windows 11 x64 Spanish (Mexico) — Microsoft official first, archive.org fallback |
 | `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
@@ -154,7 +158,11 @@ Set the `MIDO_LANG` environment variable to one of:
 | `es-MX` | Spanish (Mexico) |
 
 Spanish ISOs are available for the **consumer** versions (`win10x64`, `win11x64`).
-Additionally, Windows 10 32-bit (x86) ISOs in Spanish are available via archive.org
+Besides `MIDO_LANG`, dedicated arguments exist for Spanish (Spain) and Mexican
+Spanish: `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp` and `win11x64-es-mx`.
+These try Microsoft's official download first and, if the request is rejected
+(for example by the Sentinel anti-abuse system), fall back to an identical
+archive.org copy. Additionally, Windows 10 32-bit (x86) ISOs in Spanish are available via archive.org
 for both Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
 Windows 8.1 Enterprise Spanish ISOs are also available via archive.org for both
 32-bit (`win81x64-ent-32-espa`) and 64-bit (`win81x64-ent-64-esp`).
@@ -207,7 +215,13 @@ Want a more secure and minimalist Windows installation out-of-the-box that's off
 - **"Sentinel marked this request as rejected"** — Microsoft's anti-abuse system
   blocked the request based on your IP reputation. Wait 24–48 hours, use a VPN, or
   download manually from the official page. This is *not* a bug in Mido — the
-  maintainer of Fido documents the same behaviour.
+  maintainer of Fido documents the same behaviour. The `win10x64-esp`,
+  `win10x64-es-mx`, `win11x64-esp` and `win11x64-es-mx` arguments sidestep this by
+  automatically falling back to an archive.org copy.
+- **archive.org fallback** — the dedicated Spanish ISOs try Microsoft's official
+  download first and, if Sentinel rejects it, download an identical copy from
+  `archive.org` (slower than Microsoft's CDN). Mido retries and resumes
+  automatically.
 - **Windows 8.1 (`win81x64`) fails with HTTP 404** — Microsoft retired the
   automated Windows 8.1 download. Use `win81x64-enterprise-eval` instead.
 - **Windows 7 is slow** — it is sourced from `web.archive.org`, which is much

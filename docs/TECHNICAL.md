@@ -78,6 +78,7 @@ Different media families are fetched in different ways:
 | Media family | Source | Auth |
 |---|---|---|
 | `win10x64`, `win11x64` | Consumer JSON API | Sentinel handshake |
+| `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp`, `win11x64-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win10x86` (x86 Spanish) | `archive.org` snapshots | none |
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
@@ -192,6 +193,15 @@ Output filenames for non-default languages get a locale suffix via
 different languages never overwrite each other. Because Microsoft publishes
 checksums only for the English ISOs, localized files hit the
 `NO KNOWN CHECKSUM (skipping verification)` path (see below).
+
+Besides `MIDO_LANG`, dedicated arguments exist for Windows 10/11 x64 in Spanish:
+`win10x64-esp`, `win10x64-es-mx`, `win11x64-esp` and `win11x64-es-mx`. Each one
+uses `consumer_download_or_archive`: it first tries Microsoft's official
+download (with the matching locale) and, if the request fails — usually because
+the *Sentinel* anti-abuse service rejects it based on IP reputation — it removes
+the `.PART` left by the official attempt (so two different builds are never mixed)
+and downloads an identical copy archived on `archive.org`. The fallbacks point to
+22H2 builds (Windows 10) and 23H2 builds (Windows 11) in `es-ES`/`es-MX`.
 
 The consumer JSON API exposes localized SKUs only for x64 consumer editions.
 For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
@@ -322,10 +332,11 @@ rotates them.
 
 | Symptom | Cause | Action |
 |---|---|---|
-| `Sentinel marked this request as rejected` | IP reputation block | Wait 24–48 h, use a VPN, or download manually |
-| `715-123130` | IP banned by Microsoft | Same as above |
+| `Sentinel marked this request as rejected` | IP reputation block | Wait 24–48 h, use a VPN, or download manually. The dedicated Spanish arguments (`win10x64-esp`, `win10x64-es-mx`, `win11x64-esp`, `win11x64-es-mx`) fall back to archive.org automatically |
+| `715-123130` | IP banned by Microsoft | Same as above (the dedicated Spanish arguments fall back to archive.org) |
 | `win81x64` → HTTP 404 | Microsoft retired Windows 8.1 automation | Use `win81x64-enterprise-eval` |
 | Windows 7 very slow | Wayback Machine throttling | Let `--retry`/`--continue-at` work; be patient |
+| archive.org fallback slow (Spanish Win10/11) | `archive.org` throttling | Let `--retry`/`--continue-at` work; resumes automatically |
 | Windows 10 x86 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows 8.1 Enterprise Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows Server 2008 R2 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |

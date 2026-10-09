@@ -98,8 +98,12 @@ usage() {
     echo "  win81x64-ent-32-espa (Spanish, archive.org)"
     echo "  win81x64-ent-64-esp (Spanish, archive.org)"
     echo "  win10x64"
+    echo "  win10x64-esp (Spanish, official first then archive.org)"
+    echo "  win10x64-es-mx (Mexican Spanish, official first then archive.org)"
     echo "  win10x86 (use win10x86-esp or win10x86-es-mx)"
     echo "  win11x64"
+    echo "  win11x64-esp (Spanish, official first then archive.org)"
+    echo "  win11x64-es-mx (Mexican Spanish, official first then archive.org)"
     echo "  win81x64-enterprise-eval"
     echo "  win10x64-enterprise-eval"
     echo "  win11x64-enterprise-eval"
@@ -149,7 +153,7 @@ usage() {
     echo ""
     echo "Language"
     echo "--------"
-    echo "By default all downloads are English (United States). Windows 10 and Windows 11 are also available in Spanish (es-ES) and Mexican Spanish (es-MX) through the MIDO_LANG environment variable. For example: MIDO_LANG=es-MX $0 win11x64. Non-English ISOs are saved with a locale suffix (e.g. win11x64.es-MX.iso)." | format
+    echo "By default all downloads are English (United States). Windows 10 and Windows 11 are also available in Spanish (es-ES) and Mexican Spanish (es-MX) through the MIDO_LANG environment variable. For example: MIDO_LANG=es-MX $0 win11x64. Non-English ISOs are saved with a locale suffix (e.g. win11x64.es-MX.iso). Dedicated arguments also exist: win10x64-esp, win10x64-es-mx, win11x64-esp and win11x64-es-mx. These try Microsoft's official download first and, if the request is blocked (for example by the Sentinel anti-abuse system), fall back to an identical archive.org copy." | format
     echo ""
     echo "Architecture"
     echo "------------"
@@ -172,7 +176,11 @@ readonly win81x64_ent_64_esp="win81x64-ent-64-esp.iso"
 readonly win10x64="win10x64.iso"
 readonly win10x86_esp="win10x86-espanol.iso"
 readonly win10x86_es_mx="win10x86-es-mexico.iso"
+readonly win10x64_esp="win10x64-espanol.iso"
+readonly win10x64_es_mx="win10x64-es-mexico.iso"
 readonly win11x64="win11x64.iso"
+readonly win11x64_esp="win11x64-espanol.iso"
+readonly win11x64_es_mx="win11x64-es-mexico.iso"
 readonly win81x64_enterprise_eval="win81x64-enterprise-eval.iso"
 readonly win10x64_enterprise_eval="win10x64-enterprise-eval.iso"
 readonly win11x64_enterprise_eval="win11x64-enterprise-eval.iso"
@@ -247,14 +255,26 @@ parse_args() {
             win10x64)
                 media_list="$media_list $win10x64"
                 ;;
-            win10x86_esp)
+            win10x86-esp | win10x86_esp)
                 media_list="$media_list $win10x86_esp"
                 ;;
-            win10x86_es_mx)
+            win10x86-es-mx | win10x86_es_mx)
                 media_list="$media_list $win10x86_es_mx"
+                ;;
+            win10x64-esp)
+                media_list="$media_list $win10x64_esp"
+                ;;
+            win10x64-es-mx)
+                media_list="$media_list $win10x64_es_mx"
                 ;;
             win11x64)
                 media_list="$media_list $win11x64"
+                ;;
+            win11x64-esp)
+                media_list="$media_list $win11x64_esp"
+                ;;
+            win11x64-es-mx)
+                media_list="$media_list $win11x64_es_mx"
                 ;;
             win81x64-enterprise-eval)
                 media_list="$media_list $win81x64_enterprise_eval"
@@ -347,7 +367,7 @@ parse_args() {
                 media_list="$media_list $hyperv2019_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
+                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -523,7 +543,9 @@ consumer_download() {
     out_file="$1"
     # Either 8, 10, or 11
     windows_version="$2"
-    locale="$MIDO_LANG"
+    # Optional per-call locale override. Defaults to the global MIDO_LANG so
+    # existing callers keep working unchanged.
+    locale="${3:-$MIDO_LANG}"
     # Language name as expected by Microsoft's API (e.g. "English", "Spanish", "Spanish (Mexico)")
     api_language="$(locale_to_api_language "$locale")"
 
@@ -634,6 +656,42 @@ consumer_download() {
 
     # Download ISO
     scurl_file "$out_file" "1.3" "$iso_download_link"
+}
+
+consumer_download_or_archive() {
+    # Try Microsoft's official (Sentinel-gated) consumer download first.
+    # If it fails (for example because Microsoft's Sentinel anti-abuse system
+    # rejects the request based on IP reputation), transparently fall back to an
+    # archive.org copy of the same release.
+    out_file="$1"
+    windows_version="$2"
+    locale="$3"
+    archive_url="$4"
+
+    # Preserve any manual-verification request made by earlier media so that a
+    # successful fallback does not suppress it
+    manual_verification_before="$manual_verification"
+
+    echo_info "Trying Microsoft's official download first ($locale)..."
+    if consumer_download "$out_file" "$windows_version" "$locale"; then
+        return 0
+    fi
+
+    echo_err "Microsoft's official download was unavailable (Sentinel block or API change)."
+    echo_info "Falling back to an archive.org copy..."
+
+    # The archive.org ISO is a different build than the one Microsoft's API
+    # would have served, so never resume a partial download from the official
+    # attempt (that would corrupt the file)
+    rm -f "${out_file}${part_ext}"
+
+    if scurl_file "$out_file" "1.3" "$archive_url"; then
+        manual_verification="$manual_verification_before"
+        echo_ok "Downloaded $out_file from the archive.org fallback."
+        return 0
+    fi
+
+    return 1
 }
 
 enterprise_eval_download() {
@@ -762,6 +820,16 @@ download_media() {
                 echo_info "Downloading Windows 10..."
                 consumer_download "$(localized_media "$media")" 10
                 ;;
+            "$win10x64_esp")
+                echo_info "Downloading Windows 10 Spanish (Spain)..."
+                # Microsoft's official (Sentinel-gated) download first, archive.org fallback
+                consumer_download_or_archive "$media" 10 "es-ES" "https://archive.org/download/windows-10-2022-update-spanish-x64/Windows%2010%2022H2%20(Spanish)%20x64.iso"
+                ;;
+            "$win10x64_es_mx")
+                echo_info "Downloading Windows 10 Spanish (Mexico)..."
+                # Microsoft's official (Sentinel-gated) download first, archive.org fallback
+                consumer_download_or_archive "$media" 10 "es-MX" "https://archive.org/download/win-10-22-h-2-spanish-mexico-x-64/Win10_22H2_Spanish_Mexico_x64.iso"
+                ;;
             "$win10x86_esp")
                 echo_info "Downloading Windows 10 32-bit Spanish (Spain)..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-10-22h2-spanish-x86-x64/windows-10-22h2-spanish-x86-x64.iso"
@@ -773,6 +841,16 @@ download_media() {
             "$win11x64")
                 echo_info "Downloading Windows 11..."
                 consumer_download "$(localized_media "$media")" 11
+                ;;
+            "$win11x64_esp")
+                echo_info "Downloading Windows 11 Spanish (Spain)..."
+                # Microsoft's official (Sentinel-gated) download first, archive.org fallback
+                consumer_download_or_archive "$media" 11 "es-ES" "https://archive.org/download/Win11_23H2_Spanish_x64/Win11_23H2_Spanish_x64.iso"
+                ;;
+            "$win11x64_es_mx")
+                echo_info "Downloading Windows 11 Spanish (Mexico)..."
+                # Microsoft's official (Sentinel-gated) download first, archive.org fallback
+                consumer_download_or_archive "$media" 11 "es-MX" "https://archive.org/download/win-11-23-h-2-spanish-mexico-x-64/Win11_23H2_Spanish_Mexico_x64.iso"
                 ;;
 
             "$win81x64_enterprise_eval")

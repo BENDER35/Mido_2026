@@ -79,6 +79,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | Familia | Fuente | Autenticación |
 |---|---|---|
 | `win10x64`, `win11x64` | API JSON de consumidor | Handshake de Sentinel |
+| `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp`, `win11x64-es-mx` | API JSON de consumidor primero, respaldo de `archive.org` | Handshake de Sentinel (oficial) |
 | `win10x86` (x86 español) | instantáneas de `archive.org` | ninguna |
 | `win81x64` | API JSON de consumidor | Retirada (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | instantáneas de `archive.org` | ninguna |
@@ -193,6 +194,16 @@ Los nombres de archivo de idiomas no por defecto llevan un sufijo de locale vía
 en distintos idiomas nunca se sobrescriban. Como Microsoft solo publica checksums
 de las ISOs en inglés, los archivos localizados entran en la ruta
 `NO KNOWN CHECKSUM (skipping verification)` (ver más abajo).
+
+Además de `MIDO_LANG`, hay argumentos dedicados para Windows 10/11 x64 en
+español: `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp` y `win11x64-es-mx`.
+Cada uno usa `consumer_download_or_archive`: primero intenta la descarga oficial
+de Microsoft (con el locale correspondiente) y, si la petición falla
+—habitualmente porque el servicio antiabuso *Sentinel* la rechaza según la
+reputación de la IP—, elimina el `.PART` de la descarga oficial para no mezclar
+dos compilaciones distintas y descarga una copia idéntica archivada en
+`archive.org`. Los respaldos apuntan a compilaciones 22H2 (Windows 10) y 23H2
+(Windows 11) en `es-ES`/`es-MX`.
 
 La API JSON de consumidor expone SKUs localizados solo para ediciones de consumidor
 x64. Para ISOs en español de 32 bits (x86), Mido usa instantáneas de archive.org
@@ -322,10 +333,11 @@ Microsoft los rota.
 
 | Síntoma | Causa | Acción |
 |---|---|---|
-| `Sentinel marked this request as rejected` | Bloqueo por reputación de IP | Espera 24–48 h, usa una VPN o descarga manualmente |
-| `715-123130` | IP baneada por Microsoft | Igual que arriba |
+| `Sentinel marked this request as rejected` | Bloqueo por reputación de IP | Espera 24–48 h, usa una VPN o descarga manualmente. Los argumentos en español dedicados (`win10x64-esp`, `win10x64-es-mx`, `win11x64-esp`, `win11x64-es-mx`) recurren automáticamente a archive.org |
+| `715-123130` | IP baneada por Microsoft | Igual que arriba (los argumentos en español dedicados recurren a archive.org) |
 | `win81x64` → HTTP 404 | Microsoft retiró la automatización de Windows 8.1 | Usa `win81x64-enterprise-eval` |
 | Windows 7 muy lento | Límite de velocidad de Wayback Machine | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
+| Respaldo archive.org lento (Windows 10/11 en español) | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; se reanuda automáticamente |
 | Windows 10 x86 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows 8.1 Enterprise en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows Server 2008 R2 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |

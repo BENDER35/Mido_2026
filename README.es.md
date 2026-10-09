@@ -122,8 +122,12 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32 bits español (obtenido de archive.org) |
 | `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64 bits español (obtenido de archive.org) |
 | `win10x64` | Windows 10 x64 (multiedición) |
+| `win10x64-esp` | Windows 10 x64 español (España) — primero Microsoft oficial, si falla archive.org |
+| `win10x64-es-mx` | Windows 10 x64 español (México) — primero Microsoft oficial, si falla archive.org |
 | `win10x86` | Windows 10 x86 (32-bit) español — España (`win10x86-esp`) o México (`win10x86-es-mx`) |
 | `win11x64` | Windows 11 x64 (multiedición) |
+| `win11x64-esp` | Windows 11 x64 español (España) — primero Microsoft oficial, si falla archive.org |
+| `win11x64-es-mx` | Windows 11 x64 español (México) — primero Microsoft oficial, si falla archive.org |
 | `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
@@ -166,7 +170,12 @@ Define la variable de entorno `MIDO_LANG` con uno de estos valores:
 | `es-MX` | Español (México) |
 
 Las ISOs en español están disponibles para las versiones de **consumidor**
-(`win10x64`, `win11x64`). Además, Windows 10 de 32 bits (x86) en español está
+(`win10x64`, `win11x64`). Además de la variable `MIDO_LANG`, existen argumentos
+dedicados para español de España y de México: `win10x64-esp`,
+`win10x64-es-mx`, `win11x64-esp` y `win11x64-es-mx`. Estos intentan primero la
+descarga oficial de Microsoft y, si la petición es rechazada (por ejemplo por el
+sistema antiabuso Sentinel), usan una copia idéntica de archive.org como
+respaldo. Windows 10 de 32 bits (x86) en español está
 disponible vía archive.org para España (`win10x86-esp`) y México (`win10x86-es-mx`).
 Windows 8.1 Enterprise en español también está disponible vía archive.org tanto
 para 32 bits (`win81x64-ent-32-espa`) como para 64 bits (`win81x64-ent-64-esp`).
@@ -224,7 +233,13 @@ de Microsoft (además de soporte a largo plazo).
 - **"Sentinel marked this request as rejected"** — el sistema antiabuso de
   Microsoft bloqueó la petición según la reputación de tu IP. Espera 24–48 horas,
   usa una VPN o descarga manualmente desde la página oficial. **No** es un bug de
-  Mido; el autor de Fido documenta el mismo comportamiento.
+  Mido; el autor de Fido documenta el mismo comportamiento. Los argumentos
+  `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp` y `win11x64-es-mx` evitan este
+  problema porque recurren automáticamente a una copia de archive.org.
+- **Respaldo archive.org** — las ISOs en español dedicadas intentan primero la
+  descarga oficial de Microsoft y, si Sentinel la rechaza, descargan una copia
+  idéntica desde `archive.org` (más lento que la CDN de Microsoft). Mido reintenta
+  y reanuda automáticamente.
 - **Windows 8.1 (`win81x64`) falla con HTTP 404** — Microsoft retiró la descarga
   automática de Windows 8.1. Usa `win81x64-enterprise-eval`.
 - **Windows 7 va lento** — proviene de `web.archive.org`, mucho más lento y menos
