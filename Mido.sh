@@ -155,6 +155,7 @@ readonly win81x64_enterprise_eval="win81x64-enterprise-eval.iso"
 readonly win10x64_enterprise_eval="win10x64-enterprise-eval.iso"
 readonly win11x64_enterprise_eval="win11x64-enterprise-eval.iso"
 readonly win10x64_enterprise_ltsc_eval="win10x64-enterprise-ltsc-eval.iso"
+readonly win11x64_enterprise_ltsc_eval="win11x64-enterprise-ltsc-eval.iso"
 readonly win2008r2="win2008r2.iso"
 readonly win2012r2_eval="win2012r2-eval.iso"
 readonly win2016_eval="win2016-eval.iso"
@@ -220,6 +221,9 @@ parse_args() {
             win10x64-enterprise-ltsc-eval)
                 media_list="$media_list $win10x64_enterprise_ltsc_eval"
                 ;;
+            win11x64-enterprise-ltsc-eval)
+                media_list="$media_list $win11x64_enterprise_ltsc_eval"
+                ;;
             win2008r2)
                 media_list="$media_list $win2008r2"
                 ;;
@@ -236,7 +240,7 @@ parse_args() {
                 media_list="$media_list $win2022_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
+                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -677,15 +681,19 @@ download_media() {
                 ;;
             "$win10x64_enterprise_eval")
                 echo_info "Downloading Windows 10 Enterprise Evaluation..."
-                enterprise_eval_download "$(localized_media "$media")" windows-10-enterprise enterprise
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-10-21-h-2-enterprise-ltsc/Windows_10_21H2_Enterprise_LTSC.iso"
                 ;;
             "$win11x64_enterprise_eval")
                 echo_info "Downloading Windows 11 Enterprise Evaluation..."
-                enterprise_eval_download "$(localized_media "$media")" windows-11-enterprise enterprise
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en-us_windows_11_enterprise_ltsc_2024_x64_dvd_965cfb00/en-us_windows_11_enterprise_ltsc_2024_x64_dvd_965cfb00.iso"
                 ;;
             "$win10x64_enterprise_ltsc_eval")
                 echo_info "Downloading Windows 10 Enterprise LTSC Evaluation..."
-                enterprise_eval_download "$(localized_media "$media")" windows-10-enterprise ltsc
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win10-EnterpriseLTSC-21H2/19044.1288.211006-0501.21h2_release_svc_refresh_CLIENT_LTSC_EVAL_x64FRE_en-us.iso"
+                ;;
+            "$win11x64_enterprise_ltsc_eval")
+                echo_info "Downloading Windows 11 Enterprise LTSC Evaluation..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en-us_windows_11_enterprise_ltsc_2024_x64_dvd_965cfb00/en-us_windows_11_enterprise_ltsc_2024_x64_dvd_965cfb00.iso"
                 ;;
 
             "$win2008r2")
