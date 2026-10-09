@@ -107,6 +107,10 @@ usage() {
     echo "  win11x64-enterprise-ltsc-eval (most secure)"
     echo "  win2008r2"
     echo "  win2008r2-espa (Spanish, archive.org)"
+    echo "  win2003-server (archive.org)"
+    echo "  win2003-server-espa (Spanish, archive.org)"
+    echo "  win2000-server (archive.org)"
+    echo "  win2000-server-espa (Spanish, archive.org)"
     echo "  win2012r2-eval"
     echo "  win2016-eval"
     echo "  win2019-eval"
@@ -135,7 +139,7 @@ usage() {
     echo ""
     echo "Architecture"
     echo "------------"
-    echo "All the downloads provided here are for x86-64 (x64). This is the only architecture Microsoft ships Windows Server in.$([ -d /run/qubes ] && echo ' Also, the only architecture Qubes OS supports.')" | format
+    echo "Most downloads provided here are for x86-64 (x64). Some legacy media (Vista, Server 2003 and Server 2000) are 32-bit (x86) or offer both architectures. x64 is the only architecture Microsoft ships modern Windows Server in.$([ -d /run/qubes ] && echo ' Also, the only architecture Qubes OS supports.')" | format
 }
 
 # Media naming scheme info:
@@ -162,6 +166,10 @@ readonly win10x64_enterprise_ltsc_eval="win10x64-enterprise-ltsc-eval.iso"
 readonly win11x64_enterprise_ltsc_eval="win11x64-enterprise-ltsc-eval.iso"
 readonly win2008r2="win2008r2.iso"
 readonly win2008r2_espa="win2008r2-espa.iso"
+readonly win2003_server="win2003-server.iso"
+readonly win2003_server_espa="win2003-server-espa.iso"
+readonly win2000_server="win2000-server.iso"
+readonly win2000_server_espa="win2000-server-espa.iso"
 readonly win2012r2_eval="win2012r2-eval.iso"
 readonly win2016_eval="win2016-eval.iso"
 readonly win2019_eval="win2019-eval.iso"
@@ -241,6 +249,18 @@ parse_args() {
             win2008r2-espa)
                 media_list="$media_list $win2008r2_espa"
                 ;;
+            win2003-server)
+                media_list="$media_list $win2003_server"
+                ;;
+            win2003-server-espa)
+                media_list="$media_list $win2003_server_espa"
+                ;;
+            win2000-server)
+                media_list="$media_list $win2000_server"
+                ;;
+            win2000-server-espa)
+                media_list="$media_list $win2000_server_espa"
+                ;;
             win2012r2-eval)
                 media_list="$media_list $win2012r2_eval"
                 ;;
@@ -257,7 +277,7 @@ parse_args() {
                 media_list="$media_list $win2025_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
+                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2003_server $win2003_server_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -726,6 +746,30 @@ download_media() {
                 # Same build as the English direct link above (7601.17514.101119-1850)
                 # Source: https://archive.org/details/wserver2008r2
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/wserver2008r2/7601.17514.101119-1850_x64fre_server_eval_es-es-GRMSXEVAL_ES_DVD.iso"
+                ;;
+            "$win2003_server")
+                echo_info "Downloading Windows Server 2003 Enterprise..."
+                # Windows Server 2003 Enterprise Edition RTM (retail), archived on archive.org
+                # Source: https://archive.org/details/microsoft-windows-server-2003-enterprise-edition-retail-license-english-5.2.3790
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/microsoft-windows-server-2003-enterprise-edition-retail-license-english-5.2.3790/en_windows_server_2003_enterprise.iso"
+                ;;
+            "$win2003_server_espa")
+                echo_info "Downloading Windows Server 2003 Enterprise Spanish (Español)..."
+                # Windows Server 2003 Enterprise Edition RTM in Spanish, archived on archive.org
+                # Source: https://archive.org/details/WinServer2003EnterpriseRTMESP
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinServer2003EnterpriseRTMESP/es_windows_server_2003_enterprise.iso"
+                ;;
+            "$win2000_server")
+                echo_info "Downloading Windows 2000 Server SP4..."
+                # Windows 2000 Server SP4 (retail), archived on archive.org
+                # Source: https://archive.org/details/win_2000_server_sp4_english_202605
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win_2000_server_sp4_english_202605/Windows2000ServerSP4.ISO"
+                ;;
+            "$win2000_server_espa")
+                echo_info "Downloading Windows 2000 Server SP4 Spanish (Español)..."
+                # Windows 2000 Server SP4 in Spanish, archived on archive.org
+                # Source: https://archive.org/details/w2k-srv-sp4-esp
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-srv-sp4-esp/W2K-SRV-SP4-ESP.ISO"
                 ;;
             "$win2012r2_eval")
                 echo_info "Downloading Windows Server 2012 R2 Evaluation..."

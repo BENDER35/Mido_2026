@@ -119,6 +119,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (most secure) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, English) |
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, Spanish eval, sourced from archive.org) |
+| `win2003-server` | Windows Server 2003 Enterprise (x86, English, sourced from archive.org) |
+| `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Spanish, sourced from archive.org) |
+| `win2000-server` | Windows 2000 Server SP4 (English, sourced from archive.org) |
+| `win2000-server-espa` | Windows 2000 Server SP4 (Spanish, sourced from archive.org) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
 | `win2016-eval` | Windows Server 2016 Evaluation |
 | `win2019-eval` | Windows Server 2019 Evaluation |
@@ -141,7 +145,9 @@ for both Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
 Windows 8.1 Enterprise Spanish ISOs are also available via archive.org for both
 32-bit (`win81x64-ent-32-espa`) and 64-bit (`win81x64-ent-64-esp`).
 A Spanish Windows Server 2008 R2 SP1 evaluation ISO is available via archive.org
-(`win2008r2-espa`).
+(`win2008r2-espa`). Windows Server 2003 Enterprise and Windows 2000 Server SP4 are
+also available in both English and Spanish via archive.org
+(`win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa`).
 Windows Vista SP2 ISOs in Spanish are also available via archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Enterprise, Server and Evaluation media are otherwise English-only, as published
@@ -173,7 +179,7 @@ See [docs/TECHNICAL.md](docs/TECHNICAL.md) for a full walk-through.
 
 ## What else can Mido do?
 
-Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2025) and Enterprise editions of every Windows version all the way back to Windows 7 (or Server 2008 R2)!
+Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2025) and Enterprise editions of every Windows version all the way back to Windows 7 (or Windows Server 2008 R2, and even Server 2003 and 2000 Server)!
 
 Want a more secure and minimalist Windows installation out-of-the-box that's officially provided by Microsoft? Then download the LTSC version of Windows. It comes with way less bloat and supports Microsoft's ["Security"](https://learn.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization#diagnostic-data-settings) telemetry mode (plus it comes with long-term support).
 
@@ -195,6 +201,8 @@ Want a more secure and minimalist Windows installation out-of-the-box that's off
   be slower than Microsoft's CDN. Mido retries and resumes automatically.
 - **Windows Server 2008 R2 Spanish ISO** — sourced from `archive.org`, which may be
   slower than Microsoft's CDN. Mido retries and resumes automatically.
+- **Windows Server 2003 / Windows 2000 Server ISOs** — sourced from `archive.org`,
+  which may be slower than Microsoft's CDN. Mido retries and resumes automatically.
 - **Windows Vista ISOs** — sourced from `archive.org`, which may be slower than
   Microsoft's CDN. Mido retries and resumes automatically.
 - **Enterprise/Server "no download link"** — Microsoft periodically changes the

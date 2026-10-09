@@ -82,6 +82,7 @@ Different media families are fetched in different ways:
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
 | `win2008r2-espa` | `archive.org` snapshot of the official Spanish eval ISO | none |
+| `win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win2012r2-eval` … `win2025-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
@@ -194,8 +195,12 @@ For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
 22H2 builds (`win10x86-esp` for Spain, `win10x86-es-mx` for Mexico). Windows 8.1
 Enterprise Spanish ISOs are likewise archived on archive.org
 (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). A Spanish evaluation ISO of
-Windows Server 2008 R2 SP1 (`win2008r2-espa`) is also archived there. These are
-not covered by the Microsoft API and have no published checksums.
+Windows Server 2008 R2 SP1 (`win2008r2-espa`) is also archived there, as are
+Windows Server 2003 Enterprise (`win2003-server`, `win2003-server-espa`) and
+Windows 2000 Server SP4 (`win2000-server`, `win2000-server-espa`) in English and
+Spanish. These are not covered by the Microsoft API and have no published
+checksums. Note that Server 2003 and Server 2000 are 32-bit (x86) media, unlike
+the modern x64 Server releases.
 
 Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
 (`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).
@@ -318,6 +323,7 @@ rotates them.
 | Windows 10 x86 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows 8.1 Enterprise Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows Server 2008 R2 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
+| Windows Server 2003 / 2000 Server very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows Vista ISOs very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | `NO KNOWN CHECKSUM` | Localized ISO without a published hash | Verify manually if you wish |
 | Enterprise/Server `no download link` | Evaluation Center page changed | Open an issue |

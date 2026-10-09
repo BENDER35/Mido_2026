@@ -131,6 +131,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (la más segura) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, Inglés) |
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, eval en español, obtenido de archive.org) |
+| `win2003-server` | Windows Server 2003 Enterprise (x86, Inglés, obtenido de archive.org) |
+| `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Español, obtenido de archive.org) |
+| `win2000-server` | Windows 2000 Server SP4 (Inglés, obtenido de archive.org) |
+| `win2000-server-espa` | Windows 2000 Server SP4 (Español, obtenido de archive.org) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
 | `win2016-eval` | Windows Server 2016 Evaluation |
 | `win2019-eval` | Windows Server 2019 Evaluation |
@@ -153,7 +157,9 @@ disponible vía archive.org para España (`win10x86-esp`) y México (`win10x86-e
 Windows 8.1 Enterprise en español también está disponible vía archive.org tanto
 para 32 bits (`win81x64-ent-32-espa`) como para 64 bits (`win81x64-ent-64-esp`).
 Una ISO de evaluación en español de Windows Server 2008 R2 SP1 está disponible
-vía archive.org (`win2008r2-espa`).
+vía archive.org (`win2008r2-espa`). Windows Server 2003 Enterprise y Windows 2000
+Server SP4 también están disponibles en inglés y español vía archive.org
+(`win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa`).
 Windows Vista SP2 en español también está disponible vía archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Los medios Enterprise, Server y Evaluation son, por lo demás, únicamente en inglés,
@@ -186,8 +192,8 @@ Consulta [docs/TECHNICAL.es.md](docs/TECHNICAL.es.md) para el recorrido completo
 
 Además de las versiones de consumidor (Windows 10 y 11), puede descargar
 automáticamente las últimas ediciones Server (por ejemplo Windows Server 2025) y
-Enterprise de casi todas las versiones, desde Windows 7 (o Server 2008 R2) en
-adelante.
+Enterprise de casi todas las versiones, desde Windows 7 (o Server 2008 R2, e
+incluso Server 2003 y 2000 Server) en adelante.
 
 ¿Quieres una instalación de Windows más segura y minimalista, pero oficial de
 Microsoft? Descarga la versión LTSC de Windows. Incluye mucho menos bloatware y
@@ -211,6 +217,9 @@ de Microsoft (además de soporte a largo plazo).
   más lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
 - **Windows Server 2008 R2 en español** — proviene de `archive.org`, que puede ser
   más lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
+- **Windows Server 2003 / Windows 2000 Server** — provienen de `archive.org`, que
+  puede ser más lento que la CDN de Microsoft. Mido reintenta y reanuda
+  automáticamente.
 - **Windows Vista en español** — proviene de `archive.org`, que puede ser más
   lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
 - **Enterprise/Server "no download link"** — Microsoft cambia periódicamente las
