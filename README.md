@@ -134,12 +134,20 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win2000-pro-espa` | Windows 2000 Professional SP4 Spanish (sourced from archive.org) |
 | `win-xp-pro` | Windows XP Professional SP3 (English, sourced from archive.org) |
 | `win-xp-pro-espa` | Windows XP Professional SP3 Spanish (sourced from archive.org) |
+| `win-xp-pro-32` | Windows XP Professional x86 (32-bit, sourced from archive.org) |
+| `win-xp-pro-64` | Windows XP Professional x64 (64-bit, sourced from archive.org) |
 | `win7x64-pro` | Windows 7 Professional x64 (sourced from archive.org) |
 | `win7x64-pro-esp` | Windows 7 Professional x64 Spanish — Microsoft official first, archive.org fallback |
 | `win7x64-pro-es-mx` | Windows 7 Professional x64 Mexican Spanish — Microsoft official first, archive.org fallback |
+| `win7x86-pro` | Windows 7 Professional x86 (32-bit, sourced from archive.org) |
+| `win7x86-pro-esp` | Windows 7 Professional x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x86-pro-es-mx` | Windows 7 Professional x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win81x64-pro` | Windows 8.1 Pro x64 — Microsoft retired automation, use archive.org |
 | `win81x64-pro-esp` | Windows 8.1 Pro Spanish (Spain) — Microsoft official first, archive.org fallback |
 | `win81x64-pro-es-mx` | Windows 8.1 Pro Spanish (Mexico) — Microsoft official first, archive.org fallback |
+| `win81x86-pro` | Windows 8.1 Pro x86 (32-bit, sourced from archive.org) |
+| `win81x86-pro-esp` | Windows 8.1 Pro x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win81x86-pro-es-mx` | Windows 8.1 Pro x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win2003-server` | Windows Server 2003 Enterprise (x86, English, sourced from archive.org) |
 | `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Spanish, sourced from archive.org) |
 | `win2003-server-x64` | Windows Server 2003 R2 Enterprise x64 SP2 (English, sourced from archive.org) |
