@@ -43,6 +43,8 @@ script.
 ```
 .
 ├── Mido.sh               # todo el programa
+├── Mido.bat              # wrapper por lotes de Windows (ejecuta Mido.sh vía WSL)
+├── Mido.ps1              # wrapper PowerShell de Windows (ejecuta Mido.sh vía WSL)
 ├── README.md             # documentación de usuario (inglés)
 ├── README.es.md          # documentación de usuario (español)
 ├── docs/
@@ -79,11 +81,17 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win10x64`, `win11x64` | API JSON de consumidor | Handshake de Sentinel |
 | `win10x86` (x86 español) | instantáneas de `archive.org` | ninguna |
 | `win81x64` | API JSON de consumidor | Retirada (HTTP 404) |
-| `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
-| `win2012r2-eval` … `win2022-eval` | HTML del Evaluation Center | ninguna |
+| `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | instantáneas de `archive.org` | ninguna |
+| `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
+| `win2012r2-eval` … `win2025-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
 | `win7x64-ultimate` | instantánea de `web.archive.org` | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
+
+> Las evaluaciones Enterprise y LTSC de Windows 10/11 se migraron desde el HTML
+> (poco fiable) del Evaluation Center a ISOs archivadas en `archive.org`. La ruta
+> `enterprise_eval_download` restante ahora solo la usan las evaluaciones Server
+> (`win2012r2-eval` … `win2025-eval`).
 
 ## La API JSON de consumidor
 
@@ -184,8 +192,9 @@ de las ISOs en inglés, los archivos localizados entran en la ruta
 La API JSON de consumidor expone SKUs localizados solo para ediciones de consumidor
 x64. Para ISOs en español de 32 bits (x86), Mido usa instantáneas de archive.org
 de compilaciones Windows 10 22H2 (`win10x86-esp` para España, `win10x86-es-mx`
-para México). Estas no están cubiertas por la API de Microsoft y no tienen
-checksums publicados.
+para México). Las ISOs en español de Windows 8.1 Enterprise también están
+archivadas en archive.org (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). Estas
+no están cubiertas por la API de Microsoft y no tienen checksums publicados.
 
 > Solo las ediciones de **consumidor** exponen SKUs localizados a través de esta
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como
@@ -305,6 +314,7 @@ Microsoft los rota.
 | `win81x64` → HTTP 404 | Microsoft retiró la automatización de Windows 8.1 | Usa `win81x64-enterprise-eval` |
 | Windows 7 muy lento | Límite de velocidad de Wayback Machine | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows 10 x86 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
+| Windows 8.1 Enterprise en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows Vista ISOs muy lentas | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | `NO KNOWN CHECKSUM` | ISO localizada sin hash publicado | Verifica manualmente si lo deseas |
 | Enterprise/Server `no download link` | La página del Evaluation Center cambió | Abre un issue |
@@ -334,8 +344,8 @@ después de verificar el nuevo hash por un canal independiente.
 una rama a `locale_to_api_language`; `localized_media` funciona automáticamente.
 
 **Añadir un medio.** Agrega una variable `readonly` junto a los demás medios, una
-rama en `parse_args` (incluida la lista de `all`), un `case` en `download_media`
-y, si procede, una línea de checksum.
+rama en `parse_args` (incluida la lista de `all`), un `case` en `download_media`,
+una entrada en `usage()` y, si procede, una línea de checksum.
 
 **Renovar las constantes de Sentinel.** Actualiza
 `ORG_ID`/`PROFILE_ID`/`INSTANCE_ID` desde una versión actual de Fido si Microsoft

@@ -119,6 +119,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `vista-es-x86-sp2` | Windows Vista SP2 x86 español (obtenido de archive.org) |
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (obtenido de Wayback Machine) |
 | `win81x64` | Windows 8.1 x64 (**retirado por Microsoft**, usa la Enterprise Eval) |
+| `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32 bits español (obtenido de archive.org) |
+| `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64 bits español (obtenido de archive.org) |
 | `win10x64` | Windows 10 x64 (multiedición) |
 | `win10x86` | Windows 10 x86 (32-bit) español — España (`win10x86-esp`) o México (`win10x86-es-mx`) |
 | `win11x64` | Windows 11 x64 (multiedición) |
@@ -126,11 +128,13 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (la más segura) |
+| `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (la más segura) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, Inglés) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
 | `win2016-eval` | Windows Server 2016 Evaluation |
 | `win2019-eval` | Windows Server 2019 Evaluation |
 | `win2022-eval` | Windows Server 2022 Evaluation |
+| `win2025-eval` | Windows Server 2025 Evaluation |
 
 ## Soporte de idiomas
 
@@ -145,11 +149,14 @@ Define la variable de entorno `MIDO_LANG` con uno de estos valores:
 Las ISOs en español están disponibles para las versiones de **consumidor**
 (`win10x64`, `win11x64`). Además, Windows 10 de 32 bits (x86) en español está
 disponible vía archive.org para España (`win10x86-esp`) y México (`win10x86-es-mx`).
+Windows 8.1 Enterprise en español también está disponible vía archive.org tanto
+para 32 bits (`win81x64-ent-32-espa`) como para 64 bits (`win81x64-ent-64-esp`).
 Windows Vista SP2 en español también está disponible vía archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
-Los medios Enterprise, Server y Evaluation son únicamente en inglés, tal como
-los publica Microsoft. Las ISOs en otros idiomas se guardan con un sufijo de
-idioma (por ejemplo `win11x64.es-MX.iso`) para no sobrescribir las inglesas.
+Los medios Enterprise, Server y Evaluation son, por lo demás, únicamente en inglés,
+tal como los publica Microsoft. Las ISOs en otros idiomas se guardan con un sufijo
+de idioma (por ejemplo `win11x64.es-MX.iso`) o con un nombre `-espa`/`-esp`/
+`-es-mexico` según corresponda, para no sobrescribir las inglesas.
 Como Microsoft no publica checksums oficiales de cada versión localizada, las
 ISOs localizadas pueden mostrar `NO KNOWN CHECKSUM (skipping verification)`.
 
@@ -175,7 +182,7 @@ Consulta [docs/TECHNICAL.es.md](docs/TECHNICAL.es.md) para el recorrido completo
 ## ¿Qué más puede hacer Mido?
 
 Además de las versiones de consumidor (Windows 10 y 11), puede descargar
-automáticamente las últimas ediciones Server (por ejemplo Windows Server 2022) y
+automáticamente las últimas ediciones Server (por ejemplo Windows Server 2025) y
 Enterprise de casi todas las versiones, desde Windows 7 (o Server 2008 R2) en
 adelante.
 
@@ -197,6 +204,8 @@ de Microsoft (además de soporte a largo plazo).
 - **Windows 10 x86 en español** — proviene de `archive.org` (compilaciones Windows
   10 22H2), que puede ser más lento que la CDN de Microsoft. Mido reintenta y
   reanuda automáticamente.
+- **Windows 8.1 Enterprise en español** — proviene de `archive.org`, que puede ser
+  más lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
 - **Windows Vista en español** — proviene de `archive.org`, que puede ser más
   lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
 - **Enterprise/Server "no download link"** — Microsoft cambia periódicamente las

@@ -107,6 +107,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `vista-es-x86-sp2` | Windows Vista SP2 x86 Spanish (sourced from archive.org) |
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (sourced from the Wayback Machine) |
 | `win81x64` | Windows 8.1 x64 (**retired by Microsoft**, use the Enterprise Eval) |
+| `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32-bit Spanish (sourced from archive.org) |
+| `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64-bit Spanish (sourced from archive.org) |
 | `win10x64` | Windows 10 x64 (multi-edition) |
 | `win10x86` | Windows 10 x86 (32-bit) Spanish — Spain (`win10x86-esp`) or Mexico (`win10x86-es-mx`) |
 | `win11x64` | Windows 11 x64 (multi-edition) |
@@ -114,11 +116,13 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (most secure) |
+| `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (most secure) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, English) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
 | `win2016-eval` | Windows Server 2016 Evaluation |
 | `win2019-eval` | Windows Server 2019 Evaluation |
 | `win2022-eval` | Windows Server 2022 Evaluation |
+| `win2025-eval` | Windows Server 2025 Evaluation |
 
 ## Language support
 
@@ -133,12 +137,15 @@ Set the `MIDO_LANG` environment variable to one of:
 Spanish ISOs are available for the **consumer** versions (`win10x64`, `win11x64`).
 Additionally, Windows 10 32-bit (x86) ISOs in Spanish are available via archive.org
 for both Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
+Windows 8.1 Enterprise Spanish ISOs are also available via archive.org for both
+32-bit (`win81x64-ent-32-espa`) and 64-bit (`win81x64-ent-64-esp`).
 Windows Vista SP2 ISOs in Spanish are also available via archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
-Enterprise, Server and Evaluation media are English-only, as published by Microsoft.
-Non-English ISOs are written with a locale suffix (e.g. `win11x64.es-MX.iso`) so
-they never overwrite the English ones. Because Microsoft does not publish public
-checksums for every localized release, localized ISOs may report
+Enterprise, Server and Evaluation media are otherwise English-only, as published
+by Microsoft. Non-English ISOs are written with a locale suffix (e.g.
+`win11x64.es-MX.iso`) or a `-espa`/`-esp`/`-es-mexico` filename as appropriate,
+so they never overwrite the English ones. Because Microsoft does not publish
+public checksums for every localized release, localized ISOs may report
 `NO KNOWN CHECKSUM (skipping verification)`.
 
 ## How does Mido work?
@@ -163,7 +170,7 @@ See [docs/TECHNICAL.md](docs/TECHNICAL.md) for a full walk-through.
 
 ## What else can Mido do?
 
-Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2022) and Enterprise editions of every Windows version all the way back to Windows 7 (or Server 2008 R2)!
+Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2025) and Enterprise editions of every Windows version all the way back to Windows 7 (or Server 2008 R2)!
 
 Want a more secure and minimalist Windows installation out-of-the-box that's officially provided by Microsoft? Then download the LTSC version of Windows. It comes with way less bloat and supports Microsoft's ["Security"](https://learn.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization#diagnostic-data-settings) telemetry mode (plus it comes with long-term support).
 
@@ -181,6 +188,8 @@ Want a more secure and minimalist Windows installation out-of-the-box that's off
 - **Windows 10 x86 Spanish ISOs** — sourced from `archive.org` (Windows 10 22H2
   builds), which may be slower than Microsoft's CDN. Mido retries and resumes
   automatically.
+- **Windows 8.1 Enterprise Spanish ISOs** — sourced from `archive.org`, which may
+  be slower than Microsoft's CDN. Mido retries and resumes automatically.
 - **Windows Vista ISOs** — sourced from `archive.org`, which may be slower than
   Microsoft's CDN. Mido retries and resumes automatically.
 - **Enterprise/Server "no download link"** — Microsoft periodically changes the

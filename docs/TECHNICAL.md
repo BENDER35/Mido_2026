@@ -42,6 +42,8 @@ anyone who wants to audit the script.
 ```
 .
 ├── Mido.sh               # the entire program
+├── Mido.bat              # Windows batch wrapper (runs Mido.sh via WSL)
+├── Mido.ps1              # Windows PowerShell wrapper (runs Mido.sh via WSL)
 ├── README.md             # user documentation (English)
 ├── README.es.md          # user documentation (Spanish)
 ├── docs/
@@ -78,11 +80,17 @@ Different media families are fetched in different ways:
 | `win10x64`, `win11x64` | Consumer JSON API | Sentinel handshake |
 | `win10x86` (x86 Spanish) | `archive.org` snapshots | none |
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
-| `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
-| `win2012r2-eval` … `win2022-eval` | Evaluation Center HTML | none |
+| `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
+| `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
+| `win2012r2-eval` … `win2025-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
 | `win7x64-ultimate` | `web.archive.org` snapshot | none |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
+
+> Windows 10/11 Enterprise and LTSC evaluations were migrated from the
+> (unreliable) Evaluation Center HTML to archived `archive.org` ISOs. The
+> remaining `enterprise_eval_download` path is now used only by the Server
+> evaluations (`win2012r2-eval` … `win2025-eval`).
 
 ## The consumer JSON API
 
@@ -182,8 +190,10 @@ checksums only for the English ISOs, localized files hit the
 
 The consumer JSON API exposes localized SKUs only for x64 consumer editions.
 For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
-22H2 builds (`win10x86-esp` for Spain, `win10x86-es-mx` for Mexico). These are
-not covered by the Microsoft API and have no published checksums.
+22H2 builds (`win10x86-esp` for Spain, `win10x86-es-mx` for Mexico). Windows 8.1
+Enterprise Spanish ISOs are likewise archived on archive.org
+(`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). These are not covered by the
+Microsoft API and have no published checksums.
 
 Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
 (`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).
@@ -304,6 +314,7 @@ rotates them.
 | `win81x64` → HTTP 404 | Microsoft retired Windows 8.1 automation | Use `win81x64-enterprise-eval` |
 | Windows 7 very slow | Wayback Machine throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows 10 x86 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
+| Windows 8.1 Enterprise Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows Vista ISOs very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | `NO KNOWN CHECKSUM` | Localized ISO without a published hash | Verify manually if you wish |
 | Enterprise/Server `no download link` | Evaluation Center page changed | Open an issue |
@@ -333,8 +344,8 @@ verifying the new hash through an independent channel.
 branch to `locale_to_api_language`; `localized_media` then works automatically.
 
 **Add a media.** Add a `readonly` variable near the other media names, a branch
-in `parse_args` (including the `all` list), a `case` in `download_media`, and,
-if applicable, a checksum line.
+in `parse_args` (including the `all` list), a `case` in `download_media`, an
+entry in `usage()`, and, if applicable, a checksum line.
 
 **Renew the Sentinel constants.** Update `ORG_ID`/`PROFILE_ID`/`INSTANCE_ID`
 from a current Fido release if Microsoft rotates them.

@@ -95,6 +95,8 @@ usage() {
     echo "  vista-es-x86-sp2"
     echo "  win7x64-ultimate"
     echo "  win81x64"
+    echo "  win81x64-ent-32-espa (Spanish, archive.org)"
+    echo "  win81x64-ent-64-esp (Spanish, archive.org)"
     echo "  win10x64"
     echo "  win10x86 (use win10x86-esp or win10x86-es-mx)"
     echo "  win11x64"
@@ -102,6 +104,7 @@ usage() {
     echo "  win10x64-enterprise-eval"
     echo "  win11x64-enterprise-eval"
     echo "  win10x64-enterprise-ltsc-eval (most secure)"
+    echo "  win11x64-enterprise-ltsc-eval (most secure)"
     echo "  win2008r2"
     echo "  win2012r2-eval"
     echo "  win2016-eval"
@@ -197,6 +200,12 @@ parse_args() {
             win81x64)
                 media_list="$media_list $win81x64"
                 ;;
+            win81x64-ent-32-espa)
+                media_list="$media_list $win81x64_ent_32_esp"
+                ;;
+            win81x64-ent-64-esp)
+                media_list="$media_list $win81x64_ent_64_esp"
+                ;;
             win10x64)
                 media_list="$media_list $win10x64"
                 ;;
@@ -238,6 +247,9 @@ parse_args() {
                 ;;
             win2022-eval)
                 media_list="$media_list $win2022_eval"
+                ;;
+            win2025-eval)
+                media_list="$media_list $win2025_eval"
                 ;;
             all)
                 media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
