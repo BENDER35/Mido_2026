@@ -87,6 +87,10 @@ Different media families are fetched in different ways:
 | `win2008r2-espa` | `archive.org` snapshot of the official Spanish eval ISO | none |
 | `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | `archive.org` snapshots (official SP2 AIO ISOs) | none |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
+| `win2000-pro`, `win2000-pro-espa` | `archive.org` snapshots (Windows 2000 Professional) | none |
+| `win-xp-pro`, `win-xp-pro-espa` | `archive.org` snapshots (Windows XP Professional) | none |
+| `win7x64-pro`, `win7x64-pro-esp`, `win7x64-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
+| `win81x64-pro`, `win81x64-pro-esp`, `win81x64-pro-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
@@ -224,6 +228,12 @@ Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
 (`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).
 These are not covered by the Microsoft API and have no published checksums.
 
+Windows 2000 Professional, Windows XP Professional and Windows 7 Professional
+ISOs are also sourced from `archive.org` and are not covered by the Microsoft API.
+These have no published checksums.
+
+Windows 8.1 Pro ISOs are also available via the Consumer JSON API first, with
+`archive.org` fallback for Spanish variants (`win81x64-pro-esp`, `win81x64-pro-es-mx`).
 > Only the **consumer** editions expose localized SKUs through this API.
 > Enterprise/Server evaluation media is English-only, as published by Microsoft,
 > so `enterprise_eval_download` intentionally stays on `en-US`.

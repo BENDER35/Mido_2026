@@ -220,6 +220,10 @@ Server SP4 en inglés y español. Server 2003 está disponible como Enterprise d
 es de 32 bits (`win2000-server`, `win2000-server-espa`). Estas no están cubiertas
 por la API de Microsoft y no tienen checksums publicados.
 
+
+Windows 2000 Professional, Windows XP Professional y Windows 7 Professional
+ISOs también están archivadas en `archive.org` y no están cubiertas por la API
+de Microsoft. Estas no tienen checksums publicados.
 > Solo las ediciones de **consumidor** exponen SKUs localizados a través de esta
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como
 > los publica Microsoft, por lo que `enterprise_eval_download` se mantiene a

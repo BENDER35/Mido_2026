@@ -130,6 +130,16 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win2008-server-x64-espa` | Windows Server 2008 SP2 (x64, Spanish, all editions, sourced from archive.org) |
 | `win2008-server-x86` | Windows Server 2008 SP2 (x86, English, all editions, sourced from archive.org) |
 | `win2008-server-x86-espa` | Windows Server 2008 SP2 (x86, Spanish, all editions, sourced from archive.org) |
+| `win2000-pro` | Windows 2000 Professional SP4 (English, sourced from archive.org) |
+| `win2000-pro-espa` | Windows 2000 Professional SP4 Spanish (sourced from archive.org) |
+| `win-xp-pro` | Windows XP Professional SP3 (English, sourced from archive.org) |
+| `win-xp-pro-espa` | Windows XP Professional SP3 Spanish (sourced from archive.org) |
+| `win7x64-pro` | Windows 7 Professional x64 (sourced from archive.org) |
+| `win7x64-pro-esp` | Windows 7 Professional x64 Spanish — Microsoft official first, archive.org fallback |
+| `win7x64-pro-es-mx` | Windows 7 Professional x64 Mexican Spanish — Microsoft official first, archive.org fallback |
+| `win81x64-pro` | Windows 8.1 Pro x64 — Microsoft retired automation, use archive.org |
+| `win81x64-pro-esp` | Windows 8.1 Pro Spanish (Spain) — Microsoft official first, archive.org fallback |
+| `win81x64-pro-es-mx` | Windows 8.1 Pro Spanish (Mexico) — Microsoft official first, archive.org fallback |
 | `win2003-server` | Windows Server 2003 Enterprise (x86, English, sourced from archive.org) |
 | `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Spanish, sourced from archive.org) |
 | `win2003-server-x64` | Windows Server 2003 R2 Enterprise x64 SP2 (English, sourced from archive.org) |
@@ -183,11 +193,14 @@ Windows Vista SP2 ISOs in Spanish are also available via archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Windows 7 Ultimate Spanish ISOs (`win7x64-ultimate-esp`, `win7x64-ultimate-es-mx`)
 are also available via Microsoft official first, then archive.org fallback.
-Enterprise, Server and Evaluation media are otherwise English-only, as published
-by Microsoft. Non-English ISOs are written with a locale suffix (e.g.
-`win11x64.es-MX.iso`) or a `-espa`/`-esp`/`-es-mexico` filename as appropriate,
-so they never overwrite the English ones. Because Microsoft does not publish
-public checksums for every localized release, localized ISOs may report
+Windows 2000 Professional, Windows XP Professional and Windows 7 Professional
+Spanish ISOs are also available via archive.org. Windows 8.1 Pro Spanish ISOs
+are also available via archive.org for both Spain (`win81x64-pro-esp`) and Mexico
+(`win81x64-pro-es-mx`). Enterprise, Server and Evaluation media are otherwise
+English-only, as published by Microsoft. Non-English ISOs are written with a locale
+suffix (e.g. `win11x64.es-MX.iso`) or a `-espa`/`-esp`/`-es-mexico` filename as
+appropriate, so they never overwrite the English ones. Because Microsoft does not
+publish public checksums for every localized release, localized ISOs may report
 `NO KNOWN CHECKSUM (skipping verification)`.
 
 ## How does Mido work?

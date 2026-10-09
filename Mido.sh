@@ -240,6 +240,16 @@ readonly win2000_server="win2000-server.iso"
 readonly win2000_server_espa="win2000-server-espa.iso"
 readonly win2000_advanced_server="win2000-advanced-server.iso"
 readonly win2000_advanced_server_espa="win2000-advanced-server-espa.iso"
+readonly win2000_pro="win2000-pro.iso"
+readonly win2000_pro_espa="win2000-pro-espa.iso"
+readonly win_xp_pro="winxp-pro.iso"
+readonly win_xp_pro_espa="winxp-pro-espa.iso"
+readonly win7x64_pro="win7x64-pro.iso"
+readonly win7x64_pro_esp="win7x64-pro-espanol.iso"
+readonly win7x64_pro_es_mx="win7x64-pro-es-mexico.iso"
+readonly win81x64_pro="win81x64-pro.iso"
+readonly win81x64_pro_esp="win81x64-pro-espanol.iso"
+readonly win81x64_pro_es_mx="win81x64-pro-es-mexico.iso"
 readonly win2012r2_eval="win2012r2-eval.iso"
 readonly win2016_eval="win2016-eval.iso"
 readonly win2019_eval="win2019-eval.iso"
@@ -380,8 +390,35 @@ parse_args() {
             win2000-server-espa)
                 media_list="$media_list $win2000_server_espa"
                 ;;
-            win2000-advanced-server-espa)
-                media_list="$media_list $win2000_advanced_server_espa"
+            win2000-pro)
+                media_list="$media_list $win2000_pro"
+                ;;
+            win2000-pro-espa)
+                media_list="$media_list $win2000_pro_espa"
+                ;;
+            win-xp-pro)
+                media_list="$media_list $win_xp_pro"
+                ;;
+            win-xp-pro-espa)
+                media_list="$media_list $win_xp_pro_espa"
+                ;;
+            win7x64-pro)
+                media_list="$media_list $win7x64_pro"
+                ;;
+            win7x64-pro-esp)
+                media_list="$media_list $win7x64_pro_esp"
+                ;;
+            win7x64-pro-es-mx)
+                media_list="$media_list $win7x64_pro_es_mx"
+                ;;
+            win81x64-pro)
+                media_list="$media_list $win81x64_pro"
+                ;;
+            win81x64-pro-esp)
+                media_list="$media_list $win81x64_pro_esp"
+                ;;
+            win81x64-pro-es-mx)
+                media_list="$media_list $win81x64_pro_es_mx"
                 ;;
             win2012r2-eval)
                 media_list="$media_list $win2012r2_eval"
@@ -1039,6 +1076,64 @@ download_media() {
                 echo_info "Downloading Windows 2000 Advanced Server SP1 Spanish (Español)..."
                 # Windows 2000 Advanced Server SP1 in Spanish, archived on archive.org
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-adv-srv-sp1-esp/es_Windows2000AdvServerSP1_ES.iso"
+                ;;
+            "$win2000-pro")
+                echo_info "Downloading Windows 2000 Professional SP4..."
+                # Windows 2000 Professional SP4, archived on archive.org
+                # Source: https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso"
+                ;;
+            "$win2000-pro-espa")
+                echo_info "Downloading Windows 2000 Professional SP4 Spanish (Español)..."
+                # Windows 2000 Professional SP4 in Spanish, archived on archive.org
+                # Using English ISO with Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso"
+                ;;
+            "$win-xp-pro")
+                echo_info "Downloading Windows XP Professional SP3..."
+                # Windows XP Professional SP3, archived on archive.org
+                # Source: https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso"
+                ;;
+            "$win-xp-pro-espa")
+                echo_info "Downloading Windows XP Professional SP3 Spanish (Español)..."
+                # Windows XP Professional SP3 in Spanish, archived on archive.org
+                # Using English ISO with Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso"
+                ;;
+            "$win7x64-pro")
+                echo_info "Downloading Windows 7 Professional..."
+                # Windows 7 Professional, archived on archive.org
+                # Source: https://archive.org/details/Win7ProRTMx64
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
+                ;;
+            "$win7x64-pro-esp")
+                echo_info "Downloading Windows 7 Professional Spanish (Español)..."
+                # Windows 7 Professional Spanish, archived on archive.org
+                # Using English ISO with Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
+                ;;
+            "$win7x64-pro-es-mx")
+                echo_info "Downloading Windows 7 Professional Spanish (Mexican)..."
+                # Windows 7 Professional Mexican Spanish, archived on archive.org
+                # Using English ISO with Mexican Spanish locale suffix
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
+                ;;
+            "$win81x64-pro")
+                echo_info "Downloading Windows 8.1 Pro..."
+                # Windows 8.1 Pro - Consumer JSON API first, archive.org fallback
+                # Note: Windows 8.1 automation is retired, falls back to archive.org
+                consumer_download_or_archive "$(localized_media "$media")" 8 "$MIDO_LANG" "$(archive_fallback_url 8 "$MIDO_LANG" x64)"
+                ;;
+            "$win81x64-pro-esp")
+                echo_info "Downloading Windows 8.1 Pro Spanish (Spain)..."
+                # Windows 8.1 Pro Spanish - Microsoft official first, archive.org fallback
+                consumer_download_or_archive "$media" 8 "es-ES" "$(archive_fallback_url 8 es-ES x64)"
+                ;;
+            "$win81x64-pro-es-mx")
+                echo_info "Downloading Windows 8.1 Pro Spanish (Mexico)..."
+                # Windows 8.1 Pro Spanish Mexican - Microsoft official first, archive.org fallback
+                consumer_download_or_archive "$media" 8 "es-MX" "$(archive_fallback_url 8 es-MX x64)"
                 ;;
             "$win2012r2_eval")
                 echo_info "Downloading Windows Server 2012 R2 Evaluation..."

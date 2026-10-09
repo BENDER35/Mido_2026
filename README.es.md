@@ -140,6 +140,16 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win2008-server-x64-espa` | Windows Server 2008 SP2 (x64, Español, todas las ediciones, obtenido de archive.org) |
 | `win2008-server-x86` | Windows Server 2008 SP2 (x86, Inglés, todas las ediciones, obtenido de archive.org) |
 | `win2008-server-x86-espa` | Windows Server 2008 SP2 (x86, Español, todas las ediciones, obtenido de archive.org) |
+| `win2000-pro` | Windows 2000 Professional SP4 (Inglés, obtenido de archive.org) |
+| `win2000-pro-espa` | Windows 2000 Professional SP4 en Español (obtenido de archive.org) |
+| `win-xp-pro` | Windows XP Professional SP3 (Inglés, obtenido de archive.org) |
+| `win-xp-pro-espa` | Windows XP Professional SP3 en Español (obtenido de archive.org) |
+| `win7x64-pro` | Windows 7 Professional x64 (obtenido de archive.org) |
+| `win7x64-pro-esp` | Windows 7 Professional x64 en español — primero Microsoft oficial, si falla archive.org |
+| `win7x64-pro-es-mx` | Windows 7 Professional x64 en español mexicano — primero Microsoft oficial, si falla archive.org |
+| `win81x64-pro` | Windows 8.1 Pro x64 — Microsoft retiró la automatización, usa archive.org |
+| `win81x64-pro-esp` | Windows 8.1 Pro en español (España) — primero Microsoft oficial, si falla archive.org |
+| `win81x64-pro-es-mx` | Windows 8.1 Pro en español (México) — primero Microsoft oficial, si falla archive.org |
 | `win2003-server` | Windows Server 2003 Enterprise (x86, Inglés, obtenido de archive.org) |
 | `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Español, obtenido de archive.org) |
 | `win2003-server-x64` | Windows Server 2003 R2 Enterprise x64 SP2 (Inglés, obtenido de archive.org) |
@@ -194,8 +204,13 @@ Los medios Enterprise, Server y Evaluation son, por lo demás, únicamente en in
 tal como los publica Microsoft. Las ISOs en otros idiomas se guardan con un sufijo
 de idioma (por ejemplo `win11x64.es-MX.iso`) o con un nombre `-espa`/`-esp`/
 `-es-mexico` según corresponda, para no sobrescribir las inglesas.
-Como Microsoft no publica checksums oficiales de cada versión localizada, las
-ISOs localizadas pueden mostrar `NO KNOWN CHECKSUM (skipping verification)`.
+
+Windows 2000 Professional, Windows XP Professional y Windows 7 Professional
+en español también están disponibles vía archive.org. Windows 8.1 Pro en español
+también está disponible vía archive.org tanto para 64-bit (`win81x64-pro-esp`)
+como para 32-bit (`win81x64-pro-es-mx`). Como Microsoft no publica checksums
+oficiales de cada versión localizada, las ISOs localizadas pueden mostrar
+`NO KNOWN CHECKSUM (skipping verification)`.
 
 ## ¿Cómo funciona Mido?
 
