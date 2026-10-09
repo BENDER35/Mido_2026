@@ -199,6 +199,12 @@ parse_args() {
             win10x64)
                 media_list="$media_list $win10x64"
                 ;;
+            win10x86_esp)
+                media_list="$media_list $win10x86_esp"
+                ;;
+            win10x86_es_mx)
+                media_list="$media_list $win10x86_es_mx"
+                ;;
             win11x64)
                 media_list="$media_list $win11x64"
                 ;;
