@@ -156,7 +156,9 @@ usage() {
     echo "  win2003-server-x64 (R2 Enterprise x64, archive.org)"
     echo "  win2003-server-x64-espa (R2 Enterprise x64 Spanish, archive.org)"
     echo "  win2000-server (archive.org)"
+    echo "  win2000-advanced-server (English, archive.org)"
     echo "  win2000-server-espa (Spanish, archive.org)"
+    echo "  win2000-advanced-server-espa (Spanish, archive.org)"
     echo "  win2012r2-eval"
     echo "  win2016-eval"
     echo "  win2019-eval"
@@ -236,6 +238,8 @@ readonly win2003_server_x64="win2003-server-x64.iso"
 readonly win2003_server_x64_espa="win2003-server-x64-espa.iso"
 readonly win2000_server="win2000-server.iso"
 readonly win2000_server_espa="win2000-server-espa.iso"
+readonly win2000_advanced_server="win2000-advanced-server.iso"
+readonly win2000_advanced_server_espa="win2000-advanced-server-espa.iso"
 readonly win2012r2_eval="win2012r2-eval.iso"
 readonly win2016_eval="win2016-eval.iso"
 readonly win2019_eval="win2019-eval.iso"
@@ -370,8 +374,14 @@ parse_args() {
             win2000-server)
                 media_list="$media_list $win2000_server"
                 ;;
+            win2000-advanced-server)
+                media_list="$media_list $win2000_advanced_server"
+                ;;
             win2000-server-espa)
                 media_list="$media_list $win2000_server_espa"
+                ;;
+            win2000-advanced-server-espa)
+                media_list="$media_list $win2000_advanced_server_espa"
                 ;;
             win2012r2-eval)
                 media_list="$media_list $win2012r2_eval"
@@ -1014,11 +1024,21 @@ download_media() {
                 # Source: https://archive.org/details/win_2000_server_sp4_english_202605
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win_2000_server_sp4_english_202605/Windows2000ServerSP4.ISO"
                 ;;
+            "$win2000_advanced_server")
+                echo_info "Downloading Windows 2000 Advanced Server SP1..."
+                # Windows 2000 Advanced Server SP1, archived on archive.org
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win_2000_advanced_server_sp1/Windows2000AdvServerSP1.iso"
+                ;;
             "$win2000_server_espa")
                 echo_info "Downloading Windows 2000 Server SP4 Spanish (Español)..."
                 # Windows 2000 Server SP4 in Spanish, archived on archive.org
                 # Source: https://archive.org/details/w2k-srv-sp4-esp
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-srv-sp4-esp/W2K-SRV-SP4-ESP.ISO"
+                ;;
+            "$win2000-advanced-server-espa")
+                echo_info "Downloading Windows 2000 Advanced Server SP1 Spanish (Español)..."
+                # Windows 2000 Advanced Server SP1 in Spanish, archived on archive.org
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-adv-srv-sp1-esp/es_Windows2000AdvServerSP1_ES.iso"
                 ;;
             "$win2012r2_eval")
                 echo_info "Downloading Windows Server 2012 R2 Evaluation..."
