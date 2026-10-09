@@ -107,6 +107,10 @@ usage() {
     echo "  win11x64-enterprise-ltsc-eval (most secure)"
     echo "  win2008r2"
     echo "  win2008r2-espa (Spanish, archive.org)"
+    echo "  win2008-server-x64 (SP2, archive.org)"
+    echo "  win2008-server-x64-espa (SP2 Spanish, archive.org)"
+    echo "  win2008-server-x86 (SP2, archive.org)"
+    echo "  win2008-server-x86-espa (SP2 Spanish, archive.org)"
     echo "  win2003-server (archive.org)"
     echo "  win2003-server-espa (Spanish, archive.org)"
     echo "  win2003-server-x64 (R2 Enterprise x64, archive.org)"
@@ -168,6 +172,10 @@ readonly win10x64_enterprise_ltsc_eval="win10x64-enterprise-ltsc-eval.iso"
 readonly win11x64_enterprise_ltsc_eval="win11x64-enterprise-ltsc-eval.iso"
 readonly win2008r2="win2008r2.iso"
 readonly win2008r2_espa="win2008r2-espa.iso"
+readonly win2008_server_x64="win2008-server-x64.iso"
+readonly win2008_server_x64_espa="win2008-server-x64-espa.iso"
+readonly win2008_server_x86="win2008-server-x86.iso"
+readonly win2008_server_x86_espa="win2008-server-x86-espa.iso"
 readonly win2003_server="win2003-server.iso"
 readonly win2003_server_espa="win2003-server-espa.iso"
 readonly win2003_server_x64="win2003-server-x64.iso"
@@ -253,6 +261,18 @@ parse_args() {
             win2008r2-espa)
                 media_list="$media_list $win2008r2_espa"
                 ;;
+            win2008-server-x64)
+                media_list="$media_list $win2008_server_x64"
+                ;;
+            win2008-server-x64-espa)
+                media_list="$media_list $win2008_server_x64_espa"
+                ;;
+            win2008-server-x86)
+                media_list="$media_list $win2008_server_x86"
+                ;;
+            win2008-server-x86-espa)
+                media_list="$media_list $win2008_server_x86_espa"
+                ;;
             win2003-server)
                 media_list="$media_list $win2003_server"
                 ;;
@@ -287,7 +307,7 @@ parse_args() {
                 media_list="$media_list $win2025_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
+                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -756,6 +776,30 @@ download_media() {
                 # Same build as the English direct link above (7601.17514.101119-1850)
                 # Source: https://archive.org/details/wserver2008r2
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/wserver2008r2/7601.17514.101119-1850_x64fre_server_eval_es-es-GRMSXEVAL_ES_DVD.iso"
+                ;;
+            "$win2008_server_x64")
+                echo_info "Downloading Windows Server 2008 x64..."
+                # Windows Server 2008 (non-R2) with SP2, all editions (x64), archived on archive.org
+                # Source: https://archive.org/details/WindowsServer2008withSP2x86
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WindowsServer2008withSP2x86/en_windows_server_2008_with_sp2_x64_dvd_342336.iso"
+                ;;
+            "$win2008_server_x64_espa")
+                echo_info "Downloading Windows Server 2008 x64 Spanish (Español)..."
+                # Windows Server 2008 (non-R2) with SP2, all editions (x64) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/WinServer2k8SP2ESPx86x64
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinServer2k8SP2ESPx86x64/es_windows_server_2008_with_sp2_x64_dvd_342419.iso"
+                ;;
+            "$win2008_server_x86")
+                echo_info "Downloading Windows Server 2008 x86..."
+                # Windows Server 2008 (non-R2) with SP2, all editions (x86), archived on archive.org
+                # Source: https://archive.org/details/WindowsServer2008withSP2x86
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WindowsServer2008withSP2x86/en_windows_server_2008_with_sp2_x86_dvd_342333.iso"
+                ;;
+            "$win2008_server_x86_espa")
+                echo_info "Downloading Windows Server 2008 x86 Spanish (Español)..."
+                # Windows Server 2008 (non-R2) with SP2, all editions (x86) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/WinServer2k8SP2ESPx86x64
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinServer2k8SP2ESPx86x64/es_windows_server_2008_with_sp2_x86_dvd_342416.iso"
                 ;;
             "$win2003_server")
                 echo_info "Downloading Windows Server 2003 Enterprise..."

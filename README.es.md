@@ -131,6 +131,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (la más segura) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, Inglés) |
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, eval en español, obtenido de archive.org) |
+| `win2008-server-x64` | Windows Server 2008 SP2 (x64, Inglés, todas las ediciones, obtenido de archive.org) |
+| `win2008-server-x64-espa` | Windows Server 2008 SP2 (x64, Español, todas las ediciones, obtenido de archive.org) |
+| `win2008-server-x86` | Windows Server 2008 SP2 (x86, Inglés, todas las ediciones, obtenido de archive.org) |
+| `win2008-server-x86-espa` | Windows Server 2008 SP2 (x86, Español, todas las ediciones, obtenido de archive.org) |
 | `win2003-server` | Windows Server 2003 Enterprise (x86, Inglés, obtenido de archive.org) |
 | `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Español, obtenido de archive.org) |
 | `win2003-server-x64` | Windows Server 2003 R2 Enterprise x64 SP2 (Inglés, obtenido de archive.org) |
@@ -159,7 +163,10 @@ disponible vía archive.org para España (`win10x86-esp`) y México (`win10x86-e
 Windows 8.1 Enterprise en español también está disponible vía archive.org tanto
 para 32 bits (`win81x64-ent-32-espa`) como para 64 bits (`win81x64-ent-64-esp`).
 Una ISO de evaluación en español de Windows Server 2008 R2 SP1 está disponible
-vía archive.org (`win2008r2-espa`). Windows Server 2003 Enterprise y Windows 2000
+vía archive.org (`win2008r2-espa`). Windows Server 2008 (sin R2) SP2 está
+disponible vía archive.org en inglés y español, tanto para 64 bits
+(`win2008-server-x64`, `win2008-server-x64-espa`) como para 32 bits
+(`win2008-server-x86`, `win2008-server-x86-espa`). Windows Server 2003 Enterprise y Windows 2000
 Server SP4 también están disponibles en inglés y español vía archive.org
 (`win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa`).
 Windows Server 2003 R2 Enterprise x64 SP2 de 64 bits está disponible en inglés

@@ -119,6 +119,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (most secure) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, English) |
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, Spanish eval, sourced from archive.org) |
+| `win2008-server-x64` | Windows Server 2008 SP2 (x64, English, all editions, sourced from archive.org) |
+| `win2008-server-x64-espa` | Windows Server 2008 SP2 (x64, Spanish, all editions, sourced from archive.org) |
+| `win2008-server-x86` | Windows Server 2008 SP2 (x86, English, all editions, sourced from archive.org) |
+| `win2008-server-x86-espa` | Windows Server 2008 SP2 (x86, Spanish, all editions, sourced from archive.org) |
 | `win2003-server` | Windows Server 2003 Enterprise (x86, English, sourced from archive.org) |
 | `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Spanish, sourced from archive.org) |
 | `win2003-server-x64` | Windows Server 2003 R2 Enterprise x64 SP2 (English, sourced from archive.org) |
@@ -147,7 +151,10 @@ for both Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
 Windows 8.1 Enterprise Spanish ISOs are also available via archive.org for both
 32-bit (`win81x64-ent-32-espa`) and 64-bit (`win81x64-ent-64-esp`).
 A Spanish Windows Server 2008 R2 SP1 evaluation ISO is available via archive.org
-(`win2008r2-espa`). Windows Server 2003 Enterprise and Windows 2000 Server SP4 are
+(`win2008r2-espa`). Windows Server 2008 (non-R2) SP2 is available via archive.org
+in both English and Spanish, for 64-bit (`win2008-server-x64`,
+`win2008-server-x64-espa`) and 32-bit (`win2008-server-x86`,
+`win2008-server-x86-espa`). Windows Server 2003 Enterprise and Windows 2000 Server SP4 are
 also available in both English and Spanish via archive.org
 (`win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa`).
 64-bit Server 2003 R2 Enterprise x64 SP2 is available in English

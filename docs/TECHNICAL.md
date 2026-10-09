@@ -82,6 +82,7 @@ Different media families are fetched in different ways:
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
 | `win2008r2-espa` | `archive.org` snapshot of the official Spanish eval ISO | none |
+| `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | `archive.org` snapshots (official SP2 AIO ISOs) | none |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win2012r2-eval` … `win2025-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
@@ -196,7 +197,9 @@ For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
 Enterprise Spanish ISOs are likewise archived on archive.org
 (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). A Spanish evaluation ISO of
 Windows Server 2008 R2 SP1 (`win2008r2-espa`) is also archived there, as are
-Windows Server 2003 and Windows 2000 Server SP4 in English and Spanish. Server
+Windows Server 2008 (non-R2) SP2 (`win2008-server-x64`, `win2008-server-x64-espa`,
+`win2008-server-x86`, `win2008-server-x86-espa`), Windows Server 2003 and Windows
+2000 Server SP4 in English and Spanish. Server
 2003 is available as 32-bit Enterprise (`win2003-server`, `win2003-server-espa`)
 and as 64-bit R2 Enterprise x64 SP2 (`win2003-server-x64`,
 `win2003-server-x64-espa`); Windows 2000 Server SP4 is 32-bit (`win2000-server`,
