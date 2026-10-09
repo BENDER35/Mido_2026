@@ -109,6 +109,8 @@ usage() {
     echo "  win2008r2-espa (Spanish, archive.org)"
     echo "  win2003-server (archive.org)"
     echo "  win2003-server-espa (Spanish, archive.org)"
+    echo "  win2003-server-x64 (R2 Enterprise x64, archive.org)"
+    echo "  win2003-server-x64-espa (R2 Enterprise x64 Spanish, archive.org)"
     echo "  win2000-server (archive.org)"
     echo "  win2000-server-espa (Spanish, archive.org)"
     echo "  win2012r2-eval"
@@ -168,6 +170,8 @@ readonly win2008r2="win2008r2.iso"
 readonly win2008r2_espa="win2008r2-espa.iso"
 readonly win2003_server="win2003-server.iso"
 readonly win2003_server_espa="win2003-server-espa.iso"
+readonly win2003_server_x64="win2003-server-x64.iso"
+readonly win2003_server_x64_espa="win2003-server-x64-espa.iso"
 readonly win2000_server="win2000-server.iso"
 readonly win2000_server_espa="win2000-server-espa.iso"
 readonly win2012r2_eval="win2012r2-eval.iso"
@@ -255,6 +259,12 @@ parse_args() {
             win2003-server-espa)
                 media_list="$media_list $win2003_server_espa"
                 ;;
+            win2003-server-x64)
+                media_list="$media_list $win2003_server_x64"
+                ;;
+            win2003-server-x64-espa)
+                media_list="$media_list $win2003_server_x64_espa"
+                ;;
             win2000-server)
                 media_list="$media_list $win2000_server"
                 ;;
@@ -277,7 +287,7 @@ parse_args() {
                 media_list="$media_list $win2025_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2003_server $win2003_server_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
+                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -758,6 +768,18 @@ download_media() {
                 # Windows Server 2003 Enterprise Edition RTM in Spanish, archived on archive.org
                 # Source: https://archive.org/details/WinServer2003EnterpriseRTMESP
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinServer2003EnterpriseRTMESP/es_windows_server_2003_enterprise.iso"
+                ;;
+            "$win2003_server_x64")
+                echo_info "Downloading Windows Server 2003 R2 Enterprise x64..."
+                # Windows Server 2003 R2 Enterprise x64 Edition with SP2 (VL), archived on archive.org
+                # Source: https://archive.org/details/en_win_srv_2003_r2_enterprise_x64_with_sp2_vl
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win_srv_2003_r2_enterprise_x64_with_sp2_vl/en_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd1_x13-48614.iso"
+                ;;
+            "$win2003_server_x64_espa")
+                echo_info "Downloading Windows Server 2003 R2 Enterprise x64 Spanish (Español)..."
+                # Windows Server 2003 R2 Enterprise x64 with SP2 in Spanish, archived on archive.org
+                # Source: https://archive.org/details/es_win_srv_2003_r2_enterprise_x64_with_sp2_vl
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es_win_srv_2003_r2_enterprise_x64_with_sp2_vl/es_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd1_x13-48642.iso"
                 ;;
             "$win2000_server")
                 echo_info "Downloading Windows 2000 Server SP4..."

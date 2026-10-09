@@ -82,7 +82,7 @@ Different media families are fetched in different ways:
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
 | `win2008r2-espa` | `archive.org` snapshot of the official Spanish eval ISO | none |
-| `win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
+| `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win2012r2-eval` … `win2025-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
@@ -196,11 +196,12 @@ For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
 Enterprise Spanish ISOs are likewise archived on archive.org
 (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). A Spanish evaluation ISO of
 Windows Server 2008 R2 SP1 (`win2008r2-espa`) is also archived there, as are
-Windows Server 2003 Enterprise (`win2003-server`, `win2003-server-espa`) and
-Windows 2000 Server SP4 (`win2000-server`, `win2000-server-espa`) in English and
-Spanish. These are not covered by the Microsoft API and have no published
-checksums. Note that Server 2003 and Server 2000 are 32-bit (x86) media, unlike
-the modern x64 Server releases.
+Windows Server 2003 and Windows 2000 Server SP4 in English and Spanish. Server
+2003 is available as 32-bit Enterprise (`win2003-server`, `win2003-server-espa`)
+and as 64-bit R2 Enterprise x64 SP2 (`win2003-server-x64`,
+`win2003-server-x64-espa`); Windows 2000 Server SP4 is 32-bit (`win2000-server`,
+`win2000-server-espa`). These are not covered by the Microsoft API and have no
+published checksums.
 
 Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
 (`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).

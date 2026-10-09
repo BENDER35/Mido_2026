@@ -133,6 +133,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, eval en español, obtenido de archive.org) |
 | `win2003-server` | Windows Server 2003 Enterprise (x86, Inglés, obtenido de archive.org) |
 | `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Español, obtenido de archive.org) |
+| `win2003-server-x64` | Windows Server 2003 R2 Enterprise x64 SP2 (Inglés, obtenido de archive.org) |
+| `win2003-server-x64-espa` | Windows Server 2003 R2 Enterprise x64 SP2 (Español, obtenido de archive.org) |
 | `win2000-server` | Windows 2000 Server SP4 (Inglés, obtenido de archive.org) |
 | `win2000-server-espa` | Windows 2000 Server SP4 (Español, obtenido de archive.org) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
@@ -160,6 +162,8 @@ Una ISO de evaluación en español de Windows Server 2008 R2 SP1 está disponibl
 vía archive.org (`win2008r2-espa`). Windows Server 2003 Enterprise y Windows 2000
 Server SP4 también están disponibles en inglés y español vía archive.org
 (`win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa`).
+Windows Server 2003 R2 Enterprise x64 SP2 de 64 bits está disponible en inglés
+(`win2003-server-x64`) y español (`win2003-server-x64-espa`).
 Windows Vista SP2 en español también está disponible vía archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Los medios Enterprise, Server y Evaluation son, por lo demás, únicamente en inglés,

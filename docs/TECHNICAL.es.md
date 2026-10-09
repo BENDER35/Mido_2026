@@ -83,7 +83,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win81x64` | API JSON de consumidor | Retirada (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | instantáneas de `archive.org` | ninguna |
 | `win2008r2-espa` | instantánea de `archive.org` de la ISO de evaluación oficial en español | ninguna |
-| `win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa` | instantáneas de `archive.org` (ISOs heredadas retail/eval) | ninguna |
+| `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | instantáneas de `archive.org` (ISOs heredadas retail/eval) | ninguna |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
 | `win2012r2-eval` … `win2025-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
@@ -197,12 +197,12 @@ de compilaciones Windows 10 22H2 (`win10x86-esp` para España, `win10x86-es-mx`
 para México). Las ISOs en español de Windows 8.1 Enterprise también están
 archivadas en archive.org (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). Una
 ISO de evaluación en español de Windows Server 2008 R2 SP1 (`win2008r2-espa`)
-también está archivada allí, al igual que Windows Server 2003 Enterprise
-(`win2003-server`, `win2003-server-espa`) y Windows 2000 Server SP4
-(`win2000-server`, `win2000-server-espa`) en inglés y español. Estas no están
-cubiertas por la API de Microsoft y no tienen checksums publicados. Ten en cuenta
-que Server 2003 y Server 2000 son medios de 32 bits (x86), a diferencia de las
-versiones modernas de Server en x64.
+también está archivada allí, al igual que Windows Server 2003 y Windows 2000
+Server SP4 en inglés y español. Server 2003 está disponible como Enterprise de
+32 bits (`win2003-server`, `win2003-server-espa`) y como R2 Enterprise x64 SP2 de
+64 bits (`win2003-server-x64`, `win2003-server-x64-espa`); Windows 2000 Server SP4
+es de 32 bits (`win2000-server`, `win2000-server-espa`). Estas no están cubiertas
+por la API de Microsoft y no tienen checksums publicados.
 
 > Solo las ediciones de **consumidor** exponen SKUs localizados a través de esta
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como
