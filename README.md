@@ -60,10 +60,26 @@ Alternatively, install [Cygwin](https://www.cygwin.com/install.html) or [MSYS2](
 
 ```
 winget install -e --id Cygwin.Cygwin
-winget install -e --id MSYS2.MSYS2
+winget install -e --id MSYS2.MYS2
 ```
 
 Both are POSIX emulation environments for Windows and you can use either one.
+
+#### Windows Native Wrappers
+
+Mido includes native Windows wrappers for convenience:
+
+- **`Mido.bat`** - Batch file wrapper (run by double-clicking or from cmd)
+- **`Mido.ps1`** - PowerShell wrapper (run from PowerShell)
+
+Both wrappers automatically detect WSL and run `Mido.sh` through it, passing all arguments. Example usage:
+
+```
+Mido.bat win11x64
+Mido.ps1 win10x64 win11x64
+```
+
+If WSL is not installed, the wrappers will prompt you to install it.
 
 ## Usage
 
@@ -85,6 +101,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 
 | Argument | Description |
 |---|---|
+| `vista-x64-sp2` | Windows Vista SP2 x64 (English, sourced from archive.org) |
+| `vista-x86-sp2` | Windows Vista SP2 x86 (English, sourced from archive.org) |
+| `vista-es-x64-sp2` | Windows Vista SP2 x64 Spanish (sourced from archive.org) |
+| `vista-es-x86-sp2` | Windows Vista SP2 x86 Spanish (sourced from archive.org) |
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (sourced from the Wayback Machine) |
 | `win81x64` | Windows 8.1 x64 (**retired by Microsoft**, use the Enterprise Eval) |
 | `win10x64` | Windows 10 x64 (multi-edition) |
@@ -113,6 +133,8 @@ Set the `MIDO_LANG` environment variable to one of:
 Spanish ISOs are available for the **consumer** versions (`win10x64`, `win11x64`).
 Additionally, Windows 10 32-bit (x86) ISOs in Spanish are available via archive.org
 for both Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
+Windows Vista SP2 ISOs in Spanish are also available via archive.org
+(`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Enterprise, Server and Evaluation media are English-only, as published by Microsoft.
 Non-English ISOs are written with a locale suffix (e.g. `win11x64.es-MX.iso`) so
 they never overwrite the English ones. Because Microsoft does not publish public
@@ -159,6 +181,8 @@ Want a more secure and minimalist Windows installation out-of-the-box that's off
 - **Windows 10 x86 Spanish ISOs** — sourced from `archive.org` (Windows 10 22H2
   builds), which may be slower than Microsoft's CDN. Mido retries and resumes
   automatically.
+- **Windows Vista ISOs** — sourced from `archive.org`, which may be slower than
+  Microsoft's CDN. Mido retries and resumes automatically.
 - **Enterprise/Server "no download link"** — Microsoft periodically changes the
   Evaluation Center pages. Please open an issue with the affected version.
 

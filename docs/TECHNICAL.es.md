@@ -83,6 +83,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win2012r2-eval` … `win2022-eval` | HTML del Evaluation Center | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
 | `win7x64-ultimate` | instantánea de `web.archive.org` | ninguna |
+| `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
 
 ## La API JSON de consumidor
 
@@ -304,6 +305,7 @@ Microsoft los rota.
 | `win81x64` → HTTP 404 | Microsoft retiró la automatización de Windows 8.1 | Usa `win81x64-enterprise-eval` |
 | Windows 7 muy lento | Límite de velocidad de Wayback Machine | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows 10 x86 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
+| Windows Vista ISOs muy lentas | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | `NO KNOWN CHECKSUM` | ISO localizada sin hash publicado | Verifica manualmente si lo deseas |
 | Enterprise/Server `no download link` | La página del Evaluation Center cambió | Abre un issue |
 

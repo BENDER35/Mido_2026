@@ -71,10 +71,27 @@ Como alternativa, instala [Cygwin](https://www.cygwin.com/install.html) o
 
 ```
 winget install -e --id Cygwin.Cygwin
-winget install -e --id MSYS2.MSYS2
+winget install -e --id MSYS2.MYS2
 ```
 
 Ambos son entornos de emulación POSIX para Windows y puedes usar cualquiera.
+
+#### Wrappers nativos para Windows
+
+Mido incluye wrappers nativos para Windows para mayor comodidad:
+
+- **`Mido.bat`** - Wrapper de archivo por lotes (ejecutar con doble clic o desde cmd)
+- **`Mido.ps1`** - Wrapper de PowerShell (ejecutar desde PowerShell)
+
+Ambos wrappers detectan automáticamente WSL y ejecutan `Mido.sh` a través de él,
+pasando todos los argumentos. Ejemplos de uso:
+
+```
+Mido.bat win11x64
+Mido.ps1 win10x64 win11x64
+```
+
+Si WSL no está instalado, los wrappers te pedirán que lo instales.
 
 ## Uso
 
@@ -96,6 +113,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 
 | Argumento | Descripción |
 |---|---|
+| `vista-x64-sp2` | Windows Vista SP2 x64 (inglés, obtenido de archive.org) |
+| `vista-x86-sp2` | Windows Vista SP2 x86 (inglés, obtenido de archive.org) |
+| `vista-es-x64-sp2` | Windows Vista SP2 x64 español (obtenido de archive.org) |
+| `vista-es-x86-sp2` | Windows Vista SP2 x86 español (obtenido de archive.org) |
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (obtenido de Wayback Machine) |
 | `win81x64` | Windows 8.1 x64 (**retirado por Microsoft**, usa la Enterprise Eval) |
 | `win10x64` | Windows 10 x64 (multiedición) |
@@ -124,6 +145,8 @@ Define la variable de entorno `MIDO_LANG` con uno de estos valores:
 Las ISOs en español están disponibles para las versiones de **consumidor**
 (`win10x64`, `win11x64`). Además, Windows 10 de 32 bits (x86) en español está
 disponible vía archive.org para España (`win10x86-esp`) y México (`win10x86-es-mx`).
+Windows Vista SP2 en español también está disponible vía archive.org
+(`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Los medios Enterprise, Server y Evaluation son únicamente en inglés, tal como
 los publica Microsoft. Las ISOs en otros idiomas se guardan con un sufijo de
 idioma (por ejemplo `win11x64.es-MX.iso`) para no sobrescribir las inglesas.
@@ -174,6 +197,8 @@ de Microsoft (además de soporte a largo plazo).
 - **Windows 10 x86 en español** — proviene de `archive.org` (compilaciones Windows
   10 22H2), que puede ser más lento que la CDN de Microsoft. Mido reintenta y
   reanuda automáticamente.
+- **Windows Vista en español** — proviene de `archive.org`, que puede ser más
+  lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
 - **Enterprise/Server "no download link"** — Microsoft cambia periódicamente las
   páginas del Evaluation Center. Abre un issue con la versión afectada.
 

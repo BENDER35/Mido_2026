@@ -134,6 +134,10 @@ usage() {
 # "win7x64" has the "ultimate" edition appended to it because it isn't "multi-edition" like the other Windows ISOs (for multi-edition ISOs the edition is specified in the associated answer file)
 
 readonly win7x64_ultimate="win7x64-ultimate.iso"
+readonly vista_x64_sp2="vista-x64-sp2.iso"
+readonly vista_x86_sp2="vista-x86-sp2.iso"
+readonly vista_es_x64_sp2="vista-es-x64-sp2.iso"
+readonly vista_es_x86_sp2="vista-es-x86-sp2.iso"
 readonly win81x64="win81x64.iso"
 readonly win81x64_ent_32_esp="win81x64-ent-32-espa.iso"
 readonly win81x64_ent_64_esp="win81x64-ent-64-esp.iso"
@@ -170,6 +174,18 @@ parse_args() {
         case "$arg" in
             win7x64-ultimate)
                 media_list="$media_list $win7x64_ultimate"
+                ;;
+            vista-x64-sp2)
+                media_list="$media_list $vista_x64_sp2"
+                ;;
+            vista-x86-sp2)
+                media_list="$media_list $vista_x86_sp2"
+                ;;
+            vista-es-x64-sp2)
+                media_list="$media_list $vista_es_x64_sp2"
+                ;;
+            vista-es-x86-sp2)
+                media_list="$media_list $vista_es_x86_sp2"
                 ;;
             win81x64)
                 media_list="$media_list $win81x64"
@@ -208,7 +224,7 @@ parse_args() {
                 media_list="$media_list $win2022_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
+                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win2008r2 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -590,6 +606,22 @@ download_media() {
                 # The only con then is that web.archive.org is a much slower download source than the Microsoft servers
                 echo_info "Microsoft has unfortunately purged all downloads of Windows 7 from their servers so this identical download is sourced from: web.archive.org"
                 scurl_file "$(localized_media "$media")" "1.3" "https://web.archive.org/web/20221228154140/https://download.microsoft.com/download/5/1/9/5195A765-3A41-4A72-87D8-200D897CBE21/7601.24214.180801-1700.win7sp1_ldr_escrow_CLIENT_ULTIMATE_x64FRE_en-us.iso"
+                ;;
+            "$vista_x64_sp2")
+                echo_info "Downloading Windows Vista SP2 x64..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-vista-with-sp2-images-en-us/en_windows_vista_enterprise_sp2_x64_dvd_342332.iso"
+                ;;
+            "$vista_x86_sp2")
+                echo_info "Downloading Windows Vista SP2 x86..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-vista-with-sp2-images-en-us/en_windows_vista_enterprise_sp2_x86_dvd_342329.iso"
+                ;;
+            "$vista_es_x64_sp2")
+                echo_info "Downloading Windows Vista SP2 x64 Spanish..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaEnterpriseSP2ESP/es_windows_vista_enterprise_sp2_x64_dvd_342415.iso"
+                ;;
+            "$vista_es_x86_sp2")
+                echo_info "Downloading Windows Vista SP2 x86 Spanish..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaEnterpriseSP2ESP/es_windows_vista_enterprise_sp2_x86_dvd_342413.iso"
                 ;;
             "$win81x64")
                 echo_info "Downloading Windows 8.1..."

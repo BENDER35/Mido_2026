@@ -82,6 +82,7 @@ Different media families are fetched in different ways:
 | `win2012r2-eval` … `win2022-eval` | Evaluation Center HTML | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
 | `win7x64-ultimate` | `web.archive.org` snapshot | none |
+| `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
 
 ## The consumer JSON API
 
@@ -183,6 +184,10 @@ The consumer JSON API exposes localized SKUs only for x64 consumer editions.
 For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
 22H2 builds (`win10x86-esp` for Spain, `win10x86-es-mx` for Mexico). These are
 not covered by the Microsoft API and have no published checksums.
+
+Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
+(`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).
+These are not covered by the Microsoft API and have no published checksums.
 
 > Only the **consumer** editions expose localized SKUs through this API.
 > Enterprise/Server evaluation media is English-only, as published by Microsoft,
@@ -299,6 +304,7 @@ rotates them.
 | `win81x64` → HTTP 404 | Microsoft retired Windows 8.1 automation | Use `win81x64-enterprise-eval` |
 | Windows 7 very slow | Wayback Machine throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows 10 x86 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
+| Windows Vista ISOs very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | `NO KNOWN CHECKSUM` | Localized ISO without a published hash | Verify manually if you wish |
 | Enterprise/Server `no download link` | Evaluation Center page changed | Open an issue |
 
