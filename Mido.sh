@@ -205,6 +205,10 @@ usage() {
 readonly win7x64_ultimate="win7x64-ultimate.iso"
 readonly win7x64_ultimate_esp="win7x64-ultimate-espanol.iso"
 readonly win7x64_ultimate_es_mx="win7x64-ultimate-es-mexico.iso"
+readonly vista_x64_sp1="vista-x64-sp1.iso"
+readonly vista_x86_sp1="vista-x86-sp1.iso"
+readonly vista_es_x64_sp1="vista-es-x64-sp1.iso"
+readonly vista_es_x86_sp1="vista-es-x86-sp1.iso"
 readonly vista_x64_sp2="vista-x64-sp2.iso"
 readonly vista_x86_sp2="vista-x86-sp2.iso"
 readonly vista_es_x64_sp2="vista-es-x64-sp2.iso"
@@ -252,6 +256,8 @@ readonly win7x64_pro_es_mx="win7x64-pro-es-mexico.iso"
 readonly win7x86_pro="win7x86-pro.iso"
 readonly win7x86_pro_esp="win7x86-pro-espanol.iso"
 readonly win7x86_pro_es_mx="win7x86-pro-es-mexico.iso"
+readonly win7x64_sp1="win7x64-sp1.iso"
+readonly win7x86_sp1="win7x86-sp1.iso"
 readonly win81x64_pro="win81x64-pro.iso"
 readonly win81x64_pro_esp="win81x64-pro-espanol.iso"
 readonly win81x64_pro_es_mx="win81x64-pro-es-mexico.iso"
@@ -489,7 +495,7 @@ parse_args() {
                 media_list="$media_list $hyperv2019_eval"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win-xp-pro-64"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x64-sp1 $win7x86-sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win-xp-pro-64"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -938,6 +944,30 @@ download_media() {
             "$vista_es_x86_sp2")
                 echo_info "Downloading Windows Vista SP2 x86 Spanish..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaEnterpriseSP2ESP/es_windows_vista_enterprise_sp2_x86_dvd_342413.iso"
+                ;;
+            "$vista_x64_sp1")
+                echo_info "Downloading Windows Vista SP1 x64..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-vista-with-sp1-images-en-us/en_windows_vista_enterprise_sp1_x64_dvd_.iso"
+                ;;
+            "$vista_x86_sp1")
+                echo_info "Downloading Windows Vista SP1 x86..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-vista-with-sp1-images-en-us/en_windows_vista_enterprise_sp1_x86_dvd_.iso"
+                ;;
+            "$vista_es_x64_sp1")
+                echo_info "Downloading Windows Vista SP1 x64 Spanish..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaSP1ESP/es_windows_vista_enterprise_sp1_x64_dvd.iso"
+                ;;
+            "$vista_es_x86_sp1")
+                echo_info "Downloading Windows Vista SP1 x86 Spanish..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaSP1ESP/es_windows_vista_enterprise_sp1_x86_dvd.iso"
+                ;;
+            "$win7x64-sp1")
+                echo_info "Downloading Windows 7 SP1 x64..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_sp1_x64/en_windows_7_sp1_x64_dvd.iso"
+                ;;
+            "$win7x86-sp1")
+                echo_info "Downloading Windows 7 SP1 x86..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_sp1_x86/en_windows_7_sp1_x86_dvd.iso"
                 ;;
             "$win81x64")
                 echo_info "Downloading Windows 8.1..."

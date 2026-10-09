@@ -113,6 +113,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 
 | Argumento | Descripción |
 |---|---|
+| `vista-x64-sp1` | Windows Vista SP1 x64 (inglés, obtenido de archive.org) |
+| `vista-x86-sp1` | Windows Vista SP1 x86 (inglés, obtenido de archive.org) |
+| `vista-es-x64-sp1` | Windows Vista SP1 x64 español (obtenido de archive.org) |
+| `vista-es-x86-sp1` | Windows Vista SP1 x86 español (obtenido de archive.org) |
 | `vista-x64-sp2` | Windows Vista SP2 x64 (inglés, obtenido de archive.org) |
 | `vista-x86-sp2` | Windows Vista SP2 x86 (inglés, obtenido de archive.org) |
 | `vista-es-x64-sp2` | Windows Vista SP2 x64 español (obtenido de archive.org) |
@@ -151,6 +155,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win7x86-pro` | Windows 7 Professional x86 (32-bit) — sourced from archive.org |
 | `win7x86-pro-esp` | Windows 7 Professional x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win7x86-pro-es-mx` | Windows 7 Professional x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x64-sp1` | Windows 7 SP1 x64 (sourced from archive.org) |
+| `win7x86-sp1` | Windows 7 SP1 x86 (32-bit, sourced from archive.org) |
 | `win81x64-pro` | Windows 8.1 Pro x64 — Microsoft retiró la automatización, usa archive.org |
 | `win81x64-pro-esp` | Windows 8.1 Pro en español (España) — primero Microsoft oficial, si falla archive.org |
 | `win81x64-pro-es-mx` | Windows 8.1 Pro en español (México) — primero Microsoft oficial, si falla archive.org |
@@ -205,6 +211,8 @@ Server SP4 también están disponibles en inglés y español vía archive.org
 (`win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa`).
 Windows Server 2003 R2 Enterprise x64 SP2 de 64 bits está disponible en inglés
 (`win2003-server-x64`) y español (`win2003-server-x64-espa`).
+Windows Vista SP1 en español también está disponible vía archive.org
+(`vista-es-x64-sp1`, `vista-es-x86-sp1`).
 Windows Vista SP2 en español también está disponible vía archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
 Los medios Enterprise, Server y Evaluation son, por lo demás, únicamente en inglés,

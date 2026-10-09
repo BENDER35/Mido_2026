@@ -91,12 +91,14 @@ Different media families are fetched in different ways:
 | `win-xp-pro`, `win-xp-pro-espa` | `archive.org` snapshots (Windows XP Professional) | none |
 | `win-xp-pro-64`, `win-xp-pro-64-espa` | `archive.org` snapshots (Windows XP Professional x64) | none |
 | `win7x64-pro`, `win7x64-pro-esp`, `win7x64-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
+| `win7x64-sp1`, `win7x86-sp1` | `archive.org` snapshots (Windows 7 SP1) | none |
 | `win81x64-pro`, `win81x64-pro-esp`, `win81x64-pro-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
 | `win7x64-ultimate` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake |
+| `vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1` | `archive.org` snapshots | none |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
 
 > Windows 10/11 Enterprise and LTSC evaluations were migrated from the
@@ -225,10 +227,13 @@ and as 64-bit R2 Enterprise x64 SP2 (`win2003-server-x64`,
 `win2000-server-espa`). These are not covered by the Microsoft API and have no
 published checksums.
 
+Windows Vista SP1 ISOs in English and Spanish are also sourced from archive.org
+(`vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1`).
 Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
 (`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).
 These are not covered by the Microsoft API and have no published checksums.
 
+Windows 7 SP1 ISOs are also sourced from `archive.org` and are not covered by the Microsoft API.
 Windows 2000 Professional, Windows XP Professional and Windows 7 Professional
 ISOs are also sourced from `archive.org` and are not covered by the Microsoft API.
 These have no published checksums.

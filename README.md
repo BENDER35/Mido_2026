@@ -101,6 +101,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 
 | Argument | Description |
 |---|---|
+| `vista-x64-sp1` | Windows Vista SP1 x64 (English, sourced from archive.org) |
+| `vista-x86-sp1` | Windows Vista SP1 x86 (English, sourced from archive.org) |
+| `vista-es-x64-sp1` | Windows Vista SP1 x64 Spanish (sourced from archive.org) |
+| `vista-es-x86-sp1` | Windows Vista SP1 x86 Spanish (sourced from archive.org) |
 | `vista-x64-sp2` | Windows Vista SP2 x64 (English, sourced from archive.org) |
 | `vista-x86-sp2` | Windows Vista SP2 x86 (English, sourced from archive.org) |
 | `vista-es-x64-sp2` | Windows Vista SP2 x64 Spanish (sourced from archive.org) |
@@ -142,6 +146,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win7x86-pro` | Windows 7 Professional x86 (32-bit, sourced from archive.org) |
 | `win7x86-pro-esp` | Windows 7 Professional x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win7x86-pro-es-mx` | Windows 7 Professional x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
+| `win7x64-sp1` | Windows 7 SP1 x64 (sourced from archive.org) |
+| `win7x86-sp1` | Windows 7 SP1 x86 (32-bit, sourced from archive.org) |
 | `win81x64-pro` | Windows 8.1 Pro x64 — Microsoft retired automation, use archive.org |
 | `win81x64-pro-esp` | Windows 8.1 Pro Spanish (Spain) — Microsoft official first, archive.org fallback |
 | `win81x64-pro-es-mx` | Windows 8.1 Pro Spanish (Mexico) — Microsoft official first, archive.org fallback |
@@ -197,8 +203,12 @@ also available in both English and Spanish via archive.org
 (`win2003-server`, `win2003-server-espa`, `win2000-server`, `win2000-server-espa`).
 64-bit Server 2003 R2 Enterprise x64 SP2 is available in English
 (`win2003-server-x64`) and Spanish (`win2003-server-x64-espa`).
+Windows Vista SP1 ISOs in Spanish are also available via archive.org
+(`vista-es-x64-sp1`, `vista-es-x86-sp1`).
 Windows Vista SP2 ISOs in Spanish are also available via archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
+Windows 7 SP1 Spanish ISOs (`win7x64-sp1`, `win7x86-sp1`) are also available
+via archive.org.
 Windows 7 Ultimate Spanish ISOs (`win7x64-ultimate-esp`, `win7x64-ultimate-es-mx`)
 are also available via Microsoft official first, then archive.org fallback.
 Windows 2000 Professional, Windows XP Professional and Windows 7 Professional
