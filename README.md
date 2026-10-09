@@ -117,6 +117,7 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (most secure) |
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (most secure) |
+| `win11x64-iot-enterprise-ltsc-eval` | Windows 11 IoT Enterprise LTSC Evaluation |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, English) |
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, Spanish eval, sourced from archive.org) |
 | `win2008-server-x64` | Windows Server 2008 SP2 (x64, English, all editions, sourced from archive.org) |
@@ -134,6 +135,13 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win2019-eval` | Windows Server 2019 Evaluation |
 | `win2022-eval` | Windows Server 2022 Evaluation |
 | `win2025-eval` | Windows Server 2025 Evaluation |
+| `win2012r2-essentials-eval` | Windows Server 2012 R2 Essentials Evaluation |
+| `win2016-essentials-eval` | Windows Server 2016 Essentials Evaluation |
+| `win2019-essentials-eval` | Windows Server 2019 Essentials Evaluation |
+| `hyperv2012-eval` | Hyper-V Server 2012 Evaluation |
+| `hyperv2012r2-eval` | Hyper-V Server 2012 R2 Evaluation |
+| `hyperv2016-eval` | Hyper-V Server 2016 Evaluation |
+| `hyperv2019-eval` | Hyper-V Server 2019 Evaluation |
 
 ## Language support
 

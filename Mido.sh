@@ -105,6 +105,7 @@ usage() {
     echo "  win11x64-enterprise-eval"
     echo "  win10x64-enterprise-ltsc-eval (most secure)"
     echo "  win11x64-enterprise-ltsc-eval (most secure)"
+    echo "  win11x64-iot-enterprise-ltsc-eval"
     echo "  win2008r2"
     echo "  win2008r2-espa (Spanish, archive.org)"
     echo "  win2008-server-x64 (SP2, archive.org)"
@@ -122,6 +123,13 @@ usage() {
     echo "  win2019-eval"
     echo "  win2022-eval"
     echo "  win2025-eval"
+    echo "  win2012r2-essentials-eval"
+    echo "  win2016-essentials-eval"
+    echo "  win2019-essentials-eval"
+    echo "  hyperv2012-eval"
+    echo "  hyperv2012r2-eval"
+    echo "  hyperv2016-eval"
+    echo "  hyperv2019-eval"
     echo ""
     echo "Each ISO download takes between 3 - 7 GiBs (average: 5 GiBs)."
     echo ""
@@ -170,6 +178,7 @@ readonly win10x64_enterprise_eval="win10x64-enterprise-eval.iso"
 readonly win11x64_enterprise_eval="win11x64-enterprise-eval.iso"
 readonly win10x64_enterprise_ltsc_eval="win10x64-enterprise-ltsc-eval.iso"
 readonly win11x64_enterprise_ltsc_eval="win11x64-enterprise-ltsc-eval.iso"
+readonly win11x64_iot_enterprise_ltsc_eval="win11x64-iot-enterprise-ltsc-eval.iso"
 readonly win2008r2="win2008r2.iso"
 readonly win2008r2_espa="win2008r2-espa.iso"
 readonly win2008_server_x64="win2008-server-x64.iso"
@@ -187,6 +196,13 @@ readonly win2016_eval="win2016-eval.iso"
 readonly win2019_eval="win2019-eval.iso"
 readonly win2022_eval="win2022-eval.iso"
 readonly win2025_eval="win2025-eval.iso"
+readonly win2012r2_essentials_eval="win2012r2-essentials-eval.iso"
+readonly win2016_essentials_eval="win2016-essentials-eval.iso"
+readonly win2019_essentials_eval="win2019-essentials-eval.iso"
+readonly hyperv2012_eval="hyperv2012-eval.iso"
+readonly hyperv2012r2_eval="hyperv2012r2-eval.iso"
+readonly hyperv2016_eval="hyperv2016-eval.iso"
+readonly hyperv2019_eval="hyperv2019-eval.iso"
 
 parse_args() {
     for arg in "$@"; do
@@ -255,6 +271,9 @@ parse_args() {
             win11x64-enterprise-ltsc-eval)
                 media_list="$media_list $win11x64_enterprise_ltsc_eval"
                 ;;
+            win11x64-iot-enterprise-ltsc-eval)
+                media_list="$media_list $win11x64_iot_enterprise_ltsc_eval"
+                ;;
             win2008r2)
                 media_list="$media_list $win2008r2"
                 ;;
@@ -306,8 +325,29 @@ parse_args() {
             win2025-eval)
                 media_list="$media_list $win2025_eval"
                 ;;
+            win2012r2-essentials-eval)
+                media_list="$media_list $win2012r2_essentials_eval"
+                ;;
+            win2016-essentials-eval)
+                media_list="$media_list $win2016_essentials_eval"
+                ;;
+            win2019-essentials-eval)
+                media_list="$media_list $win2019_essentials_eval"
+                ;;
+            hyperv2012-eval)
+                media_list="$media_list $hyperv2012_eval"
+                ;;
+            hyperv2012r2-eval)
+                media_list="$media_list $hyperv2012r2_eval"
+                ;;
+            hyperv2016-eval)
+                media_list="$media_list $hyperv2016_eval"
+                ;;
+            hyperv2019-eval)
+                media_list="$media_list $hyperv2019_eval"
+                ;;
             all)
-                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
+                media_list="$media_list $win7x64_ultimate $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -762,6 +802,10 @@ download_media() {
                 echo_info "Downloading Windows 11 Enterprise LTSC Evaluation..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en-us_windows_11_enterprise_ltsc_2024_x64_dvd_965cfb00/en-us_windows_11_enterprise_ltsc_2024_x64_dvd_965cfb00.iso"
                 ;;
+            "$win11x64_iot_enterprise_ltsc_eval")
+                echo_info "Downloading Windows 11 IoT Enterprise LTSC Evaluation..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240906-0331.ge_release_svc_refresh_CLIENT_IOT_LTSC_EVAL_x64FRE_en-us.iso"
+                ;;
 
             "$win2008r2")
                 echo_info "Downloading Windows Server 2008 R2..."
@@ -856,6 +900,34 @@ download_media() {
             "$win2025_eval")
                 echo_info "Downloading Windows Server 2025 Evaluation..."
                 enterprise_eval_download "$(localized_media "$media")" windows-server-2025 server
+                ;;
+            "$win2012r2_essentials_eval")
+                echo_info "Downloading Windows Server 2012 R2 Essentials Evaluation..."
+                enterprise_eval_download "$(localized_media "$media")" windows-server-2012-r2-essentials server
+                ;;
+            "$win2016_essentials_eval")
+                echo_info "Downloading Windows Server 2016 Essentials Evaluation..."
+                enterprise_eval_download "$(localized_media "$media")" windows-server-2016-essentials server
+                ;;
+            "$win2019_essentials_eval")
+                echo_info "Downloading Windows Server 2019 Essentials Evaluation..."
+                enterprise_eval_download "$(localized_media "$media")" windows-server-2019-essentials server
+                ;;
+            "$hyperv2012_eval")
+                echo_info "Downloading Hyper-V Server 2012 Evaluation..."
+                enterprise_eval_download "$(localized_media "$media")" hyper-v-server-2012 server
+                ;;
+            "$hyperv2012r2_eval")
+                echo_info "Downloading Hyper-V Server 2012 R2 Evaluation..."
+                enterprise_eval_download "$(localized_media "$media")" hyper-v-server-2012-r2 server
+                ;;
+            "$hyperv2016_eval")
+                echo_info "Downloading Hyper-V Server 2016 Evaluation..."
+                enterprise_eval_download "$(localized_media "$media")" hyper-v-server-2016 server
+                ;;
+            "$hyperv2019_eval")
+                echo_info "Downloading Hyper-V Server 2019 Evaluation..."
+                enterprise_eval_download "$(localized_media "$media")" hyper-v-server-2019 server
                 ;;
         esac || {
             error_action=$?

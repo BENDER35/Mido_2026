@@ -85,15 +85,17 @@ Different media families are fetched in different ways:
 | `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | `archive.org` snapshots (official SP2 AIO ISOs) | none |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
-| `win2012r2-eval` … `win2025-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
+| `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
+| `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
 | `win7x64-ultimate` | `web.archive.org` snapshot | none |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
 
 > Windows 10/11 Enterprise and LTSC evaluations were migrated from the
 > (unreliable) Evaluation Center HTML to archived `archive.org` ISOs. The
-> remaining `enterprise_eval_download` path is now used only by the Server
-> evaluations (`win2012r2-eval` … `win2025-eval`).
+> remaining `enterprise_eval_download` path is now used only by the Windows
+> Server, Server Essentials and Hyper-V evaluations (`win2012r2-eval` …
+> `win2025-eval` and the Essentials/Hyper-V entries).
 
 ## The consumer JSON API
 

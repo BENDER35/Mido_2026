@@ -86,15 +86,17 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | instantáneas de `archive.org` (ISOs oficiales SP2 AIO) | ninguna |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | instantáneas de `archive.org` (ISOs heredadas retail/eval) | ninguna |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
-| `win2012r2-eval` … `win2025-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
+| `win11x64-iot-enterprise-ltsc-eval` | URL directa de `software-static.download.prss.microsoft.com` | ninguna |
+| `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
 | `win7x64-ultimate` | instantánea de `web.archive.org` | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
 
 > Las evaluaciones Enterprise y LTSC de Windows 10/11 se migraron desde el HTML
 > (poco fiable) del Evaluation Center a ISOs archivadas en `archive.org`. La ruta
-> `enterprise_eval_download` restante ahora solo la usan las evaluaciones Server
-> (`win2012r2-eval` … `win2025-eval`).
+> `enterprise_eval_download` restante ahora solo la usan las evaluaciones Server,
+> Server Essentials y Hyper-V (`win2012r2-eval` … `win2025-eval` y las entradas
+> Essentials/Hyper-V).
 
 ## La API JSON de consumidor
 
