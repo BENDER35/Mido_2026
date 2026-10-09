@@ -90,6 +90,10 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win11x64-iot-enterprise-ltsc-eval` | URL directa de `software-static.download.prss.microsoft.com` | ninguna |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
+| `win2022-enterprise-64`, `win2022-datacenter-64` | instantáneas de `archive.org` (64-bit solo) | ninguna |
+| `win2022-enterprise-64-esp`, `win2022-datacenter-64-esp` | instantáneas de `archive.org` español (64-bit solo) | ninguna |
+| `win2025-enterprise-64`, `win2025-datacenter-64` | instantáneas de `archive.org` (64-bit solo) | ninguna |
+| `win2025-enterprise-64-esp`, `win2025-datacenter-64-esp` | instantáneas de `archive.org` español (64-bit solo) | ninguna |
 | `win7x64-ultimate` | instantánea de `web.archive.org` | ninguna |
 | `win7x64-homepremium`, `win7x64-homepremium-esp`, `win7x64-homepremium-es-mx` | instantáneas de `archive.org` (Windows 7 Home Premium) | ninguna |
 | `win7x86-homepremium`, `win7x86-homepremium-esp`, `win7x86-homepremium-es-mx` | instantáneas de `archive.org` (Windows 7 Home Premium) | ninguna |

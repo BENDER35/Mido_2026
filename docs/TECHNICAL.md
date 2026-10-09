@@ -102,6 +102,10 @@ Different media families are fetched in different ways:
 | `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
+| `win2022-enterprise-64`, `win2022-datacenter-64` | `archive.org` snapshots (64-bit only) | none |
+| `win2022-enterprise-64-esp`, `win2022-datacenter-64-esp` | `archive.org` snapshots Spanish (64-bit only) | none |
+| `win2025-enterprise-64`, `win2025-datacenter-64` | `archive.org` snapshots (64-bit only) | none |
+| `win2025-enterprise-64-esp`, `win2025-datacenter-64-esp` | `archive.org` snapshots Spanish (64-bit only) | none |
 | `win7x64-ultimate` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake |
 | `win7x86-ultimate`, `win7x86-ultimate-esp`, `win7x86-ultimate-es-mx` | `archive.org` snapshots (Windows 7 Ultimate) | none |
 | `vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1` | `archive.org` snapshots | none |

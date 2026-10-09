@@ -182,6 +182,15 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win2019-eval` | Windows Server 2019 Evaluation |
 | `win2022-eval` | Windows Server 2022 Evaluation |
 | `win2025-eval` | Windows Server 2025 Evaluation |
+| `win2025-enterprise-64` | Windows Server 2025 Enterprise x64 (64-bit) |
+| `win2025-enterprise-64-esp` | Windows Server 2025 Enterprise x64 Spanish (64-bit) |
+| `win2025-datacenter-64` | Windows Server 2025 Datacenter x64 (64-bit) |
+| `win2025-datacenter-64-esp` | Windows Server 2025 Datacenter x64 Spanish (64-bit) |
+| `win2022-eval` | Windows Server 2022 Evaluation |
+| `win2022-enterprise-64` | Windows Server 2022 Enterprise x64 (64-bit) |
+| `win2022-enterprise-64-esp` | Windows Server 2022 Enterprise x64 Spanish (64-bit) |
+| `win2022-datacenter-64` | Windows Server 2022 Datacenter x64 (64-bit) |
+| `win2022-datacenter-64-esp` | Windows Server 2022 Datacenter x64 Spanish (64-bit) |
 | `win2012r2-essentials-eval` | Windows Server 2012 R2 Essentials Evaluation |
 | `win2016-essentials-eval` | Windows Server 2016 Essentials Evaluation |
 | `win2019-essentials-eval` | Windows Server 2019 Essentials Evaluation |
