@@ -80,8 +80,10 @@ Different media families are fetched in different ways:
 | `win10x64`, `win11x64` | Consumer JSON API | Sentinel handshake |
 | `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp`, `win11x64-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win10x86` (x86 Spanish) | `archive.org` snapshots | none |
+| `win7x64-ultimate-esp`, `win7x64-ultimate-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
+| `win2000-advanced-server`, `win2000-advanced-server-espa` | `archive.org` snapshots | none |
 | `win2008r2-espa` | `archive.org` snapshot of the official Spanish eval ISO | none |
 | `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | `archive.org` snapshots (official SP2 AIO ISOs) | none |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
@@ -89,7 +91,7 @@ Different media families are fetched in different ways:
 | `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
-| `win7x64-ultimate` | `web.archive.org` snapshot | none |
+| `win7x64-ultimate` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
 
 > Windows 10/11 Enterprise and LTSC evaluations were migrated from the
@@ -371,7 +373,9 @@ branch to `locale_to_api_language`; `localized_media` then works automatically.
 
 **Add a media.** Add a `readonly` variable near the other media names, a branch
 in `parse_args` (including the `all` list), a `case` in `download_media`, an
-entry in `usage()`, and, if applicable, a checksum line.
+entry in `usage()`, and, if applicable, a checksum line. If the media uses the
+Microsoft-first-then-archive.org fallback, also add an entry in
+`archive_fallback_url()`.
 
 **Renew the Sentinel constants.** Update `ORG_ID`/`PROFILE_ID`/`INSTANCE_ID`
 from a current Fido release if Microsoft rotates them.
