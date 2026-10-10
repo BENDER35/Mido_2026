@@ -102,6 +102,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win7x64-sp1`, `win7x86-sp1` | instantáneas de `archive.org` (Windows 7 SP1) | ninguna |
 | `win-xp-pro-64`, `win-xp-pro-64-espa` | instantáneas de `archive.org` (Windows XP Professional x64) | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
+| `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40` | instantáneas de `archive.org` (ISOs retro retail, solo inglés) | ninguna |
 
 > Las evaluaciones Enterprise y LTSC de Windows 10/11 se migraron desde el HTML
 > (poco fiable) del Evaluation Center a ISOs archivadas en `archive.org`. La ruta
@@ -238,6 +239,13 @@ de Microsoft. Estas no tienen checksums publicados.
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como
 > los publica Microsoft, por lo que `enterprise_eval_download` se mantiene a
 > propósito en `en-US`.
+
+Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
+son únicamente en inglés y provienen directamente de instantáneas de `archive.org`
+(Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows
+Millennium Edition, Windows NT 3.5 Workstation y Windows NT 4.0 Workstation). No
+están cubiertas por la API de Microsoft y no tienen checksums publicados, por lo
+que pasan por la ruta `NO KNOWN CHECKSUM (skipping verification)`.
 
 ## Motor de descarga (`scurl_file`)
 

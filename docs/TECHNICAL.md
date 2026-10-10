@@ -110,6 +110,7 @@ Different media families are fetched in different ways:
 | `win7x86-ultimate`, `win7x86-ultimate-esp`, `win7x86-ultimate-es-mx` | `archive.org` snapshots (Windows 7 Ultimate) | none |
 | `vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1` | `archive.org` snapshots | none |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
+| `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40` | `archive.org` snapshots (retro retail ISOs, English only) | none |
 
 > Windows 10/11 Enterprise and LTSC evaluations were migrated from the
 > (unreliable) Evaluation Center HTML to archived `archive.org` ISOs. The
@@ -253,6 +254,13 @@ Windows 8.1 Pro ISOs are also available via the Consumer JSON API first, with
 > Only the **consumer** editions expose localized SKUs through this API.
 > Enterprise/Server evaluation media is English-only, as published by Microsoft,
 > so `enterprise_eval_download` intentionally stays on `en-US`.
+
+The retro releases (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
+are English-only and are sourced directly from `archive.org` snapshots
+(Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows
+Millennium Edition, Windows NT 3.5 Workstation and Windows NT 4.0 Workstation).
+They are not covered by the Microsoft API and have no published checksums, so
+they go through the `NO KNOWN CHECKSUM (skipping verification)` path.
 
 ## Download engine (`scurl_file`)
 

@@ -171,6 +171,12 @@ usage() {
     echo "  hyperv2012r2-eval"
     echo "  hyperv2016-eval"
     echo "  hyperv2019-eval"
+    echo "  win311 (Windows 3.11 For Workgroups, archive.org)"
+    echo "  win95 (Windows 95, archive.org)"
+    echo "  win98 (Windows 98 Second Edition, archive.org)"
+    echo "  winme (Windows Millennium Edition, archive.org)"
+    echo "  winnt35 (Windows NT 3.5 Workstation, archive.org)"
+    echo "  winnt40 (Windows NT 4.0 Workstation, archive.org)"
     echo ""
     echo "Each ISO download takes between 3 - 7 GiBs (average: 5 GiBs)."
     echo ""
@@ -194,7 +200,7 @@ usage() {
     echo ""
     echo "Architecture"
     echo "------------"
-    echo "Most downloads provided here are for x86-64 (x64). Some legacy media (Vista, Server 2003 and Server 2000) are 32-bit (x86) or offer both architectures. x64 is the only architecture Microsoft ships modern Windows Server in.$([ -d /run/qubes ] && echo ' Also, the only architecture Qubes OS supports.')" | format
+    echo "Most downloads provided here are for x86-64 (x64). Some legacy media (Vista, Server 2003, Server 2000 and the retro releases down to Windows 3.11) are 32-bit (x86) or offer both architectures. x64 is the only architecture Microsoft ships modern Windows Server in.$([ -d /run/qubes ] && echo ' Also, the only architecture Qubes OS supports.')" | format
 }
 
 # Media naming scheme info:
@@ -291,6 +297,12 @@ readonly hyperv2012_eval="hyperv2012-eval.iso"
 readonly hyperv2012r2_eval="hyperv2012r2-eval.iso"
 readonly hyperv2016_eval="hyperv2016-eval.iso"
 readonly hyperv2019_eval="hyperv2019-eval.iso"
+readonly win311="win311.iso"
+readonly win95="win95.iso"
+readonly win98="win98.iso"
+readonly winme="winme.iso"
+readonly winnt35="winnt35.iso"
+readonly winnt40="winnt40.iso"
 
 parse_args() {
     for arg in "$@"; do
@@ -545,8 +557,26 @@ parse_args() {
             hyperv2019-eval)
                 media_list="$media_list $hyperv2019_eval"
                 ;;
+            win311)
+                media_list="$media_list $win311"
+                ;;
+            win95)
+                media_list="$media_list $win95"
+                ;;
+            win98)
+                media_list="$media_list $win98"
+                ;;
+            winme)
+                media_list="$media_list $winme"
+                ;;
+            winnt35)
+                media_list="$media_list $winnt35"
+                ;;
+            winnt40)
+                media_list="$media_list $winnt40"
+                ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64-homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64-enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64-sp1 $win7x86-sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win-xp-pro-64"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64-homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64-enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64-sp1 $win7x86-sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win-xp-pro-64 $win311 $win95 $win98 $winme $winnt35 $winnt40"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -997,7 +1027,6 @@ download_media() {
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_ultimate_x86/en_windows_7_ultimate_x86_dvd.iso"
                 ;;
             "$vista_x64_sp2")
-            "$vista_x64_sp2")
                 echo_info "Downloading Windows Vista SP2 x64..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-vista-with-sp2-images-en-us/en_windows_vista_enterprise_sp2_x64_dvd_342332.iso"
                 ;;
@@ -1432,6 +1461,42 @@ download_media() {
             "$hyperv2019_eval")
                 echo_info "Downloading Hyper-V Server 2019 Evaluation..."
                 enterprise_eval_download "$(localized_media "$media")" hyper-v-server-2019 server
+                ;;
+            "$win311")
+                echo_info "Downloading Windows for Workgroups 3.11..."
+                # Windows for Workgroups 3.11 (English), archived on archive.org
+                # Source: https://archive.org/details/windows-for-workgroups-3.11_202304
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-for-workgroups-3.11_202304/WINDOWS%20FOR%20WORKGROUPS%203.11.iso"
+                ;;
+            "$win95")
+                echo_info "Downloading Windows 95..."
+                # Windows 95 (English), archived on archive.org
+                # Source: https://archive.org/details/win95
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win95/win95.iso"
+                ;;
+            "$win98")
+                echo_info "Downloading Windows 98 Second Edition..."
+                # Windows 98 Second Edition (English), archived on archive.org
+                # Source: https://archive.org/details/win98-2nd
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win98-2nd/Windows%2098SE.iso"
+                ;;
+            "$winme")
+                echo_info "Downloading Windows Millennium Edition..."
+                # Windows Millennium Edition (English), archived on archive.org
+                # Source: https://archive.org/details/windowsme_202301
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windowsme_202301/windowsme.iso"
+                ;;
+            "$winnt35")
+                echo_info "Downloading Windows NT 3.5 Workstation..."
+                # Windows NT 3.5 Workstation (English), archived on archive.org
+                # Source: https://archive.org/details/windows-nt-3.5-workstation
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-nt-3.5-workstation/Windows%20NT%203.5%20Workstation.iso"
+                ;;
+            "$winnt40")
+                echo_info "Downloading Windows NT 4.0 Workstation..."
+                # Windows NT 4.0 Workstation (English), archived on archive.org
+                # Source: https://archive.org/details/ntwks-40-a_202511
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/ntwks-40-a_202511/NTWKS40A.iso"
                 ;;
         esac || {
             error_action=$?

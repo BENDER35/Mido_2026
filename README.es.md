@@ -207,6 +207,12 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `hyperv2012r2-eval` | Hyper-V Server 2012 R2 Evaluation |
 | `hyperv2016-eval` | Hyper-V Server 2016 Evaluation |
 | `hyperv2019-eval` | Hyper-V Server 2019 Evaluation |
+| `win311` | Windows for Workgroups 3.11 (inglés, obtenido de archive.org) |
+| `win95` | Windows 95 (inglés, obtenido de archive.org) |
+| `win98` | Windows 98 Second Edition (inglés, obtenido de archive.org) |
+| `winme` | Windows Millennium Edition (inglés, obtenido de archive.org) |
+| `winnt35` | Windows NT 3.5 Workstation (inglés, obtenido de archive.org) |
+| `winnt40` | Windows NT 4.0 Workstation (inglés, obtenido de archive.org) |
 
 ## Soporte de idiomas
 
@@ -250,8 +256,12 @@ Windows 2000 Professional, Windows XP Professional y Windows XP Professional x64
  en español también están disponibles vía archive.org. Windows 8.1 Pro en español
  también está disponible vía archive.org tanto para 64-bit (`win81x64-pro-esp`)
  como para 32-bit (`win81x64-pro-es-mx`). Como Microsoft no publica checksums
- oficiales de cada versión localizada, las ISOs localizadas pueden mostrar
- `NO KNOWN CHECKSUM (skipping verification)`.
+oficiales de cada versión localizada, las ISOs localizadas pueden mostrar
+  `NO KNOWN CHECKSUM (skipping verification)`.
+
+Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
+son únicamente en inglés, provienen de `archive.org` y no tienen checksums
+publicados.
 
 ## ¿Cómo funciona Mido?
 
@@ -277,7 +287,11 @@ Consulta [docs/TECHNICAL.es.md](docs/TECHNICAL.es.md) para el recorrido completo
 Además de las versiones de consumidor (Windows 10 y 11), puede descargar
 automáticamente las últimas ediciones Server (por ejemplo Windows Server 2025) y
 Enterprise de casi todas las versiones, desde Windows 7 (o Server 2008 R2, e
-incluso Server 2003 y 2000 Server) en adelante.
+incluso Server 2003 y 2000 Server) en adelante. También incluye versiones retro
+de los años 90: Windows for Workgroups 3.11, Windows 95, Windows 98 Second
+Edition, Windows Millennium Edition, Windows NT 3.5 Workstation y Windows NT 4.0
+Workstation (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, obtenidas
+de archive.org).
 
 ¿Quieres una instalación de Windows más segura y minimalista, pero oficial de
 Microsoft? Descarga la versión LTSC de Windows. Incluye mucho menos bloatware y
@@ -312,6 +326,9 @@ de Microsoft (además de soporte a largo plazo).
   automáticamente.
 - **Windows Vista en español** — proviene de `archive.org`, que puede ser más
   lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
+- **ISOs retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)** —
+  provienen de `archive.org`, que puede ser más lento que la CDN de Microsoft.
+  Mido reintenta y reanuda automáticamente.
 - **Enterprise/Server "no download link"** — Microsoft cambia periódicamente las
   páginas del Evaluation Center. Abre un issue con la versión afectada.
 
