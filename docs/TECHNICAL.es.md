@@ -80,7 +80,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 |---|---|---|
 | `win10x64`, `win11x64` | API JSON de consumidor | Handshake de Sentinel |
 | `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp`, `win11x64-es-mx` | API JSON de consumidor primero, respaldo de `archive.org` | Handshake de Sentinel (oficial) |
-| `win10x86` (x86 español) | instantáneas de `archive.org` | ninguna |
+| `win10x86` (x86 inglés y español), `win10x86-esp`, `win10x86-es-mx` | API JSON de consumidor primero, respaldo de `archive.org` | Handshake de Sentinel (oficial) |
 | `win81x64` | API JSON de consumidor | Retirada (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | instantáneas de `archive.org` | ninguna |
 | `win2008r2-espa` | instantánea de `archive.org` de la ISO de evaluación oficial en español | ninguna |
@@ -91,7 +91,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`, `win2000-pro-retail-espa` | instantáneas de `archive.org` (Windows 2000 Professional, canales OEM/Retail, inglés y español) | ninguna |
 | `win-xp-pro`, `win-xp-pro-espa`, `win-xp-pro-32-espa` | instantáneas de `archive.org` (Windows XP Professional, inglés y español) | ninguna |
 | `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-home-oem-espa`, `win-xp-home-retail-espa`, `win-xp-pro-oem`, `win-xp-pro-retail`, `win-xp-pro-oem-espa`, `win-xp-pro-retail-espa` | instantáneas de `archive.org` (Windows XP Home/Professional, canales OEM/Retail, inglés y español) | ninguna |
-| `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
+| `win10x64-enterprise-eval`, `win10x86-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
 | `win11x64-iot-enterprise-ltsc-eval` | URL directa de `software-static.download.prss.microsoft.com` | ninguna |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
@@ -114,6 +114,10 @@ Las distintas familias de medios se obtienen de formas diferentes:
 > `enterprise_eval_download` restante ahora solo la usan las evaluaciones Server,
 > Server Essentials y Hyper-V (`win2012r2-eval` … `win2025-eval` y las entradas
 > Essentials/Hyper-V).
+>
+> `win10x86-enterprise-eval` es la contraparte de 32 bits (x86) de
+> `win10x64-enterprise-eval`: apunta a la ISO oficial de evaluación x86 de Windows
+> 10 Enterprise LTSC 21H2 archivada en archive.org (item `Win10-EnterpriseLTSC-21H2`).
 
 ## La API JSON de consumidor
 
@@ -221,10 +225,11 @@ dos compilaciones distintas y descarga una copia idéntica archivada en
 `archive.org`. Los respaldos apuntan a compilaciones 22H2 (Windows 10) y 23H2
 (Windows 11) en `es-ES`/`es-MX`.
 
-La API JSON de consumidor expone SKUs localizados solo para ediciones de consumidor
-x64. Para ISOs en español de 32 bits (x86), Mido usa instantáneas de archive.org
-de compilaciones Windows 10 22H2 (`win10x86-esp` para España, `win10x86-es-mx`
-para México). Las ISOs en español de Windows 8.1 Enterprise también están
+La API JSON de consumidor también expone SKUs de 32 bits (x86), de modo que
+`win10x86` intenta primero la descarga oficial x86 de Microsoft y recurre a la
+instantánea de archive.org `Win10_22H2_English_x32v1` como respaldo;
+`win10x86-esp` y `win10x86-es-mx` hacen lo mismo para España y México. Las ISOs en
+español de Windows 8.1 Enterprise también están
 archivadas en archive.org (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). Una
 ISO de evaluación en español de Windows Server 2008 R2 SP1 (`win2008r2-espa`)
 también está archivada allí, al igual que Windows Server 2008 (sin R2) SP2
@@ -285,6 +290,29 @@ que pasan por la ruta `NO KNOWN CHECKSUM (skipping verification)`.
 > escritorio *NewShell* / Shell Technology Preview solo aplica a Windows NT 3.51
 > (y a la vista previa filtrada del NT 3.5 build 854); se documenta con enlaces
 > de descarga en el README.
+
+## Windows Update en Windows sin soporte
+
+Mido solo *descarga* los medios; parchear el sistema instalado es un problema
+aparte. Microsoft ha retirado los servicios de actualización de los que dependen
+las versiones antiguas de Windows, por lo que el README documenta los proyectos
+comunitarios de recuperación y la instalación paso a paso de las actualizaciones.
+En resumen:
+
+- **Vista y anteriores (Server 2008 y anteriores):** el servicio clásico de
+  Windows Update / Microsoft Update está cerrado de forma permanente.
+- **Windows 7 / Server 2008 R2:** el Microsoft Update para "otros productos de
+  Microsoft" está cerrado. Instala **Office 2010** para instalar el agente
+  Microsoft Update más reciente y reactivar la lista completa de actualizaciones,
+  e instala los parches requisito SHA-2 (`KB4474419`, `KB4490628`).
+- **Todas las versiones sin soporte:** usa **Legacy Update**
+  (<https://legacyupdate.net/>) para Windows 2000–11 y **Windows Update Restored**
+  (<https://windowsupdaterestored.com/>, requiere IE 4.0–6.0) para Windows
+  95/98/Me/NT 4.0. El Catálogo de Microsoft Update
+  (<https://catalog.update.microsoft.com/>) es el respaldo manual.
+
+Consulta la sección del README *"Windows Update en Windows sin soporte"* para las
+instrucciones detalladas y listas para copiar.
 
 ## Motor de descarga (`scurl_file`)
 
@@ -399,7 +427,7 @@ Microsoft los rota.
 | `win81x64` → HTTP 404 | Microsoft retiró la automatización de Windows 8.1 | Usa `win81x64-enterprise-eval` |
 | Windows 7 muy lento | Límite de velocidad de Wayback Machine | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Respaldo archive.org lento (Windows 10/11 en español) | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; se reanuda automáticamente |
-| Windows 10 x86 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
+| Windows 10 x86 (inglés/español) muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows 8.1 Enterprise en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows Server 2008 R2 en español muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |
 | Windows Server 2003 / Windows 2000 Server muy lento | Límite de velocidad de `archive.org` | Deja actuar a `--retry`/`--continue-at`; ten paciencia |

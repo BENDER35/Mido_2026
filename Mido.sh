@@ -73,6 +73,7 @@ archive_fallback_url() {
         8-es-ES-x86) printf '%s' "https://archive.org/download/win8-espanol-x86/Windows8-es-es.iso" ;;
         8-es-MX-x86) printf '%s' "https://archive.org/download/win8-es-mx-x86/Windows8-es-mx.iso" ;;
         10-en-US-x64) printf '%s' "https://archive.org/download/Win10_22H2_English_x64v1/Win10_22H2_English_x64v1.iso" ;;
+        10-en-US-x86) printf '%s' "https://archive.org/download/Win10_22H2_English_x32v1/Win10_22H2_English_x32v1.iso" ;;
         10-es-ES-x64) printf '%s' "https://archive.org/download/win10_22h2_spanish_x64v1.iso-20250331/Win10_22H2_Spanish_x64v1.iso" ;;
         10-es-MX-x64) printf '%s' "https://archive.org/download/win10_22h2_spanish_mexico_x64v1.iso-20250331/Win10_22H2_Spanish_Mexico_x64v1.iso" ;;
         10-es-ES-x86) printf '%s' "https://archive.org/download/win10_22h2_spanish_x32v1.iso-20250331/Win10_22H2_Spanish_x32v1.iso" ;;
@@ -134,6 +135,7 @@ usage() {
     echo "  win10x64 (official first then archive.org)"
     echo "  win10x64-esp (Spanish, official first then archive.org)"
     echo "  win10x64-es-mx (Mexican Spanish, official first then archive.org)"
+    echo "  win10x86 (32-bit English, official first then archive.org)"
     echo "  win10x86-esp (32-bit Spanish, official first then archive.org)"
     echo "  win10x86-es-mx (32-bit Mexican Spanish, official first then archive.org)"
     echo "  win11x64 (official first then archive.org)"
@@ -141,6 +143,7 @@ usage() {
     echo "  win11x64-es-mx (Mexican Spanish, official first then archive.org)"
     echo "  win81x64-enterprise-eval"
     echo "  win10x64-enterprise-eval"
+    echo "  win10x86-enterprise-eval (32-bit)"
     echo "  win11x64-enterprise-eval"
     echo "  win10x64-enterprise-ltsc-eval (most secure)"
     echo "  win11x64-enterprise-ltsc-eval (most secure)"
@@ -256,6 +259,7 @@ readonly win81x64="win81x64.iso"
 readonly win81x64_ent_32_esp="win81x64-ent-32-espa.iso"
 readonly win81x64_ent_64_esp="win81x64-ent-64-esp.iso"
 readonly win10x64="win10x64.iso"
+readonly win10x86="win10x86.iso"
 readonly win10x86_esp="win10x86-espanol.iso"
 readonly win10x86_es_mx="win10x86-es-mexico.iso"
 readonly win10x64_esp="win10x64-espanol.iso"
@@ -265,6 +269,7 @@ readonly win11x64_esp="win11x64-espanol.iso"
 readonly win11x64_es_mx="win11x64-es-mexico.iso"
 readonly win81x64_enterprise_eval="win81x64-enterprise-eval.iso"
 readonly win10x64_enterprise_eval="win10x64-enterprise-eval.iso"
+readonly win10x86_enterprise_eval="win10x86-enterprise-eval.iso"
 readonly win11x64_enterprise_eval="win11x64-enterprise-eval.iso"
 readonly win10x64_enterprise_ltsc_eval="win10x64-enterprise-ltsc-eval.iso"
 readonly win11x64_enterprise_ltsc_eval="win11x64-enterprise-ltsc-eval.iso"
@@ -407,6 +412,9 @@ parse_args() {
             win10x64)
                 media_list="$media_list $win10x64"
                 ;;
+            win10x86 | win10x86-en-us)
+                media_list="$media_list $win10x86"
+                ;;
             win10x86-esp | win10x86_esp)
                 media_list="$media_list $win10x86_esp"
                 ;;
@@ -433,6 +441,9 @@ parse_args() {
                 ;;
             win10x64-enterprise-eval)
                 media_list="$media_list $win10x64_enterprise_eval"
+                ;;
+            win10x86-enterprise-eval)
+                media_list="$media_list $win10x86_enterprise_eval"
                 ;;
             win11x64-enterprise-eval)
                 media_list="$media_list $win11x64_enterprise_eval"
@@ -705,7 +716,7 @@ parse_args() {
                 media_list="$media_list $winframe"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1223,6 +1234,11 @@ download_media() {
                 # Microsoft's official (Sentinel-gated) download first, archive.org fallback
                 consumer_download_or_archive "$media" 10 "es-MX" "$(archive_fallback_url 10 es-MX x64)"
                 ;;
+            "$win10x86")
+                echo_info "Downloading Windows 10 32-bit..."
+                # Microsoft's official (Sentinel-gated) download first, archive.org fallback
+                consumer_download_or_archive "$(localized_media "$media")" 10 "$MIDO_LANG" "$(archive_fallback_url 10 "$MIDO_LANG" x86)" x86
+                ;;
             "$win10x86_esp")
                 echo_info "Downloading Windows 10 32-bit Spanish (Spain)..."
                 # Microsoft's official (Sentinel-gated) download first, archive.org fallback
@@ -1263,6 +1279,11 @@ download_media() {
             "$win10x64_enterprise_eval")
                 echo_info "Downloading Windows 10 Enterprise Evaluation..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-10-21-h-2-enterprise-ltsc/Windows_10_21H2_Enterprise_LTSC.iso"
+                ;;
+            "$win10x86_enterprise_eval")
+                echo_info "Downloading Windows 10 Enterprise 32-bit Evaluation..."
+                # Official Microsoft Windows 10 Enterprise LTSC 21H2 x86 (32-bit) evaluation ISO, archived on archive.org
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win10-EnterpriseLTSC-21H2/19044.1288.211006-0501.21h2_release_svc_refresh_CLIENT_LTSC_EVAL_x86FRE_en-us.iso"
                 ;;
             "$win11x64_enterprise_eval")
                 echo_info "Downloading Windows 11 Enterprise Evaluation..."

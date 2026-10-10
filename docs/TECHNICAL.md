@@ -79,7 +79,7 @@ Different media families are fetched in different ways:
 |---|---|---|
 | `win10x64`, `win11x64` | Consumer JSON API | Sentinel handshake |
 | `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp`, `win11x64-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
-| `win10x86` (x86 Spanish) | `archive.org` snapshots | none |
+| `win10x86` (x86 English and Spanish), `win10x86-esp`, `win10x86-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win7x64-ultimate-esp`, `win7x64-ultimate-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
@@ -101,7 +101,7 @@ Different media families are fetched in different ways:
 | `win7x86-enterprise`, `win7x86-enterprise-esp`, `win7x86-enterprise-es-mx` | `archive.org` snapshots (Windows 7 Enterprise) | none |
 | `win7x64-sp1`, `win7x86-sp1` | `archive.org` snapshots (Windows 7 SP1) | none |
 | `win81x64-pro`, `win81x64-pro-esp`, `win81x64-pro-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
-| `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
+| `win10x64-enterprise-eval`, `win10x86-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
@@ -120,6 +120,11 @@ Different media families are fetched in different ways:
 > remaining `enterprise_eval_download` path is now used only by the Windows
 > Server, Server Essentials and Hyper-V evaluations (`win2012r2-eval` …
 > `win2025-eval` and the Essentials/Hyper-V entries).
+>
+> `win10x86-enterprise-eval` is the 32-bit (x86) counterpart of
+> `win10x64-enterprise-eval`: it points to the official Windows 10 Enterprise
+> LTSC 21H2 x86 evaluation ISO archived on archive.org (item
+> `Win10-EnterpriseLTSC-21H2`).
 
 ## The consumer JSON API
 
@@ -226,9 +231,10 @@ the `.PART` left by the official attempt (so two different builds are never mixe
 and downloads an identical copy archived on `archive.org`. The fallbacks point to
 22H2 builds (Windows 10) and 23H2 builds (Windows 11) in `es-ES`/`es-MX`.
 
-The consumer JSON API exposes localized SKUs only for x64 consumer editions.
-For 32-bit (x86) Spanish ISOs, Mido uses archive.org snapshots of Windows 10
-22H2 builds (`win10x86-esp` for Spain, `win10x86-es-mx` for Mexico). Windows 8.1
+The consumer JSON API also exposes 32-bit (x86) Windows 10 SKUs, so `win10x86`
+tries Microsoft's official x86 download first and falls back to the archive.org
+snapshot `Win10_22H2_English_x32v1`; `win10x86-esp` and `win10x86-es-mx` do the
+same for Spain and Mexico. Windows 8.1
 Enterprise Spanish ISOs are likewise archived on archive.org
 (`win81x64-ent-32-espa`, `win81x64-ent-64-esp`). A Spanish evaluation ISO of
 Windows Server 2008 R2 SP1 (`win2008r2-espa`) is also archived there, as are
@@ -296,6 +302,28 @@ they go through the `NO KNOWN CHECKSUM (skipping verification)` path.
 > README for the step-by-step instructions. The *NewShell* / Shell Technology
 > Preview desktop patch applies only to Windows NT 3.51 (and the leaked NT 3.5
 > build 854 preview); it is documented with download links in the README.
+
+## Windows Update on unsupported Windows
+
+Mido only *downloads* media; patching the installed system is a separate
+problem. Microsoft has retired the update services that older Windows depends
+on, so the README documents the community revival projects and the
+step-by-step installation of updates. In short:
+
+- **Vista and older (Server 2008 and older):** the classic Windows Update /
+  Microsoft Update service is permanently shut down.
+- **Windows 7 / Server 2008 R2:** Microsoft Update for "other Microsoft
+  products" is closed. Install **Office 2010** to install the newer Microsoft
+  Update agent and re-enable the full update list, and install the SHA-2
+  prerequisites (`KB4474419`, `KB4490628`).
+- **All unsupported versions:** use **Legacy Update**
+  (<https://legacyupdate.net/>) for Windows 2000–11 and **Windows Update
+  Restored** (<https://windowsupdaterestored.com/>, requires IE 4.0–6.0) for
+  Windows 95/98/Me/NT 4.0. The Microsoft Update Catalog
+  (<https://catalog.update.microsoft.com/>) is the manual fallback.
+
+See the README section *"Windows Update on unsupported Windows"* for the
+detailed, copy-pasteable instructions.
 
 ## Download engine (`scurl_file`)
 
@@ -408,7 +436,7 @@ rotates them.
 | `win81x64` → HTTP 404 | Microsoft retired Windows 8.1 automation | Use `win81x64-enterprise-eval` |
 | Windows 7 very slow | Wayback Machine throttling | Let `--retry`/`--continue-at` work; be patient |
 | archive.org fallback slow (Spanish Win10/11) | `archive.org` throttling | Let `--retry`/`--continue-at` work; resumes automatically |
-| Windows 10 x86 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
+| Windows 10 x86 (English/Spanish) very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows 8.1 Enterprise Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows Server 2008 R2 Spanish very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |
 | Windows Server 2003 / 2000 Server very slow | `archive.org` throttling | Let `--retry`/`--continue-at` work; be patient |

@@ -121,12 +121,15 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win10x64` | Windows 10 x64 (multi-edition) |
 | `win10x64-esp` | Windows 10 x64 Spanish (Spain) — Microsoft official first, archive.org fallback |
 | `win10x64-es-mx` | Windows 10 x64 Spanish (Mexico) — Microsoft official first, archive.org fallback |
-| `win10x86` | Windows 10 x86 (32-bit) Spanish — Spain (`win10x86-esp`) or Mexico (`win10x86-es-mx`) |
+| `win10x86` | Windows 10 x86 (32-bit, multi-edition) — Microsoft official first, archive.org fallback |
+| `win10x86-esp` | Windows 10 x86 (32-bit) Spanish (Spain) — Microsoft official first, archive.org fallback |
+| `win10x86-es-mx` | Windows 10 x86 (32-bit) Mexican Spanish — Microsoft official first, archive.org fallback |
 | `win11x64` | Windows 11 x64 (multi-edition) |
 | `win11x64-esp` | Windows 11 x64 Spanish (Spain) — Microsoft official first, archive.org fallback |
 | `win11x64-es-mx` | Windows 11 x64 Spanish (Mexico) — Microsoft official first, archive.org fallback |
 | `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
+| `win10x86-enterprise-eval` | Windows 10 Enterprise 32-bit Evaluation (LTSC 21H2 x86, sourced from archive.org) |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (most secure) |
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (most secure) |
@@ -244,8 +247,8 @@ Besides `MIDO_LANG`, dedicated arguments exist for Spanish (Spain) and Mexican
 Spanish: `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp` and `win11x64-es-mx`.
 These try Microsoft's official download first and, if the request is rejected
 (for example by the Sentinel anti-abuse system), fall back to an identical
-archive.org copy. Additionally, Windows 10 32-bit (x86) ISOs in Spanish are available via archive.org
-for both Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
+archive.org copy. Additionally, Windows 10 32-bit (x86) ISOs are available via archive.org
+for English (`win10x86`), Spain (`win10x86-esp`) and Mexico (`win10x86-es-mx`).
 Windows 8.1 Enterprise Spanish ISOs are also available via archive.org for both
 32-bit (`win81x64-ent-32-espa`) and 64-bit (`win81x64-ent-64-esp`).
 A Spanish Windows Server 2008 R2 SP1 evaluation ISO is available via archive.org
@@ -412,6 +415,111 @@ Installation for the **Windows NT 3.5 build 854 NewShell**:
    environment variable.
 3. Reboot.
 
+## Windows Update on unsupported Windows
+
+Newer media is not the whole story: once Windows is installed you still have to
+update it. Microsoft has progressively shut down the services older Windows
+versions rely on, so a fresh installation may not be able to find updates at all.
+
+- **Windows Vista and older (including Windows Server 2008 and older).** The
+  classic **Windows Update / Microsoft Update** service is permanently shut down.
+  These systems can no longer reach Microsoft's update servers on their own.
+- **Windows 7 / Windows Server 2008 R2.** Microsoft's **Microsoft Update for
+  "other Microsoft products"** (Office, etc.) has been closed, and even the
+  Windows updates only work after a set of prerequisite updates are installed.
+  The community project *Legacy Update* restores both.
+- **Windows 8.1 / Windows Server 2012 R2.** Normal Windows Update still works,
+  but these versions are out of support, so only the legacy tools below keep
+  offering the full update list.
+
+### Community revival projects
+
+Because Microsoft removed the original services, the community rebuilt them:
+
+- **Legacy Update** — <https://legacyupdate.net/> — the recommended option for
+  **Windows 2000, XP, Vista, 7, 8, 8.1, 10 and 11** and the equivalent Windows
+  Server releases (x86, x64, Itanium and ARM64). It proxies the modern Windows
+  Update v6 protocol to Microsoft's official servers and automatically installs
+  the prerequisite updates that fresh installations lack (SHA-2 code-signing
+  support `KB4474419`/`KB4490628`, the servicing-stack update, and more).
+- **Windows Update Restored** — <https://windowsupdaterestored.com/> — the sister
+  project that revives the **original** Windows Update and Microsoft Update
+  websites for **Windows 95, NT 4.0, 98, Me, 2000 and XP**. It requires
+  **Internet Explorer 4.0–6.0** (IE 5.5 at 800×600 gives the classic look) and is
+  designed for those older versions.
+
+> Both projects are unofficial, community-run and not affiliated with Microsoft.
+> They are the only realistic way to update these systems today. Use them on a
+> machine you can afford to reinstall and keep backups. Even fully patched, these
+> operating systems remain a security risk — prefer a supported OS when possible.
+
+### Windows 7: enabling updates for "other Microsoft products"
+
+On a fresh Windows 7 install the **"Get updates for other Microsoft products"**
+(Microsoft Update) option is often missing, so Windows Update only offers
+updates for Windows itself. To restore the full Microsoft Update:
+
+1. Install the prerequisite updates first. The easiest way is to run **Legacy
+   Update**, which identifies and installs everything missing. Manually you need
+   `KB4474419` (SHA-2 code-signing support) and `KB4490628` (servicing stack),
+   followed by a reboot and the latest servicing-stack update.
+2. Install **Office 2010** (any edition). Its setup installs the newer
+   **Microsoft Update** agent, which re-registers the "other Microsoft products"
+   update source that modern Windows 7 requires.
+3. Reboot, then in Internet Explorer visit <http://update.microsoft.com> and/or
+   open **Windows Update** and click **Find out more** next to *"Get updates for
+   other Microsoft products"* to opt in. (If the option stays hidden, open an
+   Office application such as Word once and accept the "recommended updates"
+   prompt.)
+4. Go to **Windows Update → Change settings** and confirm the *Microsoft Update*
+   section has reappeared.
+
+> If Office 2010 is installed **before** running Legacy Update, checking for
+> updates may hang forever — a documented Legacy Update issue. Run Legacy Update
+> first.
+
+### How to search for and install updates, step by step
+
+**Modern Windows (8.1 / 10 / 11) still served by Windows Update:**
+
+1. Open **Settings → Update & Security → Windows Update**.
+2. Click **Check for updates** and let it download and install.
+3. For optional software and driver updates click **View optional updates**
+   (Windows 10/11) and select what you need.
+4. Reboot and repeat until no more updates are found.
+
+**Legacy Windows (2000 – 8.1) with Legacy Update:**
+
+1. Download `LegacyUpdateSetup.exe` from <https://legacyupdate.net/> and run it
+   on the target machine (Windows 2000/XP may need the documented workaround and
+   the latest Internet Explorer first).
+2. Accept the prompt to install the **prerequisite updates**. Legacy Update
+   detects and installs everything missing and reboots as needed.
+3. Open **Start → All Programs → Legacy Update** (or the site's **Install
+   Updates** link) to load the classic Windows Update page.
+4. Click **Express** to install all critical/security updates automatically, or
+   **Custom** to choose individual updates, drivers and optional software.
+5. Review the list, click **Install Updates**, accept the licenses when prompted,
+   and let it install.
+6. Reboot when asked and **re-run the check until no new updates appear**. The
+   first check on Vista/7 can take 30–60 minutes — be patient.
+
+**Very old Windows (95 / 98 / Me / NT 4.0) with Windows Update Restored:**
+
+1. On the target machine open `windowsupdaterestored.com` in **Internet Explorer
+   4.0–6.0**.
+2. Follow the site's **Prerequisites Installer** (or the manual steps); the site
+   loads the original Microsoft ActiveX control that scans for updates.
+3. Use **Windows Update** for OS updates and **Microsoft Update** for Office and
+   other Microsoft products.
+4. Install the offered updates, reboot, and check again until the list is empty.
+
+**Manual fallback:** almost every update is also published on the **Microsoft
+Update Catalog** (<https://catalog.update.microsoft.com/>). Search by KB number,
+download the `.msu`/`.cab` and install it by double-clicking it (or with
+`wusa`/`dism`). This is the most reliable way to patch a machine that cannot
+reach any update service.
+
 ## Knowledge base / troubleshooting
 
 - **"Sentinel marked this request as rejected"** — Microsoft's anti-abuse system
@@ -429,9 +537,9 @@ Installation for the **Windows NT 3.5 build 854 NewShell**:
 - **Windows 7 is slow** — it is sourced from `web.archive.org`, which is much
   slower and less reliable than Microsoft's CDN. Mido retries automatically and
   resumes partial downloads.
-- **Windows 10 x86 Spanish ISOs** — sourced from `archive.org` (Windows 10 22H2
-  builds), which may be slower than Microsoft's CDN. Mido retries and resumes
-  automatically.
+- **Windows 10 x86 ISOs (English, Spanish)** — the official download is tried
+  first; the `archive.org` fallback (Windows 10 22H2 builds) may be slower than
+  Microsoft's CDN. Mido retries and resumes automatically.
 - **Windows 8.1 Enterprise Spanish ISOs** — sourced from `archive.org`, which may
   be slower than Microsoft's CDN. Mido retries and resumes automatically.
 - **Windows Server 2008 R2 Spanish ISO** — sourced from `archive.org`, which may be
