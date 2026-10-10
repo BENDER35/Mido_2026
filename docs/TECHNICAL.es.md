@@ -86,6 +86,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win2008r2-espa` | instantánea de `archive.org` de la ISO de evaluación oficial en español | ninguna |
 | `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | instantáneas de `archive.org` (ISOs oficiales SP2 AIO) | ninguna |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | instantáneas de `archive.org` (ISOs heredadas retail/eval) | ninguna |
+| `win2000-datacenter`, `win2000-datacenter-sp4` | instantáneas de `archive.org` (Windows 2000 Datacenter Server, RTM OEM con SP1 y SP4) | ninguna |
 | `win2000-pro`, `win2000-pro-espa` | instantáneas de `archive.org` (Windows 2000 Professional) | ninguna |
 | `win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`, `win2000-pro-retail-espa` | instantáneas de `archive.org` (Windows 2000 Professional, canales OEM/Retail, inglés y español) | ninguna |
 | `win-xp-pro`, `win-xp-pro-espa` | instantáneas de `archive.org` (Windows XP Professional) | ninguna |
@@ -232,7 +233,9 @@ también está archivada allí, al igual que Windows Server 2008 (sin R2) SP2
 Server SP4 en inglés y español. Server 2003 está disponible como Enterprise de
 32 bits (`win2003-server`, `win2003-server-espa`) y como R2 Enterprise x64 SP2 de
 64 bits (`win2003-server-x64`, `win2003-server-x64-espa`); Windows 2000 Server SP4
-es de 32 bits (`win2000-server`, `win2000-server-espa`). Estas no están cubiertas
+es de 32 bits (`win2000-server`, `win2000-server-espa`), y Windows 2000 Datacenter
+Server está disponible como la versión RTM OEM con SP1 (`win2000-datacenter`) y
+como SP4 (`win2000-datacenter-sp4`). Estas no están cubiertas
 por la API de Microsoft y no tienen checksums publicados.
 
 

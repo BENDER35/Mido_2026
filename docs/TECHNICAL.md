@@ -87,6 +87,7 @@ Different media families are fetched in different ways:
 | `win2008r2-espa` | `archive.org` snapshot of the official Spanish eval ISO | none |
 | `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | `archive.org` snapshots (official SP2 AIO ISOs) | none |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
+| `win2000-datacenter`, `win2000-datacenter-sp4` | `archive.org` snapshots (Windows 2000 Datacenter Server, RTM OEM with SP1 and SP4) | none |
 | `win2000-pro`, `win2000-pro-espa` | `archive.org` snapshots (Windows 2000 Professional) | none |
 | `win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`, `win2000-pro-retail-espa` | `archive.org` snapshots (Windows 2000 Professional, OEM/Retail channels, English and Spanish) | none |
 | `win-xp-pro`, `win-xp-pro-espa` | `archive.org` snapshots (Windows XP Professional) | none |
@@ -237,7 +238,9 @@ Windows Server 2008 (non-R2) SP2 (`win2008-server-x64`, `win2008-server-x64-espa
 2003 is available as 32-bit Enterprise (`win2003-server`, `win2003-server-espa`)
 and as 64-bit R2 Enterprise x64 SP2 (`win2003-server-x64`,
 `win2003-server-x64-espa`); Windows 2000 Server SP4 is 32-bit (`win2000-server`,
-`win2000-server-espa`). These are not covered by the Microsoft API and have no
+`win2000-server-espa`), and Windows 2000 Datacenter Server is available as the RTM
+OEM release with SP1 (`win2000-datacenter`) and as SP4 (`win2000-datacenter-sp4`).
+These are not covered by the Microsoft API and have no
 published checksums.
 
 Windows Vista SP1 ISOs in English and Spanish are also sourced from archive.org

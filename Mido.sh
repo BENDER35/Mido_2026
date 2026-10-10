@@ -159,6 +159,8 @@ usage() {
     echo "  win2000-advanced-server (English, archive.org)"
     echo "  win2000-server-espa (Spanish, archive.org)"
     echo "  win2000-advanced-server-espa (Spanish, archive.org)"
+    echo "  win2000-datacenter (RTM OEM with SP1, archive.org)"
+    echo "  win2000-datacenter-sp4 (SP4, archive.org)"
     echo "  win2000-pro (SP4 retail, archive.org)"
     echo "  win2000-pro-oem (SP3 OEM, archive.org)"
     echo "  win2000-pro-retail (SP4 retail, archive.org)"
@@ -268,6 +270,8 @@ readonly win2000_server="win2000-server.iso"
 readonly win2000_server_espa="win2000-server-espa.iso"
 readonly win2000_advanced_server="win2000-advanced-server.iso"
 readonly win2000_advanced_server_espa="win2000-advanced-server-espa.iso"
+readonly win2000_datacenter="win2000-datacenter.iso"
+readonly win2000_datacenter_sp4="win2000-datacenter-sp4.iso"
 readonly win2000_pro="win2000-pro.iso"
 readonly win2000_pro_espa="win2000-pro-espa.iso"
 readonly win2000_pro_oem="win2000-pro-oem.iso"
@@ -456,8 +460,17 @@ parse_args() {
             win2000-advanced-server)
                 media_list="$media_list $win2000_advanced_server"
                 ;;
+            win2000-advanced-server-espa)
+                media_list="$media_list $win2000_advanced_server_espa"
+                ;;
             win2000-server-espa)
                 media_list="$media_list $win2000_server_espa"
+                ;;
+            win2000-datacenter)
+                media_list="$media_list $win2000_datacenter"
+                ;;
+            win2000-datacenter-sp4)
+                media_list="$media_list $win2000_datacenter_sp4"
                 ;;
             win2000-pro)
                 media_list="$media_list $win2000_pro"
@@ -643,7 +656,7 @@ parse_args() {
                 media_list="$media_list $winnt40"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt35 $winnt40 $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_pro_oem $win_xp_pro_retail $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt35 $winnt40 $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_pro_oem $win_xp_pro_retail $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1302,6 +1315,18 @@ download_media() {
                 echo_info "Downloading Windows 2000 Advanced Server SP1 Spanish (Español)..."
                 # Windows 2000 Advanced Server SP1 in Spanish, archived on archive.org
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-adv-srv-sp1-esp/es_Windows2000AdvServerSP1_ES.iso"
+                ;;
+            "$win2000_datacenter")
+                echo_info "Downloading Windows 2000 Datacenter Server RTM OEM (SP1)..."
+                # Windows 2000 Datacenter Server RTM (OEM channel, includes SP1), archived on archive.org
+                # Source: https://archive.org/details/windows-2000-datacenter-server
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-2000-datacenter-server/en_win2000_dtc_srv_rtm_oem.iso"
+                ;;
+            "$win2000_datacenter_sp4")
+                echo_info "Downloading Windows 2000 Datacenter Server SP4..."
+                # Windows 2000 Datacenter Server SP4 (build 2195.6717), archived on archive.org
+                # Source: https://archive.org/details/5.00.2195.6717-x-86fre-dtcserver-en-us
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/5.00.2195.6717-x-86fre-dtcserver-en-us/5.00.2195.6717_x86fre_DTCServer_en-us.iso"
                 ;;
             "$win2000_pro")
                 echo_info "Downloading Windows 2000 Professional SP4..."

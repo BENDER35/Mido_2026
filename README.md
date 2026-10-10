@@ -187,6 +187,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win2000-server-espa` | Windows 2000 Server SP4 (Spanish, sourced from archive.org) |
 | `win2000-advanced-server` | Windows 2000 Advanced Server SP1 (English, sourced from archive.org) |
 | `win2000-advanced-server-espa` | Windows 2000 Advanced Server SP1 (Spanish, sourced from archive.org) |
+| `win2000-datacenter` | Windows 2000 Datacenter Server RTM OEM (SP1, English, sourced from archive.org) |
+| `win2000-datacenter-sp4` | Windows 2000 Datacenter Server SP4 (English, sourced from archive.org) |
 | `win2012r2-eval` | Windows Server 2012 R2 Evaluation |
 | `win2016-eval` | Windows Server 2016 Evaluation |
 | `win2019-eval` | Windows Server 2019 Evaluation |
