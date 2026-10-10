@@ -1,0 +1,30 @@
+eh, ah, hello, how are you?
+
+well, I'll briefly summarize the theme, I wanted to see another use of AI,
+in addition to ports to other operating systems like Linux or ports of old
+Windows systems, also test it in script repairs, this repair is of the Mido script,
+the original didn't work half of the links
+the 7 one, the Wayback link sometimes worked, among others, i.e., it didn't work,
+with AI the script has been restored (although I'll do a final check to make sure
+everything works), I've focused mainly on systems from 3.11 and their server
+equivalences (although there might be last-minute changes), plus the links,
+some failures that the AI has detected have been repaired and half of the
+checks went well.
+
+now, not everything is going to be like that Terminator 2 character who said
+"no problemo", yes, that one, the T-800 goodness, these tutorials that will be
+done soon are not going to be AI, these are:
+
+- vmware installation tutorial (win-lin)
+- virtualbox installation tutorial (win-lin)
+- PCEM installation tutorial
+- 86box installation tutorial
+- dosbox-x installation tutorial
+
+ok, enjoy this complete restoration of Mido, tell me how the script works,
+if you see any failure tell me and also tell me if you make a Windows virtual
+machine or reinstall the same.
+
+SALU2
+
+BENDER

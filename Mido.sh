@@ -588,7 +588,61 @@ parse_args() {
                 media_list="$media_list $win2008r2"
                 ;;
             win2008r2-espa)
-                media_list="$media_list $win2008r2_espa"
+                media_list="$media_list $win2008r2_espa";;
+
+            "$win81x64")
+                echo_info "Downloading Windows 8.1 x64..."
+                # Windows 8.1 x64 (ended mainstream support 01-09-2018, extended support 01-01-2023)
+                # Archived on archive.org
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_8.1_x64_dvd_2707217_202507/en_windows_8.1_x64_dvd_2707217_202507.iso"
+                ;;
+            "$win81x86")
+                echo_info "Downloading Windows 8.1 x86 32-bit..."
+                # Windows 8.1 x86 32-bit (ended mainstream support 01-01-2018, extended support 01-01-2023)
+                # Archived on archive.org
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_8.1_x86_dvd_6051550/en_windows_8.1_x86_dvd_6051550.iso"
+                ;;
+            "$win81x64-enterprise-eval")
+                echo_info "Downloading Windows 8.1 Enterprise Evaluation..."
+                # Windows 8.1 Enterprise Evaluation (retired by Microsoft)
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-enterprise-eval/win81x64-enterprise-eval.iso"
+                ;;
+            "$win81x64-enterprise-n-eval")
+                echo_info "Downloading Windows 8.1 N Evaluation..."
+                # Windows 8.1 N Evaluation (without Media Player, for EU markets)
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-enterprise-n-eval/win81x64-enterprise-n-eval.iso"
+                ;;
+            "$win81x64-industry-enterprise-eval")
+                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation..."
+                # Windows 8.1 Industry Enterprise Evaluation
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-industry-enterprise-eval/win81x64-industry-enterprise-eval.iso"
+                ;;
+            "$win81x64-industry-pro-eval")
+                echo_info "Downloading Windows 8.1 Industry Professional Evaluation..."
+                # Windows 8.1 Industry Professional Evaluation
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-industry-pro-eval/win81x64-industry-pro-eval.iso"
+                ;;
+            "$win81x86-enterprise-eval")
+                echo_info "Downloading Windows 8.1 Enterprise Evaluation 32-bit..."
+                # Windows 8.1 Enterprise Evaluation 32-bit
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-enterprise-eval/win81x86-enterprise-eval.iso"
+                ;;
+            "$win81x86-enterprise-n-eval")
+                echo_info "Downloading Windows 8.1 N Evaluation 32-bit..."
+                # Windows 8.1 N Evaluation 32-bit
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-enterprise-n-eval/win81x86-enterprise-n-eval.iso"
+                ;;
+            "$win81x86-industry-enterprise-eval")
+                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation 32-bit..."
+                # Windows 8.1 Industry Enterprise Evaluation 32-bit
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-industry-enterprise-eval/win81x86-industry-enterprise-eval.iso"
+                ;;
+            "$win81x86-industry-pro-eval")
+                echo_info "Downloading Windows 8.1 Industry Professional Evaluation 32-bit..."
+                # Windows 8.1 Industry Professional Evaluation 32-bit
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-industry-pro-eval/win81x86-industry-pro-eval.iso"
+                ;;
+            "$win2003_server_x64")
                 ;;
             win81x64)
                 media_list="$media_list $win81x64"

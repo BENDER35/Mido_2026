@@ -256,9 +256,6 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win7x86-ultimate` | Windows 7 Ultimate x86 (32-bit) — sourced from archive.org |
 | `win7x86-ultimate-esp` | Windows 7 Ultimate x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win7x86-ultimate-es-mx` | Windows 7 Ultimate x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
-| `win81x64` | Windows 8.1 x64 (**retirado por Microsoft**, usa la Enterprise Eval) |
-| `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32 bits español (obtenido de archive.org) |
-| `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64 bits español (obtenido de archive.org) |
 | `win10x64` | Windows 10 x64 (multiedición) |
 | `win10x64-esp` | Windows 10 x64 español (España) — primero Microsoft oficial, si falla archive.org |
 | `win10x64-es-mx` | Windows 10 x64 español (México) — primero Microsoft oficial, si falla archive.org |
@@ -268,12 +265,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win11x64` | Windows 11 x64 (multiedición) |
 | `win11x64-esp` | Windows 11 x64 español (España) — primero Microsoft oficial, si falla archive.org |
 | `win11x64-es-mx` | Windows 11 x64 español (México) — primero Microsoft oficial, si falla archive.org |
-| `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
-| `win81x64` | Windows 8.1 x64 (**retirado por Microsoft**, usa la Enterprise Eval) |
-| `win81x86` | Windows 8.1 x86 (32-bit) — sourced from archive.org |
-| `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32 bits español (obtenido de archive.org) |
-| `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64 bits español (obtenido de archive.org) |
-| `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
+| `win81-serial` | Claves de instalación de Windows 8.1 (para continuar la instalación, no para activar) |
+ |
 | `win10x86-enterprise-eval` | Windows 10 Enterprise 32-bit Evaluation (LTSC 21H2 x86, obtenido de archive.org) |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (la más segura) |
@@ -285,6 +278,12 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win10x64-iot-enterprise-ltsc-2021` | Windows 10 IoT Enterprise LTSC 2021 (completa, inglés, x64, obtenido de archive.org) |
 | `win10x64-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 (completa, inglés, x64, obtenido de archive.org) |
 | `win10x86-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 (completa, inglés, x86/32 bits, obtenido de archive.org) |
+| `win81x64` | Windows 8.1 x64 (**retirado por Microsoft**, usa la Enterprise Eval) |
+| `win81x86` | Windows 8.1 x86 (32-bit) — sourced from archive.org |
+| `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32 bits español (obtenido de archive.org) |
+| `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64 bits español (obtenido de archive.org) |
+| `win81-serial` | Claves de instalación de Windows 8.1 (para continuar la instalación, no para activar) |
+
 | `win11x64-enterprise-ltsc-2024` | Windows 11 Enterprise LTSC 2024 (completa, inglés, x64, obtenido de archive.org) |
 | `win11x64-enterprise-ltsc-2024-esp` | Windows 11 Enterprise LTSC 2024 (completa, español de España, x64, obtenido de archive.org) |
 | `win11x64-enterprise-ltsc-2024-es-mx` | Windows 11 Enterprise LTSC 2024 (completa, español de México, x64, obtenido de archive.org) |
