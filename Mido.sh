@@ -201,8 +201,12 @@ usage() {
     echo "  win98-espa (Windows 98 Second Edition Spanish, archive.org)"
     echo "  winme (Windows Millennium Edition, archive.org)"
     echo "  winme-espa (Windows Millennium Edition Spanish, archive.org)"
+    echo "  winnt31 (Windows NT 3.1 Workstation, archive.org)"
     echo "  winnt35 (Windows NT 3.5 Workstation, archive.org)"
+    echo "  winnt351 (Windows NT 3.51 Workstation, archive.org)"
     echo "  winnt40 (Windows NT 4.0 Workstation, archive.org)"
+    echo "  backoffice (Microsoft BackOffice Small Business Server 4.0 x86, archive.org)"
+    echo "  winframe (Citrix WinFrame 1.6, Windows NT 3.51 Terminal Server, archive.org)"
     echo ""
     echo "Each ISO download takes between 3 - 7 GiBs (average: 5 GiBs)."
     echo ""
@@ -347,8 +351,12 @@ readonly win98="win98.iso"
 readonly win98_espa="win98-espa.iso"
 readonly winme="winme.iso"
 readonly winme_espa="winme-espa.iso"
+readonly winnt31="winnt31.iso"
 readonly winnt35="winnt35.iso"
+readonly winnt351="winnt351.iso"
 readonly winnt40="winnt40.iso"
+readonly backoffice="backoffice-sbs-4.0.iso"
+readonly winframe="winframe-1.6.iso"
 
 parse_args() {
     for arg in "$@"; do
@@ -684,8 +692,20 @@ parse_args() {
             winnt40)
                 media_list="$media_list $winnt40"
                 ;;
+            winnt31)
+                media_list="$media_list $winnt31"
+                ;;
+            winnt351)
+                media_list="$media_list $winnt351"
+                ;;
+            backoffice)
+                media_list="$media_list $backoffice"
+                ;;
+            winframe)
+                media_list="$media_list $winframe"
+                ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt35 $winnt40 $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1710,6 +1730,32 @@ download_media() {
                 # Windows NT 4.0 Workstation (English), archived on archive.org
                 # Source: https://archive.org/details/ntwks-40-a_202511
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/ntwks-40-a_202511/NTWKS40A.iso"
+                ;;
+            "$winnt31")
+                echo_info "Downloading Windows NT 3.1 Workstation..."
+                # Windows NT 3.1 Workstation (English), archived on archive.org
+                # Source: https://archive.org/details/windowsnt31cd
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windowsnt31cd/NT_31A.ISO"
+                ;;
+            "$winnt351")
+                echo_info "Downloading Windows NT 3.51 Workstation..."
+                # Windows NT 3.51 Workstation (English, non-bootable CD), archived on archive.org
+                # Source: https://archive.org/details/wntwrks351_nb
+                # (boot floppies: https://archive.org/details/wnt351bflp)
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/wntwrks351_nb/NTWKS351.iso"
+                ;;
+            "$backoffice")
+                echo_info "Downloading Microsoft BackOffice Small Business Server 4.0 (x86)..."
+                # Microsoft BackOffice Small Business Server 4.0 (x86), archived on archive.org
+                # Source: https://archive.org/details/backoffice-small-business-server-4.0
+                # Full BackOffice Server 4.5 MSDN set: https://archive.org/details/microsoft-backoffice-server-4.5-4.0.1381.1
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/backoffice-small-business-server-4.0/DISC1X86.iso"
+                ;;
+            "$winframe")
+                echo_info "Downloading Citrix WinFrame 1.6 (Windows NT 3.51 Terminal Server)..."
+                # Citrix WinFrame 1.6 (Windows NT 3.51 Terminal Server Edition), archived on archive.org
+                # Source: https://archive.org/details/win-frame-1.6-english
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-frame-1.6-english/WinFrame%201.6%20English.iso"
                 ;;
         esac || {
             error_action=$?

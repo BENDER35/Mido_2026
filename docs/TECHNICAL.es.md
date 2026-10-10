@@ -107,7 +107,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win7x64-sp1`, `win7x86-sp1` | instantáneas de `archive.org` (Windows 7 SP1) | ninguna |
 | `win-xp-pro-64` | instantánea de `archive.org` (Windows XP Professional x64 Edition SP2, inglés; Microsoft distribuyó x64 en inglés/japonés con paquetes MUI) | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
-| `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa` | instantáneas de `archive.org` (ISOs retro retail/OEM; 95/98/ME también en español) | ninguna |
+| `win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa`, `backoffice`, `winframe` | instantáneas de `archive.org` (ISOs retro retail/OEM; 95/98/ME también en español; NT 3.1/3.5/3.51 Workstation, BackOffice SBS 4.0 y Citrix WinFrame 1.6) | ninguna |
 
 > Las evaluaciones Enterprise y LTSC de Windows 10/11 se migraron desde el HTML
 > (poco fiable) del Evaluation Center a ISOs archivadas en `archive.org`. La ruta
@@ -264,15 +264,27 @@ Estas no tienen checksums publicados.
 > los publica Microsoft, por lo que `enterprise_eval_download` se mantiene a
 > propósito en `en-US`.
 
-Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
-provienen directamente de instantáneas de `archive.org`
+Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
+`winnt351`, `winnt40`, `backoffice`, `winframe`) provienen directamente de
+instantáneas de `archive.org`
 (Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows
-Millennium Edition, Windows NT 3.5 Workstation y Windows NT 4.0 Workstation).
+Millennium Edition, Windows NT 3.1, 3.5 y 3.51 Workstation, Windows NT 4.0
+Workstation, además de Microsoft BackOffice Small Business Server 4.0 y Citrix
+WinFrame 1.6, la edición Windows NT 3.51 Terminal Server).
 Windows 95, Windows 98 Second Edition y Windows Millennium Edition también tienen
 instantáneas en español (`win95-espa`, `win98-espa`, `winme-espa`); el resto de
 las versiones retro son únicamente en inglés. No
 están cubiertas por la API de Microsoft y no tienen checksums publicados, por lo
 que pasan por la ruta `NO KNOWN CHECKSUM (skipping verification)`.
+
+> **Nota sobre la activación de producto y NewShell:** Ninguno de los medios
+> anteriores a XP tiene mecanismo de activación de producto (Microsoft introdujo
+> la activación con Windows XP/Office XP en 2001). El sistema de activación
+> telefónica se retiró el 3 de diciembre de 2025 y se sustituyó por el Product
+> Activation Portal online; consulta el README para los pasos. El parche de
+> escritorio *NewShell* / Shell Technology Preview solo aplica a Windows NT 3.51
+> (y a la vista previa filtrada del NT 3.5 build 854); se documenta con enlaces
+> de descarga en el README.
 
 ## Motor de descarga (`scurl_file`)
 

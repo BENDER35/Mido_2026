@@ -113,7 +113,7 @@ Different media families are fetched in different ways:
 | `win7x86-ultimate`, `win7x86-ultimate-esp`, `win7x86-ultimate-es-mx` | `archive.org` snapshots (Windows 7 Ultimate) | none |
 | `vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1` | `archive.org` snapshots | none |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
-| `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa` | `archive.org` snapshots (retro retail/OEM ISOs; 95/98/ME also in Spanish) | none |
+| `win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa`, `backoffice`, `winframe` | `archive.org` snapshots (retro retail/OEM ISOs; 95/98/ME also in Spanish; NT 3.1/3.5/3.51 Workstation, BackOffice SBS 4.0 and Citrix WinFrame 1.6) | none |
 
 > Windows 10/11 Enterprise and LTSC evaluations were migrated from the
 > (unreliable) Evaluation Center HTML to archived `archive.org` ISOs. The
@@ -276,15 +276,26 @@ Windows 8.1 Pro ISOs are also available via the Consumer JSON API first, with
 > Enterprise/Server evaluation media is English-only, as published by Microsoft,
 > so `enterprise_eval_download` intentionally stays on `en-US`.
 
-The retro releases (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
-are sourced directly from `archive.org` snapshots
-(Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows
-Millennium Edition, Windows NT 3.5 Workstation and Windows NT 4.0 Workstation).
+The retro releases (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
+`winnt351`, `winnt40`, `backoffice`, `winframe`) are sourced directly from
+`archive.org` snapshots (Windows for Workgroups 3.11, Windows 95, Windows 98
+Second Edition, Windows Millennium Edition, Windows NT 3.1, 3.5 and 3.51
+Workstation, Windows NT 4.0 Workstation, as well as Microsoft BackOffice Small
+Business Server 4.0 and Citrix WinFrame 1.6, the Windows NT 3.51 Terminal Server
+Edition).
 Windows 95, Windows 98 Second Edition and Windows Millennium Edition also have
 Spanish snapshots (`win95-espa`, `win98-espa`, `winme-espa`); the remaining
 retro releases are English-only.
 They are not covered by the Microsoft API and have no published checksums, so
 they go through the `NO KNOWN CHECKSUM (skipping verification)` path.
+
+> **Note on product activation and NewShell:** None of the pre-XP media have a
+> product activation mechanism (Microsoft introduced activation with Windows
+> XP/Office XP in 2001). The telephone activation system was retired on
+> 3 December 2025 and replaced by the online Product Activation Portal; see the
+> README for the step-by-step instructions. The *NewShell* / Shell Technology
+> Preview desktop patch applies only to Windows NT 3.51 (and the leaked NT 3.5
+> build 854 preview); it is documented with download links in the README.
 
 ## Download engine (`scurl_file`)
 

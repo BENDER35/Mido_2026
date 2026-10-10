@@ -234,8 +234,12 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win98-espa` | Windows 98 Second Edition en Español (obtenido de archive.org) |
 | `winme` | Windows Millennium Edition (inglés, obtenido de archive.org) |
 | `winme-espa` | Windows Millennium Edition en Español (obtenido de archive.org) |
+| `winnt31` | Windows NT 3.1 Workstation (inglés, obtenido de archive.org) |
 | `winnt35` | Windows NT 3.5 Workstation (inglés, obtenido de archive.org) |
+| `winnt351` | Windows NT 3.51 Workstation (inglés, obtenido de archive.org) |
 | `winnt40` | Windows NT 4.0 Workstation (inglés, obtenido de archive.org) |
+| `backoffice` | Microsoft BackOffice Small Business Server 4.0 (x86, obtenido de archive.org) |
+| `winframe` | Citrix WinFrame 1.6 (Windows NT 3.51 Terminal Server Edition, obtenido de archive.org) |
 
 ## Soporte de idiomas
 
@@ -299,11 +303,12 @@ español (`win-xp-home`, `win-xp-home-espa`, `win-xp-pro`, `win-xp-pro-espa`,
 > versiones que Microsoft localizó por separado: Windows 7, Windows 8.1,
 > Windows 10 y Windows 11 (argumentos `-es-mx` y `MIDO_LANG=es-MX`).
 
-Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
-provienen de `archive.org` y no tienen checksums publicados. Windows 95,
-Windows 98 Second Edition y Windows Millennium Edition también están disponibles
-en español (`win95-espa`, `win98-espa`, `winme-espa`); el resto de las versiones
-retro son únicamente en inglés.
+Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
+`winnt351`, `winnt40`, `backoffice`, `winframe`) provienen de `archive.org` y
+no tienen checksums publicados. Windows 95, Windows 98 Second Edition y Windows
+Millennium Edition también están disponibles en español (`win95-espa`,
+`win98-espa`, `winme-espa`); el resto de las versiones retro son únicamente en
+inglés.
 
 ## ¿Cómo funciona Mido?
 
@@ -331,9 +336,13 @@ automáticamente las últimas ediciones Server (por ejemplo Windows Server 2025)
 Enterprise de casi todas las versiones, desde Windows 7 (o Server 2008 R2, e
 incluso Server 2003 y 2000 Server) en adelante. También incluye versiones retro
 de los años 90: Windows for Workgroups 3.11, Windows 95, Windows 98 Second
-Edition, Windows Millennium Edition, Windows NT 3.5 Workstation y Windows NT 4.0
-Workstation (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, obtenidas
-de archive.org). Windows 95, 98 y Millennium Edition también tienen ISOs en
+Edition, Windows Millennium Edition, Windows NT 3.1, 3.5 y 3.51 Workstation y
+Windows NT 4.0 Workstation (`win311`, `win95`, `win98`, `winme`, `winnt31`,
+`winnt35`, `winnt351`, `winnt40`, obtenidas de archive.org). También ofrece los
+productos de servidor de la era Windows NT 3.51: Microsoft BackOffice Small
+Business Server 4.0 (`backoffice`) y Citrix WinFrame 1.6 (Windows NT 3.51
+Terminal Server Edition, `winframe`). Windows 95, 98 y Millennium Edition
+también tienen ISOs en
 español (`win95-espa`, `win98-espa`, `winme-espa`), y Windows 2000 Professional
 / Windows XP están disponibles en los canales de licencia OEM y Retail
 originales (consulta la tabla de medios más arriba).
@@ -342,6 +351,98 @@ originales (consulta la tabla de medios más arriba).
 Microsoft? Descarga la versión LTSC de Windows. Incluye mucho menos bloatware y
 soporta el modo de telemetría ["Security"](https://learn.microsoft.com/es-es/windows/privacy/configure-windows-diagnostic-data-in-your-organization#diagnostic-data-settings)
 de Microsoft (además de soporte a largo plazo).
+
+## Activación de producto: se elimina la activación telefónica y se sustituye por activación por internet
+
+Windows NT 3.1, 3.5 y 3.51 (y todos los medios de este proyecto anteriores a
+Windows XP) **no tienen ningún sistema de activación de producto**. Microsoft
+introdujo la activación de producto con Windows XP y Office XP en 2001, y más
+tarde la usó en Windows Vista, 7, 8.1, 10, 11, la línea Windows Server y
+Microsoft Office.
+
+Microsoft ha **suprimido el antiguo sistema de activación telefónica** y lo ha
+**sustituido por un sistema de activación por internet**: el **Product
+Activation Portal**. A partir del **3 de diciembre de 2025** la automatización
+tradicional de activación de producto por teléfono pasó del teléfono a internet.
+Si llamas al antiguo número de activación ahora escucharás una grabación que te
+remite al portal online. La activación sin conexión sigue siendo compatible:
+solo ha cambiado la forma de obtener el *Confirmation ID* (un portal web en
+lugar del sistema telefónico automático).
+
+Pasos de la nueva activación por internet:
+
+1. En el equipo que necesita activarse, abre el diálogo de activación de Windows
+   y elige **Activar por teléfono** (o ejecuta `SLUI 04`) para mostrar el
+   **Installation ID**. El equipo puede permanecer sin conexión: anota el ID.
+2. Desde **cualquier otro dispositivo con acceso a internet**, abre el
+   **Product Activation Portal**: <https://visualsupport.microsoft.com> (enlace
+   corto: `aka.ms/aoh`).
+3. Completa el CAPTCHA, selecciona **Proceed to Sign In** e inicia sesión con
+   una cuenta compatible (cuenta personal de Microsoft, cuenta de trabajo o
+   educativa, Microsoft Entra ID o un inquilino de Azure Government). La cuenta
+   solo sirve para acceder de forma segura al portal y **no** está vinculada a
+   la licencia del producto.
+4. Elige **Activate a Microsoft product** e introduce el **Installation ID** del
+   paso 1.
+5. El portal devuelve un **Confirmation ID**.
+6. Escribe el **Confirmation ID** en el diálogo de activación del equipo sin
+   conexión para completar la activación.
+
+Windows 10 Pro for Workstations y Windows 10/11 Pro Education deben activarse
+por internet y no admiten el flujo sin conexión. Los clientes de licencias por
+volumen pueden usar la Volume Activation Management Tool (VAMT) para la
+activación proxy o KMS / activación basada en Active Directory.
+
+## NewShell ("Shell Technology Preview") para Windows NT 3.51
+
+El escritorio retro de Windows NT 3.1/3.5/3.51 es el antiguo shell de Program
+Manager/File Manager. En 1995 Microsoft publicó una renovación del shell llamada
+**NewShell** (también conocida como **Shell Technology Preview**) que porta el
+shell Explorer de Windows 95 —barra de tareas, menú Inicio y escritorio— a
+**Windows NT 3.51**. Es una beta cuyo único objetivo era mostrar cómo sería el
+futuro Windows NT 4.0, y es un parche muy popular para dar a NT clásico un
+escritorio usable.
+
+> **Importante:** NewShell se produjo **solo para Windows NT 3.51**. **No**
+> funciona en Windows NT 3.1 ni en el Windows NT 3.5 original (build 807). Sí
+> existió una vista previa temprana del "shell de Chicago" con el Windows NT 3.5
+> build 854 filtrado, que está archivada por separado (ver abajo).
+
+Descargas:
+
+- **Windows NT 3.51 NewShell / Shell Technology Preview** (las dos versiones
+  públicas: 26 de mayo de 1995 y el "Shell Technology Preview Update" del 8 de
+  agosto de 1995): <https://winworldpc.com/product/newshell/beta>
+- **Windows NT 3.5 build 854 NewShell** (vista previa temprana, `WINSRV.DLL`
+  completo): <https://archive.org/details/newshell.3.50.854>
+  — descarga directa:
+  <https://archive.org/download/newshell.3.50.854/NT_854_newshell.zip>
+
+Instalación del **Shell Technology Preview de Windows NT 3.51**:
+
+1. Instala primero Windows NT 3.51 Workstation (o Server) y, recomendado, aplica
+   el último service pack de NT 3.51.
+2. Descarga el archivo de NewShell y descomprímelo (contiene los archivos
+   actualizados del shell Explorer).
+3. Lee el `readme.wri` incluido en el archivo: indica los comandos de copia
+   exactos para cada versión. En resumen, la actualización hace copia de
+   seguridad del shell original, copia los nuevos archivos del shell Explorer
+   (por ejemplo `shell32.dll`, `explorer.exe`, `comctl32.dll`, `shdocvw.dll`)
+   sobre `%SystemRoot%\System32`, actualiza el registro y sustituye Program
+   Manager / File Manager por el nuevo shell.
+4. Haz una instantánea o copia de seguridad del sistema antes de aplicarlo, ya
+   que NewShell es una beta sin soporte.
+5. Reinicia. Deberías tener la barra de tareas y el menú Inicio estilo
+   Windows 95.
+
+Instalación del **NewShell de Windows NT 3.5 build 854**:
+
+1. Copia los directorios `IDW`, `MSTOOLS` y `UI` de la carpeta `NEWSHELL`/`GUI`
+   del medio al directorio de Windows (normalmente `\WINNT35`).
+2. Abre Panel de control → **Sistema** y añade
+   `%SystemRoot%\idw;%SystemRoot%\mstools;%SystemRoot%\ui` a la variable de
+   entorno `Path`.
+3. Reinicia.
 
 ## Base de conocimiento / solución de problemas
 
@@ -371,10 +472,11 @@ de Microsoft (además de soporte a largo plazo).
   automáticamente.
 - **Windows Vista en español** — proviene de `archive.org`, que puede ser más
   lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
-- **ISOs retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`,
-  además de las españolas `win95-espa`, `win98-espa`, `winme-espa`)** —
-  provienen de `archive.org`, que puede ser más lento que la CDN de Microsoft.
-  Mido reintenta y reanuda automáticamente.
+- **ISOs retro (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
+  `winnt351`, `winnt40`, `backoffice`, `winframe`, además de las españolas
+  `win95-espa`, `win98-espa`, `winme-espa`)** — provienen de `archive.org`, que
+  puede ser más lento que la CDN de Microsoft. Mido reintenta y reanuda
+  automáticamente.
 - **Enterprise/Server "no download link"** — Microsoft cambia periódicamente las
   páginas del Evaluation Center. Abre un issue con la versión afectada.
 
