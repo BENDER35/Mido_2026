@@ -112,6 +112,9 @@ Different media families are fetched in different ways:
 | `win10x64-enterprise-ltsb-2016-esp`, `win10x86-enterprise-ltsb-2016-esp`, `win10x64-enterprise-ltsb-2015-esp`, `win10x86-enterprise-ltsb-2015-esp` | `archive.org` snapshots (official full Windows 10 Enterprise LTSB 2015/2016 Spanish ISOs; Microsoft only shipped one Spanish build for these, hence es-ES only) | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
+| `win2012r2-enterprise`, `win2012r2-datacenter` | `archive.org` snapshots (64-bit only, updated ISO) | none |
+| `win2016-essentials` | `archive.org` snapshot (Windows Server 2016 Essentials x64 English) | none |
+| `win2019-enterprise`, `win2019-datacenter` | `archive.org` snapshots (64-bit only, English full ISO) | none |
 | `win2022-enterprise-64`, `win2022-datacenter-64` | `archive.org` snapshots (64-bit only) | none |
 | `win2022-enterprise-64-esp`, `win2022-datacenter-64-esp` | `archive.org` snapshots Spanish (64-bit only) | none |
 | `win2025-enterprise-64`, `win2025-datacenter-64` | `archive.org` snapshots (64-bit only) | none |
