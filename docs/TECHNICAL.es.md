@@ -95,6 +95,8 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win11x64-iot-enterprise-ltsc-eval` | URL directa de `software-static.download.prss.microsoft.com` | ninguna |
 | `win11x64-iot-enterprise-26h2` | instantánea de `archive.org` (Windows 11 IoT Enterprise, canal anual 26H2, solo inglés) | ninguna |
 | `win11x64-iot-enterprise-ltsc-2024` | instantánea de `archive.org` (ISO oficial completa de Windows 11 IoT Enterprise LTSC 2024, inglés x64) | ninguna |
+| `win10x64-iot-enterprise-22h2` | instantánea de `archive.org` (Windows 10 IoT Enterprise 22H2, canal anual, inglés x64) | ninguna |
+| `win10x64-iot-enterprise-ltsc-2021`, `win10x64-iot-enterprise-ltsc-2019`, `win10x86-iot-enterprise-ltsc-2019` | instantáneas de `archive.org` (ISOs oficiales completas de Windows 10 IoT Enterprise LTSC, inglés; 2021 solo x64, 2019 en x64 y x86) | ninguna |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
 | `win2022-enterprise-64`, `win2022-datacenter-64` | instantáneas de `archive.org` (64-bit solo) | ninguna |
@@ -129,6 +131,14 @@ Las distintas familias de medios se obtienen de formas diferentes:
 > `win11x64-iot-enterprise-ltsc-2024` es la ISO completa (sin evaluación) oficial
 > de Windows 11 IoT Enterprise LTSC 2024 (inglés x64, item
 > `windows-11-iot-enterprise-ltsc-2024`).
+>
+> Las ISOs completas de Windows 10 IoT Enterprise (`win10x64-iot-enterprise-22h2`,
+> `win10x64-iot-enterprise-ltsc-2021`, `win10x64-iot-enterprise-ltsc-2019` y
+> `win10x86-iot-enterprise-ltsc-2019`) provienen del item de `archive.org`
+> `massgrave.dev-windows-x64-and-x86-archive`, que refleja los nombres de archivo
+> oficiales exactos de Microsoft (subrutas bajo `Windows/Windows 10/…`). Microsoft
+> solo publicó una ISO **x86 (32 bits)** para la versión **LTSC 2019**, por lo que
+> las entradas 22H2 y LTSC 2021 no tienen contraparte de 32 bits.
 
 ## La API JSON de consumidor
 

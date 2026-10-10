@@ -105,6 +105,8 @@ Different media families are fetched in different ways:
 | `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
 | `win11x64-iot-enterprise-26h2` | `archive.org` snapshot (Windows 11 IoT Enterprise, annual channel 26H2, English only) | none |
 | `win11x64-iot-enterprise-ltsc-2024` | `archive.org` snapshot (official full Windows 11 IoT Enterprise LTSC 2024 ISO, English x64) | none |
+| `win10x64-iot-enterprise-22h2` | `archive.org` snapshot (Windows 10 IoT Enterprise 22H2, annual channel, English x64) | none |
+| `win10x64-iot-enterprise-ltsc-2021`, `win10x64-iot-enterprise-ltsc-2019`, `win10x86-iot-enterprise-ltsc-2019` | `archive.org` snapshots (official full Windows 10 IoT Enterprise LTSC ISOs, English; 2021 is x64-only, 2019 ships in x64 and x86) | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
 | `win2022-enterprise-64`, `win2022-datacenter-64` | `archive.org` snapshots (64-bit only) | none |
@@ -136,6 +138,14 @@ Different media families are fetched in different ways:
 > pristine MSDN ISO. `win11x64-iot-enterprise-ltsc-2024` is the official full
 > (non-evaluation) Windows 11 IoT Enterprise LTSC 2024 ISO (English x64, item
 > `windows-11-iot-enterprise-ltsc-2024`).
+>
+> The Windows 10 IoT Enterprise full ISOs (`win10x64-iot-enterprise-22h2`,
+> `win10x64-iot-enterprise-ltsc-2021`, `win10x64-iot-enterprise-ltsc-2019` and
+> `win10x86-iot-enterprise-ltsc-2019`) come from the `archive.org` item
+> `massgrave.dev-windows-x64-and-x86-archive`, which mirrors the exact official
+> Microsoft file names (sub-paths under `Windows/Windows 10/…`). Microsoft only
+> ever published an **x86 (32-bit)** ISO for the **LTSC 2019** release, which is
+> why the 22H2 and LTSC 2021 entries have no 32-bit counterpart.
 
 ## The consumer JSON API
 

@@ -48,22 +48,151 @@ Bloated website: `https://www.microsoft.com/en-us/software-download/windows11`
 
 Get [Mido.sh](https://raw.githubusercontent.com/BENDER35/Mido_2026/main/Mido.sh) by opening the link, right-clicking and then selecting "Save [Page] as..."
 
+### Requirements
+
+Mido is written in **pure POSIX `sh`** and only needs a few tools that are
+already present on almost every Linux system. On a normal desktop install you
+do **not** have to install anything except, on some minimal images, **`curl`**.
+
+| Tool | Used for | Package |
+|---|---|---|
+| `sh` | running the script (Dash is preferred and used automatically if present) | `dash` / `bash` |
+| `curl` | talking to Microsoft's servers | `curl` |
+| `sha256sum` | verifying downloaded ISOs | `coreutils` |
+| `grep`, `sed`, `tr`, `cut`, `head`, `tail`, `fold`, `printf` | parsing the download API responses | `coreutils`, `grep`, `sed` |
+| `tput` | colored output (optional) | `ncurses` |
+| `uuidgen` | generating a session ID **only** on systems without `/proc` (macOS/BSD — never needed on Linux) | `util-linux` / built-in on macOS |
+
+If something is missing, install it with your distribution's package manager:
+
+| Distribution | Command |
+|---|---|
+| Debian / Ubuntu / Mint / Pop!\_OS / Kali / Raspberry Pi OS | `sudo apt update && sudo apt install -y curl` |
+| Fedora | `sudo dnf install -y curl` |
+| RHEL / CentOS Stream / Rocky / AlmaLinux | `sudo dnf install -y curl` (older: `sudo yum install -y curl`) |
+| openSUSE Leap / Tumbleweed / SLES | `sudo zypper install -y curl` |
+| Arch / Manjaro / EndeavourOS / Garuda | `sudo pacman -S --needed curl` |
+| Alpine | `sudo apk add curl` |
+| Void | `sudo xbps-install -S curl` |
+| Gentoo / Funtoo | `sudo emerge net-misc/curl` |
+| NixOS | `nix-shell -p curl` (or add `pkgs.curl` to `environment.systemPackages`) |
+| Slackware | `sudo slackpkg install curl` |
+| Solus | `sudo eopkg install curl` |
+| Clear Linux | `sudo swupd bundle-add curl` |
+| FreeBSD | `sudo pkg install curl` (coreutils and util-linux are preinstalled) |
+| macOS | `curl` and `uuidgen` are preinstalled; install GNU coreutils for `sha256sum`: `brew install coreutils` and add `$(brew --prefix coreutils)/libexec/gnubin` to your `PATH` |
+
+> You can confirm everything is in place by running `./Mido.sh --help`, which
+> prints the media list without touching the network.
+
 ### Mac & Linux
 
-You're done! Just open a terminal, give the file execution permissions (`chmod +x Mido.sh`), and run the script (as seen in the above GIF) to start using Mido.
+Download `Mido.sh`, then open a terminal, give the file execution permissions
+and run it (as seen in the GIF above):
+
+```sh
+chmod +x Mido.sh
+./Mido.sh win11x64
+```
 
 ### Windows
 
-To run Mido on Windows, use WSL (Windows Subsystem for Linux). If you don't have it enabled already then search "Turn Windows features on or off" in the Start menu, open that, check the "Windows Subsystem for Linux" box, and click "OK". This is the best option.
+Mido is a POSIX shell script, so it does **not** run natively in `cmd.exe` or
+PowerShell — on Windows you run it inside **WSL (Windows Subsystem for Linux)**,
+which provides a real Linux environment. This is the recommended and fully
+supported way. The bundled `Mido.bat` / `Mido.ps1` wrappers detect WSL and do
+this for you (see *Windows Native Wrappers* below).
 
-Alternatively, install [Cygwin](https://www.cygwin.com/install.html) or [MSYS2](https://www.msys2.org/#installation) from their download pages, or in one command using WinGet:
+Alternatively you can use a POSIX emulation layer such as
+[Cygwin](https://www.cygwin.com/install.html) or
+[MSYS2](https://www.msys2.org/#installation), installed in one command with
+WinGet:
 
 ```
 winget install -e --id Cygwin.Cygwin
-winget install -e --id MSYS2.MYS2
+winget install -e --id MSYS2.MSYS2
 ```
 
-Both are POSIX emulation environments for Windows and you can use either one.
+#### Step 1 — Install WSL on Windows 11
+
+Open **PowerShell as Administrator** (right-click the Start button →
+*Terminal (Admin)*) and run:
+
+```powershell
+wsl --install
+```
+
+This enables the required Windows features, installs the WSL2 Linux kernel and
+a Linux distribution (Ubuntu by default), then asks you to reboot. After the
+reboot, Ubuntu opens and asks you to create a username and password. That's it.
+
+#### Step 1 (alternative) — Install WSL on Windows 10
+
+> **Windows 10 support status.** Windows 10 reached **end of support on
+> 14 October 2025**. Home/Pro devices can join the **Consumer ESU** program,
+> which only delivers security updates until **13 October 2026**. Commercial
+> devices (Enterprise/Education/Pro used commercially) get up to **three years**
+> of ESU — Year 1 ends **13 Oct 2026**, Year 2 ends **12 Oct 2027** and Year 3
+> ends **10 Oct 2028**. WSL2 keeps working on Windows 10, but the OS itself only
+> receives fixes while it is still being serviced. See the
+> [ESU FAQ](https://learn.microsoft.com/en-us/lifecycle/faq/extended-security-updates).
+
+**Windows 10 version 2004 (build 19041) and newer** — which is every currently
+supported 22H2 install — use the same single command as Windows 11:
+
+```powershell
+wsl --install
+```
+
+On **older Windows 10 builds**, and on **Windows 10 LTSC / IoT Enterprise LTSC**
+(which do not ship the Microsoft Store), `wsl --install` may be missing or
+unable to fetch a distribution. Use the manual steps instead:
+
+1. Search **"Turn Windows features on or off"**, enable **Windows Subsystem for
+   Linux** and **Virtual Machine Platform**, and reboot. (Equivalent commands:
+   `dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart`
+   and the same for `VirtualMachinePlatform`.)
+2. To use WSL2, install the **WSL2 Linux kernel update package** from
+   <https://aka.ms/wsl2kernel> and reboot (`wsl --update` also works once WSL is
+   present).
+3. Install a distribution. Without the Store, download the distro bundle from
+   <https://aka.ms/wslstore>, rename the `.AppxBundle`/`.Appx` file to `.zip`,
+   extract it and run the included `ubuntu.exe` (or `debian.exe`, …). Then run
+   `wsl --set-default-version 2`.
+
+#### Step 2 — Run Mido
+
+Inside the WSL shell, download Mido and run it exactly like on Linux:
+
+```sh
+curl -O https://raw.githubusercontent.com/BENDER35/Mido_2026/main/Mido.sh
+chmod +x Mido.sh
+./Mido.sh win11x64
+```
+
+Files land in the current WSL directory; use `/mnt/c/Users/<you>/Downloads` if
+you want them on the Windows drive.
+
+#### Windows Server
+
+WSL is supported on **Windows Server 2019 and newer**. The Server releases map
+to the desktop versions as follows:
+
+| Desktop | Server equivalent | WSL support |
+|---|---|---|
+| Windows 10 1809 | Windows Server 2019 | **WSL 1 only** (build 17763 < 18362); no `wsl --install`, enable the feature manually |
+| Windows 11 21H2 / 22H2 | Windows Server 2022 | WSL 1 & 2 — `wsl --install` |
+| Windows 11 24H2 | Windows Server 2025 | WSL 1 & 2, including Server Core — `wsl --install` |
+
+- **Windows Server 2022 / 2025:** in an **administrator** PowerShell run
+  `wsl --install`, then reboot. The Microsoft Store is not available on Server,
+  so `wsl --install` (or `wsl --install -d <Distro>`) downloads the distribution
+  directly.
+- **Windows Server 2019 (and Server Core):** run
+  `Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux, VirtualMachinePlatform`
+  in an administrator PowerShell, reboot, then install a distribution manually
+  (the `aka.ms/wslstore` bundles). WSL2 needs build 18362+, so Server 2019 is
+  limited to **WSL 1**.
 
 #### Windows Native Wrappers
 
@@ -136,6 +265,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win11x64-iot-enterprise-ltsc-eval` | Windows 11 IoT Enterprise LTSC Evaluation |
 | `win11x64-iot-enterprise-26h2` | Windows 11 IoT Enterprise 26H2 (annual channel, English, sourced from archive.org) |
 | `win11x64-iot-enterprise-ltsc-2024` | Windows 11 IoT Enterprise LTSC 2024 (full, English, x64, sourced from archive.org) |
+| `win10x64-iot-enterprise-22h2` | Windows 10 IoT Enterprise 22H2 (annual channel, English, x64, sourced from archive.org) |
+| `win10x64-iot-enterprise-ltsc-2021` | Windows 10 IoT Enterprise LTSC 2021 (full, English, x64, sourced from archive.org) |
+| `win10x64-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 (full, English, x64, sourced from archive.org) |
+| `win10x86-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 (full, English, x86/32-bit, sourced from archive.org) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, English) |
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, Spanish eval, sourced from archive.org) |
 | `win2008-server-x64` | Windows Server 2008 SP2 (x64, English, all editions, sourced from archive.org) |
@@ -328,6 +461,28 @@ See [docs/TECHNICAL.md](docs/TECHNICAL.md) for a full walk-through.
 Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2025) and Enterprise editions of every Windows version all the way back to Windows 7 (or Windows Server 2008 R2, and even Server 2003 and 2000 Server). Retro releases all the way back to the 1990s are included too: Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows Millennium Edition, Windows NT 3.1, 3.5 and 3.51 Workstation and Windows NT 4.0 Workstation (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, sourced from archive.org). It also offers the Windows NT 3.51-era server products Microsoft BackOffice Small Business Server 4.0 (`backoffice`) and Citrix WinFrame 1.6 (Windows NT 3.51 Terminal Server Edition, `winframe`). Windows 95, 98 and Millennium Edition also have Spanish ISOs (`win95-espa`, `win98-espa`, `winme-espa`), and Windows 2000 Professional / Windows XP come in the original OEM and Retail license channels (see the media table above).
 
 Want a more secure and minimalist Windows installation out-of-the-box that's officially provided by Microsoft? Then download the LTSC version of Windows. It comes with way less bloat and supports Microsoft's ["Security"](https://learn.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization#diagnostic-data-settings) telemetry mode (plus it comes with long-term support).
+
+### IoT Enterprise editions
+
+Windows **IoT Enterprise** is the edition Microsoft ships for dedicated devices
+(ATMs, kiosks, digital signage, medical equipment, thin clients). It is the same
+OS as Enterprise but with **relaxed hardware requirements** — TPM, Secure Boot,
+UEFI and 4 GB RAM are *not* required — and, for the LTSC releases, up to **10
+years** of security updates. Mido offers the full (non-evaluation) English ISOs:
+
+| Argument | Product | Architecture | Support ends |
+|---|---|---|---|
+| `win11x64-iot-enterprise-ltsc-2024` | Windows 11 IoT Enterprise LTSC 2024 | x64 | Oct 2034 |
+| `win11x64-iot-enterprise-26h2` | Windows 11 IoT Enterprise 26H2 (annual channel) | x64 | per annual channel |
+| `win10x64-iot-enterprise-22h2` | Windows 10 IoT Enterprise 22H2 (annual channel) | x64 | Windows 10 ESU |
+| `win10x64-iot-enterprise-ltsc-2021` | Windows 10 IoT Enterprise LTSC 2021 | x64 | 2032-01-13 |
+| `win10x64-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 | x64 | 2029-01-09 |
+| `win10x86-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 | x86 (32-bit) | 2029-01-09 |
+
+> **On 32-bit availability:** Microsoft only ever published an x86 (32-bit) ISO
+> for the **IoT Enterprise LTSC 2019** release. The annual-channel Windows 10
+> IoT Enterprise 22H2 and the newer IoT Enterprise LTSC 2021 exist **only as
+> x64** (and arm64), so there is no 32-bit ISO for them.
 
 ## Product activation: telephone activation retired, replaced by internet activation
 
