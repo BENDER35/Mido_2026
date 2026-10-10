@@ -146,6 +146,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win10x64-enterprise-ltsc-eval` | Windows 10 Enterprise LTSC Evaluation (la más segura) |
 | `win11x64-enterprise-ltsc-eval` | Windows 11 Enterprise LTSC Evaluation (la más segura) |
 | `win11x64-iot-enterprise-ltsc-eval` | Windows 11 IoT Enterprise LTSC Evaluation |
+| `win11x64-iot-enterprise-26h2` | Windows 11 IoT Enterprise 26H2 (canal anual, inglés, obtenido de archive.org) |
+| `win11x64-iot-enterprise-ltsc-2024` | Windows 11 IoT Enterprise LTSC 2024 (completa, inglés, x64, obtenido de archive.org) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, Inglés) |
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, eval en español, obtenido de archive.org) |
 | `win2008-server-x64` | Windows Server 2008 SP2 (x64, Inglés, todas las ediciones, obtenido de archive.org) |

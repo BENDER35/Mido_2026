@@ -93,6 +93,8 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-home-oem-espa`, `win-xp-home-retail-espa`, `win-xp-pro-oem`, `win-xp-pro-retail`, `win-xp-pro-oem-espa`, `win-xp-pro-retail-espa` | instantáneas de `archive.org` (Windows XP Home/Professional, canales OEM/Retail, inglés y español) | ninguna |
 | `win10x64-enterprise-eval`, `win10x86-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
 | `win11x64-iot-enterprise-ltsc-eval` | URL directa de `software-static.download.prss.microsoft.com` | ninguna |
+| `win11x64-iot-enterprise-26h2` | instantánea de `archive.org` (Windows 11 IoT Enterprise, canal anual 26H2, solo inglés) | ninguna |
+| `win11x64-iot-enterprise-ltsc-2024` | instantánea de `archive.org` (ISO oficial completa de Windows 11 IoT Enterprise LTSC 2024, inglés x64) | ninguna |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
 | `win2022-enterprise-64`, `win2022-datacenter-64` | instantáneas de `archive.org` (64-bit solo) | ninguna |
@@ -118,6 +120,15 @@ Las distintas familias de medios se obtienen de formas diferentes:
 > `win10x86-enterprise-eval` es la contraparte de 32 bits (x86) de
 > `win10x64-enterprise-eval`: apunta a la ISO oficial de evaluación x86 de Windows
 > 10 Enterprise LTSC 21H2 archivada en archive.org (item `Win10-EnterpriseLTSC-21H2`).
+>
+> `win11x64-iot-enterprise-26h2` cubre la versión de **canal anual** (build 26300)
+> de Windows 11 IoT Enterprise, que Microsoft solo distribuye a OEM/VLSC — no hay
+> ISO pública directa ni alternativa en español. La build archivada (item
+> `windows-11-iot-enterprise-ltsc-2026-26h2`) es una ISO remezclada: el instalador
+> clásico de 24H2 con el contenido de 26H2, no la ISO MSDN original.
+> `win11x64-iot-enterprise-ltsc-2024` es la ISO completa (sin evaluación) oficial
+> de Windows 11 IoT Enterprise LTSC 2024 (inglés x64, item
+> `windows-11-iot-enterprise-ltsc-2024`).
 
 ## La API JSON de consumidor
 

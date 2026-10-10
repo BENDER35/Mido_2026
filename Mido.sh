@@ -148,6 +148,8 @@ usage() {
     echo "  win10x64-enterprise-ltsc-eval (most secure)"
     echo "  win11x64-enterprise-ltsc-eval (most secure)"
     echo "  win11x64-iot-enterprise-ltsc-eval"
+    echo "  win11x64-iot-enterprise-26h2 (archive.org)"
+    echo "  win11x64-iot-enterprise-ltsc-2024 (archive.org)"
     echo "  win2008r2"
     echo "  win2008r2-espa (Spanish, archive.org)"
     echo "  win2008-server-x64 (SP2, archive.org)"
@@ -274,6 +276,8 @@ readonly win11x64_enterprise_eval="win11x64-enterprise-eval.iso"
 readonly win10x64_enterprise_ltsc_eval="win10x64-enterprise-ltsc-eval.iso"
 readonly win11x64_enterprise_ltsc_eval="win11x64-enterprise-ltsc-eval.iso"
 readonly win11x64_iot_enterprise_ltsc_eval="win11x64-iot-enterprise-ltsc-eval.iso"
+readonly win11x64_iot_enterprise_26h2="win11x64-iot-enterprise-26h2.iso"
+readonly win11x64_iot_enterprise_ltsc_2024="win11x64-iot-enterprise-ltsc-2024.iso"
 readonly win2008r2="win2008r2.iso"
 readonly win2008r2_espa="win2008r2-espa.iso"
 readonly win2008_server_x64="win2008-server-x64.iso"
@@ -456,6 +460,12 @@ parse_args() {
                 ;;
             win11x64-iot-enterprise-ltsc-eval)
                 media_list="$media_list $win11x64_iot_enterprise_ltsc_eval"
+                ;;
+            win11x64-iot-enterprise-26h2)
+                media_list="$media_list $win11x64_iot_enterprise_26h2"
+                ;;
+            win11x64-iot-enterprise-ltsc-2024)
+                media_list="$media_list $win11x64_iot_enterprise_ltsc_2024"
                 ;;
             win2008r2)
                 media_list="$media_list $win2008r2"
@@ -716,7 +726,7 @@ parse_args() {
                 media_list="$media_list $winframe"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1300,6 +1310,18 @@ download_media() {
             "$win11x64_iot_enterprise_ltsc_eval")
                 echo_info "Downloading Windows 11 IoT Enterprise LTSC Evaluation..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://software-static.download.prss.microsoft.com/dbazure/998969d5-f34g-4e03-ac9d-1f9786c66749/26100.1742.240906-0331.ge_release_svc_refresh_CLIENT_IOT_LTSC_EVAL_x64FRE_en-us.iso"
+                ;;
+            "$win11x64_iot_enterprise_26h2")
+                echo_info "Downloading Windows 11 IoT Enterprise 26H2..."
+                # Annual channel (non-LTSC) 26H2, English only. Microsoft only distributes it to
+                # OEM/VLSC, so we use this archive.org build based on the 24H2 installer carrying
+                # the 26H2 payload (not the pristine MSDN ISO)
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-11-iot-enterprise-ltsc-2026-26h2/Windows%2011%20IoT%20Enterprise%20LTSC%202026%2026H2%2026300.9278.iso"
+                ;;
+            "$win11x64_iot_enterprise_ltsc_2024")
+                echo_info "Downloading Windows 11 IoT Enterprise LTSC 2024..."
+                # Full (non-evaluation) Windows 11 IoT Enterprise LTSC 2024, English x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-11-iot-enterprise-ltsc-2024/en-us_windows_11_iot_enterprise_ltsc_2024_x64_dvd_f6b14814.iso"
                 ;;
 
             "$win2008r2")

@@ -103,6 +103,8 @@ Different media families are fetched in different ways:
 | `win81x64-pro`, `win81x64-pro-esp`, `win81x64-pro-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win10x64-enterprise-eval`, `win10x86-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
+| `win11x64-iot-enterprise-26h2` | `archive.org` snapshot (Windows 11 IoT Enterprise, annual channel 26H2, English only) | none |
+| `win11x64-iot-enterprise-ltsc-2024` | `archive.org` snapshot (official full Windows 11 IoT Enterprise LTSC 2024 ISO, English x64) | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
 | `win2022-enterprise-64`, `win2022-datacenter-64` | `archive.org` snapshots (64-bit only) | none |
@@ -125,6 +127,15 @@ Different media families are fetched in different ways:
 > `win10x64-enterprise-eval`: it points to the official Windows 10 Enterprise
 > LTSC 21H2 x86 evaluation ISO archived on archive.org (item
 > `Win10-EnterpriseLTSC-21H2`).
+>
+> `win11x64-iot-enterprise-26h2` covers the **annual channel** release (build
+> 26300) of Windows 11 IoT Enterprise, which Microsoft distributes only to
+> OEM/VLSC — there is no public direct ISO and no English/Spanish alternative.
+> The archived build (item `windows-11-iot-enterprise-ltsc-2026-26h2`) is a
+> remixed ISO: the 24H2 classic installer carrying the 26H2 payload, not the
+> pristine MSDN ISO. `win11x64-iot-enterprise-ltsc-2024` is the official full
+> (non-evaluation) Windows 11 IoT Enterprise LTSC 2024 ISO (English x64, item
+> `windows-11-iot-enterprise-ltsc-2024`).
 
 ## The consumer JSON API
 
