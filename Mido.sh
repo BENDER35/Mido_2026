@@ -159,6 +159,18 @@ usage() {
     echo "  win2000-advanced-server (English, archive.org)"
     echo "  win2000-server-espa (Spanish, archive.org)"
     echo "  win2000-advanced-server-espa (Spanish, archive.org)"
+    echo "  win2000-pro (SP4 retail, archive.org)"
+    echo "  win2000-pro-oem (SP3 OEM, archive.org)"
+    echo "  win2000-pro-retail (SP4 retail, archive.org)"
+    echo "  win2000-pro-espa (SP4 Spanish, archive.org)"
+    echo "  win2000-pro-oem-espa (SP1 OEM Spanish, archive.org)"
+    echo "  win2000-pro-retail-espa (RTM retail Spanish, archive.org)"
+    echo "  win-xp-home (Home Edition SP3, archive.org)"
+    echo "  win-xp-home-espa (Home Edition SP3 Spanish, archive.org)"
+    echo "  win-xp-home-oem (Home Edition RTM OEM, archive.org)"
+    echo "  win-xp-home-retail (Home Edition SP3 retail, archive.org)"
+    echo "  win-xp-pro-oem (Professional SP2 OEM, archive.org)"
+    echo "  win-xp-pro-retail (Professional SP3 retail, archive.org)"
     echo "  win2012r2-eval"
     echo "  win2016-eval"
     echo "  win2019-eval"
@@ -173,8 +185,11 @@ usage() {
     echo "  hyperv2019-eval"
     echo "  win311 (Windows 3.11 For Workgroups, archive.org)"
     echo "  win95 (Windows 95, archive.org)"
+    echo "  win95-espa (Windows 95 Spanish, archive.org)"
     echo "  win98 (Windows 98 Second Edition, archive.org)"
+    echo "  win98-espa (Windows 98 Second Edition Spanish, archive.org)"
     echo "  winme (Windows Millennium Edition, archive.org)"
+    echo "  winme-espa (Windows Millennium Edition Spanish, archive.org)"
     echo "  winnt35 (Windows NT 3.5 Workstation, archive.org)"
     echo "  winnt40 (Windows NT 4.0 Workstation, archive.org)"
     echo ""
@@ -255,10 +270,20 @@ readonly win2000_advanced_server="win2000-advanced-server.iso"
 readonly win2000_advanced_server_espa="win2000-advanced-server-espa.iso"
 readonly win2000_pro="win2000-pro.iso"
 readonly win2000_pro_espa="win2000-pro-espa.iso"
+readonly win2000_pro_oem="win2000-pro-oem.iso"
+readonly win2000_pro_retail="win2000-pro-retail.iso"
+readonly win2000_pro_oem_espa="win2000-pro-oem-espa.iso"
+readonly win2000_pro_retail_espa="win2000-pro-retail-espa.iso"
 readonly win_xp_pro="winxp-pro.iso"
 readonly win_xp_pro_espa="winxp-pro-espa.iso"
 readonly win_xp_pro_32="winxp-pro-x86.iso"
 readonly win_xp_pro_32_espa="winxp-pro-x86-espa.iso"
+readonly win_xp_home="winxp-home.iso"
+readonly win_xp_home_espa="winxp-home-espa.iso"
+readonly win_xp_home_oem="winxp-home-oem.iso"
+readonly win_xp_home_retail="winxp-home-retail.iso"
+readonly win_xp_pro_oem="winxp-pro-oem.iso"
+readonly win_xp_pro_retail="winxp-pro-retail.iso"
 readonly win7x64_pro="win7x64-pro.iso"
 readonly win7x64_pro_esp="win7x64-pro-espanol.iso"
 readonly win7x64_pro_es_mx="win7x64-pro-es-mexico.iso"
@@ -299,8 +324,11 @@ readonly hyperv2016_eval="hyperv2016-eval.iso"
 readonly hyperv2019_eval="hyperv2019-eval.iso"
 readonly win311="win311.iso"
 readonly win95="win95.iso"
+readonly win95_espa="win95-espa.iso"
 readonly win98="win98.iso"
+readonly win98_espa="win98-espa.iso"
 readonly winme="winme.iso"
+readonly winme_espa="winme-espa.iso"
 readonly winnt35="winnt35.iso"
 readonly winnt40="winnt40.iso"
 
@@ -437,6 +465,18 @@ parse_args() {
             win2000-pro-espa)
                 media_list="$media_list $win2000_pro_espa"
                 ;;
+            win2000-pro-oem)
+                media_list="$media_list $win2000_pro_oem"
+                ;;
+            win2000-pro-retail)
+                media_list="$media_list $win2000_pro_retail"
+                ;;
+            win2000-pro-oem-espa)
+                media_list="$media_list $win2000_pro_oem_espa"
+                ;;
+            win2000-pro-retail-espa)
+                media_list="$media_list $win2000_pro_retail_espa"
+                ;;
             win-xp-pro)
                 media_list="$media_list $win_xp_pro"
                 ;;
@@ -447,7 +487,25 @@ parse_args() {
                 media_list="$media_list $win_xp_pro_32"
                 ;;
             win-xp-pro-32-espa)
-                media_list="$media_list $win_xp_pro_32_espa $win-xp-pro-64"
+                media_list="$media_list $win_xp_pro_32_espa"
+                ;;
+            win-xp-home)
+                media_list="$media_list $win_xp_home"
+                ;;
+            win-xp-home-espa)
+                media_list="$media_list $win_xp_home_espa"
+                ;;
+            win-xp-home-oem)
+                media_list="$media_list $win_xp_home_oem"
+                ;;
+            win-xp-home-retail)
+                media_list="$media_list $win_xp_home_retail"
+                ;;
+            win-xp-pro-oem)
+                media_list="$media_list $win_xp_pro_oem"
+                ;;
+            win-xp-pro-retail)
+                media_list="$media_list $win_xp_pro_retail"
                 ;;
             win7x64-pro)
                 media_list="$media_list $win7x64_pro"
@@ -563,11 +621,20 @@ parse_args() {
             win95)
                 media_list="$media_list $win95"
                 ;;
+            win95-espa)
+                media_list="$media_list $win95_espa"
+                ;;
             win98)
                 media_list="$media_list $win98"
                 ;;
+            win98-espa)
+                media_list="$media_list $win98_espa"
+                ;;
             winme)
                 media_list="$media_list $winme"
+                ;;
+            winme-espa)
+                media_list="$media_list $winme_espa"
                 ;;
             winnt35)
                 media_list="$media_list $winnt35"
@@ -576,7 +643,7 @@ parse_args() {
                 media_list="$media_list $winnt40"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64-homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64-enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64-sp1 $win7x86-sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win-xp-pro-64 $win311 $win95 $win98 $winme $winnt35 $winnt40"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt35 $winnt40 $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_pro_oem $win_xp_pro_retail $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1058,11 +1125,11 @@ download_media() {
                 echo_info "Downloading Windows Vista SP1 x86 Spanish..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaSP1ESP/es_windows_vista_enterprise_sp1_x86_dvd.iso"
                 ;;
-            "$win7x64-sp1")
+            "$win7x64_sp1")
                 echo_info "Downloading Windows 7 SP1 x64..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_sp1_x64/en_windows_7_sp1_x64_dvd.iso"
                 ;;
-            "$win7x86-sp1")
+            "$win7x86_sp1")
                 echo_info "Downloading Windows 7 SP1 x86..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_sp1_x86/en_windows_7_sp1_x86_dvd.iso"
                 ;;
@@ -1231,185 +1298,227 @@ download_media() {
                 # Source: https://archive.org/details/w2k-srv-sp4-esp
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-srv-sp4-esp/W2K-SRV-SP4-ESP.ISO"
                 ;;
-            "$win2000-advanced-server-espa")
+            "$win2000_advanced_server_espa")
                 echo_info "Downloading Windows 2000 Advanced Server SP1 Spanish (Español)..."
                 # Windows 2000 Advanced Server SP1 in Spanish, archived on archive.org
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-adv-srv-sp1-esp/es_Windows2000AdvServerSP1_ES.iso"
                 ;;
-            "$win2000-pro")
+            "$win2000_pro")
                 echo_info "Downloading Windows 2000 Professional SP4..."
                 # Windows 2000 Professional SP4, archived on archive.org
                 # Source: https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso"
                 ;;
-            "$win2000-pro-espa")
+            "$win2000_pro_espa")
                 echo_info "Downloading Windows 2000 Professional SP4 Spanish (Español)..."
                 # Windows 2000 Professional SP4 in Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso"
                 ;;
-            "$win-xp-pro")
+            "$win2000_pro_oem")
+                echo_info "Downloading Windows 2000 Professional SP3 OEM..."
+                # Windows 2000 Professional SP3 (OEM channel), archived on archive.org
+                # Source: https://archive.org/details/win_2000_professional_sp3_english_202605
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win_2000_professional_sp3_english_202605/Windows2000ProfessionalSP3.iso"
+                ;;
+            "$win2000_pro_retail")
+                echo_info "Downloading Windows 2000 Professional SP4 Retail..."
+                # Windows 2000 Professional SP4 (retail channel), archived on archive.org
+                # Source: https://archive.org/details/win_2000_professional_sp4_english_202605
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win_2000_professional_sp4_english_202605/Windows2000ProfessionalSP4.ISO"
+                ;;
+            "$win2000_pro_oem_espa")
+                echo_info "Downloading Windows 2000 Professional SP1 OEM Spanish (Español)..."
+                # Windows 2000 Professional SP1 (OEM channel) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/Win2000ProSP1ESPOEM
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win2000ProSP1ESPOEM/SP1POEM_ES.ISO"
+                ;;
+            "$win2000_pro_retail_espa")
+                echo_info "Downloading Windows 2000 Professional RTM Retail Spanish (Español)..."
+                # Windows 2000 Professional RTM (FPP retail channel) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/windows-2000-rtm-spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-2000-rtm-spanish/es_win2000_pro_rtm_ret.iso"
+                ;;
+            "$win_xp_pro")
                 echo_info "Downloading Windows XP Professional SP3..."
                 # Windows XP Professional SP3, archived on archive.org
                 # Source: https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso"
                 ;;
-            "$win-xp-pro-espa")
+            "$win_xp_pro_espa")
                 echo_info "Downloading Windows XP Professional SP3 Spanish (Español)..."
                 # Windows XP Professional SP3 in Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso"
                 ;;
-            "$win-xp-pro-32")
+            "$win_xp_pro_32")
                 echo_info "Downloading Windows XP Professional x86..."
                 # Windows XP Professional x86, archived on archive.org
                 # Source: https://archive.org/download/WinXPProSP3x86/WinXPProSP3x86.ISO
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinXPProSP3x86/WinXPProSP3x86.ISO"
                 ;;
-            "$win-xp-pro-32-espa")
+            "$win_xp_pro_32_espa")
                 echo_info "Downloading Windows XP Professional x86 Spanish (Español)..."
                 # Windows XP Professional x86 in Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinXPProSP3x86/WinXPProSP3x86.ISO"
                 ;;
-            "$win7x64-pro")
+            "$win_xp_home")
+                echo_info "Downloading Windows XP Home Edition SP3..."
+                # Windows XP Home Edition with SP3 (English, retail CD), archived on archive.org
+                # Source: https://archive.org/details/xphomesp3
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xphomesp3/en_windows_xp_home_with_service_pack_3_x86_cd_x14-92413.iso"
+                ;;
+            "$win_xp_home_espa")
+                echo_info "Downloading Windows XP Home Edition SP3 Spanish (Español)..."
+                # Windows XP Home Edition with SP3 in Spanish, archived on archive.org
+                # Source: https://archive.org/details/xphomesp3
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xphomesp3/es_windows_xp_home_with_service_pack_3_x86_cd_x14-92427.iso"
+                ;;
+            "$win_xp_home_oem")
+                echo_info "Downloading Windows XP Home Edition RTM OEM..."
+                # Windows XP Home Edition RTM (OEM channel, English), archived on archive.org
+                # Source: https://archive.org/details/en_winxp_home_oem_iso
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_winxp_home_oem_iso/en_winxp_home_oem_iso.iso"
+                ;;
+            "$win_xp_home_retail")
+                echo_info "Downloading Windows XP Home Edition SP3 Retail..."
+                # Windows XP Home Edition with SP3 (retail channel, English), archived on archive.org
+                # Source: https://archive.org/details/5.1.2600.5512.xpsp.-080413-2111-x-86fre-client-professional-retail-en-us-grtmpfpp-en
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/5.1.2600.5512.xpsp.-080413-2111-x-86fre-client-professional-retail-en-us-grtmpfpp-en/5.1.2600.5512.xpsp.080413-2111_x86fre_client-home_retail_en-us-GRTMHFPP_EN.iso"
+                ;;
+            "$win_xp_pro_oem")
+                echo_info "Downloading Windows XP Professional SP2 OEM..."
+                # Windows XP Professional with SP2 (OEM channel, English), archived on archive.org
+                # Source: https://archive.org/details/windows-xp-professional-with-service-pack-2-2007-oem-english
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-xp-professional-with-service-pack-2-2007-oem-english/VRMPOEM_EN.iso"
+                ;;
+            "$win_xp_pro_retail")
+                echo_info "Downloading Windows XP Professional SP3 Retail..."
+                # Windows XP Professional with SP3 (retail channel, English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428_202010
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428_202010/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428.iso"
+                ;;
+            "$win7x64_pro")
                 echo_info "Downloading Windows 7 Professional..."
                 # Windows 7 Professional, archived on archive.org
                 # Source: https://archive.org/details/Win7ProRTMx64
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
                 ;;
-            "$win7x64-pro-esp")
+            "$win7x64_pro_esp")
                 echo_info "Downloading Windows 7 Professional Spanish (Español)..."
                 # Windows 7 Professional Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
                 ;;
-            "$win7x64-pro-es-mx")
+            "$win7x64_pro_es_mx")
                 echo_info "Downloading Windows 7 Professional Spanish (Mexican)..."
                 # Windows 7 Professional Mexican Spanish, archived on archive.org
                 # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
                 ;;
-            "$win7x86-pro")
+            "$win7x86_pro")
                 echo_info "Downloading Windows 7 Professional x86..."
                 # Windows 7 Professional x86, archived on archive.org
                 # Source: https://archive.org/details/win-7-pro-32-64-iso
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-pro-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x86-pro-esp")
+            "$win7x86_pro_esp")
                 echo_info "Downloading Windows 7 Professional x86 Spanish (Español)..."
                 # Windows 7 Professional x86 Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-pro-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x86-pro-es-mx")
+            "$win7x86_pro_es_mx")
                 echo_info "Downloading Windows 7 Professional x86 Spanish (Mexican)..."
                 # Windows 7 Professional x86 Mexican Spanish, archived on archive.org
                 # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-pro-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x64-homepremium")
+            "$win7x64_homepremium")
                 echo_info "Downloading Windows 7 Home Premium..."
                 # Windows 7 Home Premium, archived on archive.org
                 # Source: https://archive.org/details/Win7HomePremiumx64
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
                 ;;
-            "$win7x64-homepremium-esp")
+            "$win7x64_homepremium_esp")
                 echo_info "Downloading Windows 7 Home Premium Spanish (Español)..."
                 # Windows 7 Home Premium Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
                 ;;
-            "$win7x64-homepremium-es-mx)")
+            "$win7x64_homepremium_es_mx")
                 echo_info "Downloading Windows 7 Home Premium Spanish (Mexican)..."
                 # Windows 7 Home Premium Mexican Spanish, archived on archive.org
                 # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
                 ;;
-            "$win7x86-homepremium")
+            "$win7x86_homepremium")
                 echo_info "Downloading Windows 7 Home Premium x86..."
                 # Windows 7 Home Premium x86, archived on archive.org
                 # Source: https://archive.org/details/win-7-homepremium-32-64-iso
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x86-homepremium-esp")
+            "$win7x86_homepremium_esp")
                 echo_info "Downloading Windows 7 Home Premium x86 Spanish (Español)..."
                 # Windows 7 Home Premium x86 Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x86-homepremium-es-mx")
+            "$win7x86_homepremium_es_mx")
                 echo_info "Downloading Windows 7 Home Premium x86 Spanish (Mexican)..."
                 # Windows 7 Home Premium x86 Mexican Spanish, archived on archive.org
                 # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x64-enterprise)")
+            "$win7x64_enterprise")
                 echo_info "Downloading Windows 7 Enterprise..."
                 # Windows 7 Enterprise, archived on archive.org
                 # Source: https://archive.org/details/Win7Enterprisex64
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
                 ;;
-            "$win7x64-enterprise-esp")
+            "$win7x64_enterprise_esp")
                 echo_info "Downloading Windows 7 Enterprise Spanish (Español)..."
                 # Windows 7 Enterprise Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
                 ;;
-            "$win7x64-enterprise-es-mx")
+            "$win7x64_enterprise_es_mx")
                 echo_info "Downloading Windows 7 Enterprise Spanish (Mexican)..."
                 # Windows 7 Enterprise Mexican Spanish, archived on archive.org
                 # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
                 ;;
-            "$win7x86-enterprise)")
+            "$win7x86_enterprise")
                 echo_info "Downloading Windows 7 Enterprise x86..."
                 # Windows 7 Enterprise x86, archived on archive.org
                 # Source: https://archive.org/details/win-7-enterprise-32-64-iso
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x86-enterprise-esp")
+            "$win7x86_enterprise_esp")
                 echo_info "Downloading Windows 7 Enterprise x86 Spanish (Español)..."
                 # Windows 7 Enterprise x86 Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x86-enterprise-es-mx")
+            "$win7x86_enterprise_es_mx")
                 echo_info "Downloading Windows 7 Enterprise x86 Spanish (Mexican)..."
                 # Windows 7 Enterprise x86 Mexican Spanish, archived on archive.org
                 # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win81x64-pro")
-                echo_info "Downloading Windows 7 Professional..."
-                # Windows 7 Professional, archived on archive.org
-                # Source: https://archive.org/details/Win7ProRTMx64
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
-                ;;
-            "$win7x64-pro-esp")
-                echo_info "Downloading Windows 7 Professional Spanish (Español)..."
-                # Windows 7 Professional Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
-                ;;
-            "$win7x64-pro-es-mx")
-                echo_info "Downloading Windows 7 Professional Spanish (Mexican)..."
-                # Windows 7 Professional Mexican Spanish, archived on archive.org
-                # Using English ISO with Mexican Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
-                ;;
-            "$win81x64-pro")
+            "$win81x64_pro")
                 echo_info "Downloading Windows 8.1 Pro..."
                 # Windows 8.1 Pro - Consumer JSON API first, archive.org fallback
                 # Note: Windows 8.1 automation is retired, falls back to archive.org
                 consumer_download_or_archive "$(localized_media "$media")" 8 "$MIDO_LANG" "$(archive_fallback_url 8 "$MIDO_LANG" x64)"
                 ;;
-            "$win81x64-pro-esp")
+            "$win81x64_pro_esp")
                 echo_info "Downloading Windows 8.1 Pro Spanish (Spain)..."
                 # Windows 8.1 Pro Spanish - Microsoft official first, archive.org fallback
                 consumer_download_or_archive "$media" 8 "es-ES" "$(archive_fallback_url 8 es-ES x64)"
                 ;;
-            "$win81x64-pro-es-mx")
+            "$win81x64_pro_es_mx")
                 echo_info "Downloading Windows 8.1 Pro Spanish (Mexico)..."
                 # Windows 8.1 Pro Spanish Mexican - Microsoft official first, archive.org fallback
                 consumer_download_or_archive "$media" 8 "es-MX" "$(archive_fallback_url 8 es-MX x64)"
@@ -1474,17 +1583,35 @@ download_media() {
                 # Source: https://archive.org/details/win95
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win95/win95.iso"
                 ;;
+            "$win95_espa")
+                echo_info "Downloading Windows 95 Spanish (Español)..."
+                # Windows 95 in Spanish, archived on archive.org
+                # Source: https://archive.org/details/Win95Spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win95Spanish/Win95.iso"
+                ;;
             "$win98")
                 echo_info "Downloading Windows 98 Second Edition..."
                 # Windows 98 Second Edition (English), archived on archive.org
                 # Source: https://archive.org/details/win98-2nd
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win98-2nd/Windows%2098SE.iso"
                 ;;
+            "$win98_espa")
+                echo_info "Downloading Windows 98 Second Edition Spanish (Español)..."
+                # Windows 98 Second Edition in Spanish, archived on archive.org
+                # Source: https://archive.org/details/Win98SESpanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win98SESpanish/win98se_2222.es.iso"
+                ;;
             "$winme")
                 echo_info "Downloading Windows Millennium Edition..."
                 # Windows Millennium Edition (English), archived on archive.org
                 # Source: https://archive.org/details/windowsme_202301
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windowsme_202301/windowsme.iso"
+                ;;
+            "$winme_espa")
+                echo_info "Downloading Windows Millennium Edition Spanish (Español)..."
+                # Windows Millennium Edition (OEM) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/WinMEESPOEM
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinMEESPOEM/Microsoft%20Windows%20Millenium%20%28OEM%29%20%5BSpanish%5D.iso"
                 ;;
             "$winnt35")
                 echo_info "Downloading Windows NT 3.5 Workstation..."

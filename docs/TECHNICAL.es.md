@@ -86,6 +86,10 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win2008r2-espa` | instantánea de `archive.org` de la ISO de evaluación oficial en español | ninguna |
 | `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | instantáneas de `archive.org` (ISOs oficiales SP2 AIO) | ninguna |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | instantáneas de `archive.org` (ISOs heredadas retail/eval) | ninguna |
+| `win2000-pro`, `win2000-pro-espa` | instantáneas de `archive.org` (Windows 2000 Professional) | ninguna |
+| `win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`, `win2000-pro-retail-espa` | instantáneas de `archive.org` (Windows 2000 Professional, canales OEM/Retail, inglés y español) | ninguna |
+| `win-xp-pro`, `win-xp-pro-espa` | instantáneas de `archive.org` (Windows XP Professional) | ninguna |
+| `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-pro-oem`, `win-xp-pro-retail` | instantáneas de `archive.org` (Windows XP Home/Professional, canales OEM/Retail, inglés y español) | ninguna |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
 | `win11x64-iot-enterprise-ltsc-eval` | URL directa de `software-static.download.prss.microsoft.com` | ninguna |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
@@ -102,7 +106,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win7x64-sp1`, `win7x86-sp1` | instantáneas de `archive.org` (Windows 7 SP1) | ninguna |
 | `win-xp-pro-64`, `win-xp-pro-64-espa` | instantáneas de `archive.org` (Windows XP Professional x64) | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
-| `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40` | instantáneas de `archive.org` (ISOs retro retail, solo inglés) | ninguna |
+| `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa` | instantáneas de `archive.org` (ISOs retro retail/OEM; 95/98/ME también en español) | ninguna |
 
 > Las evaluaciones Enterprise y LTSC de Windows 10/11 se migraron desde el HTML
 > (poco fiable) del Evaluation Center a ISOs archivadas en `archive.org`. La ruta
@@ -232,18 +236,27 @@ es de 32 bits (`win2000-server`, `win2000-server-espa`). Estas no están cubiert
 por la API de Microsoft y no tienen checksums publicados.
 
 
-Windows 2000 Professional, Windows XP Professional y Windows 7 Professional
-ISOs también están archivadas en `archive.org` y no están cubiertas por la API
-de Microsoft. Estas no tienen checksums publicados.
+Windows 2000 Professional, Windows XP Professional, Windows XP Home Edition y
+Windows 7 Professional ISOs también están archivadas en `archive.org` y no están cubiertas por la API
+de Microsoft. Windows 2000 Professional y Windows XP cubren además los canales
+de licencia originales **OEM** y **Retail** (FPP) en inglés y español
+(`win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`,
+`win2000-pro-retail-espa`, `win-xp-home-oem`, `win-xp-home-retail`,
+`win-xp-pro-oem`, `win-xp-pro-retail`); Windows XP Home Edition está disponible
+en inglés y español (`win-xp-home`, `win-xp-home-espa`).
+Estas no tienen checksums publicados.
 > Solo las ediciones de **consumidor** exponen SKUs localizados a través de esta
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como
 > los publica Microsoft, por lo que `enterprise_eval_download` se mantiene a
 > propósito en `en-US`.
 
 Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
-son únicamente en inglés y provienen directamente de instantáneas de `archive.org`
+provienen directamente de instantáneas de `archive.org`
 (Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows
-Millennium Edition, Windows NT 3.5 Workstation y Windows NT 4.0 Workstation). No
+Millennium Edition, Windows NT 3.5 Workstation y Windows NT 4.0 Workstation).
+Windows 95, Windows 98 Second Edition y Windows Millennium Edition también tienen
+instantáneas en español (`win95-espa`, `win98-espa`, `winme-espa`); el resto de
+las versiones retro son únicamente en inglés. No
 están cubiertas por la API de Microsoft y no tienen checksums publicados, por lo
 que pasan por la ruta `NO KNOWN CHECKSUM (skipping verification)`.
 

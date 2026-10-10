@@ -151,9 +151,20 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win2008-server-x86-espa` | Windows Server 2008 SP2 (x86, Español, todas las ediciones, obtenido de archive.org) |
 | `win2000-pro` | Windows 2000 Professional SP4 (Inglés, obtenido de archive.org) |
 | `win2000-pro-espa` | Windows 2000 Professional SP4 en Español (obtenido de archive.org) |
+| `win2000-pro-oem` | Windows 2000 Professional SP3 OEM (Inglés, obtenido de archive.org) |
+| `win2000-pro-retail` | Windows 2000 Professional SP4 Retail (Inglés, obtenido de archive.org) |
+| `win2000-pro-oem-espa` | Windows 2000 Professional SP1 OEM en Español (obtenido de archive.org) |
+| `win2000-pro-retail-espa` | Windows 2000 Professional RTM Retail en Español (obtenido de archive.org) |
 | `win-xp-pro` | Windows XP Professional SP3 (Inglés, obtenido de archive.org) |
-| `win-xp-pro-32` | Windows XP Professional x86 (32-bit, sourced from archive.org) |
-| `win-xp-pro-64` | Windows XP Professional x64 (64-bit, sourced from archive.org) |
+| `win-xp-pro-espa` | Windows XP Professional SP3 en Español (obtenido de archive.org) |
+| `win-xp-pro-32` | Windows XP Professional x86 (32-bit, obtenido de archive.org) |
+| `win-xp-pro-64` | Windows XP Professional x64 (64-bit, obtenido de archive.org) |
+| `win-xp-home` | Windows XP Home Edition SP3 (Inglés, obtenido de archive.org) |
+| `win-xp-home-espa` | Windows XP Home Edition SP3 en Español (obtenido de archive.org) |
+| `win-xp-home-oem` | Windows XP Home Edition RTM OEM (Inglés, obtenido de archive.org) |
+| `win-xp-home-retail` | Windows XP Home Edition SP3 Retail (Inglés, obtenido de archive.org) |
+| `win-xp-pro-oem` | Windows XP Professional SP2 OEM (Inglés, obtenido de archive.org) |
+| `win-xp-pro-retail` | Windows XP Professional SP3 Retail (Inglés, obtenido de archive.org) |
 | `win7x64-pro` | Windows 7 Professional x64 (sourced from archive.org) |
 | `win7x64-pro-esp` | Windows 7 Professional x64 en español — primero Microsoft oficial, si falla archive.org |
 | `win7x64-pro-es-mx` | Windows 7 Professional x64 en español mexicano — primero Microsoft oficial, si falla archive.org |
@@ -209,8 +220,11 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `hyperv2019-eval` | Hyper-V Server 2019 Evaluation |
 | `win311` | Windows for Workgroups 3.11 (inglés, obtenido de archive.org) |
 | `win95` | Windows 95 (inglés, obtenido de archive.org) |
+| `win95-espa` | Windows 95 en Español (obtenido de archive.org) |
 | `win98` | Windows 98 Second Edition (inglés, obtenido de archive.org) |
+| `win98-espa` | Windows 98 Second Edition en Español (obtenido de archive.org) |
 | `winme` | Windows Millennium Edition (inglés, obtenido de archive.org) |
+| `winme-espa` | Windows Millennium Edition en Español (obtenido de archive.org) |
 | `winnt35` | Windows NT 3.5 Workstation (inglés, obtenido de archive.org) |
 | `winnt40` | Windows NT 4.0 Workstation (inglés, obtenido de archive.org) |
 
@@ -252,16 +266,25 @@ tal como los publica Microsoft. Las ISOs en otros idiomas se guardan con un sufi
 de idioma (por ejemplo `win11x64.es-MX.iso`) o con un nombre `-espa`/`-esp`/
 `-es-mexico` según corresponda, para no sobrescribir las inglesas.
 
-Windows 2000 Professional, Windows XP Professional y Windows XP Professional x64
- en español también están disponibles vía archive.org. Windows 8.1 Pro en español
+Windows 2000 Professional, Windows XP Professional, Windows XP Home Edition y
+ Windows XP Professional x64 en español también están disponibles vía archive.org. Windows 8.1 Pro en español
  también está disponible vía archive.org tanto para 64-bit (`win81x64-pro-esp`)
  como para 32-bit (`win81x64-pro-es-mx`). Como Microsoft no publica checksums
 oficiales de cada versión localizada, las ISOs localizadas pueden mostrar
   `NO KNOWN CHECKSUM (skipping verification)`.
 
+Windows 2000 Professional y Windows XP están además disponibles en los canales
+de licencia originales **OEM** y **Retail** (FPP), en inglés y español:
+`win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`,
+`win2000-pro-retail-espa`, `win-xp-home-oem`, `win-xp-home-retail`,
+`win-xp-pro-oem` y `win-xp-pro-retail`. Windows XP Home Edition está disponible
+en inglés y español (`win-xp-home`, `win-xp-home-espa`).
+
 Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
-son únicamente en inglés, provienen de `archive.org` y no tienen checksums
-publicados.
+provienen de `archive.org` y no tienen checksums publicados. Windows 95,
+Windows 98 Second Edition y Windows Millennium Edition también están disponibles
+en español (`win95-espa`, `win98-espa`, `winme-espa`); el resto de las versiones
+retro son únicamente en inglés.
 
 ## ¿Cómo funciona Mido?
 
@@ -291,7 +314,10 @@ incluso Server 2003 y 2000 Server) en adelante. También incluye versiones retro
 de los años 90: Windows for Workgroups 3.11, Windows 95, Windows 98 Second
 Edition, Windows Millennium Edition, Windows NT 3.5 Workstation y Windows NT 4.0
 Workstation (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, obtenidas
-de archive.org).
+de archive.org). Windows 95, 98 y Millennium Edition también tienen ISOs en
+español (`win95-espa`, `win98-espa`, `winme-espa`), y Windows 2000 Professional
+/ Windows XP están disponibles en los canales de licencia OEM y Retail
+originales (consulta la tabla de medios más arriba).
 
 ¿Quieres una instalación de Windows más segura y minimalista, pero oficial de
 Microsoft? Descarga la versión LTSC de Windows. Incluye mucho menos bloatware y
@@ -326,7 +352,8 @@ de Microsoft (además de soporte a largo plazo).
   automáticamente.
 - **Windows Vista en español** — proviene de `archive.org`, que puede ser más
   lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
-- **ISOs retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)** —
+- **ISOs retro (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`,
+  además de las españolas `win95-espa`, `win98-espa`, `winme-espa`)** —
   provienen de `archive.org`, que puede ser más lento que la CDN de Microsoft.
   Mido reintenta y reanuda automáticamente.
 - **Enterprise/Server "no download link"** — Microsoft cambia periódicamente las

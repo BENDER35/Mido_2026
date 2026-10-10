@@ -88,7 +88,9 @@ Different media families are fetched in different ways:
 | `win2008-server-x64`, `win2008-server-x64-espa`, `win2008-server-x86`, `win2008-server-x86-espa` | `archive.org` snapshots (official SP2 AIO ISOs) | none |
 | `win2003-server`, `win2003-server-espa`, `win2003-server-x64`, `win2003-server-x64-espa`, `win2000-server`, `win2000-server-espa` | `archive.org` snapshots (legacy retail/eval ISOs) | none |
 | `win2000-pro`, `win2000-pro-espa` | `archive.org` snapshots (Windows 2000 Professional) | none |
+| `win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`, `win2000-pro-retail-espa` | `archive.org` snapshots (Windows 2000 Professional, OEM/Retail channels, English and Spanish) | none |
 | `win-xp-pro`, `win-xp-pro-espa` | `archive.org` snapshots (Windows XP Professional) | none |
+| `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-pro-oem`, `win-xp-pro-retail` | `archive.org` snapshots (Windows XP Home/Professional, OEM/Retail channels, English and Spanish) | none |
 | `win-xp-pro-64`, `win-xp-pro-64-espa` | `archive.org` snapshots (Windows XP Professional x64) | none |
 | `win7x64-pro`, `win7x64-pro-esp`, `win7x64-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
 | `win7x86-pro`, `win7x86-pro-esp`, `win7x86-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
@@ -110,7 +112,7 @@ Different media families are fetched in different ways:
 | `win7x86-ultimate`, `win7x86-ultimate-esp`, `win7x86-ultimate-es-mx` | `archive.org` snapshots (Windows 7 Ultimate) | none |
 | `vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1` | `archive.org` snapshots | none |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
-| `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40` | `archive.org` snapshots (retro retail ISOs, English only) | none |
+| `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa` | `archive.org` snapshots (retro retail/OEM ISOs; 95/98/ME also in Spanish) | none |
 
 > Windows 10/11 Enterprise and LTSC evaluations were migrated from the
 > (unreliable) Evaluation Center HTML to archived `archive.org` ISOs. The
@@ -245,8 +247,14 @@ Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
 These are not covered by the Microsoft API and have no published checksums.
 
 Windows 7 SP1 ISOs are also sourced from `archive.org` and are not covered by the Microsoft API.
-Windows 2000 Professional, Windows XP Professional and Windows 7 Professional
-ISOs are also sourced from `archive.org` and are not covered by the Microsoft API.
+Windows 2000 Professional, Windows XP Professional, Windows XP Home Edition and
+Windows 7 Professional ISOs are also sourced from `archive.org` and are not covered by the Microsoft API.
+Windows 2000 Professional and Windows XP additionally cover the original **OEM**
+and **Retail** (FPP) license channels in English and Spanish
+(`win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`,
+`win2000-pro-retail-espa`, `win-xp-home-oem`, `win-xp-home-retail`,
+`win-xp-pro-oem`, `win-xp-pro-retail`); Windows XP Home Edition is available in
+English and Spanish (`win-xp-home`, `win-xp-home-espa`).
 These have no published checksums.
 
 Windows 8.1 Pro ISOs are also available via the Consumer JSON API first, with
@@ -256,9 +264,12 @@ Windows 8.1 Pro ISOs are also available via the Consumer JSON API first, with
 > so `enterprise_eval_download` intentionally stays on `en-US`.
 
 The retro releases (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
-are English-only and are sourced directly from `archive.org` snapshots
+are sourced directly from `archive.org` snapshots
 (Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows
 Millennium Edition, Windows NT 3.5 Workstation and Windows NT 4.0 Workstation).
+Windows 95, Windows 98 Second Edition and Windows Millennium Edition also have
+Spanish snapshots (`win95-espa`, `win98-espa`, `winme-espa`); the remaining
+retro releases are English-only.
 They are not covered by the Microsoft API and have no published checksums, so
 they go through the `NO KNOWN CHECKSUM (skipping verification)` path.
 

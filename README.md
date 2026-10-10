@@ -139,10 +139,20 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win2008-server-x86-espa` | Windows Server 2008 SP2 (x86, Spanish, all editions, sourced from archive.org) |
 | `win2000-pro` | Windows 2000 Professional SP4 (English, sourced from archive.org) |
 | `win2000-pro-espa` | Windows 2000 Professional SP4 Spanish (sourced from archive.org) |
+| `win2000-pro-oem` | Windows 2000 Professional SP3 OEM (English, sourced from archive.org) |
+| `win2000-pro-retail` | Windows 2000 Professional SP4 Retail (English, sourced from archive.org) |
+| `win2000-pro-oem-espa` | Windows 2000 Professional SP1 OEM Spanish (sourced from archive.org) |
+| `win2000-pro-retail-espa` | Windows 2000 Professional RTM Retail Spanish (sourced from archive.org) |
 | `win-xp-pro` | Windows XP Professional SP3 (English, sourced from archive.org) |
 | `win-xp-pro-espa` | Windows XP Professional SP3 Spanish (sourced from archive.org) |
 | `win-xp-pro-32` | Windows XP Professional x86 (32-bit, sourced from archive.org) |
 | `win-xp-pro-64` | Windows XP Professional x64 (64-bit, sourced from archive.org) |
+| `win-xp-home` | Windows XP Home Edition SP3 (English, sourced from archive.org) |
+| `win-xp-home-espa` | Windows XP Home Edition SP3 Spanish (sourced from archive.org) |
+| `win-xp-home-oem` | Windows XP Home Edition RTM OEM (English, sourced from archive.org) |
+| `win-xp-home-retail` | Windows XP Home Edition SP3 Retail (English, sourced from archive.org) |
+| `win-xp-pro-oem` | Windows XP Professional SP2 OEM (English, sourced from archive.org) |
+| `win-xp-pro-retail` | Windows XP Professional SP3 Retail (English, sourced from archive.org) |
 | `win7x64-pro` | Windows 7 Professional x64 (sourced from archive.org) |
 | `win7x64-pro-esp` | Windows 7 Professional x64 Spanish — Microsoft official first, archive.org fallback |
 | `win7x64-pro-es-mx` | Windows 7 Professional x64 Mexican Spanish — Microsoft official first, archive.org fallback |
@@ -200,8 +210,11 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `hyperv2019-eval` | Hyper-V Server 2019 Evaluation |
 | `win311` | Windows for Workgroups 3.11 (English, sourced from archive.org) |
 | `win95` | Windows 95 (English, sourced from archive.org) |
+| `win95-espa` | Windows 95 Spanish (sourced from archive.org) |
 | `win98` | Windows 98 Second Edition (English, sourced from archive.org) |
+| `win98-espa` | Windows 98 Second Edition Spanish (sourced from archive.org) |
 | `winme` | Windows Millennium Edition (English, sourced from archive.org) |
+| `winme-espa` | Windows Millennium Edition Spanish (sourced from archive.org) |
 | `winnt35` | Windows NT 3.5 Workstation (English, sourced from archive.org) |
 | `winnt40` | Windows NT 4.0 Workstation (English, sourced from archive.org) |
 
@@ -241,8 +254,8 @@ Windows 7 SP1 Spanish ISOs (`win7x64-sp1`, `win7x86-sp1`) are also available
 via archive.org.
 Windows 7 Ultimate Spanish ISOs (`win7x64-ultimate-esp`, `win7x64-ultimate-es-mx`)
 are also available via Microsoft official first, then archive.org fallback.
-Windows 2000 Professional, Windows XP Professional and Windows 7 Professional
-Spanish ISOs are also available via archive.org. Windows 8.1 Pro Spanish ISOs
+Windows 2000 Professional, Windows XP Professional, Windows XP Home Edition and
+Windows 7 Professional Spanish ISOs are also available via archive.org. Windows 8.1 Pro Spanish ISOs
 are also available via archive.org for both Spain (`win81x64-pro-esp`) and Mexico
 (`win81x64-pro-es-mx`). Enterprise, Server and Evaluation media are otherwise
 English-only, as published by Microsoft. Non-English ISOs are written with a locale
@@ -251,8 +264,18 @@ appropriate, so they never overwrite the English ones. Because Microsoft does no
 publish public checksums for every localized release, localized ISOs may report
 `NO KNOWN CHECKSUM (skipping verification)`.
 
+Windows 2000 Professional and Windows XP are additionally available in the
+original **OEM** and **Retail** (FPP) license channels, in English and Spanish:
+`win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`,
+`win2000-pro-retail-espa`, `win-xp-home-oem`, `win-xp-home-retail`,
+`win-xp-pro-oem` and `win-xp-pro-retail`. Windows XP Home Edition is available
+in English and Spanish (`win-xp-home`, `win-xp-home-espa`).
+
 The retro releases (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
-are English-only, sourced from `archive.org`, and have no published checksums.
+are sourced from `archive.org` and have no published checksums. Windows 95,
+Windows 98 Second Edition and Windows Millennium Edition are also available in
+Spanish (`win95-espa`, `win98-espa`, `winme-espa`); the remaining retro
+releases are English-only.
 
 ## How does Mido work?
 
@@ -276,7 +299,7 @@ See [docs/TECHNICAL.md](docs/TECHNICAL.md) for a full walk-through.
 
 ## What else can Mido do?
 
-Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2025) and Enterprise editions of every Windows version all the way back to Windows 7 (or Windows Server 2008 R2, and even Server 2003 and 2000 Server). Retro releases all the way back to the 1990s are included too: Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows Millennium Edition, Windows NT 3.5 Workstation and Windows NT 4.0 Workstation (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, sourced from archive.org).
+Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2025) and Enterprise editions of every Windows version all the way back to Windows 7 (or Windows Server 2008 R2, and even Server 2003 and 2000 Server). Retro releases all the way back to the 1990s are included too: Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows Millennium Edition, Windows NT 3.5 Workstation and Windows NT 4.0 Workstation (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, sourced from archive.org). Windows 95, 98 and Millennium Edition also have Spanish ISOs (`win95-espa`, `win98-espa`, `winme-espa`), and Windows 2000 Professional / Windows XP come in the original OEM and Retail license channels (see the media table above).
 
 Want a more secure and minimalist Windows installation out-of-the-box that's officially provided by Microsoft? Then download the LTSC version of Windows. It comes with way less bloat and supports Microsoft's ["Security"](https://learn.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization#diagnostic-data-settings) telemetry mode (plus it comes with long-term support).
 
@@ -309,7 +332,8 @@ Want a more secure and minimalist Windows installation out-of-the-box that's off
 - **Windows Vista ISOs** — sourced from `archive.org`, which may be slower than
   Microsoft's CDN. Mido retries and resumes automatically.
 - **Retro Windows ISOs (`win311`, `win95`, `win98`, `winme`, `winnt35`,
-  `winnt40`)** — sourced from `archive.org`, which may be slower than Microsoft's
+  `winnt40`, plus the Spanish `win95-espa`, `win98-espa`, `winme-espa`)** —
+  sourced from `archive.org`, which may be slower than Microsoft's
   CDN. Mido retries and resumes automatically.
 - **Enterprise/Server "no download link"** — Microsoft periodically changes the
   Evaluation Center pages. Please open an issue with the affected version.
