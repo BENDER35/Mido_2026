@@ -269,6 +269,23 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win10x64-iot-enterprise-ltsc-2021` | Windows 10 IoT Enterprise LTSC 2021 (full, English, x64, sourced from archive.org) |
 | `win10x64-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 (full, English, x64, sourced from archive.org) |
 | `win10x86-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 (full, English, x86/32-bit, sourced from archive.org) |
+| `win11x64-enterprise-ltsc-2024` | Windows 11 Enterprise LTSC 2024 (full, English, x64, sourced from archive.org) |
+| `win11x64-enterprise-ltsc-2024-esp` | Windows 11 Enterprise LTSC 2024 (full, Spanish (Spain), x64, sourced from archive.org) |
+| `win11x64-enterprise-ltsc-2024-es-mx` | Windows 11 Enterprise LTSC 2024 (full, Mexican Spanish, x64, sourced from archive.org) |
+| `win10x64-enterprise-ltsc-2021` | Windows 10 Enterprise LTSC 2021 (full, English, x64, sourced from archive.org) |
+| `win10x64-enterprise-ltsc-2021-esp` | Windows 10 Enterprise LTSC 2021 (full, Spanish (Spain), x64, sourced from archive.org) |
+| `win10x64-enterprise-ltsc-2021-es-mx` | Windows 10 Enterprise LTSC 2021 (full, Mexican Spanish, x64, sourced from archive.org) |
+| `win10x86-enterprise-ltsc-2021` | Windows 10 Enterprise LTSC 2021 (full, English, x86/32-bit, sourced from archive.org) |
+| `win10x86-enterprise-ltsc-2021-esp` | Windows 10 Enterprise LTSC 2021 (full, Spanish (Spain), x86/32-bit, sourced from archive.org) |
+| `win10x86-enterprise-ltsc-2021-es-mx` | Windows 10 Enterprise LTSC 2021 (full, Mexican Spanish, x86/32-bit, sourced from archive.org) |
+| `win10x64-enterprise-ltsb-2016` | Windows 10 Enterprise LTSB 2016 (full, English, x64, sourced from archive.org) |
+| `win10x64-enterprise-ltsb-2016-esp` | Windows 10 Enterprise LTSB 2016 (full, Spanish, x64, sourced from archive.org) |
+| `win10x86-enterprise-ltsb-2016` | Windows 10 Enterprise LTSB 2016 (full, English, x86/32-bit, sourced from archive.org) |
+| `win10x86-enterprise-ltsb-2016-esp` | Windows 10 Enterprise LTSB 2016 (full, Spanish, x86/32-bit, sourced from archive.org) |
+| `win10x64-enterprise-ltsb-2015` | Windows 10 Enterprise LTSB 2015 (full, English, x64, sourced from archive.org) |
+| `win10x64-enterprise-ltsb-2015-esp` | Windows 10 Enterprise LTSB 2015 (full, Spanish, x64, sourced from archive.org) |
+| `win10x86-enterprise-ltsb-2015` | Windows 10 Enterprise LTSB 2015 (full, English, x86/32-bit, sourced from archive.org) |
+| `win10x86-enterprise-ltsb-2015-esp` | Windows 10 Enterprise LTSB 2015 (full, Spanish, x86/32-bit, sourced from archive.org) |
 | `win2008r2` | Windows Server 2008 R2 SP1 (x64, English) |
 | `win2008r2-espa` | Windows Server 2008 R2 SP1 (x64, Spanish eval, sourced from archive.org) |
 | `win2008-server-x64` | Windows Server 2008 SP2 (x64, English, all editions, sourced from archive.org) |
@@ -484,6 +501,90 @@ years** of security updates. Mido offers the full (non-evaluation) English ISOs:
 > IoT Enterprise 22H2 and the newer IoT Enterprise LTSC 2021 exist **only as
 > x64** (and arm64), so there is no 32-bit ISO for them.
 
+### Enterprise LTSC & LTSB editions
+
+Mido also offers the full (non-evaluation) **Enterprise** long-term-servicing
+ISOs, in English and Spanish (Spain and Mexico where Microsoft published them).
+These are the same LTSC/LTSB editions as the "Evaluation" downloads above, but
+with the normal (non-expiring) licence:
+
+| Argument | Product | Architecture | Support ends |
+|---|---|---|---|
+| `win11x64-enterprise-ltsc-2024` | Windows 11 Enterprise LTSC 2024 | x64 | 2029-10-09 |
+| `win11x64-enterprise-ltsc-2024-esp` / `-es-mx` | Windows 11 Enterprise LTSC 2024 (es-ES / es-MX) | x64 | 2029-10-09 |
+| `win10x64-enterprise-ltsc-2021` | Windows 10 Enterprise LTSC 2021 | x64 | 2027-01-12 |
+| `win10x64-enterprise-ltsc-2021-esp` / `-es-mx` | Windows 10 Enterprise LTSC 2021 (es-ES / es-MX) | x64 | 2027-01-12 |
+| `win10x86-enterprise-ltsc-2021` | Windows 10 Enterprise LTSC 2021 | x86 (32-bit) | 2027-01-12 |
+| `win10x86-enterprise-ltsc-2021-esp` / `-es-mx` | Windows 10 Enterprise LTSC 2021 (es-ES / es-MX) | x86 (32-bit) | 2027-01-12 |
+| `win10x64-enterprise-ltsb-2016` | Windows 10 Enterprise LTSB 2016 (= "LTSC 2016") | x64 | 2026-10-13 |
+| `win10x64-enterprise-ltsb-2016-esp` | Windows 10 Enterprise LTSB 2016 (Spanish) | x64 | 2026-10-13 |
+| `win10x86-enterprise-ltsb-2016` | Windows 10 Enterprise LTSB 2016 (= "LTSC 2016") | x86 (32-bit) | 2026-10-13 |
+| `win10x86-enterprise-ltsb-2016-esp` | Windows 10 Enterprise LTSB 2016 (Spanish) | x86 (32-bit) | 2026-10-13 |
+| `win10x64-enterprise-ltsb-2015` | Windows 10 Enterprise LTSB 2015 | x64 | ended 2025-10-14 |
+| `win10x64-enterprise-ltsb-2015-esp` | Windows 10 Enterprise LTSB 2015 (Spanish) | x64 | ended 2025-10-14 |
+| `win10x86-enterprise-ltsb-2015` | Windows 10 Enterprise LTSB 2015 | x86 (32-bit) | ended 2025-10-14 |
+| `win10x86-enterprise-ltsb-2015-esp` | Windows 10 Enterprise LTSB 2015 (Spanish) | x86 (32-bit) | ended 2025-10-14 |
+
+> **"LTSC 2016" and "LTSB 2016" are the same product.** Microsoft used the name
+> **LTSB** (Long-Term Servicing *Branch*) for the 2015 and 2016 releases and
+> renamed it to **LTSC** (Long-Term Servicing *Channel*) with the 2019 release,
+> so the 2016 ISO is listed under either name — there was never a separate
+> "Windows 10 LTSC 2016".
+>
+> **On 32-bit availability:** every Windows 10 LTSC/LTSB release above ships both
+> x86 (32-bit) and x64 ISOs. Windows 11 (including Enterprise LTSC 2024) is
+> **x64/arm64 only** — there is no 32-bit build. Spanish Windows 11 Enterprise
+> LTSC 2024 exists as es-ES and es-MX, but the Windows 10 LTSB 2015/2016 ISOs
+> only ever had a single Spanish build (es-ES), so no `-es-mx` argument is offered
+> for them.
+>
+> **IoT vs. Enterprise:** the `-iot-` arguments are the IoT Enterprise editions
+> (relaxed hardware requirements); the ones above are the regular Enterprise
+> editions. For the 2021 LTSC the IoT variant is supported until 2032-01-13 while
+> the regular Enterprise variant ends 2027-01-12.
+
+### Maximum installable Office version
+
+Microsoft Office has its own, much stricter operating-system requirements than
+Windows itself. The table below shows the **newest Office release that officially
+supports each Windows version** — installing anything newer is either blocked by
+the Office installer or left unsupported:
+
+| Windows release | Newest supported Office | Notes |
+|---|---|---|
+| Windows 95 | **Office 2000** | Office 2000 requires Windows 95 or later. |
+| Windows 98 / Me / NT 4.0 | **Office XP (2002)** | Office XP requires Windows 98/Me/NT 4.0 SP6a. Office 2003 needs 2000 SP3/XP. |
+| Windows 2000 | **Office 2003** | Requires Windows 2000 SP3. Office 2007 needs XP SP2/Vista. |
+| Windows XP | **Office 2010** | Last version to support XP SP3; Office 2013+ require Windows 7. |
+| Windows Vista | **Office 2010** | Last version to support Vista SP2; Office 2013+ require Windows 7. |
+| Windows 7 | **Office 2016** | Office 2019+ officially require Windows 10. Microsoft 365 Apps ran on 7 until Jan 2023. |
+| Windows 8 | **Office 2013** | Office 2016 requires Windows 8.1+, so Windows 8 is skipped. |
+| Windows 8.1 | **Office 2016** | Microsoft 365 Apps ran on 8.1 until Jan 2023. |
+| Windows 10 LTSB 2015 | **Office 2016** | Office 2019/2021/LTSC 2024 do not support the 2015/2016 LTSB builds. |
+| Windows 10 LTSB 2016 | **Office 2016** | Office 2019/2021/LTSC 2024 do not support the 2015/2016 LTSB builds. |
+| Windows 10 LTSC 2019 | **Office LTSC 2024** | Also Office 2019, Office LTSC 2021 and Microsoft 365. |
+| Windows 10 LTSC 2021 | **Office LTSC 2024** | Also Office 2019, Office LTSC 2021 and Microsoft 365. |
+| Windows 10 (22H2, Home/Pro/Enterprise) | **Office 2024 / Microsoft 365** | Office **LTSC** 2024 is *not* supported on 22H2 — use retail **Office 2024** there. |
+| Windows 11 (incl. LTSC 2024) | **Office LTSC 2024 / Office 2024 / Microsoft 365** | Any current Office release. |
+| Windows Server 2016 | **Office 2016** | Server matching its client generation. |
+| Windows Server 2019 | **Office 2019 / LTSC 2021** | Server 2019 is listed for Office 2019. |
+| Windows Server 2022 / 2025 | **Office LTSC 2024** | Office LTSC 2024 supports Server 2022 and 2025. |
+
+> **Architecture:** 64-bit Office first appeared with **Office 2010**;
+> Office 2003 and 2007 are 32-bit only. 32-bit Office is still the recommended
+> default for maximum add-in compatibility — install 64-bit Office only if you
+> need it (very large Excel/PowerPoint files, >2 GB memory per app, or 4K+).
+> 64-bit Office requires 64-bit Windows.
+>
+> **Installing newer Office than listed** is sometimes possible with tweaks
+> (or an extended kernel — see below), but it is unsupported and may break parts
+> of the suite.
+>
+> **Server editions** follow the client generation they are based on:
+> Server 2008/2008 R2 (Vista/7 era) → Office 2010/2013, Server 2012/2012 R2
+> (8/8.1 era) → Office 2013/2016, Server 2016 → Office 2016, Server 2019 →
+> Office 2019, Server 2022/2025 → Office LTSC 2024.
+
 ## Product activation: telephone activation retired, replaced by internet activation
 
 Windows NT 3.1, 3.5 and 3.51 (and every media in this project older than
@@ -676,6 +777,107 @@ Update Catalog** (<https://catalog.update.microsoft.com/>). Search by KB number,
 download the `.msu`/`.cab` and install it by double-clicking it (or with
 `wusa`/`dism`). This is the most reliable way to patch a machine that cannot
 reach any update service.
+
+## Extended kernels: running newer software on old Windows
+
+An **extended kernel** (also called an *API extension pack*) is an unofficial
+patch that adds **newer Windows APIs to an older Windows installation**. Instead
+of emulating Windows, it modifies the real kernel and system DLLs (`kernel32.dll`,
+`ntdll.dll`, `user32.dll`, `advapi32.dll`, …) so that programs written for a later
+Windows release find the functions they expect and start normally. The result is a
+genuine, native Windows install that can run software from one or more
+generations ahead of it.
+
+### Main projects
+
+| Project | Target OS | Adds compatibility for | Notes |
+|---|---|---|---|
+| **KernelEx** | Windows 98 / Me | Windows 2000/XP applications | Open source; needs the `unicows` runtime. |
+| **Windows 2000 Extended Kernel** (BlackWingCat) | Windows 2000 | Windows XP applications + modern software (VS2013 apps, Media Player 11, newer browsers) | Works on non-SSE2 CPUs; installed like a service pack. |
+| **One-Core-API** (shorthorn-project) | Windows XP SP3, XP x64 SP2, Server 2003 SP2 | Vista/7/8/10 APIs — modern Chromium/Firefox, Steam, VS Code, .NET up to 4.8, DirectX 9–11 games via a `wined3d` wrapper, Office 2013/2016 | Based on ReactOS; actively developed. |
+| **VxKex / VxKex NEXT** | Windows 7 (+ Server 2008 R2) | Windows 8/8.1/10/11-only applications (Chromium, Firefox, Blender, Python, VSCode, Spotify, …) | Per-application opt-in; patches each app's import table. |
+
+### Advantages
+
+- **Native performance and full driver support.** The app runs on the genuine NT
+  kernel with real hardware drivers, so there is no CPU emulation overhead and no
+  GPU/driver translation layer.
+- **Whole-system effect.** Once installed, *every* compatible program benefits —
+  no per-app configuration (except VxKex, which is per-app by design).
+- **Runs on real, already-licensed Windows.** You keep your existing install,
+  files and licences.
+- **Often the only way to run a modern app on old hardware** (e.g. Windows 2000 on
+  a Pentium III with no SSE2).
+
+### Disadvantages
+
+- **Unofficial and unsupported.** A bad update can make the system unbootable;
+  always image/backup first (extended kernels can also conflict with Windows
+  Update).
+- **Security.** You are running newer, more complex code on an OS that no longer
+  receives security fixes — do not use it on a network-exposed machine.
+- **Incomplete.** Only a subset of APIs is implemented; some apps still crash and
+  features (printing, DRM, hardware acceleration) may be missing or unstable.
+- **Antivirus / EDR may flag it**, and it breaks system-file integrity
+  (`sfc`/`dism` will complain).
+- **Maintenance burden.** You must track a third-party project's releases.
+
+### Extended kernel vs. Wine
+
+| Aspect | Extended kernel | Wine |
+|---|---|---|
+| What it is | Patch to a **real** Windows install | **Userspace compatibility layer** that re-implements the Windows API on Linux/macOS/BSD |
+| Host OS | Genuine Windows (old) | Linux/macOS/BSD (no Windows needed) |
+| Kernel | Modifies the actual NT kernel/DLLs | Runs as a normal process; no kernel changes |
+| Performance | Native (near 100%) | Usually good, sometimes lower; no real kernel drivers |
+| Drivers | **Full** real drivers work | **No** kernel drivers; hardware support is limited/emulated |
+| Compatibility | Very high for the targeted Windows generation | Broad but hit-or-miss; often needs tweaks/`winetricks` |
+| Risk | Can break/corrupt the OS; unsupported | Sandboxed; removing it is trivial |
+| Licensing | Needs a Windows licence | Free (Wine is open source) |
+| Typical use | Squeeze modern apps out of old Windows hardware | Run Windows games/apps on Linux without Windows |
+
+In short: **Wine** is the safer, portable choice if you are on Linux and can live
+with compatibility gaps; an **extended kernel** is the higher-performance choice if
+you are committed to a genuine old Windows install and want native drivers.
+
+### How to install (examples)
+
+> Always take a full disk image (or VM snapshot) before installing any extended
+> kernel. Do these installs on a fresh Windows installation.
+
+**1. KernelEx (Windows 98 / Me)**
+
+1. Install the **Unofficial Service Pack** and the **`unicows`** runtime first.
+2. Download the latest KernelEx installer from the project and run it.
+3. Reboot. Then right-click any `.exe` → **Properties → Compatibility** to choose
+   which KernelEx mode that program should use.
+
+**2. Windows 2000 Extended Kernel (BlackWingCat)**
+
+1. Install **Windows 2000 SP4** + Update Rollup 1 and reboot.
+2. Download the latest **Extended Kernel** package (v3.0e or newer).
+3. Run the installer as Administrator, accept the prompts and **reboot twice**.
+4. Install the Visual C++ 2013 runtime it needs in order to run modern apps.
+
+**3. One-Core-API (Windows XP / Server 2003)**
+
+1. Install **Windows XP SP3** (or XP x64 SP2 / Server 2003 SP2) with all updates.
+2. Enable **System Restore** and create a restore point first.
+3. Download the latest **One-Core-API** release (`ocapi_*` installer).
+4. Right-click the installer → **Run as administrator**.
+5. Reboot. For DirectX 9+ games, copy the bundled `wined3d` DLLs into the game
+   folder, and set the app's **compatibility mode** to Windows Vista/7 when asked.
+
+**4. VxKex (Windows 7 / Server 2008 R2)**
+
+1. Install **Windows 7 SP1** with the SHA-2 and (for modern apps) the Universal C
+   Runtime updates.
+2. Download and run the **VxKex** installer (Administrator), then reboot.
+3. Right-click the target program → **Properties → VxKex** tab → tick **Enable
+   VxKex for this program**.
+4. If the app still refuses to start, set its **compatibility mode** to
+   Windows 8/10 in the same Properties window (some apps also need a version
+   spoof, configured in **VxKex Global Settings**).
 
 ## Knowledge base / troubleshooting
 

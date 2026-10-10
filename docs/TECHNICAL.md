@@ -107,6 +107,9 @@ Different media families are fetched in different ways:
 | `win11x64-iot-enterprise-ltsc-2024` | `archive.org` snapshot (official full Windows 11 IoT Enterprise LTSC 2024 ISO, English x64) | none |
 | `win10x64-iot-enterprise-22h2` | `archive.org` snapshot (Windows 10 IoT Enterprise 22H2, annual channel, English x64) | none |
 | `win10x64-iot-enterprise-ltsc-2021`, `win10x64-iot-enterprise-ltsc-2019`, `win10x86-iot-enterprise-ltsc-2019` | `archive.org` snapshots (official full Windows 10 IoT Enterprise LTSC ISOs, English; 2021 is x64-only, 2019 ships in x64 and x86) | none |
+| `win11x64-enterprise-ltsc-2024`, `win10x64-enterprise-ltsc-2021`, `win10x86-enterprise-ltsc-2021`, `win10x64-enterprise-ltsb-2016`, `win10x86-enterprise-ltsb-2016`, `win10x64-enterprise-ltsb-2015`, `win10x86-enterprise-ltsb-2015` | `archive.org` snapshots via item `massgrave.dev-windows-x64-and-x86-archive` (official full Windows 11/10 Enterprise LTSC & LTSB ISOs, English; x64 and x86 where Microsoft shipped both) | none |
+| `win11x64-enterprise-ltsc-2024-esp`, `win11x64-enterprise-ltsc-2024-es-mx`, `win10x64-enterprise-ltsc-2021-esp`, `win10x64-enterprise-ltsc-2021-es-mx`, `win10x86-enterprise-ltsc-2021-esp`, `win10x86-enterprise-ltsc-2021-es-mx` | `archive.org` snapshots (official full Enterprise LTSC Spanish ISOs; Win11 LTSC 2024 as es-ES and es-MX, Win10 LTSC 2021 as es-ES and es-MX, both x64 and x86) | none |
+| `win10x64-enterprise-ltsb-2016-esp`, `win10x86-enterprise-ltsb-2016-esp`, `win10x64-enterprise-ltsb-2015-esp`, `win10x86-enterprise-ltsb-2015-esp` | `archive.org` snapshots (official full Windows 10 Enterprise LTSB 2015/2016 Spanish ISOs; Microsoft only shipped one Spanish build for these, hence es-ES only) | none |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | Evaluation Center HTML → `go.microsoft.com/fwlink` redirect | none |
 | `win81x64-enterprise-eval`, `win2008r2` | Direct `download.microsoft.com` URL | none |
 | `win2022-enterprise-64`, `win2022-datacenter-64` | `archive.org` snapshots (64-bit only) | none |
@@ -146,6 +149,22 @@ Different media families are fetched in different ways:
 > Microsoft file names (sub-paths under `Windows/Windows 10/…`). Microsoft only
 > ever published an **x86 (32-bit)** ISO for the **LTSC 2019** release, which is
 > why the 22H2 and LTSC 2021 entries have no 32-bit counterpart.
+>
+> The full (non-evaluation) **Enterprise** LTSC/LTSB ISOs (`win11x64-enterprise-
+> ltsc-2024`, `win10x64-enterprise-ltsc-2021`, `win10x86-enterprise-ltsc-2021`,
+> `win10x64-enterprise-ltsb-2016`, `win10x86-enterprise-ltsb-2016`,
+> `win10x64-enterprise-ltsb-2015`, `win10x86-enterprise-ltsb-2015`) come from the
+> same `massgrave.dev-windows-x64-and-x86-archive` item as the IoT ISOs
+> (`Windows/Windows 11/Windows 11 Enterprise LTSC 2024/…` and
+> `Windows/Windows 10/…`). The Spanish Enterprise ISOs come from separate
+> `archive.org` items mirroring the official Spanish file names (es-ES and es-MX
+> for Windows 11 Enterprise LTSC 2024 and Windows 10 Enterprise LTSC 2021; a
+> single es-ES build for Windows 10 Enterprise LTSB 2015/2016, so those have no
+> `-es-mx` counterpart). Note that **"Windows 10 LTSC 2016" and "Windows 10 LTSB
+> 2016" are the same product** — Microsoft renamed LTSB to LTSC with the 2019
+> release — so there is a single `win10x64-enterprise-ltsb-2016` argument, not a
+> separate LTSC 2016 one. Windows 11 (including Enterprise LTSC 2024) ships only
+> as x64/arm64, so no 32-bit Enterprise LTSC 2024 exists.
 
 ## The consumer JSON API
 

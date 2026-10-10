@@ -97,6 +97,9 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win11x64-iot-enterprise-ltsc-2024` | instantánea de `archive.org` (ISO oficial completa de Windows 11 IoT Enterprise LTSC 2024, inglés x64) | ninguna |
 | `win10x64-iot-enterprise-22h2` | instantánea de `archive.org` (Windows 10 IoT Enterprise 22H2, canal anual, inglés x64) | ninguna |
 | `win10x64-iot-enterprise-ltsc-2021`, `win10x64-iot-enterprise-ltsc-2019`, `win10x86-iot-enterprise-ltsc-2019` | instantáneas de `archive.org` (ISOs oficiales completas de Windows 10 IoT Enterprise LTSC, inglés; 2021 solo x64, 2019 en x64 y x86) | ninguna |
+| `win11x64-enterprise-ltsc-2024`, `win10x64-enterprise-ltsc-2021`, `win10x86-enterprise-ltsc-2021`, `win10x64-enterprise-ltsb-2016`, `win10x86-enterprise-ltsb-2016`, `win10x64-enterprise-ltsb-2015`, `win10x86-enterprise-ltsb-2015` | instantáneas de `archive.org` vía el item `massgrave.dev-windows-x64-and-x86-archive` (ISOs oficiales completas de Windows 11/10 Enterprise LTSC y LTSB, inglés; x64 y x86 donde Microsoft las distribuyó) | ninguna |
+| `win11x64-enterprise-ltsc-2024-esp`, `win11x64-enterprise-ltsc-2024-es-mx`, `win10x64-enterprise-ltsc-2021-esp`, `win10x64-enterprise-ltsc-2021-es-mx`, `win10x86-enterprise-ltsc-2021-esp`, `win10x86-enterprise-ltsc-2021-es-mx` | instantáneas de `archive.org` (ISOs oficiales completas Enterprise LTSC en español; Win11 LTSC 2024 como es-ES y es-MX, Win10 LTSC 2021 como es-ES y es-MX, en x64 y x86) | ninguna |
+| `win10x64-enterprise-ltsb-2016-esp`, `win10x86-enterprise-ltsb-2016-esp`, `win10x64-enterprise-ltsb-2015-esp`, `win10x86-enterprise-ltsb-2015-esp` | instantáneas de `archive.org` (ISOs oficiales completas de Windows 10 Enterprise LTSB 2015/2016 en español; Microsoft solo distribuyó una versión en español para estas, de ahí que solo sea es-ES) | ninguna |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
 | `win81x64-enterprise-eval`, `win2008r2` | URL directa de `download.microsoft.com` | ninguna |
 | `win2022-enterprise-64`, `win2022-datacenter-64` | instantáneas de `archive.org` (64-bit solo) | ninguna |
@@ -139,6 +142,24 @@ Las distintas familias de medios se obtienen de formas diferentes:
 > oficiales exactos de Microsoft (subrutas bajo `Windows/Windows 10/…`). Microsoft
 > solo publicó una ISO **x86 (32 bits)** para la versión **LTSC 2019**, por lo que
 > las entradas 22H2 y LTSC 2021 no tienen contraparte de 32 bits.
+>
+> Las ISOs **Enterprise** completas (no de evaluación) LTSC/LTSB
+> (`win11x64-enterprise-ltsc-2024`, `win10x64-enterprise-ltsc-2021`,
+> `win10x86-enterprise-ltsc-2021`, `win10x64-enterprise-ltsb-2016`,
+> `win10x86-enterprise-ltsb-2016`, `win10x64-enterprise-ltsb-2015`,
+> `win10x86-enterprise-ltsb-2015`) provienen del mismo item
+> `massgrave.dev-windows-x64-and-x86-archive` que las ISOs IoT
+> (`Windows/Windows 11/Windows 11 Enterprise LTSC 2024/…` y `Windows/Windows
+> 10/…`). Las ISOs Enterprise en español provienen de items de `archive.org`
+> separados que reflejan los nombres de archivo oficiales en español (es-ES y
+> es-MX para Windows 11 Enterprise LTSC 2024 y Windows 10 Enterprise LTSC 2021;
+> una única versión es-ES para Windows 10 Enterprise LTSB 2015/2016, por lo que
+> estas no tienen contraparte `-es-mx`). Ten en cuenta que **"Windows 10 LTSC
+> 2016" y "Windows 10 LTSB 2016" son el mismo producto** — Microsoft renombró
+> LTSB a LTSC con la versión de 2019 — por lo que hay un único argumento
+> `win10x64-enterprise-ltsb-2016`, no uno separado para LTSC 2016. Windows 11
+> (incluida Enterprise LTSC 2024) solo se distribuye como x64/arm64, así que no
+> existe una Enterprise LTSC 2024 de 32 bits.
 
 ## La API JSON de consumidor
 

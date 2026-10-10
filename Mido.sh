@@ -154,6 +154,23 @@ usage() {
     echo "  win10x64-iot-enterprise-ltsc-2021 (archive.org)"
     echo "  win10x64-iot-enterprise-ltsc-2019 (archive.org)"
     echo "  win10x86-iot-enterprise-ltsc-2019 (32-bit, archive.org)"
+    echo "  win11x64-enterprise-ltsc-2024 (archive.org)"
+    echo "  win11x64-enterprise-ltsc-2024-esp (Spanish, archive.org)"
+    echo "  win11x64-enterprise-ltsc-2024-es-mx (Mexican Spanish, archive.org)"
+    echo "  win10x64-enterprise-ltsc-2021 (archive.org)"
+    echo "  win10x64-enterprise-ltsc-2021-esp (Spanish, archive.org)"
+    echo "  win10x64-enterprise-ltsc-2021-es-mx (Mexican Spanish, archive.org)"
+    echo "  win10x86-enterprise-ltsc-2021 (32-bit, archive.org)"
+    echo "  win10x86-enterprise-ltsc-2021-esp (32-bit Spanish, archive.org)"
+    echo "  win10x86-enterprise-ltsc-2021-es-mx (32-bit Mexican Spanish, archive.org)"
+    echo "  win10x64-enterprise-ltsb-2016 (archive.org)"
+    echo "  win10x64-enterprise-ltsb-2016-esp (Spanish, archive.org)"
+    echo "  win10x86-enterprise-ltsb-2016 (32-bit, archive.org)"
+    echo "  win10x86-enterprise-ltsb-2016-esp (32-bit Spanish, archive.org)"
+    echo "  win10x64-enterprise-ltsb-2015 (archive.org)"
+    echo "  win10x64-enterprise-ltsb-2015-esp (Spanish, archive.org)"
+    echo "  win10x86-enterprise-ltsb-2015 (32-bit, archive.org)"
+    echo "  win10x86-enterprise-ltsb-2015-esp (32-bit Spanish, archive.org)"
     echo "  win2008r2"
     echo "  win2008r2-espa (Spanish, archive.org)"
     echo "  win2008-server-x64 (SP2, archive.org)"
@@ -286,6 +303,23 @@ readonly win10x64_iot_enterprise_22h2="win10x64-iot-enterprise-22h2.iso"
 readonly win10x64_iot_enterprise_ltsc_2021="win10x64-iot-enterprise-ltsc-2021.iso"
 readonly win10x64_iot_enterprise_ltsc_2019="win10x64-iot-enterprise-ltsc-2019.iso"
 readonly win10x86_iot_enterprise_ltsc_2019="win10x86-iot-enterprise-ltsc-2019.iso"
+readonly win11x64_enterprise_ltsc_2024="win11x64-enterprise-ltsc-2024.iso"
+readonly win11x64_enterprise_ltsc_2024_esp="win11x64-enterprise-ltsc-2024-espanol.iso"
+readonly win11x64_enterprise_ltsc_2024_es_mx="win11x64-enterprise-ltsc-2024-es-mexico.iso"
+readonly win10x64_enterprise_ltsc_2021="win10x64-enterprise-ltsc-2021.iso"
+readonly win10x64_enterprise_ltsc_2021_esp="win10x64-enterprise-ltsc-2021-espanol.iso"
+readonly win10x64_enterprise_ltsc_2021_es_mx="win10x64-enterprise-ltsc-2021-es-mexico.iso"
+readonly win10x86_enterprise_ltsc_2021="win10x86-enterprise-ltsc-2021.iso"
+readonly win10x86_enterprise_ltsc_2021_esp="win10x86-enterprise-ltsc-2021-espanol.iso"
+readonly win10x86_enterprise_ltsc_2021_es_mx="win10x86-enterprise-ltsc-2021-es-mexico.iso"
+readonly win10x64_enterprise_ltsb_2016="win10x64-enterprise-ltsb-2016.iso"
+readonly win10x64_enterprise_ltsb_2016_esp="win10x64-enterprise-ltsb-2016-espanol.iso"
+readonly win10x86_enterprise_ltsb_2016="win10x86-enterprise-ltsb-2016.iso"
+readonly win10x86_enterprise_ltsb_2016_esp="win10x86-enterprise-ltsb-2016-espanol.iso"
+readonly win10x64_enterprise_ltsb_2015="win10x64-enterprise-ltsb-2015.iso"
+readonly win10x64_enterprise_ltsb_2015_esp="win10x64-enterprise-ltsb-2015-espanol.iso"
+readonly win10x86_enterprise_ltsb_2015="win10x86-enterprise-ltsb-2015.iso"
+readonly win10x86_enterprise_ltsb_2015_esp="win10x86-enterprise-ltsb-2015-espanol.iso"
 readonly win2008r2="win2008r2.iso"
 readonly win2008r2_espa="win2008r2-espa.iso"
 readonly win2008_server_x64="win2008-server-x64.iso"
@@ -486,6 +520,57 @@ parse_args() {
                 ;;
             win10x86-iot-enterprise-ltsc-2019)
                 media_list="$media_list $win10x86_iot_enterprise_ltsc_2019"
+                ;;
+            win11x64-enterprise-ltsc-2024)
+                media_list="$media_list $win11x64_enterprise_ltsc_2024"
+                ;;
+            win11x64-enterprise-ltsc-2024-esp)
+                media_list="$media_list $win11x64_enterprise_ltsc_2024_esp"
+                ;;
+            win11x64-enterprise-ltsc-2024-es-mx)
+                media_list="$media_list $win11x64_enterprise_ltsc_2024_es_mx"
+                ;;
+            win10x64-enterprise-ltsc-2021)
+                media_list="$media_list $win10x64_enterprise_ltsc_2021"
+                ;;
+            win10x64-enterprise-ltsc-2021-esp)
+                media_list="$media_list $win10x64_enterprise_ltsc_2021_esp"
+                ;;
+            win10x64-enterprise-ltsc-2021-es-mx)
+                media_list="$media_list $win10x64_enterprise_ltsc_2021_es_mx"
+                ;;
+            win10x86-enterprise-ltsc-2021)
+                media_list="$media_list $win10x86_enterprise_ltsc_2021"
+                ;;
+            win10x86-enterprise-ltsc-2021-esp)
+                media_list="$media_list $win10x86_enterprise_ltsc_2021_esp"
+                ;;
+            win10x86-enterprise-ltsc-2021-es-mx)
+                media_list="$media_list $win10x86_enterprise_ltsc_2021_es_mx"
+                ;;
+            win10x64-enterprise-ltsb-2016)
+                media_list="$media_list $win10x64_enterprise_ltsb_2016"
+                ;;
+            win10x64-enterprise-ltsb-2016-esp)
+                media_list="$media_list $win10x64_enterprise_ltsb_2016_esp"
+                ;;
+            win10x86-enterprise-ltsb-2016)
+                media_list="$media_list $win10x86_enterprise_ltsb_2016"
+                ;;
+            win10x86-enterprise-ltsb-2016-esp)
+                media_list="$media_list $win10x86_enterprise_ltsb_2016_esp"
+                ;;
+            win10x64-enterprise-ltsb-2015)
+                media_list="$media_list $win10x64_enterprise_ltsb_2015"
+                ;;
+            win10x64-enterprise-ltsb-2015-esp)
+                media_list="$media_list $win10x64_enterprise_ltsb_2015_esp"
+                ;;
+            win10x86-enterprise-ltsb-2015)
+                media_list="$media_list $win10x86_enterprise_ltsb_2015"
+                ;;
+            win10x86-enterprise-ltsb-2015-esp)
+                media_list="$media_list $win10x86_enterprise_ltsb_2015_esp"
                 ;;
             win2008r2)
                 media_list="$media_list $win2008r2"
@@ -746,7 +831,7 @@ parse_args() {
                 media_list="$media_list $winframe"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1363,6 +1448,93 @@ download_media() {
                 echo_info "Downloading Windows 10 IoT Enterprise LTSC 2019 32-bit..."
                 # Full (non-evaluation) Windows 10 IoT Enterprise LTSC 2019, English x86 (32-bit), official ISO
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/massgrave.dev-windows-x64-and-x86-archive/Windows/Windows%2010/Windows%2010%20IoT%20Enterprise%20LTSC%202019/en_windows_10_iot_enterprise_ltsc_2019_x86_dvd_2255a237.iso"
+                ;;
+            "$win11x64_enterprise_ltsc_2024")
+                echo_info "Downloading Windows 11 Enterprise LTSC 2024..."
+                # Full (non-evaluation) Windows 11 Enterprise LTSC 2024, English x64, official ISO
+                # (Windows 11 has no 32-bit build)
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/massgrave.dev-windows-x64-and-x86-archive/Windows/Windows%2011/Windows%2011%20Enterprise%20LTSC%202024/en-us_windows_11_enterprise_ltsc_2024_x64_dvd_965cfb00.iso"
+                ;;
+            "$win11x64_enterprise_ltsc_2024_esp")
+                echo_info "Downloading Windows 11 Enterprise LTSC 2024 (Spanish)..."
+                # Full (non-evaluation) Windows 11 Enterprise LTSC 2024, Spanish (Spain) x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es-es_windows_11_enterprise_ltsc_2024_x64_dvd_77392d61/es-es_windows_11_enterprise_ltsc_2024_x64_dvd_77392d61.iso"
+                ;;
+            "$win11x64_enterprise_ltsc_2024_es_mx")
+                echo_info "Downloading Windows 11 Enterprise LTSC 2024 (Mexican Spanish)..."
+                # Full (non-evaluation) Windows 11 Enterprise LTSC 2024, Spanish (Mexico) x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es-mx_windows_11_enterprise_ltsc_2024_x64_dvd_3310c094/es-mx_windows_11_enterprise_ltsc_2024_x64_dvd_3310c094.iso"
+                ;;
+            "$win10x64_enterprise_ltsc_2021")
+                echo_info "Downloading Windows 10 Enterprise LTSC 2021..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSC 2021 (21H2), English x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/massgrave.dev-windows-x64-and-x86-archive/Windows/Windows%2010/Windows%2010%20Enterprise%20LTSC%202021/en-us_windows_10_enterprise_ltsc_2021_x64_dvd_d289cf96.iso"
+                ;;
+            "$win10x64_enterprise_ltsc_2021_esp")
+                echo_info "Downloading Windows 10 Enterprise LTSC 2021 (Spanish)..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSC 2021 (21H2), Spanish (Spain) x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es-es_windows_10_enterprise_ltsc_2021_x64_dvd_51d721ea/es-es_windows_10_enterprise_ltsc_2021_x64_dvd_51d721ea.iso"
+                ;;
+            "$win10x64_enterprise_ltsc_2021_es_mx")
+                echo_info "Downloading Windows 10 Enterprise LTSC 2021 (Mexican Spanish)..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSC 2021 (21H2), Spanish (Mexico) x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es-mx_windows_10_enterprise_ltsc_2021_x64_dvd_f6aaf384/es-mx_windows_10_enterprise_ltsc_2021_x64_dvd_f6aaf384.iso"
+                ;;
+            "$win10x86_enterprise_ltsc_2021")
+                echo_info "Downloading Windows 10 Enterprise LTSC 2021 32-bit..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSC 2021 (21H2), English x86 (32-bit), official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/massgrave.dev-windows-x64-and-x86-archive/Windows/Windows%2010/Windows%2010%20Enterprise%20LTSC%202021/en-us_windows_10_enterprise_ltsc_2021_x86_dvd_9f4aa95f.iso"
+                ;;
+            "$win10x86_enterprise_ltsc_2021_esp")
+                echo_info "Downloading Windows 10 Enterprise LTSC 2021 32-bit (Spanish)..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSC 2021 (21H2), Spanish (Spain) x86 (32-bit), official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es-es_windows_10_enterprise_ltsc_2021_x86_dvd_243c83eb/es-es_windows_10_enterprise_ltsc_2021_x86_dvd_243c83eb.iso"
+                ;;
+            "$win10x86_enterprise_ltsc_2021_es_mx")
+                echo_info "Downloading Windows 10 Enterprise LTSC 2021 32-bit (Mexican Spanish)..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSC 2021 (21H2), Spanish (Mexico) x86 (32-bit), official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es-mx_windows_10_enterprise_ltsc_2021_x86_dvd_93a5debe/es-mx_windows_10_enterprise_ltsc_2021_x86_dvd_93a5debe.iso"
+                ;;
+            "$win10x64_enterprise_ltsb_2016")
+                echo_info "Downloading Windows 10 Enterprise LTSB 2016..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSB 2016 (1607), English x64, official ISO.
+                # Note: this is the same product Microsoft later called "LTSC"; "LTSC 2016" and "LTSB 2016" are identical
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/massgrave.dev-windows-x64-and-x86-archive/Windows/Windows%2010/Windows%2010%20Enterprise%20LTSB%202016/en_windows_10_enterprise_2016_ltsb_x64_dvd_9059483.iso"
+                ;;
+            "$win10x64_enterprise_ltsb_2016_esp")
+                echo_info "Downloading Windows 10 Enterprise LTSB 2016 (Spanish)..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSB 2016 (1607), Spanish x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es-es_windows_10_enterprise_2016_ltsb/es_windows_10_enterprise_2016_ltsb_x64_dvd_9059485.iso"
+                ;;
+            "$win10x86_enterprise_ltsb_2016")
+                echo_info "Downloading Windows 10 Enterprise LTSB 2016 32-bit..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSB 2016 (1607), English x86 (32-bit), official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/massgrave.dev-windows-x64-and-x86-archive/Windows/Windows%2010/Windows%2010%20Enterprise%20LTSB%202016/en_windows_10_enterprise_2016_ltsb_x86_dvd_9060010.iso"
+                ;;
+            "$win10x86_enterprise_ltsb_2016_esp")
+                echo_info "Downloading Windows 10 Enterprise LTSB 2016 32-bit (Spanish)..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSB 2016 (1607), Spanish x86 (32-bit), official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es-es_windows_10_enterprise_2016_ltsb/es_windows_10_enterprise_2016_ltsb_x86_dvd_9060020.iso"
+                ;;
+            "$win10x64_enterprise_ltsb_2015")
+                echo_info "Downloading Windows 10 Enterprise LTSB 2015..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSB 2015 (1507), English x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/massgrave.dev-windows-x64-and-x86-archive/Windows/Windows%2010/Windows%2010%20Enterprise%20LTSB%202015/en_windows_10_enterprise_2015_ltsb_x64_dvd_6848446.iso"
+                ;;
+            "$win10x64_enterprise_ltsb_2015_esp")
+                echo_info "Downloading Windows 10 Enterprise LTSB 2015 (Spanish)..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSB 2015 (1507), Spanish x64, official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-10-1507-enterprise-ltsb-32-64-bits/es_windows_10_enterprise_2015_ltsb_x64_dvd_6850876.iso"
+                ;;
+            "$win10x86_enterprise_ltsb_2015")
+                echo_info "Downloading Windows 10 Enterprise LTSB 2015 32-bit..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSB 2015 (1507), English x86 (32-bit), official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/massgrave.dev-windows-x64-and-x86-archive/Windows/Windows%2010/Windows%2010%20Enterprise%20LTSB%202015/en_windows_10_enterprise_2015_ltsb_x86_dvd_6848454.iso"
+                ;;
+            "$win10x86_enterprise_ltsb_2015_esp")
+                echo_info "Downloading Windows 10 Enterprise LTSB 2015 32-bit (Spanish)..."
+                # Full (non-evaluation) Windows 10 Enterprise LTSB 2015 (1507), Spanish x86 (32-bit), official ISO
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-10-1507-enterprise-ltsb-32-64-bits/es_windows_10_enterprise_2015_ltsb_x86_dvd_6850896.iso"
                 ;;
 
             "$win2008r2")
