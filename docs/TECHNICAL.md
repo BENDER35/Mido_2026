@@ -90,9 +90,9 @@ Different media families are fetched in different ways:
 | `win2000-datacenter`, `win2000-datacenter-sp4` | `archive.org` snapshots (Windows 2000 Datacenter Server, RTM OEM with SP1 and SP4) | none |
 | `win2000-pro`, `win2000-pro-espa` | `archive.org` snapshots (Windows 2000 Professional) | none |
 | `win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`, `win2000-pro-retail-espa` | `archive.org` snapshots (Windows 2000 Professional, OEM/Retail channels, English and Spanish) | none |
-| `win-xp-pro`, `win-xp-pro-espa` | `archive.org` snapshots (Windows XP Professional) | none |
-| `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-pro-oem`, `win-xp-pro-retail` | `archive.org` snapshots (Windows XP Home/Professional, OEM/Retail channels, English and Spanish) | none |
-| `win-xp-pro-64`, `win-xp-pro-64-espa` | `archive.org` snapshots (Windows XP Professional x64) | none |
+| `win-xp-pro`, `win-xp-pro-espa`, `win-xp-pro-32-espa` | `archive.org` snapshots (Windows XP Professional, English and Spanish) | none |
+| `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-home-oem-espa`, `win-xp-home-retail-espa`, `win-xp-pro-oem`, `win-xp-pro-retail`, `win-xp-pro-oem-espa`, `win-xp-pro-retail-espa` | `archive.org` snapshots (Windows XP Home/Professional, OEM/Retail channels, English and Spanish) | none |
+| `win-xp-pro-64` | `archive.org` snapshot (Windows XP Professional x64 Edition SP2, English; Microsoft shipped x64 as English/Japanese with MUI language packs) | none |
 | `win7x64-pro`, `win7x64-pro-esp`, `win7x64-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
 | `win7x86-pro`, `win7x86-pro-esp`, `win7x86-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
 | `win7x64-homepremium`, `win7x64-homepremium-esp`, `win7x64-homepremium-es-mx` | `archive.org` snapshots (Windows 7 Home Premium) | none |
@@ -256,9 +256,19 @@ Windows 2000 Professional and Windows XP additionally cover the original **OEM**
 and **Retail** (FPP) license channels in English and Spanish
 (`win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`,
 `win2000-pro-retail-espa`, `win-xp-home-oem`, `win-xp-home-retail`,
-`win-xp-pro-oem`, `win-xp-pro-retail`); Windows XP Home Edition is available in
-English and Spanish (`win-xp-home`, `win-xp-home-espa`).
+`win-xp-home-oem-espa`, `win-xp-home-retail-espa`, `win-xp-pro-oem`,
+`win-xp-pro-retail`, `win-xp-pro-oem-espa`, `win-xp-pro-retail-espa`); Windows
+XP Home Edition and Windows XP Professional are available in English and Spanish
+(`win-xp-home`, `win-xp-home-espa`, `win-xp-pro`, `win-xp-pro-espa`,
+`win-xp-pro-32-espa`).
 These have no published checksums.
+
+> **Mexican Spanish (`es-MX`) for legacy Windows:** The Windows 2000 and Windows
+> XP era shipped a **single Spanish build** for all Spanish-speaking regions;
+> Microsoft did not publish a separate `es-MX` ISO for these versions. The `es-MX`
+> locale is therefore only implemented for Windows 7, Windows 8.1, Windows 10 and
+> Windows 11, for which Microsoft localized Spain (`es-ES`) and Mexico (`es-MX`)
+> separately.
 
 Windows 8.1 Pro ISOs are also available via the Consumer JSON API first, with
 `archive.org` fallback for Spanish variants (`win81x64-pro-esp`, `win81x64-pro-es-mx`).

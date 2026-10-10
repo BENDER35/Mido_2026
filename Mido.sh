@@ -167,12 +167,21 @@ usage() {
     echo "  win2000-pro-espa (SP4 Spanish, archive.org)"
     echo "  win2000-pro-oem-espa (SP1 OEM Spanish, archive.org)"
     echo "  win2000-pro-retail-espa (RTM retail Spanish, archive.org)"
+    echo "  win-xp-pro (Professional SP3, archive.org)"
+    echo "  win-xp-pro-espa (Professional SP3 Spanish, archive.org)"
+    echo "  win-xp-pro-32 (Professional x86, archive.org)"
+    echo "  win-xp-pro-32-espa (Professional x86 SP3 Spanish, archive.org)"
+    echo "  win-xp-pro-64 (Professional x64 SP2, archive.org)"
     echo "  win-xp-home (Home Edition SP3, archive.org)"
     echo "  win-xp-home-espa (Home Edition SP3 Spanish, archive.org)"
     echo "  win-xp-home-oem (Home Edition RTM OEM, archive.org)"
     echo "  win-xp-home-retail (Home Edition SP3 retail, archive.org)"
+    echo "  win-xp-home-oem-espa (Home Edition SP2 OEM Spanish, archive.org)"
+    echo "  win-xp-home-retail-espa (Home Edition SP3 retail Spanish, archive.org)"
     echo "  win-xp-pro-oem (Professional SP2 OEM, archive.org)"
     echo "  win-xp-pro-retail (Professional SP3 retail, archive.org)"
+    echo "  win-xp-pro-oem-espa (Professional SP2 OEM Spanish, archive.org)"
+    echo "  win-xp-pro-retail-espa (Professional SP1 retail Spanish, archive.org)"
     echo "  win2012r2-eval"
     echo "  win2016-eval"
     echo "  win2019-eval"
@@ -282,12 +291,17 @@ readonly win_xp_pro="winxp-pro.iso"
 readonly win_xp_pro_espa="winxp-pro-espa.iso"
 readonly win_xp_pro_32="winxp-pro-x86.iso"
 readonly win_xp_pro_32_espa="winxp-pro-x86-espa.iso"
+readonly win_xp_pro_64="winxp-pro-x64.iso"
 readonly win_xp_home="winxp-home.iso"
 readonly win_xp_home_espa="winxp-home-espa.iso"
 readonly win_xp_home_oem="winxp-home-oem.iso"
 readonly win_xp_home_retail="winxp-home-retail.iso"
+readonly win_xp_home_oem_espa="winxp-home-oem-espa.iso"
+readonly win_xp_home_retail_espa="winxp-home-retail-espa.iso"
 readonly win_xp_pro_oem="winxp-pro-oem.iso"
 readonly win_xp_pro_retail="winxp-pro-retail.iso"
+readonly win_xp_pro_oem_espa="winxp-pro-oem-espa.iso"
+readonly win_xp_pro_retail_espa="winxp-pro-retail-espa.iso"
 readonly win7x64_pro="win7x64-pro.iso"
 readonly win7x64_pro_esp="win7x64-pro-espanol.iso"
 readonly win7x64_pro_es_mx="win7x64-pro-es-mexico.iso"
@@ -502,6 +516,9 @@ parse_args() {
             win-xp-pro-32-espa)
                 media_list="$media_list $win_xp_pro_32_espa"
                 ;;
+            win-xp-pro-64)
+                media_list="$media_list $win_xp_pro_64"
+                ;;
             win-xp-home)
                 media_list="$media_list $win_xp_home"
                 ;;
@@ -514,11 +531,23 @@ parse_args() {
             win-xp-home-retail)
                 media_list="$media_list $win_xp_home_retail"
                 ;;
+            win-xp-home-oem-espa)
+                media_list="$media_list $win_xp_home_oem_espa"
+                ;;
+            win-xp-home-retail-espa)
+                media_list="$media_list $win_xp_home_retail_espa"
+                ;;
             win-xp-pro-oem)
                 media_list="$media_list $win_xp_pro_oem"
                 ;;
             win-xp-pro-retail)
                 media_list="$media_list $win_xp_pro_retail"
+                ;;
+            win-xp-pro-oem-espa)
+                media_list="$media_list $win_xp_pro_oem_espa"
+                ;;
+            win-xp-pro-retail-espa)
+                media_list="$media_list $win_xp_pro_retail_espa"
                 ;;
             win7x64-pro)
                 media_list="$media_list $win7x64_pro"
@@ -656,7 +685,7 @@ parse_args() {
                 media_list="$media_list $winnt40"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt35 $winnt40 $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_pro_oem $win_xp_pro_retail $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt35 $winnt40 $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1337,8 +1366,8 @@ download_media() {
             "$win2000_pro_espa")
                 echo_info "Downloading Windows 2000 Professional SP4 Spanish (Español)..."
                 # Windows 2000 Professional SP4 in Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso"
+                # Source: https://archive.org/details/Win2000ProSP4ESPSEL
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win2000ProSP4ESPSEL/es_win2000_pro_sp4_sel.iso"
                 ;;
             "$win2000_pro_oem")
                 echo_info "Downloading Windows 2000 Professional SP3 OEM..."
@@ -1372,9 +1401,10 @@ download_media() {
                 ;;
             "$win_xp_pro_espa")
                 echo_info "Downloading Windows XP Professional SP3 Spanish (Español)..."
-                # Windows XP Professional SP3 in Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso"
+                # Windows XP Professional with Service Pack 3 (Spanish, volume license),
+                # archived on archive.org
+                # Source: https://archive.org/details/es_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-74009_202104
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-74009_202104/es_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-74009.iso"
                 ;;
             "$win_xp_pro_32")
                 echo_info "Downloading Windows XP Professional x86..."
@@ -1383,10 +1413,17 @@ download_media() {
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinXPProSP3x86/WinXPProSP3x86.ISO"
                 ;;
             "$win_xp_pro_32_espa")
-                echo_info "Downloading Windows XP Professional x86 Spanish (Español)..."
-                # Windows XP Professional x86 in Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinXPProSP3x86/WinXPProSP3x86.ISO"
+                echo_info "Downloading Windows XP Professional x86 SP3 Spanish (Español)..."
+                # Windows XP Professional with Service Pack 3 (Spanish, volume license),
+                # archived on archive.org
+                # Source: https://archive.org/details/es_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-74009_202104
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-74009_202104/es_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-74009.iso"
+                ;;
+            "$win_xp_pro_64")
+                echo_info "Downloading Windows XP Professional x64 SP2..."
+                # Windows XP Professional x64 Edition with SP2 (English), archived on archive.org
+                # Source: https://archive.org/details/en_win_xp_pro_x64_with_sp2_vl
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win_xp_pro_x64_with_sp2_vl/en_win_xp_pro_x64_with_sp2_vl_x13-41611.iso"
                 ;;
             "$win_xp_home")
                 echo_info "Downloading Windows XP Home Edition SP3..."
@@ -1412,6 +1449,18 @@ download_media() {
                 # Source: https://archive.org/details/5.1.2600.5512.xpsp.-080413-2111-x-86fre-client-professional-retail-en-us-grtmpfpp-en
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/5.1.2600.5512.xpsp.-080413-2111-x-86fre-client-professional-retail-en-us-grtmpfpp-en/5.1.2600.5512.xpsp.080413-2111_x86fre_client-home_retail_en-us-GRTMHFPP_EN.iso"
                 ;;
+            "$win_xp_home_oem_espa")
+                echo_info "Downloading Windows XP Home Edition SP2 OEM Spanish (Español)..."
+                # Windows XP Home Edition with SP2 (OEM channel) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/vx2hoemes
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/vx2hoemes/VX2HOEM_ES.iso"
+                ;;
+            "$win_xp_home_retail_espa")
+                echo_info "Downloading Windows XP Home Edition SP3 Retail Spanish (Español)..."
+                # Windows XP Home Edition with SP3 (retail CD) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/xphomesp3
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xphomesp3/es_windows_xp_home_with_service_pack_3_x86_cd_x14-92427.iso"
+                ;;
             "$win_xp_pro_oem")
                 echo_info "Downloading Windows XP Professional SP2 OEM..."
                 # Windows XP Professional with SP2 (OEM channel, English), archived on archive.org
@@ -1423,6 +1472,18 @@ download_media() {
                 # Windows XP Professional with SP3 (retail channel, English), archived on archive.org
                 # Source: https://archive.org/details/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428_202010
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428_202010/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428.iso"
+                ;;
+            "$win_xp_pro_oem_espa")
+                echo_info "Downloading Windows XP Professional SP2 OEM Spanish (Español)..."
+                # Windows XP Professional with SP2 (OEM channel) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/WinXPProSP2ESPOEM
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinXPProSP2ESPOEM/VRMPOEM_ES.iso"
+                ;;
+            "$win_xp_pro_retail_espa")
+                echo_info "Downloading Windows XP Professional SP1 Retail Spanish (Español)..."
+                # Windows XP Professional with SP1 (retail channel) in Spanish, archived on archive.org
+                # Source: https://archive.org/details/WinXPProSP1ESP
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinXPProSP1ESP/WinXP_Pro_SP1_Ret.iso"
                 ;;
             "$win7x64_pro")
                 echo_info "Downloading Windows 7 Professional..."

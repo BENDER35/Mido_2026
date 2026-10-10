@@ -146,13 +146,18 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win-xp-pro` | Windows XP Professional SP3 (English, sourced from archive.org) |
 | `win-xp-pro-espa` | Windows XP Professional SP3 Spanish (sourced from archive.org) |
 | `win-xp-pro-32` | Windows XP Professional x86 (32-bit, sourced from archive.org) |
-| `win-xp-pro-64` | Windows XP Professional x64 (64-bit, sourced from archive.org) |
+| `win-xp-pro-32-espa` | Windows XP Professional x86 SP3 Spanish (32-bit, sourced from archive.org) |
+| `win-xp-pro-64` | Windows XP Professional x64 SP2 (64-bit, English, sourced from archive.org) |
 | `win-xp-home` | Windows XP Home Edition SP3 (English, sourced from archive.org) |
 | `win-xp-home-espa` | Windows XP Home Edition SP3 Spanish (sourced from archive.org) |
 | `win-xp-home-oem` | Windows XP Home Edition RTM OEM (English, sourced from archive.org) |
 | `win-xp-home-retail` | Windows XP Home Edition SP3 Retail (English, sourced from archive.org) |
+| `win-xp-home-oem-espa` | Windows XP Home Edition SP2 OEM Spanish (sourced from archive.org) |
+| `win-xp-home-retail-espa` | Windows XP Home Edition SP3 Retail Spanish (sourced from archive.org) |
 | `win-xp-pro-oem` | Windows XP Professional SP2 OEM (English, sourced from archive.org) |
 | `win-xp-pro-retail` | Windows XP Professional SP3 Retail (English, sourced from archive.org) |
+| `win-xp-pro-oem-espa` | Windows XP Professional SP2 OEM Spanish (sourced from archive.org) |
+| `win-xp-pro-retail-espa` | Windows XP Professional SP1 Retail Spanish (sourced from archive.org) |
 | `win7x64-pro` | Windows 7 Professional x64 (sourced from archive.org) |
 | `win7x64-pro-esp` | Windows 7 Professional x64 Spanish — Microsoft official first, archive.org fallback |
 | `win7x64-pro-es-mx` | Windows 7 Professional x64 Mexican Spanish — Microsoft official first, archive.org fallback |
@@ -270,8 +275,18 @@ Windows 2000 Professional and Windows XP are additionally available in the
 original **OEM** and **Retail** (FPP) license channels, in English and Spanish:
 `win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`,
 `win2000-pro-retail-espa`, `win-xp-home-oem`, `win-xp-home-retail`,
-`win-xp-pro-oem` and `win-xp-pro-retail`. Windows XP Home Edition is available
-in English and Spanish (`win-xp-home`, `win-xp-home-espa`).
+`win-xp-home-oem-espa`, `win-xp-home-retail-espa`, `win-xp-pro-oem`,
+`win-xp-pro-retail`, `win-xp-pro-oem-espa` and `win-xp-pro-retail-espa`.
+Windows XP Home Edition and Windows XP Professional are available in English and
+Spanish (`win-xp-home`, `win-xp-home-espa`, `win-xp-pro`, `win-xp-pro-espa`,
+`win-xp-pro-32-espa`).
+
+> **Note on Mexican Spanish for legacy Windows:** Windows 2000 and Windows XP
+> were published by Microsoft as a **single Spanish build** that serves all
+> Spanish-speaking regions (there is no separate es-MX ISO for these versions).
+> Mexican Spanish (`es-MX`) is only offered for the versions for which Microsoft
+> actually localized it separately: Windows 7, Windows 8.1, Windows 10 and
+> Windows 11 (`-es-mx` arguments and `MIDO_LANG=es-MX`).
 
 The retro releases (`win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`)
 are sourced from `archive.org` and have no published checksums. Windows 95,

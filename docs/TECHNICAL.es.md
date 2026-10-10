@@ -89,8 +89,8 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win2000-datacenter`, `win2000-datacenter-sp4` | instantáneas de `archive.org` (Windows 2000 Datacenter Server, RTM OEM con SP1 y SP4) | ninguna |
 | `win2000-pro`, `win2000-pro-espa` | instantáneas de `archive.org` (Windows 2000 Professional) | ninguna |
 | `win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`, `win2000-pro-retail-espa` | instantáneas de `archive.org` (Windows 2000 Professional, canales OEM/Retail, inglés y español) | ninguna |
-| `win-xp-pro`, `win-xp-pro-espa` | instantáneas de `archive.org` (Windows XP Professional) | ninguna |
-| `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-pro-oem`, `win-xp-pro-retail` | instantáneas de `archive.org` (Windows XP Home/Professional, canales OEM/Retail, inglés y español) | ninguna |
+| `win-xp-pro`, `win-xp-pro-espa`, `win-xp-pro-32-espa` | instantáneas de `archive.org` (Windows XP Professional, inglés y español) | ninguna |
+| `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-home-oem-espa`, `win-xp-home-retail-espa`, `win-xp-pro-oem`, `win-xp-pro-retail`, `win-xp-pro-oem-espa`, `win-xp-pro-retail-espa` | instantáneas de `archive.org` (Windows XP Home/Professional, canales OEM/Retail, inglés y español) | ninguna |
 | `win10x64-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | instantáneas de `archive.org` | ninguna |
 | `win11x64-iot-enterprise-ltsc-eval` | URL directa de `software-static.download.prss.microsoft.com` | ninguna |
 | `win2012r2-eval` … `win2025-eval`, `win2012r2-essentials-eval`, `win2016-essentials-eval`, `win2019-essentials-eval`, `hyperv2012-eval`, `hyperv2012r2-eval`, `hyperv2016-eval`, `hyperv2019-eval` | HTML del Evaluation Center → redirección `go.microsoft.com/fwlink` | ninguna |
@@ -105,7 +105,7 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win7x64-enterprise`, `win7x64-enterprise-esp`, `win7x64-enterprise-es-mx` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
 | `win7x86-enterprise`, `win7x86-enterprise-esp`, `win7x86-enterprise-es-mx` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
 | `win7x64-sp1`, `win7x86-sp1` | instantáneas de `archive.org` (Windows 7 SP1) | ninguna |
-| `win-xp-pro-64`, `win-xp-pro-64-espa` | instantáneas de `archive.org` (Windows XP Professional x64) | ninguna |
+| `win-xp-pro-64` | instantánea de `archive.org` (Windows XP Professional x64 Edition SP2, inglés; Microsoft distribuyó x64 en inglés/japonés con paquetes MUI) | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
 | `win311`, `win95`, `win98`, `winme`, `winnt35`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa` | instantáneas de `archive.org` (ISOs retro retail/OEM; 95/98/ME también en español) | ninguna |
 
@@ -245,9 +245,20 @@ de Microsoft. Windows 2000 Professional y Windows XP cubren además los canales
 de licencia originales **OEM** y **Retail** (FPP) en inglés y español
 (`win2000-pro-oem`, `win2000-pro-retail`, `win2000-pro-oem-espa`,
 `win2000-pro-retail-espa`, `win-xp-home-oem`, `win-xp-home-retail`,
-`win-xp-pro-oem`, `win-xp-pro-retail`); Windows XP Home Edition está disponible
-en inglés y español (`win-xp-home`, `win-xp-home-espa`).
+`win-xp-home-oem-espa`, `win-xp-home-retail-espa`, `win-xp-pro-oem`,
+`win-xp-pro-retail`, `win-xp-pro-oem-espa`, `win-xp-pro-retail-espa`); Windows
+XP Home Edition y Windows XP Professional están disponibles en inglés y español
+(`win-xp-home`, `win-xp-home-espa`, `win-xp-pro`, `win-xp-pro-espa`,
+`win-xp-pro-32-espa`).
 Estas no tienen checksums publicados.
+
+> **Español de México (`es-MX`) en Windows antiguos:** La época de Windows 2000 y
+> Windows XP se distribuyó como una **única versión en español** para todas las
+> regiones hispanohablantes; Microsoft no publicó una ISO `es-MX` aparte para
+> estas versiones. Por tanto, el locale `es-MX` solo se implementa para Windows 7,
+> Windows 8.1, Windows 10 y Windows 11, para los que Microsoft localizó por
+> separado España (`es-ES`) y México (`es-MX`).
+
 > Solo las ediciones de **consumidor** exponen SKUs localizados a través de esta
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como
 > los publica Microsoft, por lo que `enterprise_eval_download` se mantiene a
