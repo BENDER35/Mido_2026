@@ -257,6 +257,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win11x64-esp` | Windows 11 x64 Spanish (Spain) — Microsoft official first, archive.org fallback |
 | `win11x64-es-mx` | Windows 11 x64 Spanish (Mexico) — Microsoft official first, archive.org fallback |
 | `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
+| `win81x64` | Windows 8.1 x64 (**retired by Microsoft**, use the Enterprise Eval) |
+| `win81x86` | Windows 8.1 x86 (32-bit, archive.org) |
+| `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32-bit Spanish (sourced from archive.org) |
+| `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64-bit Spanish (sourced from archive.org) |
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
 | `win10x86-enterprise-eval` | Windows 10 Enterprise 32-bit Evaluation (LTSC 21H2 x86, sourced from archive.org) |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
@@ -269,6 +273,7 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win10x64-iot-enterprise-ltsc-2021` | Windows 10 IoT Enterprise LTSC 2021 (full, English, x64, sourced from archive.org) |
 | `win10x64-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 (full, English, x64, sourced from archive.org) |
 | `win10x86-iot-enterprise-ltsc-2019` | Windows 10 IoT Enterprise LTSC 2019 (full, English, x86/32-bit, sourced from archive.org) |
+| `win81-serial` | Windows 8.1 setup serial keys (for installation, not activation) |
 | `win11x64-enterprise-ltsc-2024` | Windows 11 Enterprise LTSC 2024 (full, English, x64, sourced from archive.org) |
 | `win11x64-enterprise-ltsc-2024-esp` | Windows 11 Enterprise LTSC 2024 (full, Spanish (Spain), x64, sourced from archive.org) |
 | `win11x64-enterprise-ltsc-2024-es-mx` | Windows 11 Enterprise LTSC 2024 (full, Mexican Spanish, x64, sourced from archive.org) |
@@ -503,6 +508,22 @@ years** of security updates. Mido offers the full (non-evaluation) English ISOs:
 > for the **IoT Enterprise LTSC 2019** release. The annual-channel Windows 10
 > IoT Enterprise 22H2 and the newer IoT Enterprise LTSC 2021 exist **only as
 > x64** (and arm64), so there is no 32-bit ISO for them.
+
+## Windows 8.1 setup serial keys
+
+The following setup keys can be used during Windows 8.1 installation to proceed
+past the setup screen, but **do not activate Windows**:
+
+- **Windows 8.1 Enterprise (x64):** `NF3MJ-Q9W3X-7Y9K3-RJR8C-3X3CQ`
+- **Windows 8.1 Enterprise (x86 32-bit):** `KJYVW-2R2YX-2V9Y2-T8YV3-WRHYD`
+- **Windows 8.1 Pro (x64):** `GCRJD-8NW9H-F2HCX-Y66R6-C8BMC`
+- **Windows 8.1 Pro (x86 32-bit):** `W83YN-4R2Y3-2FWY4-T92JY-W3YXK`
+- **Windows 8.1 N (x64):** `MWMSY-FVGGT-6X7JK-PPMRW-TRT0D`
+- **Windows 8.1 N (x86 32-bit):** `VBN20-8R2YX-7WJ4C-YJJ26-G3YXK`
+
+> **Important:** These are volume license / setup keys that allow installation
+> to complete. They do **not** provide a licensed, activated copy of Windows.
+> For activation, you must use a genuine product key or digital license.
 
 ### Enterprise LTSC & LTSB editions
 

@@ -269,6 +269,10 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `win11x64-esp` | Windows 11 x64 español (España) — primero Microsoft oficial, si falla archive.org |
 | `win11x64-es-mx` | Windows 11 x64 español (México) — primero Microsoft oficial, si falla archive.org |
 | `win81x64-enterprise-eval` | Windows 8.1 Enterprise Evaluation |
+| `win81x64` | Windows 8.1 x64 (**retirado por Microsoft**, usa la Enterprise Eval) |
+| `win81x86` | Windows 8.1 x86 (32-bit) — sourced from archive.org |
+| `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32 bits español (obtenido de archive.org) |
+| `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64 bits español (obtenido de archive.org) |
 | `win10x64-enterprise-eval` | Windows 10 Enterprise Evaluation |
 | `win10x86-enterprise-eval` | Windows 10 Enterprise 32-bit Evaluation (LTSC 21H2 x86, obtenido de archive.org) |
 | `win11x64-enterprise-eval` | Windows 11 Enterprise Evaluation |
@@ -533,6 +537,24 @@ en inglés:
 > (32 bits) para **IoT Enterprise LTSC 2019**. El Windows 10 IoT Enterprise 22H2
 > (canal anual) y el más reciente IoT Enterprise LTSC 2021 existen **solo en
 > x64** (y arm64), por lo que no hay ISO de 32 bits para ellos.
+
+> **Windows 8.1 claves de configuración**
+
+> Las siguientes claves de configuración se pueden usar durante la instalación
+> de Windows 8.1 para avanzar más allá de la pantalla de configuración, pero **no
+> activan Windows**:
+
+> - **Windows 8.1 Enterprise (x64):** `NF3MJ-Q9W3X-7Y9K3-RJR8C-3X3CQ`
+> - **Windows 8.1 Enterprise (x86 32-bit):** `KJYVW-2R2YX-2V9Y2-T8YV3-WRHYD`
+> - **Windows 8.1 Pro (x64):** `GCRJD-8NW9H-F2HCX-Y66R6-C8BMC`
+> - **Windows 8.1 Pro (x86 32-bit):** `W83YN-4R2Y3-2FWY4-T92JY-W3YXK`
+> - **Windows 8.1 N (x64):** `MWMSY-FVGGT-6X7JK-PPMRW-TRT0D`
+> - **Windows 8.1 N (x86 32-bit):** `VBN20-8R2YX-7WJ4C-YJJ26-G3YXK`
+
+> **Importante:** Estas son claves de licencia por volumen que permiten que la
+> instalación finalice. **No** proporcionan una copia de Windows con licencia
+> activada. Para activar, debe usar una clave de producto genuina o una licencia
+> digital.
 
 ### Ediciones Enterprise LTSC y LTSB
 

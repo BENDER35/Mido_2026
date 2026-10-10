@@ -172,6 +172,16 @@ usage() {
     echo "  win10x86-enterprise-ltsb-2015 (32-bit, archive.org)"
     echo "  win10x86-enterprise-ltsb-2015-esp (32-bit Spanish, archive.org)"
     echo "  win2008r2"
+    echo "  win81x64 (Windows 8.1 x64, archive.org)"
+    echo "  win81x86 (Windows 8.1 x86 32-bit, archive.org)"
+    echo "  win81x64-enterprise-eval (Windows 8.1 Enterprise Evaluation)"
+    echo "  win81x64-enterprise-n-eval (Windows 8.1 N Evaluation)"
+    echo "  win81x64-industry-enterprise-eval (Windows 8.1 Industry Enterprise Evaluation)"
+    echo "  win81x64-industry-pro-eval (Windows 8.1 Industry Professional Evaluation)"
+    echo "  win81x86-enterprise-eval (Windows 8.1 Enterprise Evaluation 32-bit)"
+    echo "  win81x86-enterprise-n-eval (Windows 8.1 N Evaluation 32-bit)"
+    echo "  win81x86-industry-enterprise-eval (Windows 8.1 Industry Enterprise Evaluation 32-bit)"
+    echo "  win81x86-industry-pro-eval (Windows 8.1 Industry Professional Evaluation 32-bit)"
     echo "  win2008r2-espa (Spanish, archive.org)"
     echo "  win2008-server-x64 (SP2, archive.org)"
     echo "  win2008-server-x64-espa (SP2 Spanish, archive.org)"
@@ -321,6 +331,14 @@ readonly win10x64_enterprise_ltsb_2015_esp="win10x64-enterprise-ltsb-2015-espano
 readonly win10x86_enterprise_ltsb_2015="win10x86-enterprise-ltsb-2015.iso"
 readonly win10x86_enterprise_ltsb_2015_esp="win10x86-enterprise-ltsb-2015-espanol.iso"
 readonly win2008r2="win2008r2.iso"
+readonly win81x86="win81x86.iso"
+readonly win81x64_enterprise_n_eval="win81x64-enterprise-n-eval.iso"
+readonly win81x64_industry_enterprise_eval="win81x64-industry-enterprise-eval.iso"
+readonly win81x64_industry_pro_eval="win81x64-industry-pro-eval.iso"
+readonly win81x86_enterprise_eval="win81x86-enterprise-eval.iso"
+readonly win81x86_enterprise_n_eval="win81x86-enterprise-n-eval.iso"
+readonly win81x86_industry_enterprise_eval="win81x86-industry-enterprise-eval.iso"
+readonly win81x86_industry_pro_eval="win81x86-industry-pro-eval.iso"
 readonly win2008r2_espa="win2008r2-espa.iso"
 readonly win2008_server_x64="win2008-server-x64.iso"
 readonly win2008_server_x64_espa="win2008-server-x64-espa.iso"
@@ -446,9 +464,6 @@ parse_args() {
             vista-es-x86-sp2)
                 media_list="$media_list $vista_es_x86_sp2"
                 ;;
-            win81x64)
-                media_list="$media_list $win81x64"
-                ;;
             win81x64-ent-32-espa)
                 media_list="$media_list $win81x64_ent_32_esp"
                 ;;
@@ -481,9 +496,6 @@ parse_args() {
                 ;;
             win11x64-es-mx)
                 media_list="$media_list $win11x64_es_mx"
-                ;;
-            win81x64-enterprise-eval)
-                media_list="$media_list $win81x64_enterprise_eval"
                 ;;
             win10x64-enterprise-eval)
                 media_list="$media_list $win10x64_enterprise_eval"
@@ -577,6 +589,36 @@ parse_args() {
                 ;;
             win2008r2-espa)
                 media_list="$media_list $win2008r2_espa"
+                ;;
+            win81x64)
+                media_list="$media_list $win81x64"
+                ;;
+            win81x86)
+                media_list="$media_list $win81x86"
+                ;;
+            win81x64-enterprise-eval)
+                media_list="$media_list $win81x64_enterprise_eval"
+                ;;
+            win81x64-enterprise-n-eval)
+                media_list="$media_list $win81x64_enterprise_n_eval"
+                ;;
+            win81x64-industry-enterprise-eval)
+                media_list="$media_list $win81x64_industry_enterprise_eval"
+                ;;
+            win81x64-industry-pro-eval)
+                media_list="$media_list $win81x64_industry_pro_eval"
+                ;;
+            win81x86-enterprise-eval)
+                media_list="$media_list $win81x86_enterprise_eval"
+                ;;
+            win81x86-enterprise-n-eval)
+                media_list="$media_list $win81x86_enterprise_n_eval"
+                ;;
+            win81x86-industry-enterprise-eval)
+                media_list="$media_list $win81x86_industry_enterprise_eval"
+                ;;
+            win81x86-industry-pro-eval)
+                media_list="$media_list $win81x86_industry_pro_eval"
                 ;;
             win2008-server-x64)
                 media_list="$media_list $win2008_server_x64"
@@ -831,7 +873,7 @@ parse_args() {
                 media_list="$media_list $winframe"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win81x64 $win81x86 $win81x64_enterprise_eval $win81x64_enterprise_n_eval $win81x64_industry_enterprise_eval $win81x64_industry_pro_eval $win81x86_enterprise_eval $win81x86_enterprise_n_eval $win81x86_industry_enterprise_eval $win81x86_industry_pro_eval $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1598,6 +1640,58 @@ download_media() {
                 # Windows Server 2003 R2 Enterprise x64 with SP2 in Spanish, archived on archive.org
                 # Source: https://archive.org/details/es_win_srv_2003_r2_enterprise_x64_with_sp2_vl
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es_win_srv_2003_r2_enterprise_x64_with_sp2_vl/es_win_srv_2003_r2_enterprise_x64_with_sp2_vl_cd1_x13-48642.iso"
+                ;;
+            "$win81x64")
+                echo_info "Downloading Windows 8.1 x64..."
+                # Windows 8.1 x64 (ended mainstream support 01-09-2018, extended support 01-01-2023)
+                # Archived on archive.org
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_8.1_x64_dvd_2707217/en_windows_8.1_x64_dvd_2707217.iso"
+                ;;
+            "$win81x86")
+                echo_info "Downloading Windows 8.1 x86 32-bit..."
+                # Windows 8.1 x86 32-bit (ended mainstream support 01-01-2018, extended support 01-01-2023)
+                # Archived on archive.org
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_8.1_x86_dvd_6051550/en_windows_8.1_x86_dvd_6051550.iso"
+                ;;
+            "$win81x64-enterprise-eval")
+                echo_info "Downloading Windows 8.1 Enterprise Evaluation..."
+                # Windows 8.1 Enterprise Evaluation (retired by Microsoft)
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-enterprise-eval/win81x64-enterprise-eval.iso"
+                ;;
+            "$win81x64-enterprise-n-eval")
+                echo_info "Downloading Windows 8.1 N Evaluation..."
+                # Windows 8.1 N Evaluation (without Media Player, for EU markets)
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-enterprise-n-eval/win81x64-enterprise-n-eval.iso"
+                ;;
+            "$win81x64-industry-enterprise-eval")
+                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation..."
+                # Windows 8.1 Industry Enterprise Evaluation
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-industry-enterprise-eval/win81x64-industry-enterprise-eval.iso"
+                ;;
+            "$win81x64-industry-pro-eval")
+                echo_info "Downloading Windows 8.1 Industry Professional Evaluation..."
+                # Windows 8.1 Industry Professional Evaluation
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-industry-pro-eval/win81x64-industry-pro-eval.iso"
+                ;;
+            "$win81x86-enterprise-eval")
+                echo_info "Downloading Windows 8.1 Enterprise Evaluation 32-bit..."
+                # Windows 8.1 Enterprise Evaluation 32-bit
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-enterprise-eval/win81x86-enterprise-eval.iso"
+                ;;
+            "$win81x86-enterprise-n-eval")
+                echo_info "Downloading Windows 8.1 N Evaluation 32-bit..."
+                # Windows 8.1 N Evaluation 32-bit
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-enterprise-n-eval/win81x86-enterprise-n-eval.iso"
+                ;;
+            "$win81x86-industry-enterprise-eval")
+                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation 32-bit..."
+                # Windows 8.1 Industry Enterprise Evaluation 32-bit
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-industry-enterprise-eval/win81x86-industry-enterprise-eval.iso"
+                ;;
+            "$win81x86-industry-pro-eval")
+                echo_info "Downloading Windows 8.1 Industry Professional Evaluation 32-bit..."
+                # Windows 8.1 Industry Professional Evaluation 32-bit
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-industry-pro-eval/win81x86-industry-pro-eval.iso"
                 ;;
             "$win2000_server")
                 echo_info "Downloading Windows 2000 Server SP4..."
