@@ -234,10 +234,13 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `vista-x86-sp1` | Windows Vista SP1 x86 (English, sourced from archive.org) |
 | `vista-es-x64-sp1` | Windows Vista SP1 x64 Spanish (sourced from archive.org) |
 | `vista-es-x86-sp1` | Windows Vista SP1 x86 Spanish (sourced from archive.org) |
-| `vista-x64-sp2` | Windows Vista SP2 x64 (English, sourced from archive.org) |
-| `vista-x86-sp2` | Windows Vista SP2 x86 (English, sourced from archive.org) |
-| `vista-es-x64-sp2` | Windows Vista SP2 x64 Spanish (sourced from archive.org) |
-| `vista-es-x86-sp2` | Windows Vista SP2 x86 Spanish (sourced from archive.org) |
+| `vista-x64-sp2` | Windows Vista **Enterprise** SP2 x64 (English, sourced from archive.org) |
+| `vista-x86-sp2` | Windows Vista **Enterprise** SP2 x86 (English, sourced from archive.org) |
+| `vista-es-x64-sp2` | Windows Vista **Enterprise** SP2 x64 Spanish (sourced from archive.org) |
+| `vista-es-x86-sp2` | Windows Vista **Enterprise** SP2 x86 Spanish (sourced from archive.org) |
+| `vista-x64-sp2-n` | Windows Vista N SP2 x64 (Home Basic N + Business N, English, sourced from archive.org) |
+| `vista-x64-sp2-business-n` | Windows Vista Business N SP2 x64 (English, sourced from archive.org) |
+| `vista-x86-sp2-business-n` | Windows Vista Business N SP2 x86 (English, sourced from archive.org) |
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (sourced from the Wayback Machine) |
 | `win7x64-ultimate-esp` | Windows 7 Ultimate x64 Spanish — Microsoft official first, archive.org fallback |
 | `win7x64-ultimate-es-mx` | Windows 7 Ultimate x64 Mexican Spanish — Microsoft official first, archive.org fallback |
@@ -422,8 +425,15 @@ also available in both English and Spanish via archive.org
 (`win2003-server-x64`) and Spanish (`win2003-server-x64-espa`).
 Windows Vista SP1 ISOs in Spanish are also available via archive.org
 (`vista-es-x64-sp1`, `vista-es-x86-sp1`).
-Windows Vista SP2 ISOs in Spanish are also available via archive.org
+Windows Vista **Enterprise** SP2 ISOs in Spanish are also available via archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
+The Windows Vista **N** media (which satisfies the EU ruling and excludes the
+bundled media software) is available in English: the N all-in-one x64 DVD with
+Home Basic N and Business N (`vista-x64-sp2-n`) and the Business N x64 and x86
+ISOs (`vista-x64-sp2-business-n`, `vista-x86-sp2-business-n`). Note that
+**Windows Vista Enterprise N** was never released as standalone MSDN media (the
+"N" DVD only ships Home Basic N and Business N), and no Spanish Vista N ISOs are
+available on archive.org, so no `-es`/`-es-mx` N arguments are offered.
 Windows 7 SP1 Spanish ISOs (`win7x64-sp1`, `win7x86-sp1`) are also available
 via archive.org.
 Windows 7 Ultimate Spanish ISOs (`win7x64-ultimate-esp`, `win7x64-ultimate-es-mx`)

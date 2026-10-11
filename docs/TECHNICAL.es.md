@@ -113,7 +113,8 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win7x86-enterprise`, `win7x86-enterprise-esp`, `win7x86-enterprise-es-mx` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
 | `win7x64-sp1`, `win7x86-sp1` | instantáneas de `archive.org` (Windows 7 SP1) | ninguna |
 | `win-xp-pro-64` | instantánea de `archive.org` (Windows XP Professional x64 Edition SP2, inglés; Microsoft distribuyó x64 en inglés/japonés con paquetes MUI) | ninguna |
-| `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` | ninguna |
+| `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` (Windows Vista **Enterprise** SP2) | ninguna |
+| `vista_x64_sp2_n`, `vista_x64_sp2_business_n`, `vista_x86_sp2_business_n` | instantáneas de `archive.org` (Windows Vista **N** SP2: N todo en uno x64 = Home Basic N + Business N, y Business N x64/x86; solo en inglés) | ninguna |
 | `win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa`, `backoffice`, `winframe` | instantáneas de `archive.org` (ISOs retro retail/OEM; 95/98/ME también en español; NT 3.1/3.5/3.51 Workstation, BackOffice SBS 4.0 y Citrix WinFrame 1.6) | ninguna |
 
 > Las evaluaciones Enterprise y LTSC de Windows 10/11 se migraron desde el HTML

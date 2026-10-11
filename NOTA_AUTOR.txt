@@ -1,0 +1,31 @@
+eh, ah, hola, ¿que tal?
+
+pues bien, te resumo brevemente el temario, queria ver otro uso de la IA,
+ademas de ports a otros sistemas operativos como linux o ports de sistemas
+windows antiguos, tambien probarlo en reparaciones de scripts, esta reparaci
+on es del script mido, el original no funcionaban la mitad de los enlaces
+el de 7, el enlace de la wayback medio funcionaba, entre otros, o sea, que
+no servia, con la IA se ha logrado restaurar el script (aunque hare una
+comprobacion final de que todo funcione), he querido centrarme principalmente
+en los sistemas desde 3.11 y sus equivalencias en server (aunque podrian ha
+ber cambios de ultima hora), ademas de los enlaces, algunos fallos que ha
+detectado la IA, han sido reparados y la mitad de las verificaciones ha ido
+bien.
+
+ahora bien, todo no va a ser como aquel personaje de terminator 2 que dijo
+"no problemo", siii, ese, el T-800 caray, estos tutoriales que se haran pro
+ximamente no van a ser IA, estos son:
+
+- tutorial de instalacion de vmware (win-lin)
+-  tutorial de instalacion de virtualbox (win-lin)
+-  tutorial de instalacion de PCEM
+- tutorial de instalacion de 86box
+-  tutorial de instalacion de dosbox-x
+
+ok, disfruta de esta restauracion completa de mido, dime que tal funciona
+el script, si ves algun fallo dimelo y tambien dimelo si haces alguna
+maquina virtual de windows o reinstalas el mismo.
+
+SALU2
+
+BENDER

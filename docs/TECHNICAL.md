@@ -122,7 +122,8 @@ Different media families are fetched in different ways:
 | `win7x64-ultimate` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake |
 | `win7x86-ultimate`, `win7x86-ultimate-esp`, `win7x86-ultimate-es-mx` | `archive.org` snapshots (Windows 7 Ultimate) | none |
 | `vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1` | `archive.org` snapshots | none |
-| `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots | none |
+| `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots (Windows Vista **Enterprise** SP2) | none |
+| `vista_x64_sp2_n`, `vista_x64_sp2_business_n`, `vista_x86_sp2_business_n` | `archive.org` snapshots (Windows Vista **N** SP2: N all-in-one x64 = Home Basic N + Business N, and Business N x64/x86; English only) | none |
 | `win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa`, `backoffice`, `winframe` | `archive.org` snapshots (retro retail/OEM ISOs; 95/98/ME also in Spanish; NT 3.1/3.5/3.51 Workstation, BackOffice SBS 4.0 and Citrix WinFrame 1.6) | none |
 
 > Windows 10/11 Enterprise and LTSC evaluations were migrated from the
@@ -294,8 +295,13 @@ published checksums.
 
 Windows Vista SP1 ISOs in English and Spanish are also sourced from archive.org
 (`vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1`).
-Windows Vista SP2 ISOs in English and Spanish are also sourced from archive.org
-(`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).
+Windows Vista **Enterprise** SP2 ISOs in English and Spanish are also sourced from
+archive.org (`vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2`).
+The Windows Vista **N** media is available in English only (`vista_x64_sp2_n` =
+N all-in-one with Home Basic N and Business N; `vista_x64_sp2_business_n` and
+`vista_x86_sp2_business_n` = Business N x64/x86). Windows Vista **Enterprise N**
+has no standalone MSDN media (the "N" DVD only ships Home Basic N and Business N)
+and no Spanish Vista N ISO exists on archive.org.
 These are not covered by the Microsoft API and have no published checksums.
 
 Windows 7 SP1 ISOs are also sourced from `archive.org` and are not covered by the Microsoft API.

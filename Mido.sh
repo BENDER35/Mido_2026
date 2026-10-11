@@ -126,6 +126,9 @@ usage() {
     echo "  vista-x86-sp2"
     echo "  vista-es-x64-sp2"
     echo "  vista-es-x86-sp2"
+    echo "  vista-x64-sp2-n (Vista N all-in-one: Home Basic N + Business N, English)"
+    echo "  vista-x64-sp2-business-n (Vista Business N, English)"
+    echo "  vista-x86-sp2-business-n (Vista Business N 32-bit, English)"
     echo "  win7x64-ultimate"
     echo "  win7x64-ultimate-esp (Spanish, official first then archive.org)"
     echo "  win7x64-ultimate-es-mx (Mexican Spanish, official first then archive.org)"
@@ -288,6 +291,9 @@ readonly vista_x64_sp2="vista-x64-sp2.iso"
 readonly vista_x86_sp2="vista-x86-sp2.iso"
 readonly vista_es_x64_sp2="vista-es-x64-sp2.iso"
 readonly vista_es_x86_sp2="vista-es-x86-sp2.iso"
+readonly vista_x64_sp2_n="vista-x64-sp2-n.iso"
+readonly vista_x64_sp2_business_n="vista-x64-sp2-business-n.iso"
+readonly vista_x86_sp2_business_n="vista-x86-sp2-business-n.iso"
 readonly win81x64="win81x64.iso"
 readonly win81x64_ent_32_esp="win81x64-ent-32-espa.iso"
 readonly win81x64_ent_64_esp="win81x64-ent-64-esp.iso"
@@ -463,6 +469,15 @@ parse_args() {
                 ;;
             vista-es-x86-sp2)
                 media_list="$media_list $vista_es_x86_sp2"
+                ;;
+            vista-x64-sp2-n)
+                media_list="$media_list $vista_x64_sp2_n"
+                ;;
+            vista-x64-sp2-business-n)
+                media_list="$media_list $vista_x64_sp2_business_n"
+                ;;
+            vista-x86-sp2-business-n)
+                media_list="$media_list $vista_x86_sp2_business_n"
                 ;;
             win81x64-ent-32-espa)
                 media_list="$media_list $win81x64_ent_32_esp"
@@ -927,7 +942,7 @@ parse_args() {
                 media_list="$media_list $winframe"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win81x64 $win81x86 $win81x64_enterprise_eval $win81x64_enterprise_n_eval $win81x64_industry_enterprise_eval $win81x64_industry_pro_eval $win81x86_enterprise_eval $win81x86_enterprise_n_eval $win81x86_industry_enterprise_eval $win81x86_industry_pro_eval $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp2_n $vista_x64_sp2_business_n $vista_x86_sp2_business_n $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win81x64 $win81x86 $win81x64_enterprise_eval $win81x64_enterprise_n_eval $win81x64_industry_enterprise_eval $win81x64_industry_pro_eval $win81x86_enterprise_eval $win81x86_enterprise_n_eval $win81x86_industry_enterprise_eval $win81x86_industry_pro_eval $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1392,6 +1407,19 @@ download_media() {
             "$vista_es_x86_sp2")
                 echo_info "Downloading Windows Vista SP2 x86 Spanish..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaEnterpriseSP2ESP/es_windows_vista_enterprise_sp2_x86_dvd_342413.iso"
+                ;;
+            "$vista_x64_sp2_n")
+                echo_info "Downloading Windows Vista N SP2 x64 (Home Basic N + Business N)..."
+                # Windows Vista N media: satisfies the EU ruling, excludes bundled media software
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Windows_Vista_N_SP2_x64.iso/Windows_Vista_N_SP2_x64.iso"
+                ;;
+            "$vista_x64_sp2_business_n")
+                echo_info "Downloading Windows Vista Business N SP2 x64..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaBusinessNSP2ENG/en_windows_vista_business_n_sp2_x64_dvd_342326.iso"
+                ;;
+            "$vista_x86_sp2_business_n")
+                echo_info "Downloading Windows Vista Business N SP2 x86..."
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaBusinessNSP2ENG/en_windows_vista_business_n_sp2_x86_dvd_342323.iso"
                 ;;
             "$vista_x64_sp1")
                 echo_info "Downloading Windows Vista SP1 x64..."

@@ -246,10 +246,13 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `vista-x86-sp1` | Windows Vista SP1 x86 (inglés, obtenido de archive.org) |
 | `vista-es-x64-sp1` | Windows Vista SP1 x64 español (obtenido de archive.org) |
 | `vista-es-x86-sp1` | Windows Vista SP1 x86 español (obtenido de archive.org) |
-| `vista-x64-sp2` | Windows Vista SP2 x64 (inglés, obtenido de archive.org) |
-| `vista-x86-sp2` | Windows Vista SP2 x86 (inglés, obtenido de archive.org) |
-| `vista-es-x64-sp2` | Windows Vista SP2 x64 español (obtenido de archive.org) |
-| `vista-es-x86-sp2` | Windows Vista SP2 x86 español (obtenido de archive.org) |
+| `vista-x64-sp2` | Windows Vista **Enterprise** SP2 x64 (inglés, obtenido de archive.org) |
+| `vista-x86-sp2` | Windows Vista **Enterprise** SP2 x86 (inglés, obtenido de archive.org) |
+| `vista-es-x64-sp2` | Windows Vista **Enterprise** SP2 x64 español (obtenido de archive.org) |
+| `vista-es-x86-sp2` | Windows Vista **Enterprise** SP2 x86 español (obtenido de archive.org) |
+| `vista-x64-sp2-n` | Windows Vista N SP2 x64 (Home Basic N + Business N, inglés, obtenido de archive.org) |
+| `vista-x64-sp2-business-n` | Windows Vista Business N SP2 x64 (inglés, obtenido de archive.org) |
+| `vista-x86-sp2-business-n` | Windows Vista Business N SP2 x86 (inglés, obtenido de archive.org) |
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (obtenido de Wayback Machine) |
 | `win7x64-ultimate-esp` | Windows 7 Ultimate x64 en español — primero Microsoft oficial, si falla archive.org |
 | `win7x64-ultimate-es-mx` | Windows 7 Ultimate x64 en español mexicano — primero Microsoft oficial, si falla archive.org |
@@ -433,8 +436,16 @@ Windows Server 2003 R2 Enterprise x64 SP2 de 64 bits está disponible en inglés
 (`win2003-server-x64`) y español (`win2003-server-x64-espa`).
 Windows Vista SP1 en español también está disponible vía archive.org
 (`vista-es-x64-sp1`, `vista-es-x86-sp1`).
-Windows Vista SP2 en español también está disponible vía archive.org
+Windows Vista **Enterprise** SP2 en español también está disponible vía archive.org
 (`vista-es-x64-sp2`, `vista-es-x86-sp2`).
+Los medios **N** de Windows Vista (que cumplen la sentencia de la UE y excluyen
+el software multimedia incluido) están disponibles en inglés: el DVD N todo en
+uno x64 con Home Basic N y Business N (`vista-x64-sp2-n`) y las ISOs Business N
+x64 y x86 (`vista-x64-sp2-business-n`, `vista-x86-sp2-business-n`). Ten en cuenta
+que **Windows Vista Enterprise N** nunca se publicó como medio MSDN
+independiente (el DVD "N" solo incluye Home Basic N y Business N) y que no hay
+ISOs N de Vista en español en archive.org, por lo que no se ofrecen argumentos
+`-es`/`-es-mx` para las N.
 Los medios Enterprise, Server y Evaluation son, por lo demás, únicamente en inglés,
 tal como los publica Microsoft. Las ISOs en otros idiomas se guardan con un sufijo
 de idioma (por ejemplo `win11x64.es-MX.iso`) o con un nombre `-espa`/`-esp`/
