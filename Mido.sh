@@ -64,9 +64,9 @@ archive_fallback_url() {
         7-es-ES-x64) printf '%s' "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x64_dvd_u_677350.iso" ;;
         7-en-US-x86) printf '%s' "https://archive.org/download/win7-english-x86/Windows6.1-KB976002-X86.exe" ;;
         7-es-ES-x86) printf '%s' "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x86_dvd_u_677462.iso" ;;
-        8-en-US-x64) printf '%s' "https://archive.org/download/Win8_English_x64/Windows8-Setup.exe" ;;
+        8-en-US-x64) printf '%s' "https://archive.org/download/en_windows_8.1_x64_dvd_2707217/en_windows_8.1_x64_dvd_2707217.iso" ;;
         8-es-ES-x64) printf '%s' "https://archive.org/download/Win81CoreProESP/es_windows_8_1_x64_dvd_2707379.iso" ;;
-        8-en-US-x86) printf '%s' "https://archive.org/download/win8-english-x86/Windows8-Setup-x86.exe" ;;
+        8-en-US-x86) printf '%s' "https://archive.org/download/windows-8.1-x-86-en-us/Windows8.1_x86_en-US.iso" ;;
         8-es-ES-x86) printf '%s' "https://archive.org/download/Win81CoreProESP/es_windows_8_1_x86_dvd_2707521.iso" ;;
         10-en-US-x64) printf '%s' "https://archive.org/download/Win10_22H2_English_x64v1/Win10_22H2_English_x64v1.iso" ;;
         10-en-US-x86) printf '%s' "https://archive.org/download/Win10_22H2_English_x32v1/Win10_22H2_English_x32v1.iso" ;;
@@ -476,6 +476,18 @@ parse_args() {
             vista-es-x86-sp2)
                 media_list="$media_list $vista_es_x86_sp2"
                 ;;
+            vista-x64-sp1)
+                media_list="$media_list $vista_x64_sp1"
+                ;;
+            vista-x86-sp1)
+                media_list="$media_list $vista_x86_sp1"
+                ;;
+            vista-es-x64-sp1)
+                media_list="$media_list $vista_es_x64_sp1"
+                ;;
+            vista-es-x86-sp1)
+                media_list="$media_list $vista_es_x86_sp1"
+                ;;
             vista-x64-sp2-n)
                 media_list="$media_list $vista_x64_sp2_n"
                 ;;
@@ -611,60 +623,6 @@ parse_args() {
             win2008r2-espa)
                 media_list="$media_list $win2008r2_espa";;
 
-            "$win81x64")
-                echo_info "Downloading Windows 8.1 x64..."
-                # Windows 8.1 x64 (ended mainstream support 01-09-2018, extended support 01-01-2023)
-                # Archived on archive.org
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_8.1_x64_dvd_2707217_202507/en_windows_8.1_x64_dvd_2707217_202507.iso"
-                ;;
-            "$win81x86")
-                echo_info "Downloading Windows 8.1 x86 32-bit..."
-                # Windows 8.1 x86 32-bit (ended mainstream support 01-01-2018, extended support 01-01-2023)
-                # Archived on archive.org
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_8.1_x86_dvd_6051550/en_windows_8.1_x86_dvd_6051550.iso"
-                ;;
-            "$win81x64-enterprise-eval")
-                echo_info "Downloading Windows 8.1 Enterprise Evaluation..."
-                # Windows 8.1 Enterprise Evaluation (retired by Microsoft)
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-enterprise-eval/win81x64-enterprise-eval.iso"
-                ;;
-            "$win81x64-enterprise-n-eval")
-                echo_info "Downloading Windows 8.1 N Evaluation..."
-                # Windows 8.1 N Evaluation (without Media Player, for EU markets)
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-enterprise-n-eval/win81x64-enterprise-n-eval.iso"
-                ;;
-            "$win81x64-industry-enterprise-eval")
-                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation..."
-                # Windows 8.1 Industry Enterprise Evaluation
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-industry-enterprise-eval/win81x64-industry-enterprise-eval.iso"
-                ;;
-            "$win81x64-industry-pro-eval")
-                echo_info "Downloading Windows 8.1 Industry Professional Evaluation..."
-                # Windows 8.1 Industry Professional Evaluation
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-industry-pro-eval/win81x64-industry-pro-eval.iso"
-                ;;
-            "$win81x86-enterprise-eval")
-                echo_info "Downloading Windows 8.1 Enterprise Evaluation 32-bit..."
-                # Windows 8.1 Enterprise Evaluation 32-bit
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-enterprise-eval/win81x86-enterprise-eval.iso"
-                ;;
-            "$win81x86-enterprise-n-eval")
-                echo_info "Downloading Windows 8.1 N Evaluation 32-bit..."
-                # Windows 8.1 N Evaluation 32-bit
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-enterprise-n-eval/win81x86-enterprise-n-eval.iso"
-                ;;
-            "$win81x86-industry-enterprise-eval")
-                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation 32-bit..."
-                # Windows 8.1 Industry Enterprise Evaluation 32-bit
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-industry-enterprise-eval/win81x86-industry-enterprise-eval.iso"
-                ;;
-            "$win81x86-industry-pro-eval")
-                echo_info "Downloading Windows 8.1 Industry Professional Evaluation 32-bit..."
-                # Windows 8.1 Industry Professional Evaluation 32-bit
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-industry-pro-eval/win81x86-industry-pro-eval.iso"
-                ;;
-            "$win2003_server_x64")
-                ;;
             win81x64)
                 media_list="$media_list $win81x64"
                 ;;
@@ -1437,19 +1395,27 @@ download_media() {
                 ;;
             "$vista_x64_sp1")
                 echo_info "Downloading Windows Vista SP1 x64..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-vista-with-sp1-images-en-us/en_windows_vista_enterprise_sp1_x64_dvd_.iso"
+                # Windows Vista SP1 x64 English (all editions), MSDN, archived on archive.org
+                # Source: https://archive.org/details/en_windows_vista_with_service_pack_1_x64_dvd_x14-29595_202010
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_vista_with_service_pack_1_x64_dvd_x14-29595_202010/en_windows_vista_with_service_pack_1_x64_dvd_x14-29595.iso"
                 ;;
             "$vista_x86_sp1")
                 echo_info "Downloading Windows Vista SP1 x86..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-vista-with-sp1-images-en-us/en_windows_vista_enterprise_sp1_x86_dvd_.iso"
+                # Windows Vista SP1 x86 English (all editions), MSDN, archived on archive.org
+                # Source: https://archive.org/details/en_windows_vista_with_service_pack_1_x86_dvd_x14-29594_202010
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_vista_with_service_pack_1_x86_dvd_x14-29594_202010/en_windows_vista_with_service_pack_1_x86_dvd_x14-29594.iso"
                 ;;
             "$vista_es_x64_sp1")
                 echo_info "Downloading Windows Vista SP1 x64 Spanish..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaSP1ESP/es_windows_vista_enterprise_sp1_x64_dvd.iso"
+                # Windows Vista SP1 x64 Spanish (all editions), MSDN, archived on archive.org
+                # Source: https://archive.org/details/es_windows_vista_with_service_pack_1_x64_dvd_x14-29756
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es_windows_vista_with_service_pack_1_x64_dvd_x14-29756/es_windows_vista_with_service_pack_1_x64_dvd_x14-29756.iso"
                 ;;
             "$vista_es_x86_sp1")
                 echo_info "Downloading Windows Vista SP1 x86 Spanish..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaSP1ESP/es_windows_vista_enterprise_sp1_x86_dvd.iso"
+                # Windows Vista SP1 x86 Spanish (all editions), MSDN, archived on archive.org
+                # Source: https://archive.org/details/WinVistaAIOSP1ESPx86
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinVistaAIOSP1ESPx86/es_windows_vista_with_service_pack_1_x86_dvd_x14-29626.iso"
                 ;;
             "$win7x64_sp1")
                 echo_info "Downloading Windows 7 SP1 x64..."
@@ -1745,9 +1711,8 @@ download_media() {
                 ;;
             "$win81x86")
                 echo_info "Downloading Windows 8.1 x86 32-bit..."
-                # Windows 8.1 x86 32-bit (ended mainstream support 01-01-2018, extended support 01-01-2023)
-                # Archived on archive.org
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_8.1_x86_dvd_6051550/en_windows_8.1_x86_dvd_6051550.iso"
+                # Windows 8.1 x86 32-bit - Microsoft official first, archive.org fallback
+                consumer_download_or_archive "$(localized_media "$media")" 8 "$MIDO_LANG" "$(archive_fallback_url 8 "$MIDO_LANG" x86)" x86
                 ;;
             "$win81x64-enterprise-eval")
                 echo_info "Downloading Windows 8.1 Enterprise Evaluation..."
@@ -2028,6 +1993,12 @@ download_media() {
                 # Windows 8.1 Pro - Consumer JSON API first, archive.org fallback
                 # Note: Windows 8.1 automation is retired, falls back to archive.org
                 consumer_download_or_archive "$(localized_media "$media")" 8 "$MIDO_LANG" "$(archive_fallback_url 8 "$MIDO_LANG" x64)"
+                ;;
+            "$win81x86_pro")
+                echo_info "Downloading Windows 8.1 Pro x86 32-bit..."
+                # Windows 8.1 Pro x86 - Consumer JSON API first, archive.org fallback
+                # Note: Windows 8.1 automation is retired, falls back to archive.org
+                consumer_download_or_archive "$(localized_media "$media")" 8 "$MIDO_LANG" "$(archive_fallback_url 8 "$MIDO_LANG" x86)" x86
                 ;;
             "$win81x64_pro_esp")
                 echo_info "Downloading Windows 8.1 Pro Spanish (Spain)..."
