@@ -107,10 +107,10 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win2025-enterprise-64`, `win2025-datacenter-64` | instantáneas de `archive.org` (64-bit solo) | ninguna |
 | `win2025-enterprise-64-esp`, `win2025-datacenter-64-esp` | instantáneas de `archive.org` español (64-bit solo) | ninguna |
 | `win7x64-ultimate` | instantánea de `web.archive.org` | ninguna |
-| `win7x64-homepremium`, `win7x64-homepremium-esp`, `win7x64-homepremium-es-mx` | instantáneas de `archive.org` (Windows 7 Home Premium) | ninguna |
-| `win7x86-homepremium`, `win7x86-homepremium-esp`, `win7x86-homepremium-es-mx` | instantáneas de `archive.org` (Windows 7 Home Premium) | ninguna |
-| `win7x64-enterprise`, `win7x64-enterprise-esp`, `win7x64-enterprise-es-mx` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
-| `win7x86-enterprise`, `win7x86-enterprise-esp`, `win7x86-enterprise-es-mx` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
+| `win7x64-homepremium`, `win7x64-homepremium-esp` | instantáneas de `archive.org` (Windows 7 Home Premium) | ninguna |
+| `win7x86-homepremium`, `win7x86-homepremium-esp` | instantáneas de `archive.org` (Windows 7 Home Premium) | ninguna |
+| `win7x64-enterprise`, `win7x64-enterprise-esp` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
+| `win7x86-enterprise`, `win7x86-enterprise-esp` | instantáneas de `archive.org` (Windows 7 Enterprise) | ninguna |
 | `win7x64-sp1`, `win7x86-sp1` | instantáneas de `archive.org` (Windows 7 SP1) | ninguna |
 | `win-xp-pro-64` | instantánea de `archive.org` (Windows XP Professional x64 Edition SP2, inglés; Microsoft distribuyó x64 en inglés/japonés con paquetes MUI) | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` (Windows Vista **Enterprise** SP2) | ninguna |
@@ -301,12 +301,15 @@ XP Home Edition y Windows XP Professional están disponibles en inglés y españ
 `win-xp-pro-32-espa`).
 Estas no tienen checksums publicados.
 
-> **Español de México (`es-MX`) en Windows antiguos:** La época de Windows 2000 y
-> Windows XP se distribuyó como una **única versión en español** para todas las
-> regiones hispanohablantes; Microsoft no publicó una ISO `es-MX` aparte para
-> estas versiones. Por tanto, el locale `es-MX` solo se implementa para Windows 7,
-> Windows 8.1, Windows 10 y Windows 11, para los que Microsoft localizó por
-> separado España (`es-ES`) y México (`es-MX`).
+> **Disponibilidad del español de México (`es-MX`):** Windows hasta Windows 8.1
+> (incluida) se distribuyó como una **única versión en español** (`es-ES`) para
+> todas las regiones hispanohablantes; Microsoft no publicó una ISO `es-MX` aparte
+> para esas versiones. Por tanto, el locale `es-MX` solo se implementa para
+> **Windows 10 y Windows 11** (y sus ediciones Enterprise LTSC), para los que
+> Microsoft localizó por separado España (`es-ES`) y México (`es-MX`). Los
+> antiguos argumentos `win7*-es-mx` y `win81x64-pro-es-mx` se eliminaron porque no
+> existen medios es-MX genuinos (los items de archive.org a los que apuntaban
+> dejaron de estar disponibles).
 
 > Solo las ediciones de **consumidor** exponen SKUs localizados a través de esta
 > API. Los medios Evaluation Enterprise/Server son únicamente en inglés, tal como

@@ -62,16 +62,12 @@ archive_fallback_url() {
     case "$1-$2-$3" in
         7-en-US-x64) printf '%s' "https://archive.org/download/Win7_English_x64/Windows6.1-KB976002-X64.exe" ;;
         7-es-ES-x64) printf '%s' "https://archive.org/download/win7-espanol-x64/Windows6.1-KB976002-X64.es-es.iso" ;;
-        7-es-MX-x64) printf '%s' "https://archive.org/download/win7-es-mx-x64/Windows6.1-KB976002-X64.es-mx.iso" ;;
         7-en-US-x86) printf '%s' "https://archive.org/download/win7-english-x86/Windows6.1-KB976002-X86.exe" ;;
         7-es-ES-x86) printf '%s' "https://archive.org/download/win7-espanol-x86/Windows6.1-KB976002-X86.es-es.iso" ;;
-        7-es-MX-x86) printf '%s' "https://archive.org/download/win7-es-mx-x86/Windows6.1-KB976002-X86.es-mx.iso" ;;
         8-en-US-x64) printf '%s' "https://archive.org/download/Win8_English_x64/Windows8-Setup.exe" ;;
         8-es-ES-x64) printf '%s' "https://archive.org/download/win8-espanol-x64/Windows8-es-es.iso" ;;
-        8-es-MX-x64) printf '%s' "https://archive.org/download/win8-es-mx-x64/Windows8-es-mx.iso" ;;
         8-en-US-x86) printf '%s' "https://archive.org/download/win8-english-x86/Windows8-Setup-x86.exe" ;;
         8-es-ES-x86) printf '%s' "https://archive.org/download/win8-espanol-x86/Windows8-es-es.iso" ;;
-        8-es-MX-x86) printf '%s' "https://archive.org/download/win8-es-mx-x86/Windows8-es-mx.iso" ;;
         10-en-US-x64) printf '%s' "https://archive.org/download/Win10_22H2_English_x64v1/Win10_22H2_English_x64v1.iso" ;;
         10-en-US-x86) printf '%s' "https://archive.org/download/Win10_22H2_English_x32v1/Win10_22H2_English_x32v1.iso" ;;
         10-es-ES-x64) printf '%s' "https://archive.org/download/win10_22h2_spanish_x64v1.iso-20250331/Win10_22H2_Spanish_x64v1.iso" ;;
@@ -131,7 +127,6 @@ usage() {
     echo "  vista-x86-sp2-business-n (Vista Business N 32-bit, English)"
     echo "  win7x64-ultimate"
     echo "  win7x64-ultimate-esp (Spanish, official first then archive.org)"
-    echo "  win7x64-ultimate-es-mx (Mexican Spanish, official first then archive.org)"
     echo "  win81x64"
     echo "  win81x64-ent-32-espa (Spanish, archive.org)"
     echo "  win81x64-ent-64-esp (Spanish, archive.org)"
@@ -288,10 +283,8 @@ usage() {
 
 readonly win7x64_ultimate="win7x64-ultimate.iso"
 readonly win7x64_ultimate_esp="win7x64-ultimate-espanol.iso"
-readonly win7x64_ultimate_es_mx="win7x64-ultimate-es-mexico.iso"
 readonly win7x86_ultimate="win7x86-ultimate.iso"
 readonly win7x86_ultimate_esp="win7x86-ultimate-espanol.iso"
-readonly win7x86_ultimate_es_mx="win7x86-ultimate-es-mexico.iso"
 readonly vista_x64_sp1="vista-x64-sp1.iso"
 readonly vista_x86_sp1="vista-x86-sp1.iso"
 readonly vista_es_x64_sp1="vista-es-x64-sp1.iso"
@@ -392,30 +385,22 @@ readonly win_xp_pro_oem_espa="winxp-pro-oem-espa.iso"
 readonly win_xp_pro_retail_espa="winxp-pro-retail-espa.iso"
 readonly win7x64_pro="win7x64-pro.iso"
 readonly win7x64_pro_esp="win7x64-pro-espanol.iso"
-readonly win7x64_pro_es_mx="win7x64-pro-es-mexico.iso"
 readonly win7x86_pro="win7x86-pro.iso"
 readonly win7x86_pro_esp="win7x86-pro-espanol.iso"
-readonly win7x86_pro_es_mx="win7x86-pro-es-mexico.iso"
 readonly win7x64_homepremium="win7x64-homepremium.iso"
 readonly win7x64_homepremium_esp="win7x64-homepremium-espanol.iso"
-readonly win7x64_homepremium_es_mx="win7x64-homepremium-es-mexico.iso"
 readonly win7x86_homepremium="win7x86-homepremium.iso"
 readonly win7x86_homepremium_esp="win7x86-homepremium-espanol.iso"
-readonly win7x86_homepremium_es_mx="win7x86-homepremium-es-mexico.iso"
 readonly win7x64_enterprise="win7x64-enterprise.iso"
 readonly win7x64_enterprise_esp="win7x64-enterprise-espanol.iso"
-readonly win7x64_enterprise_es_mx="win7x64-enterprise-es-mexico.iso"
 readonly win7x86_enterprise="win7x86-enterprise.iso"
 readonly win7x86_enterprise_esp="win7x86-enterprise-espanol.iso"
-readonly win7x86_enterprise_es_mx="win7x86-enterprise-es-mexico.iso"
 readonly win7x64_sp1="win7x64-sp1.iso"
 readonly win7x86_sp1="win7x86-sp1.iso"
 readonly win81x64_pro="win81x64-pro.iso"
 readonly win81x64_pro_esp="win81x64-pro-espanol.iso"
-readonly win81x64_pro_es_mx="win81x64-pro-es-mexico.iso"
 readonly win81x86_pro="win81x86-pro.iso"
 readonly win81x86_pro_esp="win81x86-pro-espanol.iso"
-readonly win81x86_pro_es_mx="win81x86-pro-es-mexico.iso"
 readonly win2012r2_eval="win2012r2-eval.iso"
 readonly win2016_eval="win2016-eval.iso"
 readonly win2019_eval="win2019-eval.iso"
@@ -472,9 +457,6 @@ parse_args() {
                 ;;
             win7x64-ultimate-esp)
                 media_list="$media_list $win7x64_ultimate_esp"
-                ;;
-            win7x64-ultimate-es-mx)
-                media_list="$media_list $win7x64_ultimate_es_mx"
                 ;;
             vista-x64-sp2)
                 media_list="$media_list $vista_x64_sp2"
@@ -818,17 +800,11 @@ parse_args() {
             win7x64-pro-esp)
                 media_list="$media_list $win7x64_pro_esp"
                 ;;
-            win7x64-pro-es-mx)
-                media_list="$media_list $win7x64_pro_es_mx"
-                ;;
             win7x86-pro)
                 media_list="$media_list $win7x86_pro"
                 ;;
             win7x86-pro-esp)
                 media_list="$media_list $win7x86_pro_esp"
-                ;;
-            win7x86-pro-es-mx)
-                media_list="$media_list $win7x86_pro_es_mx"
                 ;;
             win7x64-homepremium)
                 media_list="$media_list $win7x64_homepremium"
@@ -836,17 +812,11 @@ parse_args() {
             win7x64-homepremium-esp)
                 media_list="$media_list $win7x64_homepremium_esp"
                 ;;
-            win7x64-homepremium-es-mx)
-                media_list="$media_list $win7x64_homepremium_es_mx"
-                ;;
             win7x86-homepremium)
                 media_list="$media_list $win7x86_homepremium"
                 ;;
             win7x86-homepremium-esp)
                 media_list="$media_list $win7x86_homepremium_esp"
-                ;;
-            win7x86-homepremium-es-mx)
-                media_list="$media_list $win7x86_homepremium_es_mx"
                 ;;
             win7x64-enterprise)
                 media_list="$media_list $win7x64_enterprise"
@@ -854,17 +824,11 @@ parse_args() {
             win7x64-enterprise-esp)
                 media_list="$media_list $win7x64_enterprise_esp"
                 ;;
-            win7x64-enterprise-es-mx)
-                media_list="$media_list $win7x64_enterprise_es_mx"
-                ;;
             win7x86-enterprise)
                 media_list="$media_list $win7x86_enterprise"
                 ;;
             win7x86-enterprise-esp)
                 media_list="$media_list $win7x86_enterprise_esp"
-                ;;
-            win7x86-enterprise-es-mx)
-                media_list="$media_list $win7x86_enterprise_es_mx"
                 ;;
             win81x64-pro)
                 media_list="$media_list $win81x64_pro"
@@ -872,17 +836,11 @@ parse_args() {
             win81x64-pro-esp)
                 media_list="$media_list $win81x64_pro_esp"
                 ;;
-            win81x64-pro-es-mx)
-                media_list="$media_list $win81x64_pro_es_mx"
-                ;;
             win81x86-pro)
                 media_list="$media_list $win81x86_pro"
                 ;;
             win81x86-pro-esp)
                 media_list="$media_list $win81x86_pro_esp"
-                ;;
-            win81x86-pro-es-mx)
-                media_list="$media_list $win81x86_pro_es_mx"
                 ;;
             win2012r2-eval)
                 media_list="$media_list $win2012r2_eval"
@@ -987,7 +945,7 @@ parse_args() {
                 media_list="$media_list $winframe"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp2_n $vista_x64_sp2_business_n $vista_x86_sp2_business_n $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win81x64 $win81x86 $win81x64_enterprise_eval $win81x64_enterprise_n_eval $win81x64_industry_enterprise_eval $win81x64_industry_pro_eval $win81x86_enterprise_eval $win81x86_enterprise_n_eval $win81x86_industry_enterprise_eval $win81x86_industry_pro_eval $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win30 $win30_espa $win31 $win31_espa $wfw31 $wfw31_espa $win311 $win311_espa $wfw311 $wfw311_espa $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x86_ultimate $win7x86_ultimate_esp $win7x64_homepremium $win7x64_homepremium_esp $win7x86_homepremium $win7x86_homepremium_esp $win7x64_enterprise $win7x64_enterprise_esp $win7x86_enterprise $win7x86_enterprise_esp $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp2_n $vista_x64_sp2_business_n $vista_x86_sp2_business_n $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win81x64 $win81x86 $win81x64_enterprise_eval $win81x64_enterprise_n_eval $win81x64_industry_enterprise_eval $win81x64_industry_pro_eval $win81x86_enterprise_eval $win81x86_enterprise_n_eval $win81x86_industry_enterprise_eval $win81x86_industry_pro_eval $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win30 $win30_espa $win31 $win31_espa $wfw31 $wfw31_espa $win311 $win311_espa $wfw311 $wfw311_espa $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -1429,12 +1387,6 @@ download_media() {
                 echo_info "Downloading Windows 7 Ultimate x86 Spanish..."
                 # Windows 7 Ultimate x86 Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_ultimate_x86/en_windows_7_ultimate_x86_dvd.iso"
-                ;;
-            "$win7x86_ultimate_es_mx")
-                echo_info "Downloading Windows 7 Ultimate x86 Mexican Spanish..."
-                # Windows 7 Ultimate x86 Mexican Spanish, archived on archive.org
-                # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_ultimate_x86/en_windows_7_ultimate_x86_dvd.iso"
                 ;;
             "$vista_x64_sp2")
@@ -1994,12 +1946,6 @@ download_media() {
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
                 ;;
-            "$win7x64_pro_es_mx")
-                echo_info "Downloading Windows 7 Professional Spanish (Mexican)..."
-                # Windows 7 Professional Mexican Spanish, archived on archive.org
-                # Using English ISO with Mexican Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
-                ;;
             "$win7x86_pro")
                 echo_info "Downloading Windows 7 Professional x86..."
                 # Windows 7 Professional x86, archived on archive.org
@@ -2010,12 +1956,6 @@ download_media() {
                 echo_info "Downloading Windows 7 Professional x86 Spanish (Español)..."
                 # Windows 7 Professional x86 Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-pro-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
-                ;;
-            "$win7x86_pro_es_mx")
-                echo_info "Downloading Windows 7 Professional x86 Spanish (Mexican)..."
-                # Windows 7 Professional x86 Mexican Spanish, archived on archive.org
-                # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-pro-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
             "$win7x64_homepremium")
@@ -2030,12 +1970,6 @@ download_media() {
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
                 ;;
-            "$win7x64_homepremium_es_mx")
-                echo_info "Downloading Windows 7 Home Premium Spanish (Mexican)..."
-                # Windows 7 Home Premium Mexican Spanish, archived on archive.org
-                # Using English ISO with Mexican Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
-                ;;
             "$win7x86_homepremium")
                 echo_info "Downloading Windows 7 Home Premium x86..."
                 # Windows 7 Home Premium x86, archived on archive.org
@@ -2046,12 +1980,6 @@ download_media() {
                 echo_info "Downloading Windows 7 Home Premium x86 Spanish (Español)..."
                 # Windows 7 Home Premium x86 Spanish, archived on archive.org
                 # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
-                ;;
-            "$win7x86_homepremium_es_mx")
-                echo_info "Downloading Windows 7 Home Premium x86 Spanish (Mexican)..."
-                # Windows 7 Home Premium x86 Mexican Spanish, archived on archive.org
-                # Using English ISO with Mexican Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
             "$win7x64_enterprise")
@@ -2066,12 +1994,6 @@ download_media() {
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
                 ;;
-            "$win7x64_enterprise_es_mx")
-                echo_info "Downloading Windows 7 Enterprise Spanish (Mexican)..."
-                # Windows 7 Enterprise Mexican Spanish, archived on archive.org
-                # Using English ISO with Mexican Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
-                ;;
             "$win7x86_enterprise")
                 echo_info "Downloading Windows 7 Enterprise x86..."
                 # Windows 7 Enterprise x86, archived on archive.org
@@ -2084,12 +2006,6 @@ download_media() {
                 # Using English ISO with Spanish locale suffix
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
                 ;;
-            "$win7x86_enterprise_es_mx")
-                echo_info "Downloading Windows 7 Enterprise x86 Spanish (Mexican)..."
-                # Windows 7 Enterprise x86 Mexican Spanish, archived on archive.org
-                # Using English ISO with Mexican Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
-                ;;
             "$win81x64_pro")
                 echo_info "Downloading Windows 8.1 Pro..."
                 # Windows 8.1 Pro - Consumer JSON API first, archive.org fallback
@@ -2100,11 +2016,6 @@ download_media() {
                 echo_info "Downloading Windows 8.1 Pro Spanish (Spain)..."
                 # Windows 8.1 Pro Spanish - Microsoft official first, archive.org fallback
                 consumer_download_or_archive "$media" 8 "es-ES" "$(archive_fallback_url 8 es-ES x64)"
-                ;;
-            "$win81x64_pro_es_mx")
-                echo_info "Downloading Windows 8.1 Pro Spanish (Mexico)..."
-                # Windows 8.1 Pro Spanish Mexican - Microsoft official first, archive.org fallback
-                consumer_download_or_archive "$media" 8 "es-MX" "$(archive_fallback_url 8 es-MX x64)"
                 ;;
             "$win2012r2_eval")
                 echo_info "Downloading Windows Server 2012 R2 Evaluation..."

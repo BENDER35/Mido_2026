@@ -80,7 +80,7 @@ Different media families are fetched in different ways:
 | `win10x64`, `win11x64` | Consumer JSON API | Sentinel handshake |
 | `win10x64-esp`, `win10x64-es-mx`, `win11x64-esp`, `win11x64-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win10x86` (x86 English and Spanish), `win10x86-esp`, `win10x86-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
-| `win7x64-ultimate-esp`, `win7x64-ultimate-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
+| `win7x64-ultimate-esp` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win81x64` | Consumer JSON API | Retired (HTTP 404) |
 | `win81x64-ent-32-espa`, `win81x64-ent-64-esp` | `archive.org` snapshots | none |
 | `win2000-advanced-server`, `win2000-advanced-server-espa` | `archive.org` snapshots | none |
@@ -93,14 +93,14 @@ Different media families are fetched in different ways:
 | `win-xp-pro`, `win-xp-pro-espa`, `win-xp-pro-32-espa` | `archive.org` snapshots (Windows XP Professional, English and Spanish) | none |
 | `win-xp-home`, `win-xp-home-espa`, `win-xp-home-oem`, `win-xp-home-retail`, `win-xp-home-oem-espa`, `win-xp-home-retail-espa`, `win-xp-pro-oem`, `win-xp-pro-retail`, `win-xp-pro-oem-espa`, `win-xp-pro-retail-espa` | `archive.org` snapshots (Windows XP Home/Professional, OEM/Retail channels, English and Spanish) | none |
 | `win-xp-pro-64` | `archive.org` snapshot (Windows XP Professional x64 Edition SP2, English; Microsoft shipped x64 as English/Japanese with MUI language packs) | none |
-| `win7x64-pro`, `win7x64-pro-esp`, `win7x64-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
-| `win7x86-pro`, `win7x86-pro-esp`, `win7x86-pro-es-mx` | `archive.org` snapshots (Windows 7 Professional) | none |
-| `win7x64-homepremium`, `win7x64-homepremium-esp`, `win7x64-homepremium-es-mx` | `archive.org` snapshots (Windows 7 Home Premium) | none |
-| `win7x86-homepremium`, `win7x86-homepremium-esp`, `win7x86-homepremium-es-mx` | `archive.org` snapshots (Windows 7 Home Premium) | none |
-| `win7x64-enterprise`, `win7x64-enterprise-esp`, `win7x64-enterprise-es-mx` | `archive.org` snapshots (Windows 7 Enterprise) | none |
-| `win7x86-enterprise`, `win7x86-enterprise-esp`, `win7x86-enterprise-es-mx` | `archive.org` snapshots (Windows 7 Enterprise) | none |
+| `win7x64-pro`, `win7x64-pro-esp` | `archive.org` snapshots (Windows 7 Professional) | none |
+| `win7x86-pro`, `win7x86-pro-esp` | `archive.org` snapshots (Windows 7 Professional) | none |
+| `win7x64-homepremium`, `win7x64-homepremium-esp` | `archive.org` snapshots (Windows 7 Home Premium) | none |
+| `win7x86-homepremium`, `win7x86-homepremium-esp` | `archive.org` snapshots (Windows 7 Home Premium) | none |
+| `win7x64-enterprise`, `win7x64-enterprise-esp` | `archive.org` snapshots (Windows 7 Enterprise) | none |
+| `win7x86-enterprise`, `win7x86-enterprise-esp` | `archive.org` snapshots (Windows 7 Enterprise) | none |
 | `win7x64-sp1`, `win7x86-sp1` | `archive.org` snapshots (Windows 7 SP1) | none |
-| `win81x64-pro`, `win81x64-pro-esp`, `win81x64-pro-es-mx` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
+| `win81x64-pro`, `win81x64-pro-esp` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake (official) |
 | `win10x64-enterprise-eval`, `win10x86-enterprise-eval`, `win11x64-enterprise-eval`, `win10x64-enterprise-ltsc-eval`, `win11x64-enterprise-ltsc-eval` | `archive.org` snapshots | none |
 | `win11x64-iot-enterprise-ltsc-eval` | Direct `software-static.download.prss.microsoft.com` URL | none |
 | `win11x64-iot-enterprise-26h2` | `archive.org` snapshot (Windows 11 IoT Enterprise, annual channel 26H2, English only) | none |
@@ -120,7 +120,7 @@ Different media families are fetched in different ways:
 | `win2025-enterprise-64`, `win2025-datacenter-64` | `archive.org` snapshots (64-bit only) | none |
 | `win2025-enterprise-64-esp`, `win2025-datacenter-64-esp` | `archive.org` snapshots Spanish (64-bit only) | none |
 | `win7x64-ultimate` | Consumer JSON API first, `archive.org` fallback | Sentinel handshake |
-| `win7x86-ultimate`, `win7x86-ultimate-esp`, `win7x86-ultimate-es-mx` | `archive.org` snapshots (Windows 7 Ultimate) | none |
+| `win7x86-ultimate`, `win7x86-ultimate-esp` | `archive.org` snapshots (Windows 7 Ultimate) | none |
 | `vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1` | `archive.org` snapshots | none |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots (Windows Vista **Enterprise** SP2) | none |
 | `vista_x64_sp2_n`, `vista_x64_sp2_business_n`, `vista_x86_sp2_business_n` | `archive.org` snapshots (Windows Vista **N** SP2: N all-in-one x64 = Home Basic N + Business N, and Business N x64/x86; English only) | none |
@@ -319,15 +319,17 @@ XP Home Edition and Windows XP Professional are available in English and Spanish
 `win-xp-pro-32-espa`).
 These have no published checksums.
 
-> **Mexican Spanish (`es-MX`) for legacy Windows:** The Windows 2000 and Windows
-> XP era shipped a **single Spanish build** for all Spanish-speaking regions;
-> Microsoft did not publish a separate `es-MX` ISO for these versions. The `es-MX`
-> locale is therefore only implemented for Windows 7, Windows 8.1, Windows 10 and
-> Windows 11, for which Microsoft localized Spain (`es-ES`) and Mexico (`es-MX`)
-> separately.
+> **Mexican Spanish (`es-MX`) availability:** Windows up to and including Windows
+> 8.1 shipped a **single Spanish build** (`es-ES`) for all Spanish-speaking
+> regions; Microsoft did not publish a separate `es-MX` ISO for those versions.
+> The `es-MX` locale is therefore only implemented for **Windows 10 and Windows
+> 11** (and their Enterprise LTSC editions), for which Microsoft localized Spain
+> (`es-ES`) and Mexico (`es-MX`) separately. The former `win7*-es-mx` and
+> `win81x64-pro-es-mx` arguments were removed because no genuine es-MX media
+> exists (the archive.org items they referenced went dark).
 
 Windows 8.1 Pro ISOs are also available via the Consumer JSON API first, with
-`archive.org` fallback for Spanish variants (`win81x64-pro-esp`, `win81x64-pro-es-mx`).
+`archive.org` fallback for the Spanish (Spain) variant (`win81x64-pro-esp`).
 > Only the **consumer** editions expose localized SKUs through this API.
 > Enterprise/Server evaluation media is English-only, as published by Microsoft,
 > so `enterprise_eval_download` intentionally stays on `en-US`.

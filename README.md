@@ -243,10 +243,8 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `vista-x86-sp2-business-n` | Windows Vista Business N SP2 x86 (English, sourced from archive.org) |
 | `win7x64-ultimate` | Windows 7 Ultimate x64 (sourced from the Wayback Machine) |
 | `win7x64-ultimate-esp` | Windows 7 Ultimate x64 Spanish — Microsoft official first, archive.org fallback |
-| `win7x64-ultimate-es-mx` | Windows 7 Ultimate x64 Mexican Spanish — Microsoft official first, archive.org fallback |
 | `win7x86-ultimate` | Windows 7 Ultimate x86 (32-bit, sourced from archive.org) |
 | `win7x86-ultimate-esp` | Windows 7 Ultimate x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
-| `win7x86-ultimate-es-mx` | Windows 7 Ultimate x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win81x64` | Windows 8.1 x64 (**retired by Microsoft**, use the Enterprise Eval) |
 | `win81x64-ent-32-espa` | Windows 8.1 Enterprise 32-bit Spanish (sourced from archive.org) |
 | `win81x64-ent-64-esp` | Windows 8.1 Enterprise 64-bit Spanish (sourced from archive.org) |
@@ -323,30 +321,22 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `win-xp-pro-retail-espa` | Windows XP Professional SP1 Retail Spanish (sourced from archive.org) |
 | `win7x64-pro` | Windows 7 Professional x64 (sourced from archive.org) |
 | `win7x64-pro-esp` | Windows 7 Professional x64 Spanish — Microsoft official first, archive.org fallback |
-| `win7x64-pro-es-mx` | Windows 7 Professional x64 Mexican Spanish — Microsoft official first, archive.org fallback |
 | `win7x86-pro` | Windows 7 Professional x86 (32-bit, sourced from archive.org) |
 | `win7x86-pro-esp` | Windows 7 Professional x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
-| `win7x86-pro-es-mx` | Windows 7 Professional x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win7x64-homepremium` | Windows 7 Home Premium x64 (sourced from archive.org) |
 | `win7x64-homepremium-esp` | Windows 7 Home Premium x64 Spanish — Microsoft official first, archive.org fallback |
-| `win7x64-homepremium-es-mx` | Windows 7 Home Premium x64 Mexican Spanish — Microsoft official first, archive.org fallback |
 | `win7x86-homepremium` | Windows 7 Home Premium x86 (32-bit, sourced from archive.org) |
 | `win7x86-homepremium-esp` | Windows 7 Home Premium x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
-| `win7x86-homepremium-es-mx` | Windows 7 Home Premium x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win7x64-enterprise` | Windows 7 Enterprise x64 (sourced from archive.org) |
 | `win7x64-enterprise-esp` | Windows 7 Enterprise x64 Spanish — Microsoft official first, archive.org fallback |
-| `win7x64-enterprise-es-mx` | Windows 7 Enterprise x64 Mexican Spanish — Microsoft official first, archive.org fallback |
 | `win7x86-enterprise` | Windows 7 Enterprise x86 (32-bit, sourced from archive.org) |
 | `win7x86-enterprise-esp` | Windows 7 Enterprise x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
-| `win7x86-enterprise-es-mx` | Windows 7 Enterprise x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win7x64-sp1` | Windows 7 SP1 x64 (sourced from archive.org) |
 | `win7x86-sp1` | Windows 7 SP1 x86 (32-bit, sourced from archive.org) |
 | `win81x64-pro` | Windows 8.1 Pro x64 — Microsoft retired automation, use archive.org |
 | `win81x64-pro-esp` | Windows 8.1 Pro Spanish (Spain) — Microsoft official first, archive.org fallback |
-| `win81x64-pro-es-mx` | Windows 8.1 Pro Spanish (Mexico) — Microsoft official first, archive.org fallback |
 | `win81x86-pro` | Windows 8.1 Pro x86 (32-bit, sourced from archive.org) |
 | `win81x86-pro-esp` | Windows 8.1 Pro x86 Spanish (32-bit) — Microsoft official first, archive.org fallback |
-| `win81x86-pro-es-mx` | Windows 8.1 Pro x86 Mexican Spanish (32-bit) — Microsoft official first, archive.org fallback |
 | `win2003-server` | Windows Server 2003 Enterprise (x86, English, sourced from archive.org) |
 | `win2003-server-espa` | Windows Server 2003 Enterprise (x86, Spanish, sourced from archive.org) |
 | `win2003-server-x64` | Windows Server 2003 R2 Enterprise x64 SP2 (English, sourced from archive.org) |
@@ -445,12 +435,11 @@ ISOs (`vista-x64-sp2-business-n`, `vista-x86-sp2-business-n`). Note that
 available on archive.org, so no `-es`/`-es-mx` N arguments are offered.
 Windows 7 SP1 Spanish ISOs (`win7x64-sp1`, `win7x86-sp1`) are also available
 via archive.org.
-Windows 7 Ultimate Spanish ISOs (`win7x64-ultimate-esp`, `win7x64-ultimate-es-mx`)
-are also available via Microsoft official first, then archive.org fallback.
+Windows 7 Ultimate Spanish ISOs (`win7x64-ultimate-esp`) are also available via
+Microsoft official first, then archive.org fallback.
 Windows 2000 Professional, Windows XP Professional, Windows XP Home Edition and
 Windows 7 Professional Spanish ISOs are also available via archive.org. Windows 8.1 Pro Spanish ISOs
-are also available via archive.org for both Spain (`win81x64-pro-esp`) and Mexico
-(`win81x64-pro-es-mx`). Enterprise, Server and Evaluation media are otherwise
+are also available via archive.org for Spain (`win81x64-pro-esp`). Enterprise, Server and Evaluation media are otherwise
 English-only, as published by Microsoft. Non-English ISOs are written with a locale
 suffix (e.g. `win11x64.es-MX.iso`) or a `-espa`/`-esp`/`-es-mexico` filename as
 appropriate, so they never overwrite the English ones. Because Microsoft does not
@@ -467,12 +456,16 @@ Windows XP Home Edition and Windows XP Professional are available in English and
 Spanish (`win-xp-home`, `win-xp-home-espa`, `win-xp-pro`, `win-xp-pro-espa`,
 `win-xp-pro-32-espa`).
 
-> **Note on Mexican Spanish for legacy Windows:** Windows 2000 and Windows XP
-> were published by Microsoft as a **single Spanish build** that serves all
-> Spanish-speaking regions (there is no separate es-MX ISO for these versions).
-> Mexican Spanish (`es-MX`) is only offered for the versions for which Microsoft
-> actually localized it separately: Windows 7, Windows 8.1, Windows 10 and
-> Windows 11 (`-es-mx` arguments and `MIDO_LANG=es-MX`).
+> **Note on Mexican Spanish availability:** Microsoft only localized Windows to a
+> separate Mexican Spanish (`es-MX`) build starting with **Windows 10**. Earlier
+> releases (Windows 3.x, 95, 98, Me, NT, 2000, XP, Vista, Windows 7 and Windows
+> 8/8.1) were published with a **single Spanish build** (`es-ES`) that serves all
+> Spanish-speaking regions, so no `-es-mx` arguments are offered for them. The
+> genuine `-es-mx` arguments (and `MIDO_LANG=es-MX`) therefore exist only for
+> Windows 10, Windows 11 and their Enterprise LTSC editions, for which Microsoft
+> actually published separate Spanish (Mexico) media. The former Windows 7 and
+> Windows 8.1 `-es-mx` arguments were removed because the archive.org mirrors of
+> those (never-official) builds went dark.
 
 The retro releases (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`,
 `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `backoffice`,
