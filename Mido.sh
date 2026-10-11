@@ -60,9 +60,9 @@ locale_to_api_language() {
 # Arguments: windows version (7/8/10/11), locale (en-US/es-ES/es-MX), architecture (x64/x86)
 archive_fallback_url() {
     case "$1-$2-$3" in
-        7-en-US-x64) printf '%s' "https://archive.org/download/Win7_English_x64/Windows6.1-KB976002-X64.exe" ;;
+        7-en-US-x64) printf '%s' "https://archive.org/download/en_windows_7_ultimate_with_sp1_dvd/en_windows_7_ultimate_with_sp1_x64_dvd_u_677332.iso" ;;
         7-es-ES-x64) printf '%s' "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x64_dvd_u_677350.iso" ;;
-        7-en-US-x86) printf '%s' "https://archive.org/download/win7-english-x86/Windows6.1-KB976002-X86.exe" ;;
+        7-en-US-x86) printf '%s' "https://archive.org/download/en_windows_7_ultimate_with_sp1_dvd/en_windows_7_ultimate_with_sp1_x86_dvd_u_677460.iso" ;;
         7-es-ES-x86) printf '%s' "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x86_dvd_u_677462.iso" ;;
         8-en-US-x64) printf '%s' "https://archive.org/download/en_windows_8.1_x64_dvd_2707217/en_windows_8.1_x64_dvd_2707217.iso" ;;
         8-es-ES-x64) printf '%s' "https://archive.org/download/Win81CoreProESP/es_windows_8_1_x64_dvd_2707379.iso" ;;
@@ -173,13 +173,13 @@ usage() {
     echo "  win81x64 (Windows 8.1 x64, archive.org)"
     echo "  win81x86 (Windows 8.1 x86 32-bit, archive.org)"
     echo "  win81x64-enterprise-eval (Windows 8.1 Enterprise Evaluation)"
-    echo "  win81x64-enterprise-n-eval (Windows 8.1 N Evaluation)"
-    echo "  win81x64-industry-enterprise-eval (Windows 8.1 Industry Enterprise Evaluation)"
-    echo "  win81x64-industry-pro-eval (Windows 8.1 Industry Professional Evaluation)"
+    echo "  win81x64-enterprise-n-eval (Windows 8.1 Enterprise N x64, archive.org)"
+    echo "  win81x64-industry-enterprise-eval (Windows Embedded 8.1 Industry Enterprise x64, archive.org)"
+    echo "  win81x64-industry-pro-eval (Windows Embedded 8.1 Industry Pro x64, archive.org)"
     echo "  win81x86-enterprise-eval (Windows 8.1 Enterprise Evaluation 32-bit)"
-    echo "  win81x86-enterprise-n-eval (Windows 8.1 N Evaluation 32-bit)"
-    echo "  win81x86-industry-enterprise-eval (Windows 8.1 Industry Enterprise Evaluation 32-bit)"
-    echo "  win81x86-industry-pro-eval (Windows 8.1 Industry Professional Evaluation 32-bit)"
+    echo "  win81x86-enterprise-n-eval (Windows 8.1 Enterprise N x86, archive.org)"
+    echo "  win81x86-industry-enterprise-eval (Windows Embedded 8.1 Industry Enterprise x86, archive.org)"
+    echo "  win81x86-industry-pro-eval (Windows Embedded 8.1 Industry Pro x86, archive.org)"
     echo "  win2008r2-espa (Spanish, archive.org)"
     echo "  win2008-server-x64 (SP2, archive.org)"
     echo "  win2008-server-x64-espa (SP2 Spanish, archive.org)"
@@ -1356,7 +1356,9 @@ download_media() {
                 ;;
             "$win7x86_ultimate")
                 echo_info "Downloading Windows 7 Ultimate x86..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_ultimate_x86/en_windows_7_ultimate_x86_dvd.iso"
+                # Windows 7 Ultimate SP1 x86 (English), MSDN, archived on archive.org
+                # Source: https://archive.org/details/en_windows_7_ultimate_with_sp1_dvd
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_7_ultimate_with_sp1_dvd/en_windows_7_ultimate_with_sp1_x86_dvd_u_677460.iso"
                 ;;
             "$win7x86_ultimate_esp")
                 echo_info "Downloading Windows 7 Ultimate x86 Spanish (Español)..."
@@ -1419,11 +1421,15 @@ download_media() {
                 ;;
             "$win7x64_sp1")
                 echo_info "Downloading Windows 7 SP1 x64..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_sp1_x64/en_windows_7_sp1_x64_dvd.iso"
+                # Windows 7 SP1 All-in-One x64 English, archived on archive.org
+                # Source: https://archive.org/details/win7_english_x64_202605
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win7_english_x64_202605/en_windows_7_aio_with_sp1_x64_dvd.iso"
                 ;;
             "$win7x86_sp1")
                 echo_info "Downloading Windows 7 SP1 x86..."
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_sp1_x86/en_windows_7_sp1_x86_dvd.iso"
+                # Windows 7 SP1 All-in-One x86 English, archived on archive.org
+                # Source: https://archive.org/details/win7_english_x32_202604
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win7_english_x32_202604/en_windows_7_aio_with_sp1_x86_dvd.iso"
                 ;;
             "$win81x64")
                 echo_info "Downloading Windows 8.1..."
@@ -1494,6 +1500,47 @@ download_media() {
                 # Old source, used to be here but Microsoft deleted it: http://technet.microsoft.com/en-us/evalcenter/hh699156.aspx
                 # Source: https://gist.github.com/eyecatchup/11527136b23039a0066f
                 scurl_file "$(localized_media "$media")" "1.2" "https://download.microsoft.com/download/B/9/9/B999286E-0A47-406D-8B3D-5B5AD7373A4A/9600.17050.WINBLUE_REFRESH.140317-1640_X64FRE_ENTERPRISE_EVAL_EN-US-IR3_CENA_X64FREE_EN-US_DV9.ISO"
+                ;;
+            "$win81x86_enterprise_eval")
+                echo_info "Downloading Windows 8.1 Enterprise Evaluation 32-bit..."
+                # Windows 8.1 Enterprise Evaluation x86, official Microsoft download
+                scurl_file "$(localized_media "$media")" "1.2" "https://download.microsoft.com/download/B/9/9/B999286E-0A47-406D-8B3D-5B5AD7373A4A/9600.17050.WINBLUE_REFRESH.140317-1640_X86FRE_ENTERPRISE_EVAL_EN-US-IR3_CENA_X86FREE_EN-US_DV9.ISO"
+                ;;
+            "$win81x64_enterprise_n_eval")
+                echo_info "Downloading Windows 8.1 Enterprise N x64..."
+                # Microsoft retired the 8.1 N Evaluation; use the live Windows 8.1 Enterprise N x64 ISO
+                # Source: https://archive.org/details/en-gb_windows_8_1_enterprise_n_x64_dvd_2971847
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en-gb_windows_8_1_enterprise_n_x64_dvd_2971847/en-gb_windows_8_1_enterprise_n_x64_dvd_2971847.iso"
+                ;;
+            "$win81x86_enterprise_n_eval")
+                echo_info "Downloading Windows 8.1 Enterprise N x86..."
+                # Microsoft retired the 8.1 N Evaluation; use the live Windows 8.1 Enterprise N x86 ISO
+                # Source: https://archive.org/details/en-gb_windows_8_1_enterprise_n_x86_dvd_2971852
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en-gb_windows_8_1_enterprise_n_x86_dvd_2971852/en-gb_windows_8_1_enterprise_n_x86_dvd_2971852.iso"
+                ;;
+            "$win81x64_industry_enterprise_eval")
+                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation..."
+                # Microsoft retired the 8.1 Industry Evaluation; use Windows Embedded 8.1 Industry Enterprise x64
+                # Source: https://archive.org/details/en_windows_embedded_8.1_industry_enterprise_with_update_x64_dvd_6052160
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_embedded_8.1_industry_enterprise_with_update_x64_dvd_6052160/en_windows_embedded_8.1_industry_enterprise_with_update_x64_dvd_6052160.iso"
+                ;;
+            "$win81x86_industry_enterprise_eval")
+                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation 32-bit..."
+                # Microsoft retired the 8.1 Industry Evaluation; use Windows Embedded 8.1 Industry Enterprise x86
+                # Source: https://archive.org/details/en_windows_embedded_8.1_industry_enterprise_with_update_x86_dvd_6052252
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_embedded_8.1_industry_enterprise_with_update_x86_dvd_6052252/en_windows_embedded_8.1_industry_enterprise_with_update_x86_dvd_6052252.iso"
+                ;;
+            "$win81x64_industry_pro_eval")
+                echo_info "Downloading Windows 8.1 Industry Professional Evaluation..."
+                # Microsoft retired the 8.1 Industry Evaluation; use Windows Embedded 8.1 Industry Pro x64
+                # Source: https://archive.org/details/en_windows_embedded_8.1_industry_pro_with_update_x64_dvd_6052086_202107
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_embedded_8.1_industry_pro_with_update_x64_dvd_6052086_202107/en_windows_embedded_8.1_industry_pro_with_update_x64_dvd_6052086.iso"
+                ;;
+            "$win81x86_industry_pro_eval")
+                echo_info "Downloading Windows 8.1 Industry Professional Evaluation 32-bit..."
+                # Microsoft retired the 8.1 Industry Evaluation; use Windows Embedded 8.1 Industry Pro x86
+                # Source: https://archive.org/details/en_windows_embedded_8_1_industry_pro_x86_dvd_2707505
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_embedded_8_1_industry_pro_x86_dvd_2707505/en_windows_embedded_8_1_industry_pro_x86_dvd_2707505.iso"
                 ;;
             "$win10x64_enterprise_eval")
                 echo_info "Downloading Windows 10 Enterprise Evaluation..."
@@ -1714,46 +1761,6 @@ download_media() {
                 # Windows 8.1 x86 32-bit - Microsoft official first, archive.org fallback
                 consumer_download_or_archive "$(localized_media "$media")" 8 "$MIDO_LANG" "$(archive_fallback_url 8 "$MIDO_LANG" x86)" x86
                 ;;
-            "$win81x64-enterprise-eval")
-                echo_info "Downloading Windows 8.1 Enterprise Evaluation..."
-                # Windows 8.1 Enterprise Evaluation (retired by Microsoft)
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-enterprise-eval/win81x64-enterprise-eval.iso"
-                ;;
-            "$win81x64-enterprise-n-eval")
-                echo_info "Downloading Windows 8.1 N Evaluation..."
-                # Windows 8.1 N Evaluation (without Media Player, for EU markets)
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-enterprise-n-eval/win81x64-enterprise-n-eval.iso"
-                ;;
-            "$win81x64-industry-enterprise-eval")
-                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation..."
-                # Windows 8.1 Industry Enterprise Evaluation
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-industry-enterprise-eval/win81x64-industry-enterprise-eval.iso"
-                ;;
-            "$win81x64-industry-pro-eval")
-                echo_info "Downloading Windows 8.1 Industry Professional Evaluation..."
-                # Windows 8.1 Industry Professional Evaluation
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x64-industry-pro-eval/win81x64-industry-pro-eval.iso"
-                ;;
-            "$win81x86-enterprise-eval")
-                echo_info "Downloading Windows 8.1 Enterprise Evaluation 32-bit..."
-                # Windows 8.1 Enterprise Evaluation 32-bit
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-enterprise-eval/win81x86-enterprise-eval.iso"
-                ;;
-            "$win81x86-enterprise-n-eval")
-                echo_info "Downloading Windows 8.1 N Evaluation 32-bit..."
-                # Windows 8.1 N Evaluation 32-bit
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-enterprise-n-eval/win81x86-enterprise-n-eval.iso"
-                ;;
-            "$win81x86-industry-enterprise-eval")
-                echo_info "Downloading Windows 8.1 Industry Enterprise Evaluation 32-bit..."
-                # Windows 8.1 Industry Enterprise Evaluation 32-bit
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-industry-enterprise-eval/win81x86-industry-enterprise-eval.iso"
-                ;;
-            "$win81x86-industry-pro-eval")
-                echo_info "Downloading Windows 8.1 Industry Professional Evaluation 32-bit..."
-                # Windows 8.1 Industry Professional Evaluation 32-bit
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win81x86-industry-pro-eval/win81x86-industry-pro-eval.iso"
-                ;;
             "$win2000_server")
                 echo_info "Downloading Windows 2000 Server SP4..."
                 # Windows 2000 Server SP4 (retail), archived on archive.org
@@ -1761,9 +1768,10 @@ download_media() {
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win_2000_server_sp4_english_202605/Windows2000ServerSP4.ISO"
                 ;;
             "$win2000_advanced_server")
-                echo_info "Downloading Windows 2000 Advanced Server SP1..."
-                # Windows 2000 Advanced Server SP1, archived on archive.org
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win_2000_advanced_server_sp1/Windows2000AdvServerSP1.iso"
+                echo_info "Downloading Windows 2000 Advanced Server SP4..."
+                # Windows 2000 Advanced Server SP4 (retail, English), archived on archive.org
+                # Source: https://archive.org/details/windows-2000-advanced-server-sp-4_202508
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-2000-advanced-server-sp-4_202508/Windows%202000%20Advanced%20Server%20SP4.iso"
                 ;;
             "$win2000_server_espa")
                 echo_info "Downloading Windows 2000 Server SP4 Spanish (Español)..."
@@ -1772,9 +1780,10 @@ download_media() {
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-srv-sp4-esp/W2K-SRV-SP4-ESP.ISO"
                 ;;
             "$win2000_advanced_server_espa")
-                echo_info "Downloading Windows 2000 Advanced Server SP1 Spanish (Español)..."
-                # Windows 2000 Advanced Server SP1 in Spanish, archived on archive.org
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-adv-srv-sp1-esp/es_Windows2000AdvServerSP1_ES.iso"
+                echo_info "Downloading Windows 2000 Advanced Server SP4 Spanish (Español)..."
+                # Windows 2000 Advanced Server SP4 in Spanish, archived on archive.org
+                # Source: https://archive.org/details/w2k-advsrv-sp4-esp
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/w2k-advsrv-sp4-esp/W2K-ASERV-ESP.iso"
                 ;;
             "$win2000_datacenter")
                 echo_info "Downloading Windows 2000 Datacenter Server RTM OEM (SP1)..."
@@ -1791,8 +1800,8 @@ download_media() {
             "$win2000_pro")
                 echo_info "Downloading Windows 2000 Professional SP4..."
                 # Windows 2000 Professional SP4, archived on archive.org
-                # Source: https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/enwin2000prosp4_202001/en_win2000prosp4.iso"
+                # Source: https://archive.org/details/enwin2000prosp4_202001
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/enwin2000prosp4_202001/EN_WIN2000_PRO_SP4.ISO"
                 ;;
             "$win2000_pro_espa")
                 echo_info "Downloading Windows 2000 Professional SP4 Spanish (Español)..."
@@ -1826,9 +1835,9 @@ download_media() {
                 ;;
             "$win_xp_pro")
                 echo_info "Downloading Windows XP Professional SP3..."
-                # Windows XP Professional SP3, archived on archive.org
-                # Source: https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/xpsp3_5512.080413-2113_usa_x86fre_spcd_202507/en_windows_xp_professional_with_sp3.iso"
+                # Windows XP Professional with Service Pack 3 x86 (English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_xp_pro_sp3
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_xp_pro_sp3/en_windows_xp_professional_with_service_pack_3_x86_cd_vl_x14-73974.iso"
                 ;;
             "$win_xp_pro_espa")
                 echo_info "Downloading Windows XP Professional SP3 Spanish (Español)..."
@@ -1839,9 +1848,9 @@ download_media() {
                 ;;
             "$win_xp_pro_32")
                 echo_info "Downloading Windows XP Professional x86..."
-                # Windows XP Professional x86, archived on archive.org
-                # Source: https://archive.org/download/WinXPProSP3x86/WinXPProSP3x86.ISO
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/WinXPProSP3x86/WinXPProSP3x86.ISO"
+                # Windows XP Professional with Service Pack 3 x86 (English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428_202501
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428_202501/en_windows_xp_professional_with_service_pack_3_x86_cd_x14-80428.iso"
                 ;;
             "$win_xp_pro_32_espa")
                 echo_info "Downloading Windows XP Professional x86 SP3 Spanish (Español)..."
@@ -1918,9 +1927,9 @@ download_media() {
                 ;;
             "$win7x64_pro")
                 echo_info "Downloading Windows 7 Professional..."
-                # Windows 7 Professional, archived on archive.org
-                # Source: https://archive.org/details/Win7ProRTMx64
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
+                # Windows 7 Professional SP1 x64 (English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_7_professional_with_sp1_x64_dvd_u_676939_202504
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_7_professional_with_sp1_x64_dvd_u_676939_202504/en_windows_7_professional_with_sp1_x64_dvd_u_676939.iso"
                 ;;
             "$win7x64_pro_esp")
                 echo_info "Downloading Windows 7 Professional Spanish (Español)..."
@@ -1930,9 +1939,9 @@ download_media() {
                 ;;
             "$win7x86_pro")
                 echo_info "Downloading Windows 7 Professional x86..."
-                # Windows 7 Professional x86, archived on archive.org
-                # Source: https://archive.org/details/win-7-pro-32-64-iso
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-pro-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                # Windows 7 Professional SP1 x86 (English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_7_professional_with_sp1_x64_dvd_u_676939_202504
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_7_professional_with_sp1_x64_dvd_u_676939_202504/en_windows_7_professional_with_sp1_x86_dvd_u_677056.iso"
                 ;;
             "$win7x86_pro_esp")
                 echo_info "Downloading Windows 7 Professional x86 Spanish (Español)..."
@@ -1942,9 +1951,9 @@ download_media() {
                 ;;
             "$win7x64_homepremium")
                 echo_info "Downloading Windows 7 Home Premium..."
-                # Windows 7 Home Premium, archived on archive.org
-                # Source: https://archive.org/details/Win7HomePremiumx64
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
+                # Windows 7 Home Premium SP1 x64 (English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_7_home_premium_with_sp1_x64_dvd_u_676549_202211
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_7_home_premium_with_sp1_x64_dvd_u_676549_202211/en_windows_7_home_premium_with_sp1_x64_dvd_u_676549.iso"
                 ;;
             "$win7x64_homepremium_esp")
                 echo_info "Downloading Windows 7 Home Premium Spanish (Español)..."
@@ -1954,9 +1963,9 @@ download_media() {
                 ;;
             "$win7x86_homepremium")
                 echo_info "Downloading Windows 7 Home Premium x86..."
-                # Windows 7 Home Premium x86, archived on archive.org
-                # Source: https://archive.org/details/win-7-homepremium-32-64-iso
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                # Windows 7 Home Premium SP1 x86 (English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_7_home_premium_with_sp1_x86_dvd_u_676701_202006
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_7_home_premium_with_sp1_x86_dvd_u_676701_202006/en_windows_7_home_premium_with_sp1_x86_dvd_u_676701.iso"
                 ;;
             "$win7x86_homepremium_esp")
                 echo_info "Downloading Windows 7 Home Premium x86 Spanish (Español)..."
@@ -1966,9 +1975,9 @@ download_media() {
                 ;;
             "$win7x64_enterprise")
                 echo_info "Downloading Windows 7 Enterprise..."
-                # Windows 7 Enterprise, archived on archive.org
-                # Source: https://archive.org/details/Win7Enterprisex64
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
+                # Windows 7 Enterprise SP1 x64 (English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_7_enterprise_with_sp1_dvd
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_7_enterprise_with_sp1_dvd/en_windows_7_enterprise_with_sp1_x64_dvd_u_677651.iso"
                 ;;
             "$win7x64_enterprise_esp")
                 echo_info "Downloading Windows 7 Enterprise Spanish (Español)..."
@@ -1978,9 +1987,9 @@ download_media() {
                 ;;
             "$win7x86_enterprise")
                 echo_info "Downloading Windows 7 Enterprise x86..."
-                # Windows 7 Enterprise x86, archived on archive.org
-                # Source: https://archive.org/details/win-7-enterprise-32-64-iso
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                # Windows 7 Enterprise SP1 x86 (English), archived on archive.org
+                # Source: https://archive.org/details/en_windows_7_enterprise_with_sp1_dvd
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_windows_7_enterprise_with_sp1_dvd/en_windows_7_enterprise_with_sp1_x86_dvd_u_677710.iso"
                 ;;
             "$win7x86_enterprise_esp")
                 echo_info "Downloading Windows 7 Enterprise x86 Spanish (Español)..."
