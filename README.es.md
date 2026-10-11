@@ -391,7 +391,16 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, español (México)
 | `hyperv2012r2-eval` | Hyper-V Server 2012 R2 Evaluation |
 | `hyperv2016-eval` | Hyper-V Server 2016 Evaluation |
 | `hyperv2019-eval` | Hyper-V Server 2019 Evaluation |
-| `win311` | Windows for Workgroups 3.11 (inglés, obtenido de archive.org) |
+| `win30` | Windows 3.0 (inglés, obtenido de archive.org; ZIP de los disquetes originales) |
+| `win30-espa` | Windows 3.0a en Español (obtenido de archive.org; ZIP) |
+| `win31` | Windows 3.1 (inglés, obtenido de archive.org) |
+| `win31-espa` | Windows 3.1 en Español (obtenido de archive.org) |
+| `wfw31` | Windows for Workgroups 3.1 (inglés, compilación 014e, obtenido de archive.org; RAR de los disquetes originales) |
+| `wfw31-espa` | Windows for Workgroups 3.1 en Español (obtenido de archive.org; imágenes de disquete en 7z) |
+| `win311` | Windows 3.11 / Windows for Workgroups 3.11 (inglés, obtenido de archive.org) |
+| `win311-espa` | Windows 3.11 en Español (obtenido de archive.org) |
+| `wfw311` | Windows for Workgroups 3.11 (inglés, los mismos medios que `win311`, obtenido de archive.org) |
+| `wfw311-espa` | Windows for Workgroups 3.11 en Español (obtenido de archive.org) |
 | `win95` | Windows 95 (inglés, obtenido de archive.org) |
 | `win95-espa` | Windows 95 en Español (obtenido de archive.org) |
 | `win98` | Windows 98 Second Edition (inglés, obtenido de archive.org) |
@@ -475,12 +484,18 @@ español (`win-xp-home`, `win-xp-home-espa`, `win-xp-pro`, `win-xp-pro-espa`,
 > versiones que Microsoft localizó por separado: Windows 7, Windows 8.1,
 > Windows 10 y Windows 11 (argumentos `-es-mx` y `MIDO_LANG=es-MX`).
 
-Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
-`winnt351`, `winnt40`, `backoffice`, `winframe`) provienen de `archive.org` y
-no tienen checksums publicados. Windows 95, Windows 98 Second Edition y Windows
-Millennium Edition también están disponibles en español (`win95-espa`,
-`win98-espa`, `winme-espa`); el resto de las versiones retro son únicamente en
-inglés.
+Las versiones retro (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`,
+`win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `backoffice`,
+`winframe`) provienen de `archive.org` y no tienen checksums publicados. Windows
+3.x, Windows 95, Windows 98 Second Edition y Windows Millennium Edition también
+están disponibles en español (`win30-espa`, `win31-espa`, `wfw31-espa`,
+`win311-espa`, `wfw311-espa`, `win95-espa`, `win98-espa`, `winme-espa`); el
+resto de las versiones retro son únicamente en inglés. Ten en cuenta que `win311`
+y `wfw311` se refieren al mismo producto (Windows 3.11 para Trabajo en Grupo) y
+comparten los mismos medios en inglés; en español se distingue un medio
+"Windows 3.11" (`win311-espa`) de un medio "Windows 3.11 para Trabajo en Grupo"
+(`wfw311-espa`). Como Microsoft nunca localizó estas versiones al español de
+México, no existen argumentos `-es-mx` para ellas.
 
 ## ¿Cómo funciona Mido?
 
@@ -507,17 +522,19 @@ Además de las versiones de consumidor (Windows 10 y 11), puede descargar
 automáticamente las últimas ediciones Server (por ejemplo Windows Server 2025) y
 Enterprise de casi todas las versiones, desde Windows 7 (o Server 2008 R2, e
 incluso Server 2003 y 2000 Server) en adelante. También incluye versiones retro
-de los años 90: Windows for Workgroups 3.11, Windows 95, Windows 98 Second
-Edition, Windows Millennium Edition, Windows NT 3.1, 3.5 y 3.51 Workstation y
-Windows NT 4.0 Workstation (`win311`, `win95`, `win98`, `winme`, `winnt31`,
-`winnt35`, `winnt351`, `winnt40`, obtenidas de archive.org). También ofrece los
-productos de servidor de la era Windows NT 3.51: Microsoft BackOffice Small
-Business Server 4.0 (`backoffice`) y Citrix WinFrame 1.6 (Windows NT 3.51
-Terminal Server Edition, `winframe`). Windows 95, 98 y Millennium Edition
-también tienen ISOs en
-español (`win95-espa`, `win98-espa`, `winme-espa`), y Windows 2000 Professional
-/ Windows XP están disponibles en los canales de licencia OEM y Retail
-originales (consulta la tabla de medios más arriba).
+de principios de los años 90: Windows 3.0, Windows 3.1, Windows for Workgroups
+3.1, Windows 3.11 para Trabajo en Grupo, Windows 95, Windows 98 Second Edition,
+Windows Millennium Edition, Windows NT 3.1, 3.5 y 3.51 Workstation y Windows NT
+4.0 Workstation (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`, `win98`,
+`winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, obtenidas de archive.org).
+También ofrece los productos de servidor de la era Windows NT 3.51: Microsoft
+BackOffice Small Business Server 4.0 (`backoffice`) y Citrix WinFrame 1.6
+(Windows NT 3.51 Terminal Server Edition, `winframe`). Windows 3.x, Windows 95,
+98 y Millennium Edition también tienen medios en español (`win30-espa`,
+`win31-espa`, `wfw31-espa`, `win311-espa`, `wfw311-espa`, `win95-espa`,
+`win98-espa`, `winme-espa`), y Windows 2000 Professional / Windows XP están
+disponibles en los canales de licencia OEM y Retail originales (consulta la
+tabla de medios más arriba).
 
 ¿Quieres una instalación de Windows más segura y minimalista, pero oficial de
 Microsoft? Descarga la versión LTSC de Windows. Incluye mucho menos bloatware y
@@ -565,6 +582,34 @@ en inglés:
 > instalación finalice. **No** proporcionan una copia de Windows con licencia
 > activada. Para activar, debe usar una clave de producto genuina o una licencia
 > digital.
+
+> **Windows Embedded claves de configuración**
+
+> Las siguientes claves de configuración se pueden usar durante la instalación
+> de las ediciones Windows Embedded para avanzar más allá de la pantalla de
+> configuración, pero **no activan Windows**:
+
+> **Windows Embedded 8.1 Industry**
+
+> - **Windows Embedded 8.1 Industry Pro:** `NMMPB-38DD4-R2823-62W8D-VXKJB`
+> - **Windows Embedded 8.1 Industry Enterprise:** `FNFKF-PWTVT-9RC8H-32HB2-JB34X`
+> - **Windows Embedded 8.1 Industry (ISO de evaluación de 180 días):** `N3QJR-YCWKK-RVJGK-GQFMX-T82BF`
+
+> **Windows Embedded 8 Industry**
+
+> - **Windows Embedded 8 Industry Professional:** `RYXVT-BNQG7-VD29F-DBMRY-HT73M`
+> - **Windows Embedded 8 Industry Enterprise:** `NKB3R-R2F8T-3XCDP-7Q2KW-XWYQ2`
+
+> **Windows Embedded 8 Standard**
+
+> - **Imagen de tiempo de ejecución de Windows Embedded 8 Standard (clave de evaluación de 180 días):** `MPVW4-JNF4W-MGM8P-G2WYY-CWDFY`
+> - **Toolkit de Windows Embedded 8 Standard — Image Configuration Editor (también licencia el toolkit a perpetuidad):** `D9XDH-78JX9-2KJG8-K7CY9-KF2Q3`
+
+> **Nota:** Microsoft nunca definió una clave de configuración de cliente KMS
+> (GVLK) para Windows Embedded 8 Standard, por lo que se proporcionan en su
+> lugar las claves de evaluación y de toolkit anteriores. Todas estas claves
+> solo permiten que la instalación continúe; **no** activan Windows. Para
+> activar, use una clave de producto genuina.
 
 ### Ediciones Enterprise LTSC y LTSB
 
@@ -994,11 +1039,13 @@ quieres controladores nativos.
   automáticamente.
 - **Windows Vista en español** — proviene de `archive.org`, que puede ser más
   lento que la CDN de Microsoft. Mido reintenta y reanuda automáticamente.
-- **ISOs retro (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
-  `winnt351`, `winnt40`, `backoffice`, `winframe`, además de las españolas
-  `win95-espa`, `win98-espa`, `winme-espa`)** — provienen de `archive.org`, que
-  puede ser más lento que la CDN de Microsoft. Mido reintenta y reanuda
-  automáticamente.
+- **Medios retro (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`,
+  `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `backoffice`,
+  `winframe`, además de las españolas `win30-espa`, `win31-espa`, `wfw31-espa`,
+  `win311-espa`, `wfw311-espa`, `win95-espa`, `win98-espa`, `winme-espa`)** —
+  provienen de `archive.org`, que puede ser más lento que la CDN de Microsoft.
+  Algunas de las entradas más antiguas vienen como imágenes de disquete en
+  ZIP/RAR/7z en lugar de ISOs. Mido reintenta y reanuda automáticamente.
 - **Enterprise/Server "no download link"** — Microsoft cambia periódicamente las
   páginas del Evaluation Center. Abre un issue con la versión afectada.
 

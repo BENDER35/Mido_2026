@@ -115,7 +115,8 @@ Las distintas familias de medios se obtienen de formas diferentes:
 | `win-xp-pro-64` | instantánea de `archive.org` (Windows XP Professional x64 Edition SP2, inglés; Microsoft distribuyó x64 en inglés/japonés con paquetes MUI) | ninguna |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | instantáneas de `archive.org` (Windows Vista **Enterprise** SP2) | ninguna |
 | `vista_x64_sp2_n`, `vista_x64_sp2_business_n`, `vista_x86_sp2_business_n` | instantáneas de `archive.org` (Windows Vista **N** SP2: N todo en uno x64 = Home Basic N + Business N, y Business N x64/x86; solo en inglés) | ninguna |
-| `win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa`, `backoffice`, `winframe` | instantáneas de `archive.org` (ISOs retro retail/OEM; 95/98/ME también en español; NT 3.1/3.5/3.51 Workstation, BackOffice SBS 4.0 y Citrix WinFrame 1.6) | ninguna |
+| `win30`, `win30-espa`, `win31`, `win31-espa`, `wfw31`, `wfw31-espa` | instantáneas de `archive.org` (ZIP de Windows 3.0, ZIP de Windows 3.0a en español, ISO de Windows 3.1, ISO de Windows 3.1 en español, RAR de Windows for Workgroups 3.1 compilación 014e, imágenes de disquete 7z de Windows for Workgroups 3.1 en español) | ninguna |
+| `win311`, `win311-espa`, `wfw311`, `wfw311-espa`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa`, `backoffice`, `winframe` | instantáneas de `archive.org` (ISOs retro retail/OEM; ISO de Windows 3.11 / WfW 3.11 en inglés y español; 95/98/ME también en español; NT 3.1/3.5/3.51 Workstation, BackOffice SBS 4.0 y Citrix WinFrame 1.6) | ninguna |
 
 > Las evaluaciones Enterprise y LTSC de Windows 10/11 se migraron desde el HTML
 > (poco fiable) del Evaluation Center a ISOs archivadas en `archive.org`. La ruta
@@ -312,18 +313,23 @@ Estas no tienen checksums publicados.
 > los publica Microsoft, por lo que `enterprise_eval_download` se mantiene a
 > propósito en `en-US`.
 
-Las versiones retro (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
-`winnt351`, `winnt40`, `backoffice`, `winframe`) provienen directamente de
-instantáneas de `archive.org`
-(Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows
-Millennium Edition, Windows NT 3.1, 3.5 y 3.51 Workstation, Windows NT 4.0
-Workstation, además de Microsoft BackOffice Small Business Server 4.0 y Citrix
-WinFrame 1.6, la edición Windows NT 3.51 Terminal Server).
-Windows 95, Windows 98 Second Edition y Windows Millennium Edition también tienen
-instantáneas en español (`win95-espa`, `win98-espa`, `winme-espa`); el resto de
-las versiones retro son únicamente en inglés. No
-están cubiertas por la API de Microsoft y no tienen checksums publicados, por lo
-que pasan por la ruta `NO KNOWN CHECKSUM (skipping verification)`.
+Las versiones retro (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`,
+`win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `backoffice`,
+`winframe`) provienen directamente de instantáneas de `archive.org`
+(Windows 3.0, Windows 3.1, Windows for Workgroups 3.1, Windows 3.11 para Trabajo
+en Grupo, Windows 95, Windows 98 Second Edition, Windows Millennium Edition,
+Windows NT 3.1, 3.5 y 3.51 Workstation, Windows NT 4.0 Workstation, además de
+Microsoft BackOffice Small Business Server 4.0 y Citrix WinFrame 1.6, la edición
+Windows NT 3.51 Terminal Server).
+Windows 3.x, Windows 95, Windows 98 Second Edition y Windows Millennium Edition
+también tienen instantáneas en español (`win30-espa`, `win31-espa`,
+`wfw31-espa`, `win311-espa`, `wfw311-espa`, `win95-espa`, `win98-espa`,
+`winme-espa`); el resto de las versiones retro son únicamente en inglés. Algunas
+de las entradas más antiguas se distribuyen como archivos ZIP/RAR/7z de los
+disquetes originales en lugar de ISOs, por lo que `win30`/`win30-espa` (.zip),
+`wfw31` (.rar) y `wfw31-espa` (.7z) no son ISOs. No están cubiertas por la API de
+Microsoft y no tienen checksums publicados, por lo que pasan por la ruta
+`NO KNOWN CHECKSUM (skipping verification)`.
 
 > **Nota sobre la activación de producto y NewShell:** Ninguno de los medios
 > anteriores a XP tiene mecanismo de activación de producto (Microsoft introdujo

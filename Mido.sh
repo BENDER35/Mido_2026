@@ -233,7 +233,16 @@ usage() {
     echo "  hyperv2012r2-eval"
     echo "  hyperv2016-eval"
     echo "  hyperv2019-eval"
-    echo "  win311 (Windows 3.11 For Workgroups, archive.org)"
+    echo "  win30 (Windows 3.0, archive.org)"
+    echo "  win30-espa (Windows 3.0a Spanish, archive.org)"
+    echo "  win31 (Windows 3.1, archive.org)"
+    echo "  win31-espa (Windows 3.1 Spanish, archive.org)"
+    echo "  wfw31 (Windows for Workgroups 3.1, archive.org)"
+    echo "  wfw31-espa (Windows for Workgroups 3.1 Spanish, archive.org)"
+    echo "  win311 (Windows 3.11 / Windows for Workgroups 3.11, archive.org)"
+    echo "  win311-espa (Windows 3.11 Spanish, archive.org)"
+    echo "  wfw311 (Windows for Workgroups 3.11, archive.org)"
+    echo "  wfw311-espa (Windows for Workgroups 3.11 Spanish, archive.org)"
     echo "  win95 (Windows 95, archive.org)"
     echo "  win95-espa (Windows 95 Spanish, archive.org)"
     echo "  win98 (Windows 98 Second Edition, archive.org)"
@@ -419,7 +428,16 @@ readonly hyperv2012_eval="hyperv2012-eval.iso"
 readonly hyperv2012r2_eval="hyperv2012r2-eval.iso"
 readonly hyperv2016_eval="hyperv2016-eval.iso"
 readonly hyperv2019_eval="hyperv2019-eval.iso"
+readonly win30="win30.zip"
+readonly win30_espa="win30-espa.zip"
+readonly win31="win31.iso"
+readonly win31_espa="win31-espa.iso"
+readonly wfw31="wfw31.rar"
+readonly wfw31_espa="wfw31-espa.7z"
 readonly win311="win311.iso"
+readonly win311_espa="win311-espa.iso"
+readonly wfw311="wfw311.iso"
+readonly wfw311_espa="wfw311-espa.iso"
 readonly win95="win95.iso"
 readonly win95_espa="win95-espa.iso"
 readonly win98="win98.iso"
@@ -902,8 +920,35 @@ parse_args() {
             hyperv2019-eval)
                 media_list="$media_list $hyperv2019_eval"
                 ;;
+            win30)
+                media_list="$media_list $win30"
+                ;;
+            win30-espa)
+                media_list="$media_list $win30_espa"
+                ;;
+            win31)
+                media_list="$media_list $win31"
+                ;;
+            win31-espa)
+                media_list="$media_list $win31_espa"
+                ;;
+            wfw31)
+                media_list="$media_list $wfw31"
+                ;;
+            wfw31-espa)
+                media_list="$media_list $wfw31_espa"
+                ;;
             win311)
                 media_list="$media_list $win311"
+                ;;
+            win311-espa)
+                media_list="$media_list $win311_espa"
+                ;;
+            wfw311)
+                media_list="$media_list $wfw311"
+                ;;
+            wfw311-espa)
+                media_list="$media_list $wfw311_espa"
                 ;;
             win95)
                 media_list="$media_list $win95"
@@ -942,7 +987,7 @@ parse_args() {
                 media_list="$media_list $winframe"
                 ;;
             all)
-                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp2_n $vista_x64_sp2_business_n $vista_x86_sp2_business_n $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win81x64 $win81x86 $win81x64_enterprise_eval $win81x64_enterprise_n_eval $win81x64_industry_enterprise_eval $win81x64_industry_pro_eval $win81x86_enterprise_eval $win81x86_enterprise_n_eval $win81x86_industry_enterprise_eval $win81x86_industry_pro_eval $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win311 $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
+                media_list="$media_list $win7x64_ultimate $win7x64_ultimate_esp $win7x64_ultimate_es_mx $win7x86_ultimate $win7x86_ultimate_esp $win7x86_ultimate_es_mx $win7x64_homepremium $win7x64_homepremium_esp $win7x64_homepremium_es_mx $win7x86_homepremium $win7x86_homepremium_esp $win7x86_homepremium_es_mx $win7x64_enterprise $win7x64_enterprise_esp $win7x64_enterprise_es_mx $win7x86_enterprise $win7x86_enterprise_esp $win7x86_enterprise_es_mx $win7x64_sp1 $win7x86_sp1 $vista_x64_sp2 $vista_x86_sp2 $vista_es_x64_sp2 $vista_es_x86_sp2 $vista_x64_sp2_n $vista_x64_sp2_business_n $vista_x86_sp2_business_n $vista_x64_sp1 $vista_x86_sp1 $vista_es_x64_sp1 $vista_es_x86_sp1 $win81x64 $win10x64 $win10x86 $win11x64 $win81x64_enterprise_eval $win10x64_enterprise_eval $win10x86_enterprise_eval $win11x64_enterprise_eval $win10x64_enterprise_ltsc_eval $win11x64_enterprise_ltsc_eval $win11x64_iot_enterprise_ltsc_eval $win11x64_iot_enterprise_26h2 $win11x64_iot_enterprise_ltsc_2024 $win10x64_iot_enterprise_22h2 $win10x64_iot_enterprise_ltsc_2021 $win10x64_iot_enterprise_ltsc_2019 $win10x86_iot_enterprise_ltsc_2019 $win11x64_enterprise_ltsc_2024 $win11x64_enterprise_ltsc_2024_esp $win11x64_enterprise_ltsc_2024_es_mx $win10x64_enterprise_ltsc_2021 $win10x64_enterprise_ltsc_2021_esp $win10x64_enterprise_ltsc_2021_es_mx $win10x86_enterprise_ltsc_2021 $win10x86_enterprise_ltsc_2021_esp $win10x86_enterprise_ltsc_2021_es_mx $win10x64_enterprise_ltsb_2016 $win10x64_enterprise_ltsb_2016_esp $win10x86_enterprise_ltsb_2016 $win10x86_enterprise_ltsb_2016_esp $win10x64_enterprise_ltsb_2015 $win10x64_enterprise_ltsb_2015_esp $win10x86_enterprise_ltsb_2015 $win10x86_enterprise_ltsb_2015_esp $win2008r2 $win2008r2_espa $win2008_server_x64 $win2008_server_x64_espa $win2008_server_x86 $win2008_server_x86_espa $win2003_server $win2003_server_espa $win2003_server_x64 $win2003_server_x64_espa $win2000_server $win2000_server_espa $win2000_datacenter $win2000_datacenter_sp4 $win2012r2_eval $win2016_eval $win2019_eval $win2022_eval $win2025_eval $win2012r2_essentials_eval $win2016_essentials_eval $win2019_essentials_eval $hyperv2012_eval $hyperv2012r2_eval $hyperv2016_eval $hyperv2019_eval $win81x64_ent_32_esp $win81x64_ent_64_esp $win81x64 $win81x86 $win81x64_enterprise_eval $win81x64_enterprise_n_eval $win81x64_industry_enterprise_eval $win81x64_industry_pro_eval $win81x86_enterprise_eval $win81x86_enterprise_n_eval $win81x86_industry_enterprise_eval $win81x86_industry_pro_eval $win10x86 $win10x86_esp $win10x86_es_mx $win10x64_esp $win10x64_es_mx $win11x64_esp $win11x64_es_mx $win30 $win30_espa $win31 $win31_espa $wfw31 $wfw31_espa $win311 $win311_espa $wfw311 $wfw311_espa $win95 $win98 $winme $winnt31 $winnt35 $winnt351 $winnt40 $backoffice $winframe $win2000_pro_oem $win2000_pro_retail $win2000_pro_oem_espa $win2000_pro_retail_espa $win_xp_home $win_xp_home_espa $win_xp_home_oem $win_xp_home_retail $win_xp_home_oem_espa $win_xp_home_retail_espa $win_xp_pro_oem $win_xp_pro_retail $win_xp_pro_oem_espa $win_xp_pro_retail_espa $win_xp_pro_64 $win95_espa $win98_espa $winme_espa"
                 ;;
             *)
                 echo_err "Invalid Windows media specified: $arg"
@@ -2109,11 +2154,65 @@ download_media() {
                 echo_info "Downloading Hyper-V Server 2019 Evaluation..."
                 enterprise_eval_download "$(localized_media "$media")" hyper-v-server-2019 server
                 ;;
+            "$win30")
+                echo_info "Downloading Windows 3.0..."
+                # Windows 3.0 (English), archived on archive.org
+                # Source: https://archive.org/details/windows-3.0-original-version
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-3.0-original-version/Windows%203.0%20%28Original%20Version%29.zip"
+                ;;
+            "$win30_espa")
+                echo_info "Downloading Windows 3.0a Spanish (Español)..."
+                # Windows 3.0a in Spanish, archived on archive.org
+                # Source: https://archive.org/details/microsoft-windows-3.0a-spanish-by-huviretro-gt
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/microsoft-windows-3.0a-spanish-by-huviretro-gt/Microsoft%20Windows%203.0a%20%5BSpanish%5D%20-%20By%20HuviretroGT.zip"
+                ;;
+            "$win31")
+                echo_info "Downloading Windows 3.1..."
+                # Windows 3.1 (English), archived on archive.org
+                # Source: https://archive.org/details/windows-3.1_202403
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-3.1_202403/WINDOWS_3.1.ISO"
+                ;;
+            "$win31_espa")
+                echo_info "Downloading Windows 3.1 Spanish (Español)..."
+                # Windows 3.1 in Spanish, from an MS-DOS 6.22 + Windows 3.1/3.11 Spanish CD collection, archived on archive.org
+                # Source: https://archive.org/details/ms-dos-6.22-windows-3.13.113.11-trabajo-en-grupo-spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/ms-dos-6.22-windows-3.13.113.11-trabajo-en-grupo-spanish/Microsoft-Windows_3.1.iso"
+                ;;
+            "$wfw31")
+                echo_info "Downloading Windows for Workgroups 3.1..."
+                # Windows for Workgroups 3.1 (English, build 014e), archived on archive.org
+                # Source: https://archive.org/details/windows-for-workgroups-3.1-build-014e
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-for-workgroups-3.1-build-014e/Windows%20for%20Workgroups%203.1%20build%20014e.rar"
+                ;;
+            "$wfw31_espa")
+                echo_info "Downloading Windows for Workgroups 3.1 Spanish (Español)..."
+                # Windows for Workgroups 3.1 (3.10.102) Spanish 5.25" diskette images, archived on archive.org
+                # Source: https://archive.org/details/microsoft-windows-for-workgroups-3.1-3.10.102-1992-11-02-spanish-5.25-1.2mb-upgrade
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/microsoft-windows-for-workgroups-3.1-3.10.102-1992-11-02-spanish-5.25-1.2mb-upgrade/media_img.7z"
+                ;;
             "$win311")
-                echo_info "Downloading Windows for Workgroups 3.11..."
-                # Windows for Workgroups 3.11 (English), archived on archive.org
+                echo_info "Downloading Windows 3.11 / Windows for Workgroups 3.11..."
+                # Windows 3.11 For Workgroups (English), archived on archive.org
                 # Source: https://archive.org/details/windows-for-workgroups-3.11_202304
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-for-workgroups-3.11_202304/WINDOWS%20FOR%20WORKGROUPS%203.11.iso"
+                ;;
+            "$win311_espa")
+                echo_info "Downloading Windows 3.11 Spanish (Español)..."
+                # Windows 3.11 in Spanish, from an MS-DOS 6.22 + Windows 3.1/3.11 Spanish CD collection, archived on archive.org
+                # Source: https://archive.org/details/ms-dos-6.22-windows-3.13.113.11-trabajo-en-grupo-spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/ms-dos-6.22-windows-3.13.113.11-trabajo-en-grupo-spanish/Microsoft-%20Windows_3.11_Spanish.iso"
+                ;;
+            "$wfw311")
+                echo_info "Downloading Windows for Workgroups 3.11..."
+                # Windows for Workgroups 3.11 (English), archived on archive.org (same media as win311)
+                # Source: https://archive.org/details/windows-for-workgroups-3.11_202304
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-for-workgroups-3.11_202304/WINDOWS%20FOR%20WORKGROUPS%203.11.iso"
+                ;;
+            "$wfw311_espa")
+                echo_info "Downloading Windows for Workgroups 3.11 Spanish (Español)..."
+                # Windows for Workgroups 3.11 in Spanish, from an MS-DOS 6.22 + Windows 3.1/3.11 Spanish CD collection, archived on archive.org
+                # Source: https://archive.org/details/ms-dos-6.22-windows-3.13.113.11-trabajo-en-grupo-spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/ms-dos-6.22-windows-3.13.113.11-trabajo-en-grupo-spanish/Microsoft-Windows_3.11_para_trabajo_en_grupo.iso"
                 ;;
             "$win95")
                 echo_info "Downloading Windows 95..."

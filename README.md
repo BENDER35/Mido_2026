@@ -381,7 +381,16 @@ MIDO_LANG=es-MX ./Mido.sh win11x64       # Windows 11, Mexican Spanish
 | `hyperv2012r2-eval` | Hyper-V Server 2012 R2 Evaluation |
 | `hyperv2016-eval` | Hyper-V Server 2016 Evaluation |
 | `hyperv2019-eval` | Hyper-V Server 2019 Evaluation |
-| `win311` | Windows for Workgroups 3.11 (English, sourced from archive.org) |
+| `win30` | Windows 3.0 (English, sourced from archive.org; ZIP of the original diskettes) |
+| `win30-espa` | Windows 3.0a Spanish (sourced from archive.org; ZIP) |
+| `win31` | Windows 3.1 (English, sourced from archive.org) |
+| `win31-espa` | Windows 3.1 Spanish (sourced from archive.org) |
+| `wfw31` | Windows for Workgroups 3.1 (English, build 014e, sourced from archive.org; RAR of the original diskettes) |
+| `wfw31-espa` | Windows for Workgroups 3.1 Spanish (sourced from archive.org; 7z diskette images) |
+| `win311` | Windows 3.11 / Windows for Workgroups 3.11 (English, sourced from archive.org) |
+| `win311-espa` | Windows 3.11 Spanish (sourced from archive.org) |
+| `wfw311` | Windows for Workgroups 3.11 (English, same media as `win311`, sourced from archive.org) |
+| `wfw311-espa` | Windows for Workgroups 3.11 Spanish (sourced from archive.org) |
 | `win95` | Windows 95 (English, sourced from archive.org) |
 | `win95-espa` | Windows 95 Spanish (sourced from archive.org) |
 | `win98` | Windows 98 Second Edition (English, sourced from archive.org) |
@@ -465,11 +474,18 @@ Spanish (`win-xp-home`, `win-xp-home-espa`, `win-xp-pro`, `win-xp-pro-espa`,
 > actually localized it separately: Windows 7, Windows 8.1, Windows 10 and
 > Windows 11 (`-es-mx` arguments and `MIDO_LANG=es-MX`).
 
-The retro releases (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
-`winnt351`, `winnt40`, `backoffice`, `winframe`) are sourced from `archive.org`
-and have no published checksums. Windows 95, Windows 98 Second Edition and
-Windows Millennium Edition are also available in Spanish (`win95-espa`,
-`win98-espa`, `winme-espa`); the remaining retro releases are English-only.
+The retro releases (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`,
+`win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `backoffice`,
+`winframe`) are sourced from `archive.org` and have no published checksums.
+Windows 3.x, Windows 95, Windows 98 Second Edition and Windows Millennium
+Edition are also available in Spanish (`win30-espa`, `win31-espa`,
+`wfw31-espa`, `win311-espa`, `wfw311-espa`, `win95-espa`, `win98-espa`,
+`winme-espa`); the remaining retro releases are English-only. Note that
+`win311` and `wfw311` refer to the same product (Windows 3.11 for Workgroups)
+and share the same English media; the Spanish releases distinguish a
+"Windows 3.11" media (`win311-espa`) from a "Windows 3.11 para Trabajo en
+Grupo" media (`wfw311-espa`). Because Microsoft never localized these versions
+to Mexican Spanish, no `-es-mx` arguments exist for them.
 
 ## How does Mido work?
 
@@ -493,7 +509,7 @@ See [docs/TECHNICAL.md](docs/TECHNICAL.md) for a full walk-through.
 
 ## What else can Mido do?
 
-Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2025) and Enterprise editions of every Windows version all the way back to Windows 7 (or Windows Server 2008 R2, and even Server 2003 and 2000 Server). Retro releases all the way back to the 1990s are included too: Windows for Workgroups 3.11, Windows 95, Windows 98 Second Edition, Windows Millennium Edition, Windows NT 3.1, 3.5 and 3.51 Workstation and Windows NT 4.0 Workstation (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, sourced from archive.org). It also offers the Windows NT 3.51-era server products Microsoft BackOffice Small Business Server 4.0 (`backoffice`) and Citrix WinFrame 1.6 (Windows NT 3.51 Terminal Server Edition, `winframe`). Windows 95, 98 and Millennium Edition also have Spanish ISOs (`win95-espa`, `win98-espa`, `winme-espa`), and Windows 2000 Professional / Windows XP come in the original OEM and Retail license channels (see the media table above).
+Other than the consumer versions of Windows like 11 and 10, it can also automatically download the latest Server (e.g. Windows Server 2025) and Enterprise editions of every Windows version all the way back to Windows 7 (or Windows Server 2008 R2, and even Server 2003 and 2000 Server). Retro releases all the way back to the early 1990s are included too: Windows 3.0, Windows 3.1, Windows for Workgroups 3.1, Windows 3.11 for Workgroups, Windows 95, Windows 98 Second Edition, Windows Millennium Edition, Windows NT 3.1, 3.5 and 3.51 Workstation and Windows NT 4.0 Workstation (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, sourced from archive.org). It also offers the Windows NT 3.51-era server products Microsoft BackOffice Small Business Server 4.0 (`backoffice`) and Citrix WinFrame 1.6 (Windows NT 3.51 Terminal Server Edition, `winframe`). Windows 3.x, Windows 95, 98 and Millennium Edition also have Spanish media (`win30-espa`, `win31-espa`, `wfw31-espa`, `win311-espa`, `wfw311-espa`, `win95-espa`, `win98-espa`, `winme-espa`), and Windows 2000 Professional / Windows XP come in the original OEM and Retail license channels (see the media table above).
 
 Want a more secure and minimalist Windows installation out-of-the-box that's officially provided by Microsoft? Then download the LTSC version of Windows. It comes with way less bloat and supports Microsoft's ["Security"](https://learn.microsoft.com/en-us/windows/privacy/configure-windows-diagnostic-data-in-your-organization#diagnostic-data-settings) telemetry mode (plus it comes with long-term support).
 
@@ -534,6 +550,32 @@ past the setup screen, but **do not activate Windows**:
 > **Important:** These are volume license / setup keys that allow installation
 > to complete. They do **not** provide a licensed, activated copy of Windows.
 > For activation, you must use a genuine product key or digital license.
+
+### Windows Embedded setup serial keys
+
+The following setup keys can be used during installation of the Windows Embedded
+editions to proceed past the setup screen, but **do not activate Windows**:
+
+**Windows Embedded 8.1 Industry**
+
+- **Windows Embedded 8.1 Industry Pro:** `NMMPB-38DD4-R2823-62W8D-VXKJB`
+- **Windows Embedded 8.1 Industry Enterprise:** `FNFKF-PWTVT-9RC8H-32HB2-JB34X`
+- **Windows Embedded 8.1 Industry (180-day evaluation ISO):** `N3QJR-YCWKK-RVJGK-GQFMX-T82BF`
+
+**Windows Embedded 8 Industry**
+
+- **Windows Embedded 8 Industry Professional:** `RYXVT-BNQG7-VD29F-DBMRY-HT73M`
+- **Windows Embedded 8 Industry Enterprise:** `NKB3R-R2F8T-3XCDP-7Q2KW-XWYQ2`
+
+**Windows Embedded 8 Standard**
+
+- **Windows Embedded 8 Standard runtime image (180-day evaluation key):** `MPVW4-JNF4W-MGM8P-G2WYY-CWDFY`
+- **Windows Embedded 8 Standard toolkit — Image Configuration Editor (also licenses the toolkit in perpetuity):** `D9XDH-78JX9-2KJG8-K7CY9-KF2Q3`
+
+> **Note:** Microsoft never defined a KMS client setup key (GVLK) for Windows
+> Embedded 8 Standard, so the evaluation and toolkit keys above are provided
+> instead. All of these keys only allow setup to continue; they do **not**
+> activate Windows. For activation, use a genuine product key.
 
 ### Enterprise LTSC & LTSB editions
 
@@ -941,11 +983,13 @@ you are committed to a genuine old Windows install and want native drivers.
   which may be slower than Microsoft's CDN. Mido retries and resumes automatically.
 - **Windows Vista ISOs** — sourced from `archive.org`, which may be slower than
   Microsoft's CDN. Mido retries and resumes automatically.
-- **Retro Windows ISOs (`win311`, `win95`, `win98`, `winme`, `winnt31`,
-  `winnt35`, `winnt351`, `winnt40`, `backoffice`, `winframe`, plus the Spanish
-  `win95-espa`, `win98-espa`, `winme-espa`)** — sourced from `archive.org`,
-  which may be slower than Microsoft's CDN. Mido retries and resumes
-  automatically.
+- **Retro Windows media (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`,
+  `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `backoffice`,
+  `winframe`, plus the Spanish `win30-espa`, `win31-espa`, `wfw31-espa`,
+  `win311-espa`, `wfw311-espa`, `win95-espa`, `win98-espa`, `winme-espa`)** —
+  sourced from `archive.org`, which may be slower than Microsoft's CDN. Some of
+  the oldest entries ship as ZIP/RAR/7z diskette images rather than ISOs. Mido
+  retries and resumes automatically.
 - **Enterprise/Server "no download link"** — Microsoft periodically changes the
   Evaluation Center pages. Please open an issue with the affected version.
 

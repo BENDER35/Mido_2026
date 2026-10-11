@@ -124,7 +124,8 @@ Different media families are fetched in different ways:
 | `vista_x64_sp1`, `vista_x86_sp1`, `vista_es_x64_sp1`, `vista_es_x86_sp1` | `archive.org` snapshots | none |
 | `vista_x64_sp2`, `vista_x86_sp2`, `vista_es_x64_sp2`, `vista_es_x86_sp2` | `archive.org` snapshots (Windows Vista **Enterprise** SP2) | none |
 | `vista_x64_sp2_n`, `vista_x64_sp2_business_n`, `vista_x86_sp2_business_n` | `archive.org` snapshots (Windows Vista **N** SP2: N all-in-one x64 = Home Basic N + Business N, and Business N x64/x86; English only) | none |
-| `win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa`, `backoffice`, `winframe` | `archive.org` snapshots (retro retail/OEM ISOs; 95/98/ME also in Spanish; NT 3.1/3.5/3.51 Workstation, BackOffice SBS 4.0 and Citrix WinFrame 1.6) | none |
+| `win30`, `win30-espa`, `win31`, `win31-espa`, `wfw31`, `wfw31-espa` | `archive.org` snapshots (Windows 3.0 ZIP, Windows 3.0a Spanish ZIP, Windows 3.1 ISO, Windows 3.1 Spanish ISO, Windows for Workgroups 3.1 build 014e RAR, Windows for Workgroups 3.1 Spanish 7z diskette images) | none |
+| `win311`, `win311-espa`, `wfw311`, `wfw311-espa`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `win95-espa`, `win98-espa`, `winme-espa`, `backoffice`, `winframe` | `archive.org` snapshots (retro retail/OEM ISOs; Windows 3.11 / WfW 3.11 ISO in English and Spanish; 95/98/ME also in Spanish; NT 3.1/3.5/3.51 Workstation, BackOffice SBS 4.0 and Citrix WinFrame 1.6) | none |
 
 > Windows 10/11 Enterprise and LTSC evaluations were migrated from the
 > (unreliable) Evaluation Center HTML to archived `archive.org` ISOs. The
@@ -331,16 +332,20 @@ Windows 8.1 Pro ISOs are also available via the Consumer JSON API first, with
 > Enterprise/Server evaluation media is English-only, as published by Microsoft,
 > so `enterprise_eval_download` intentionally stays on `en-US`.
 
-The retro releases (`win311`, `win95`, `win98`, `winme`, `winnt31`, `winnt35`,
-`winnt351`, `winnt40`, `backoffice`, `winframe`) are sourced directly from
-`archive.org` snapshots (Windows for Workgroups 3.11, Windows 95, Windows 98
-Second Edition, Windows Millennium Edition, Windows NT 3.1, 3.5 and 3.51
-Workstation, Windows NT 4.0 Workstation, as well as Microsoft BackOffice Small
-Business Server 4.0 and Citrix WinFrame 1.6, the Windows NT 3.51 Terminal Server
-Edition).
-Windows 95, Windows 98 Second Edition and Windows Millennium Edition also have
-Spanish snapshots (`win95-espa`, `win98-espa`, `winme-espa`); the remaining
-retro releases are English-only.
+The retro releases (`win30`, `win31`, `wfw31`, `win311`/`wfw311`, `win95`,
+`win98`, `winme`, `winnt31`, `winnt35`, `winnt351`, `winnt40`, `backoffice`,
+`winframe`) are sourced directly from `archive.org` snapshots (Windows 3.0,
+Windows 3.1, Windows for Workgroups 3.1, Windows 3.11 for Workgroups, Windows 95,
+Windows 98 Second Edition, Windows Millennium Edition, Windows NT 3.1, 3.5 and
+3.51 Workstation, Windows NT 4.0 Workstation, as well as Microsoft BackOffice
+Small Business Server 4.0 and Citrix WinFrame 1.6, the Windows NT 3.51 Terminal
+Server Edition).
+Windows 3.x, Windows 95, Windows 98 Second Edition and Windows Millennium
+Edition also have Spanish snapshots (`win30-espa`, `win31-espa`, `wfw31-espa`,
+`win311-espa`, `wfw311-espa`, `win95-espa`, `win98-espa`, `winme-espa`); the
+remaining retro releases are English-only. Some of the oldest entries are
+distributed as ZIP/RAR/7z archives of the original diskettes rather than ISOs, so
+`win30`/`win30-espa` (.zip), `wfw31` (.rar) and `wfw31-espa` (.7z) are not ISOs.
 They are not covered by the Microsoft API and have no published checksums, so
 they go through the `NO KNOWN CHECKSUM (skipping verification)` path.
 
