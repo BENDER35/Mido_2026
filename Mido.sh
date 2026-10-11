@@ -61,9 +61,9 @@ locale_to_api_language() {
 archive_fallback_url() {
     case "$1-$2-$3" in
         7-en-US-x64) printf '%s' "https://archive.org/download/Win7_English_x64/Windows6.1-KB976002-X64.exe" ;;
-        7-es-ES-x64) printf '%s' "https://archive.org/download/win7-espanol-x64/Windows6.1-KB976002-X64.es-es.iso" ;;
+        7-es-ES-x64) printf '%s' "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x64_dvd_u_677350.iso" ;;
         7-en-US-x86) printf '%s' "https://archive.org/download/win7-english-x86/Windows6.1-KB976002-X86.exe" ;;
-        7-es-ES-x86) printf '%s' "https://archive.org/download/win7-espanol-x86/Windows6.1-KB976002-X86.es-es.iso" ;;
+        7-es-ES-x86) printf '%s' "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x86_dvd_u_677462.iso" ;;
         8-en-US-x64) printf '%s' "https://archive.org/download/Win8_English_x64/Windows8-Setup.exe" ;;
         8-es-ES-x64) printf '%s' "https://archive.org/download/win8-espanol-x64/Windows8-es-es.iso" ;;
         8-en-US-x86) printf '%s' "https://archive.org/download/win8-english-x86/Windows8-Setup-x86.exe" ;;
@@ -458,6 +458,12 @@ parse_args() {
             win7x64-ultimate-esp)
                 media_list="$media_list $win7x64_ultimate_esp"
                 ;;
+            win7x86-ultimate)
+                media_list="$media_list $win7x86_ultimate"
+                ;;
+            win7x86-ultimate-esp)
+                media_list="$media_list $win7x86_ultimate_esp"
+                ;;
             vista-x64-sp2)
                 media_list="$media_list $vista_x64_sp2"
                 ;;
@@ -829,6 +835,12 @@ parse_args() {
                 ;;
             win7x86-enterprise-esp)
                 media_list="$media_list $win7x86_enterprise_esp"
+                ;;
+            win7x64-sp1)
+                media_list="$media_list $win7x64_sp1"
+                ;;
+            win7x86-sp1)
+                media_list="$media_list $win7x86_sp1"
                 ;;
             win81x64-pro)
                 media_list="$media_list $win81x64_pro"
@@ -1378,16 +1390,21 @@ download_media() {
                 # Microsoft's official (Sentinel-gated) download first, archive.org fallback
                 consumer_download_or_archive "$(localized_media "$media")" 7 "$MIDO_LANG" "$(archive_fallback_url 7 "$MIDO_LANG" x64)" x64
                 ;;
-                # Spanish and Mexican Spanish variants handled below with locale suffix
+            "$win7x64_ultimate_esp")
+                echo_info "Downloading Windows 7 Ultimate x64 Spanish (Español)..."
+                # Windows 7 Ultimate SP1 x64 Spanish, archived on archive.org
+                # Source: https://archive.org/details/es_windows_7_ultimate_with_sp1_dvd
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x64_dvd_u_677350.iso"
+                ;;
             "$win7x86_ultimate")
                 echo_info "Downloading Windows 7 Ultimate x86..."
                 scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_ultimate_x86/en_windows_7_ultimate_x86_dvd.iso"
                 ;;
             "$win7x86_ultimate_esp")
-                echo_info "Downloading Windows 7 Ultimate x86 Spanish..."
-                # Windows 7 Ultimate x86 Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/en_win7_ultimate_x86/en_windows_7_ultimate_x86_dvd.iso"
+                echo_info "Downloading Windows 7 Ultimate x86 Spanish (Español)..."
+                # Windows 7 Ultimate SP1 x86 Spanish, archived on archive.org
+                # Source: https://archive.org/details/es_windows_7_ultimate_with_sp1_dvd
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x86_dvd_u_677462.iso"
                 ;;
             "$vista_x64_sp2")
                 echo_info "Downloading Windows Vista SP2 x64..."
@@ -1942,9 +1959,9 @@ download_media() {
                 ;;
             "$win7x64_pro_esp")
                 echo_info "Downloading Windows 7 Professional Spanish (Español)..."
-                # Windows 7 Professional Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7ProRTMx64/Windows7-RTM-DesktopAero.iso"
+                # Windows 7 Professional SP1 x64 Spanish, archived on archive.org
+                # Source: https://archive.org/details/windows-7-pro-sp1-spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-7-pro-sp1-spanish/Win7_Pro_SP1_Spanish_x64.iso"
                 ;;
             "$win7x86_pro")
                 echo_info "Downloading Windows 7 Professional x86..."
@@ -1954,9 +1971,9 @@ download_media() {
                 ;;
             "$win7x86_pro_esp")
                 echo_info "Downloading Windows 7 Professional x86 Spanish (Español)..."
-                # Windows 7 Professional x86 Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-pro-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                # Windows 7 Professional SP1 x86 Spanish, archived on archive.org
+                # Source: https://archive.org/details/windows-7-pro-sp1-spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/windows-7-pro-sp1-spanish/Win7_Pro_SP1_Spanish_x86.iso"
                 ;;
             "$win7x64_homepremium")
                 echo_info "Downloading Windows 7 Home Premium..."
@@ -1966,9 +1983,9 @@ download_media() {
                 ;;
             "$win7x64_homepremium_esp")
                 echo_info "Downloading Windows 7 Home Premium Spanish (Español)..."
-                # Windows 7 Home Premium Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7HomePremiumx64/Windows7-HomePremium-RTM.iso"
+                # Windows 7 Home Premium SP1 x64 Spanish, archived on archive.org
+                # Source: https://archive.org/details/win7-home-prem-sp1-spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win7-home-prem-sp1-spanish/Win7_HomePrem_SP1_Spanish_x64.iso"
                 ;;
             "$win7x86_homepremium")
                 echo_info "Downloading Windows 7 Home Premium x86..."
@@ -1978,9 +1995,9 @@ download_media() {
                 ;;
             "$win7x86_homepremium_esp")
                 echo_info "Downloading Windows 7 Home Premium x86 Spanish (Español)..."
-                # Windows 7 Home Premium x86 Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-homepremium-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                # Windows 7 Home Premium SP1 x86 Spanish, archived on archive.org
+                # Source: https://archive.org/details/win7-home-prem-sp1-spanish
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win7-home-prem-sp1-spanish/Win7_HomePrem_SP1_Spanish_x32.iso"
                 ;;
             "$win7x64_enterprise")
                 echo_info "Downloading Windows 7 Enterprise..."
@@ -1990,9 +2007,9 @@ download_media() {
                 ;;
             "$win7x64_enterprise_esp")
                 echo_info "Downloading Windows 7 Enterprise Spanish (Español)..."
-                # Windows 7 Enterprise Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7Enterprisex64/Windows7-Enterprise-RTM.iso"
+                # Windows 7 Enterprise SP1 x64 Spanish, archived on archive.org
+                # Source: https://archive.org/details/Win7EnterpriseSP1ESP
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7EnterpriseSP1ESP/es_windows_7_enterprise_with_sp1_x64_dvd_u_677652.iso"
                 ;;
             "$win7x86_enterprise")
                 echo_info "Downloading Windows 7 Enterprise x86..."
@@ -2002,9 +2019,9 @@ download_media() {
                 ;;
             "$win7x86_enterprise_esp")
                 echo_info "Downloading Windows 7 Enterprise x86 Spanish (Español)..."
-                # Windows 7 Enterprise x86 Spanish, archived on archive.org
-                # Using English ISO with Spanish locale suffix
-                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/win-7-enterprise-32-64-iso/GSP1RMCPRXFRER_EN_DVD.ISO"
+                # Windows 7 Enterprise SP1 x86 Spanish, archived on archive.org
+                # Source: https://archive.org/details/Win7EnterpriseSP1ESP
+                scurl_file "$(localized_media "$media")" "1.3" "https://archive.org/download/Win7EnterpriseSP1ESP/es_windows_7_enterprise_with_sp1_x86_dvd_u_677714.iso"
                 ;;
             "$win81x64_pro")
                 echo_info "Downloading Windows 8.1 Pro..."

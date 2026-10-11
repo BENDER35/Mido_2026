@@ -433,10 +433,13 @@ ISOs (`vista-x64-sp2-business-n`, `vista-x86-sp2-business-n`). Note that
 **Windows Vista Enterprise N** was never released as standalone MSDN media (the
 "N" DVD only ships Home Basic N and Business N), and no Spanish Vista N ISOs are
 available on archive.org, so no `-es`/`-es-mx` N arguments are offered.
-Windows 7 SP1 Spanish ISOs (`win7x64-sp1`, `win7x86-sp1`) are also available
-via archive.org.
-Windows 7 Ultimate Spanish ISOs (`win7x64-ultimate-esp`) are also available via
-Microsoft official first, then archive.org fallback.
+Windows 7 SP1 ISOs are also available in English (`win7x64-sp1`, `win7x86-sp1`)
+via archive.org. Windows 7 Ultimate Spanish media is available via Microsoft
+official first, then archive.org fallback (`win7x64-ultimate-esp`), and genuine
+Spanish SP1 ISOs are archived for every SKU (`win7x64-ultimate-esp`,
+`win7x86-ultimate-esp`, `win7x64-pro-esp`, `win7x86-pro-esp`,
+`win7x64-homepremium-esp`, `win7x86-homepremium-esp`, `win7x64-enterprise-esp`,
+`win7x86-enterprise-esp`).
 Windows 2000 Professional, Windows XP Professional, Windows XP Home Edition and
 Windows 7 Professional Spanish ISOs are also available via archive.org. Windows 8.1 Pro Spanish ISOs
 are also available via archive.org for Spain (`win81x64-pro-esp`). Enterprise, Server and Evaluation media are otherwise

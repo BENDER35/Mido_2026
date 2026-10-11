@@ -445,6 +445,12 @@ que **Windows Vista Enterprise N** nunca se publicó como medio MSDN
 independiente (el DVD "N" solo incluye Home Basic N y Business N) y que no hay
 ISOs N de Vista en español en archive.org, por lo que no se ofrecen argumentos
 `-es` para las N.
+Las ISOs en español de Windows 7 (Ultimate, Professional, Home Premium y
+Enterprise, x64 y x86) también están disponibles vía archive.org
+(`win7x64-ultimate-esp`, `win7x86-ultimate-esp`, `win7x64-pro-esp`,
+`win7x86-pro-esp`, `win7x64-homepremium-esp`, `win7x86-homepremium-esp`,
+`win7x64-enterprise-esp`, `win7x86-enterprise-esp`); el medio Ultimate intenta
+primero la descarga oficial de Microsoft y, si falla, archive.org.
 Los medios Enterprise, Server y Evaluation son, por lo demás, únicamente en inglés,
 tal como los publica Microsoft. Las ISOs en otros idiomas se guardan con un sufijo
 de idioma (por ejemplo `win11x64.es-MX.iso`) o con un nombre `-espa`/`-esp`/
