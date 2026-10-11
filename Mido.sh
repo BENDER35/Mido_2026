@@ -65,9 +65,9 @@ archive_fallback_url() {
         7-en-US-x86) printf '%s' "https://archive.org/download/win7-english-x86/Windows6.1-KB976002-X86.exe" ;;
         7-es-ES-x86) printf '%s' "https://archive.org/download/es_windows_7_ultimate_with_sp1_dvd/es_windows_7_ultimate_with_sp1_x86_dvd_u_677462.iso" ;;
         8-en-US-x64) printf '%s' "https://archive.org/download/Win8_English_x64/Windows8-Setup.exe" ;;
-        8-es-ES-x64) printf '%s' "https://archive.org/download/win8-espanol-x64/Windows8-es-es.iso" ;;
+        8-es-ES-x64) printf '%s' "https://archive.org/download/Win81CoreProESP/es_windows_8_1_x64_dvd_2707379.iso" ;;
         8-en-US-x86) printf '%s' "https://archive.org/download/win8-english-x86/Windows8-Setup-x86.exe" ;;
-        8-es-ES-x86) printf '%s' "https://archive.org/download/win8-espanol-x86/Windows8-es-es.iso" ;;
+        8-es-ES-x86) printf '%s' "https://archive.org/download/Win81CoreProESP/es_windows_8_1_x86_dvd_2707521.iso" ;;
         10-en-US-x64) printf '%s' "https://archive.org/download/Win10_22H2_English_x64v1/Win10_22H2_English_x64v1.iso" ;;
         10-en-US-x86) printf '%s' "https://archive.org/download/Win10_22H2_English_x32v1/Win10_22H2_English_x32v1.iso" ;;
         10-es-ES-x64) printf '%s' "https://archive.org/download/win10_22h2_spanish_x64v1.iso-20250331/Win10_22H2_Spanish_x64v1.iso" ;;
@@ -2033,6 +2033,11 @@ download_media() {
                 echo_info "Downloading Windows 8.1 Pro Spanish (Spain)..."
                 # Windows 8.1 Pro Spanish - Microsoft official first, archive.org fallback
                 consumer_download_or_archive "$media" 8 "es-ES" "$(archive_fallback_url 8 es-ES x64)"
+                ;;
+            "$win81x86_pro_esp")
+                echo_info "Downloading Windows 8.1 Pro x86 Spanish (Spain)..."
+                # Windows 8.1 Pro x86 Spanish - Microsoft official first, archive.org fallback
+                consumer_download_or_archive "$media" 8 "es-ES" "$(archive_fallback_url 8 es-ES x86)" x86
                 ;;
             "$win2012r2_eval")
                 echo_info "Downloading Windows Server 2012 R2 Evaluation..."
